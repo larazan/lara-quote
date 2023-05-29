@@ -13,7 +13,12 @@ class PersonController extends Controller
     //
     public function savePerson()
     {
-        $records = Storage::json('/public/authors.json');
+        // $json = Storage::disk('local')->get('/public/author/authors.json');
+        // $json = Storage::disk('local')->get('/public/author/authors_1.json');
+        // $json = Storage::disk('local')->get('/public/author/authors_2.json');
+        // $json = Storage::disk('local')->get('/public/author/authors_3.json');
+        $json = Storage::disk('local')->get('/public/author/authors_4.json');
+        $records = json_decode($json, true);
 
         foreach($records as $record) {
             $person = new Person();

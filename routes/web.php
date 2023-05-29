@@ -6,6 +6,12 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
 
+// Livewire
+use App\Http\Livewire\CategoryIndex;
+use App\Http\Livewire\PersonIndex;
+use App\Http\Livewire\QuoteIndex;
+use App\Http\Livewire\RiddleIndex;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +25,15 @@ use App\Http\Controllers\RiddleController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('categories', CategoryIndex::class)->name('categories.index');
+    Route::get('persons', PersonIndex::class)->name('persons.index');
+    Route::get('quotes', QuoteIndex::class)->name('quotes.index');
+    Route::get('riddles', RiddleIndex::class)->name('riddles.index');
+
 });
 
 Route::get('/saveperson', [PersonController::class, 'savePerson']);

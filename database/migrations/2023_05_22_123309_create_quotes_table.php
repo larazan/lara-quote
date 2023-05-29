@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('author_id')->constrained('persons');
+            $table->string('author_id');
             $table->text('words');
-            $table->text('tags')->nullable();
+            $table->string('tags')->nullable();
             $table->timestamps();
         });
     }

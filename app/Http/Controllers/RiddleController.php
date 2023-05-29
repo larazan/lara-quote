@@ -13,8 +13,9 @@ class RiddleController extends Controller
     //
     public function saveRiddle()
     {
-        $records = Storage::json('/public/riddle.json');
-        // $records = Storage::json('/public/riddles.json');
+        $json = Storage::disk('local')->get('/public/riddle.json');
+        // $json = Storage::disk('local')->get('/public/riddles.json');
+        $records = json_decode($json, true);
 
         foreach($records as $record) {
             $riddle = new Riddle();

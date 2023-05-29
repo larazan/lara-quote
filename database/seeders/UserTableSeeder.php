@@ -17,10 +17,10 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'name' => 'mimin', 
-            'email' => 'admin@gmail.com',
+            'name' => 'momon', 
+            'email' => 'user@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('admin1234'),
+            'password' => Hash::make('user1234'),
         ]);
     }
 }
