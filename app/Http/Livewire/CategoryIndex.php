@@ -34,6 +34,7 @@ class CategoryIndex extends Component
 
     public function showCreateModal()
     {
+        $this->reset();
         $this->showCategoryModal = true;
     }
 

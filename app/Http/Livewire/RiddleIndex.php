@@ -35,6 +35,7 @@ class RiddleIndex extends Component
 
     public function showCreateModal()
     {
+        $this->reset();
         $this->showRiddleModal = true;
     }
 

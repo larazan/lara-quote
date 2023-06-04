@@ -26,7 +26,7 @@ class QuoteIndex extends Component
 
     public $search = '';
     public $sort = 'asc';
-    public $perPage = 5;
+    public $perPage = 10;
 
     public $showConfirmModal = false;
     public $deleteId = '';
@@ -37,6 +37,7 @@ class QuoteIndex extends Component
 
     public function showCreateModal()
     {
+        $this->reset();
         $this->showQuoteModal = true;
     }
 
@@ -78,7 +79,7 @@ class QuoteIndex extends Component
         $this->quoteId = $quoteId;
         $quote = Quote::find($quoteId);
         $this->words = $quote->words;
-        $this->tags = $quote->tags;
+        $this->tags = explode(',', $quote->tags);
         $this->authorId = $quote->author_id;
         $this->showQuoteModal = true;
     }
@@ -119,7 +120,7 @@ class QuoteIndex extends Component
     public function render()
     {
         return view('livewire.quote-index', [
-            'quotes' => Quote::search('words', $this->search)->orderBy('words', $this->sort)->paginate($this->perPage),
+            'quotes' => Quote::search('author_id', $this->search)->orderBy('words', $this->sort)->paginate($this->perPage),
             'persons' => Person::orderBy('name', $this->sort), 
         ]);
     }

@@ -36,6 +36,7 @@ class PersonIndex extends Component
 
     public function showCreateModal()
     {
+        $this->reset();
         $this->showPersonModal = true;
     }
 

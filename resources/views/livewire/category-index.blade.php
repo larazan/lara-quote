@@ -1,10 +1,10 @@
-<section class="container mx-auto p-6 font-mono">
+<section class="container mx-auto  font-mono">
     <div class="w-full flex mb-4 p-2 justify-end">
         <x-jet-button wire:click="showCreateModal">Create Category</x-jet-button>
     </div>
 
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-        <div class="w-full shadow p-5 bg-white">
+    <div class="w-full shadow p-4 bg-white">
             <div class="relative">
                 <div class="absolute flex items-center ml-2 h-full">
                     <svg class="w-4 h-4 fill-current text-primary-gray-dark" viewBox="0 0 16 16" fill="none"
@@ -28,19 +28,22 @@
             </div>
 
             <div>
-                <div class="flex justify-between space-x-4 mt-4">
+                <div class="flex space-x-2 mt-4 justify-end">
+                    <div>
                     <select wire:model="sort"
-                        class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
+                        class="px-6 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
                         <option value="asc">Asc</option>
                         <option value="desc">Desc</option>
                     </select>
-
+                    </div>
+                    <div>
                     <select wire:model="perPage"
                         class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
                         <option value="5">5 Per Page</option>
                         <option value="10">10 Per Page</option>
                         <option value="15">15 Per Page</option>
                     </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,6 +55,7 @@
                         class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                         <th class="px-4 py-3">Name</th>
                         <th class="px-4 py-3">Slug</th>
+                        <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Date</th>
                         <th class="px-4 py-3">Manage</th>
                     </tr>
@@ -63,6 +67,11 @@
                                 {{ $category->name }}
                             </td>
                             <td class="px-4 py-3 text-ms font-semibold border">{{ $category->slug }}</td>
+                            <td class="px-4 py-3 text-ms font-semibold border">
+                                <div class="p-2 rounded bg-orange-300">
+                                {{ $category->status }}
+                                </div>
+                            </td>
                             <td class="px-4 py-3 text-ms font-semibold border">{{ $category->created_at->format('d-m-Y') }}</td>
 
                             <td class="px-4 py-3 text-sm border">

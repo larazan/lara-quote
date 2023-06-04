@@ -32,7 +32,7 @@
               <span class="mx-3">Dashboard</span>
           </a>
 
-          <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          <a class="flex items-center mt-4 py-2 px-6  hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 @if(in_array(Request::segment(2), ['categories'])){{ 'bg-gray-700 bg-opacity-25 text-gray-100' }}@else{{ 'text-gray-500' }}@endif"
               href="{{ url('admin/categories') }}">
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -43,7 +43,7 @@
               <span class="mx-3">Categories</span>
           </a>
 
-          <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          <a class="flex items-center mt-4 py-2 px-6  hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 @if(in_array(Request::segment(2), ['persons'])){{ 'bg-gray-700 bg-opacity-25 text-gray-100' }}@else{{ 'text-gray-500' }}@endif"
               href="{{ url('admin/persons') }}">
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -53,7 +53,7 @@
 
               <span class="mx-3">Persons</span>
           </a>
-          <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          <a class="flex items-center mt-4 py-2 px-6  hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 @if(in_array(Request::segment(2), ['quotes'])){{ 'bg-gray-700 bg-opacity-25 text-gray-100' }}@else{{ 'text-gray-500' }}@endif"
               href="{{ url('admin/quotes') }}">
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -63,7 +63,7 @@
 
               <span class="mx-3">Quotes</span>
           </a>
-          <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          <a class="flex items-center mt-4 py-2 px-6  hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 @if(in_array(Request::segment(2), ['riddles'])){{ 'bg-gray-700 bg-opacity-25 text-gray-100' }}@else{{ 'text-gray-500' }}@endif"
               href="{{ url('admin/riddles') }}">
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">

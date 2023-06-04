@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
     Route::get('categories', CategoryIndex::class)->name('categories.index');
     Route::get('persons', PersonIndex::class)->name('persons.index');

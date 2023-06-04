@@ -43,7 +43,7 @@ class QuoteController extends Controller
         // $json = Storage::disk('local')->get('/public/quote_d/quote_d.json');
         // $json = Storage::disk('local')->get('/public/quote_d/quote_d1.json');
         // $json = Storage::disk('local')->get('/public/quote_d/quote_d2.json');
-        $json = Storage::disk('local')->get('/public/quote_d/quote_d3.json');
+        // $json = Storage::disk('local')->get('/public/quote_d/quote_d3.json');
         // $json = Storage::disk('local')->get('/public/quote_d/quote_d4.json');
         // 
         // $json = Storage::disk('local')->get('/public/quote_e/quote_e.json');
@@ -138,7 +138,7 @@ class QuoteController extends Controller
         // $json = Storage::disk('local')->get('/public/quote_t/quote_t2.json');
         // $json = Storage::disk('local')->get('/public/quote_t/quote_t3.json');
         // $json = Storage::disk('local')->get('/public/quote_t/quote_t4.json');
-        // $json = Storage::disk('local')->get('/public/quote_t/quote_t5.json');
+        $json = Storage::disk('local')->get('/public/quote_t/quote_t5.json');
         // 
         // $json = Storage::disk('local')->get('/public/quote_u/quote_u.json');
         // $json = Storage::disk('local')->get('/public/quote_v/quote_v.json');
@@ -147,6 +147,8 @@ class QuoteController extends Controller
         // $json = Storage::disk('local')->get('/public/quote_x/quote_x.json');
         // $json = Storage::disk('local')->get('/public/quote_y/quote_y.json');
         // $json = Storage::disk('local')->get('/public/quote_z/quote_z.json');
+
+        //oquvwxyz
 
         $records = json_decode($json, true);
 
