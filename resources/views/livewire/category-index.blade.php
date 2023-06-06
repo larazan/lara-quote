@@ -1,5 +1,6 @@
 <section class="container mx-auto  font-mono">
-    <div class="w-full flex mb-4 p-2 justify-end">
+<div class="w-full flex mb-4 p-2 items-center justify-between">
+    <h3 class="text-gray-700 text-3xl font-medium">Category</h3>
         <x-jet-button wire:click="showCreateModal">Create Category</x-jet-button>
     </div>
 
@@ -68,9 +69,16 @@
                             </td>
                             <td class="px-4 py-3 text-ms font-semibold border">{{ $category->slug }}</td>
                             <td class="px-4 py-3 text-ms font-semibold border">
-                                <div class="p-2 rounded bg-orange-300">
+                                @if ( $category->status == 'active' )
+                                <div class="px-2 py-1 rounded-full text-center bg-green-400 text-sm">
                                 {{ $category->status }}
                                 </div>
+                                @endif
+                                @if ( $category->status == 'inactive' )
+                                <div class="px-2 py-1 rounded-full text-center bg-red-400 text-sm">
+                                {{ $category->status }}
+                                </div>
+                                @endif
                             </td>
                             <td class="px-4 py-3 text-ms font-semibold border">{{ $category->created_at->format('d-m-Y') }}</td>
 
@@ -101,8 +109,8 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <form>
                         <div class="shadow overflow-hidden sm:rounded-md">
-                            <div class="px-4 py-5 bg-white sm:p-6">
-                                <div class="grid grid-cols-6 gap-6">
+                            <div class="px-4 py-5 bg-white sm:p-6 grid gap-4">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Category name
@@ -111,7 +119,7 @@
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-6 gap-6">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Status
@@ -132,7 +140,7 @@
 
         </x-slot>
         <x-slot name="footer">
-            <x-m-button wire:click="closeCategoryModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel</x-m-button>
+            <x-m-button wire:click="closeCategoryModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
             @if ($categoryId)
                 <x-m-button wire:click="updateCategory">Update</x-m-button>
             @else

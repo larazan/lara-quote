@@ -1,6 +1,6 @@
-<section class="container mx-auto  font-mono">
+<section class="container mx-auto ">
     <div class="w-full flex mb-4 p-2 items-center justify-between">
-        <div class="font-bold text-lg">Quote</div>
+    <h3 class="text-gray-700 text-3xl font-medium">Quote</h3>
         <x-jet-button wire:click="showCreateModal">Create Quote</x-jet-button>
     </div>
 
@@ -49,8 +49,8 @@
             </div>
         </div>
 
-        <div class="w-full overflow-x-auto">
-            <table class="w-full">
+        <div class="w-full overflow-x-scroll">
+            <table class="w-full overflow-x-auto">
                 <thead>
                     <tr
                         class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
@@ -99,7 +99,7 @@
                     <form>
                         <div class="shadow overflow-hidden sm:rounded-md">
                             <div class="px-4 py-5 bg-white sm:p-6 grid gap-4">
-                                <div class="grid grid-cols-6 gap-6">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Author
@@ -108,7 +108,7 @@
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-6 gap-6">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Words
@@ -116,11 +116,13 @@
                                         <textarea wire:model="words" type="text" autocomplete="given-name" cols="50" id="copyText"
                                             class="h-20 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
                                     </div>
-                                    <div>
-                                        <button id="copyBtn">Copy text</button>
+                                    @if ($quoteId)
+                                    <div class="pt-2">
+                                        <button class=" inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md" id="copyBtn">Copy text</button>
                                     </div>
+                                    @endif
                                 </div>
-                                <div class="grid grid-cols-6 gap-6">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Tags
@@ -137,8 +139,8 @@
             </div>
 
         </x-slot>
-        <x-slot name="footer" >
-            <x-m-button wire:click="closeQuoteModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel</x-m-button>
+        <x-slot name="footer" class=" flex space-x-2">
+            <x-m-button wire:click="closeQuoteModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
             @if ($quoteId)
                 <x-m-button wire:click="updateQuote">Update</x-m-button>
             @else

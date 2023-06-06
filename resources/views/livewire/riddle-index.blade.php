@@ -1,5 +1,6 @@
-<section class="container mx-auto p-6 font-mono">
-    <div class="w-full flex mb-4 p-2 justify-end">
+<section class="container mx-auto font-mono">
+<div class="w-full flex mb-4 p-2 items-center justify-between">
+    <h3 class="text-gray-700 text-3xl font-medium">Riddle</h3>
         <x-jet-button wire:click="showCreateModal">Create Riddle</x-jet-button>
     </div>
 
@@ -95,8 +96,8 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <form>
                         <div class="shadow overflow-hidden sm:rounded-md">
-                            <div class="px-4 py-5 bg-white sm:p-6">
-                                <div class="grid grid-cols-6 gap-6">
+                            <div class="px-4 py-5 bg-white sm:p-6 grid gap-4">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Question
@@ -105,7 +106,7 @@
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-6 gap-6">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Answer
@@ -114,7 +115,7 @@
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-6 gap-6">
+                                <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
                                             Status
@@ -135,7 +136,7 @@
 
         </x-slot>
         <x-slot name="footer">
-            <x-m-button wire:click="closeRiddleModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel</x-m-button>
+            <x-m-button wire:click="closeRiddleModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
             @if ($riddleId)
                 <x-m-button wire:click="updateRiddle">Update</x-m-button>
             @else
