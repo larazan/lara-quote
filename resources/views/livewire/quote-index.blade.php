@@ -17,35 +17,29 @@
                 </div>
 
                 <input wire:model="search" type="text" placeholder="Search by title"
-                    class="px-8 py-3 w-full md:w-2/6 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" />
+                    class="px-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" />
             </div>
 
             <div class="flex justify-between mt-4">
-                <p class="font-medium">Filters</p>
-
-                <button wire:click="resetFilters"
-                    class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">Reset
-                    Filter</button>
-            </div>
-
-            <div>
-                <div class="flex space-x-2 mt-4 justify-end">
-                    <div>
-                    <select wire:model="sort"
-                        class="px-6 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
-                        <option value="asc">Asc</option>
-                        <option value="desc">Desc</option>
-                    </select>
-                    </div>
-                    <div>
-                    <select wire:model="perPage"
-                        class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
-                        <option value="5">5 Per Page</option>
-                        <option value="10">10 Per Page</option>
-                        <option value="15">15 Per Page</option>
-                    </select>
+                <!-- <p class="font-medium">Filters</p> -->
+                <div>
+                    <div class="flex space-x-2  justify-end">
+                        <div>
+                            <select wire:model="sort" class="px-6 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
+                                <option value="asc">Asc</option>
+                                <option value="desc">Desc</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select wire:model="perPage" class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
+                                <option value="5">5 Per Page</option>
+                                <option value="10">10 Per Page</option>
+                                <option value="15">15 Per Page</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <button wire:click="resetFilters" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">Reset Filter</button>
             </div>
         </div>
 
@@ -71,7 +65,7 @@
                             <td class="px-4 py-3 text-ms font-semibold border">{{ $quote->tags }}</td>
                             <td class="px-4 py-3 text-ms font-semibold border">{{ $quote->created_at->format('d-m-Y') }}</td>
 
-                            <td class="px-4 py-3 text-sm border">
+                            <td class="flex-wrap items-center space-x-1 px-4 py-3 text-sm border">
                                 <x-m-button wire:click="showEditModal({{ $quote->id }})"
                                     class="bg-green-500 hover:bg-green-700 text-white">Edit</x-m-button>
                                 <x-m-button wire:click="deleteQuote({{ $quote->id }})"
