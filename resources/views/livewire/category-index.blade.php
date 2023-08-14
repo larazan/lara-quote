@@ -46,6 +46,7 @@
                 <thead>
                     <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                         <th class="px-4 py-3">Name</th>
+                        <th class="px-4 py-3">Parent</th>
                         <th class="px-4 py-3">Slug</th>
                         <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Date</th>
@@ -57,6 +58,9 @@
                     <tr class="text-gray-700">
                         <td class="px-4 py-3 border">
                             {{ $category->name }}
+                        </td>
+                        <td class="px-4 py-3 border">
+                        {{ $category->parent ? $category->parent->name : '' }}
                         </td>
                         <td class="px-4 py-3 text-ms font-semibold border">{{ $category->slug }}</td>
                         <td class="px-4 py-3 text-ms font-semibold border">
@@ -105,6 +109,19 @@
                                             Category name
                                         </label>
                                         <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="first-name" class="block text-sm font-medium text-gray-700">
+                                            Parent
+                                        </label>
+                                        <select wire:model="parentId" class="h-full rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                                            <option value="" >Select Option</option>
+                                            @foreach($categories as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="">

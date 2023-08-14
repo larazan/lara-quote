@@ -5,13 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
+use App\Http\Controllers\Admin\ArticleController;
 
 // Livewire
+use App\Http\Livewire\ArticleIndex;
 use App\Http\Livewire\DashboardIndex;
 use App\Http\Livewire\CategoryIndex;
 use App\Http\Livewire\PersonIndex;
 use App\Http\Livewire\QuoteIndex;
 use App\Http\Livewire\RiddleIndex;
+use App\Http\Livewire\SelectOption;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +33,20 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
+    Route::get('articles', ArticleIndex::class)->name('articles.index');
+    // 
+    Route::get('articles/create', [ArticleController::class, 'create']);
+    Route::post('articles/store', [ArticleController::class, 'store']);
+    Route::get('articles/edit/{articleID}', [ArticleController::class, 'edit']);
+    Route::put('articles/update', [ArticleController::class, 'update'])->name('updateArticle');
+    //
     Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
     Route::get('categories', CategoryIndex::class)->name('categories.index');
     Route::get('persons', PersonIndex::class)->name('persons.index');
     Route::get('quotes', QuoteIndex::class)->name('quotes.index');
     Route::get('riddles', RiddleIndex::class)->name('riddles.index');
+    
+    Route::get('selects', SelectOption::class)->name('selects.index');
 
 });
 

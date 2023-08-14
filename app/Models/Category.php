@@ -16,4 +16,13 @@ class Category extends Model
 		'created_at',
 		'updated_at',
 	];
+
+	public function parent() {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class, 'article_categories');
+    }
 }

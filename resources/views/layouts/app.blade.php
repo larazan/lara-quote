@@ -13,6 +13,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="node_modules/virtual-select-plugin/dist/virtual-select.min.css">
+<script src="node_modules/virtual-select-plugin/dist/virtual-select.min.js"></script>
 
         @stack('styles')
         <!-- Styles -->

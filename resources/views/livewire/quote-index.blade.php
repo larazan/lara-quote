@@ -100,6 +100,26 @@
                                         </label>
                                         <input wire:model="authorId" type="text" autocomplete="given-name"
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @if (!empty($query))
+                                                <div class="w-full">
+                                                    @if (!empty($persons))
+                                                        @foreach ($persons as $person)
+                                                            <div wire:click="pickPerson({{ $person->id }})"
+                                                                class="w-full p-2 m-2 bg-green-300 hover:bg-green-400 cursor-pointer">
+                                                                {{ $person->name }}</div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            @endif
+                                        </div>
+                                </div>
+                                <div class="">
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="first-name" class="block text-sm font-medium text-gray-700">
+                                            Author
+                                        </label>
+                                        <input wire:model="query" type="text" autocomplete="given-name" placeholder="search person"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                     </div>
                                 </div>
                                 <div class="">

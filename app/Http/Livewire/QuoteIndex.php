@@ -18,6 +18,14 @@ class QuoteIndex extends Component
     public $tags;
     public $quoteId;
 
+    public $persons;
+    public $personId;
+    public $personName;
+
+    public $query = '';
+    public $results;
+    protected $queryString = ['query'];
+
     public $catStatus = 'inactive';
     public $statuses = [
         'active',
@@ -34,6 +42,16 @@ class QuoteIndex extends Component
     protected $rules = [
         'name' => 'required|max:255',
     ];
+
+    public function updateQueryPerson()
+    {
+        $this->persons = Person::search('name', $this->query)->get();
+    }
+
+    public function pickPerson($personId)
+    {
+        $this->personId = $personId;
+    }
 
     public function showCreateModal()
     {
@@ -119,9 +137,12 @@ class QuoteIndex extends Component
 
     public function render()
     {
+        if (strlen($this->query) > 2){
+            $this->results = Person::where('name', 'like', "%{$this->query}%")->get();
+        }
         return view('livewire.quote-index', [
             'quotes' => Quote::search('author_id', $this->search)->orderBy('words', $this->sort)->paginate($this->perPage),
-            'persons' => Person::orderBy('name', $this->sort), 
+            // 'persons' => Person::orderBy('name', $this->sort), 
         ]);
     }
 }

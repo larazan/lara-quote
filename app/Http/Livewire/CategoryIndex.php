@@ -14,6 +14,7 @@ class CategoryIndex extends Component
     public $showCategoryModal = false;
     public $name;
     public $categoryId;
+    public $parentId;
 
     public $catStatus = 'inactive';
     public $statuses = [
@@ -64,6 +65,7 @@ class CategoryIndex extends Component
         Category::create([
           'name' => $this->name,
           'slug' => Str::slug($this->name),
+          'parent_id' => $this->parentId,
           'status' => $this->catStatus
       ]);
         $this->reset();
@@ -76,6 +78,7 @@ class CategoryIndex extends Component
         $this->categoryId = $categoryId;
         $category = Category::find($categoryId);
         $this->name = $category->name;
+        $this->parentId = $category->parent_id;
         $this->catStatus = $category->status;
         $this->showCategoryModal = true;
     }
@@ -88,6 +91,7 @@ class CategoryIndex extends Component
         $category->update([
             'name' => $this->name,
             'slug'     => Str::slug($this->name),
+            'parent_id' => $this->parentId,
             'status' => $this->catStatus
         ]);
         $this->reset();
