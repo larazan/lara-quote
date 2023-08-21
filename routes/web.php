@@ -8,12 +8,14 @@ use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\Admin\ArticleController;
 
 // Livewire
-use App\Http\Livewire\ArticleIndex;
-use App\Http\Livewire\DashboardIndex;
-use App\Http\Livewire\CategoryIndex;
-use App\Http\Livewire\PersonIndex;
-use App\Http\Livewire\QuoteIndex;
-use App\Http\Livewire\RiddleIndex;
+use App\Http\Livewire\Admin\ArticleIndex;
+use App\Http\Livewire\Admin\CategoryArticleIndex;
+use App\Http\Livewire\Admin\CategoryIndex;
+use App\Http\Livewire\Admin\FaqIndex;
+use App\Http\Livewire\Admin\NewsletterIndex;
+use App\Http\Livewire\Admin\PersonIndex;
+use App\Http\Livewire\Admin\QuoteIndex;
+use App\Http\Livewire\Admin\RiddleIndex;
 use App\Http\Livewire\SelectOption;
 
 /*
@@ -40,8 +42,11 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     Route::get('articles/edit/{articleID}', [ArticleController::class, 'edit']);
     Route::put('articles/update', [ArticleController::class, 'update'])->name('updateArticle');
     //
-    Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
+    Route::get('category-article', CategoryArticleIndex::class)->name('category-article.index');
+    Route::get('dashboard', Dashboard::class)->name('dashboard');
     Route::get('categories', CategoryIndex::class)->name('categories.index');
+    Route::get('faqs', FaqIndex::class)->name('faqs.index');
+    Route::get('newsletters', NewsletterIndex::class)->name('newsletters.index');
     Route::get('persons', PersonIndex::class)->name('persons.index');
     Route::get('quotes', QuoteIndex::class)->name('quotes.index');
     Route::get('riddles', RiddleIndex::class)->name('riddles.index');

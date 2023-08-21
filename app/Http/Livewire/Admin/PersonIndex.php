@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Person;
 use Illuminate\Support\Str;
@@ -120,7 +120,7 @@ class PersonIndex extends Component
     
     public function render()
     {
-        return view('livewire.person-index', [
+        return view('livewire.admin.person-index', [
             'persons' => Person::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
         ]);
     }

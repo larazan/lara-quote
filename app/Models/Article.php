@@ -31,11 +31,6 @@ class Article extends Model
 		return self::STATUSES;
 	}
 
-    public function comments()
-    {
-        return $this->hasMany(ArticleComment::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -43,7 +38,7 @@ class Article extends Model
 
     public function categoryArticles()
     {
-        return $this->belongsToMany('App\Models\CategoryArticle', 'article_categories');
+        return $this->belongsToMany(CategoryArticle::class, 'article_categories');
     }
 
     public function scopePublished($query, $published = true)
@@ -56,5 +51,12 @@ class Article extends Model
         return $query->whereHas('tagsRelation', function ($query) use ($tag) {
             $query->where('tags.slug', $tag);
         });
+    }
+
+    public function comments() 
+    {
+        return $this->morphMany(Comment::class, 'commentable')
+            ->latest()
+            ->whereNull('parent_id');
     }
 }

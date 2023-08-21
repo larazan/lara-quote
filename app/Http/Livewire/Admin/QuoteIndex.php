@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Quote;
 use App\Models\Person;
@@ -140,7 +140,7 @@ class QuoteIndex extends Component
         if (strlen($this->query) > 2){
             $this->results = Person::where('name', 'like', "%{$this->query}%")->get();
         }
-        return view('livewire.quote-index', [
+        return view('livewire.admin.quote-index', [
             'quotes' => Quote::search('author_id', $this->search)->orderBy('words', $this->sort)->paginate($this->perPage),
             // 'persons' => Person::orderBy('name', $this->sort), 
         ]);

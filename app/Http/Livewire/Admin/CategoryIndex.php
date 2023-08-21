@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Category;
@@ -119,7 +119,7 @@ class CategoryIndex extends Component
 
     public function render()
     {
-        return view('livewire.category-index', [
+        return view('livewire.admin.category-index', [
             'categories' => Category::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
         ]);
     }

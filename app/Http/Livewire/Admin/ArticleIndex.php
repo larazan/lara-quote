@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Article;
 use App\Models\Category;
@@ -187,7 +187,7 @@ class ArticleIndex extends Component
 
     public function render()
     {
-        return view('livewire.article-index', [
+        return view('livewire.admin.article-index', [
             'articles' => Article::search('title', $this->search)->orderBy('title', $this->sort)->paginate($this->perPage),
             'categories' => Category::OrderBy('name', $this->sort)->get()
         ]);

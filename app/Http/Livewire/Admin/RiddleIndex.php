@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Riddle;
 use Illuminate\Support\Str;
@@ -117,7 +117,7 @@ class RiddleIndex extends Component
 
     public function render()
     {
-        return view('livewire.riddle-index', [
+        return view('livewire.admin.riddle-index', [
             'riddles' => Riddle::orderBy('id', $this->sort)->paginate($this->perPage)
         ]);
     }
