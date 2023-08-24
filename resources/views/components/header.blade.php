@@ -69,7 +69,7 @@
                 <a href="#"
                     class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
                     <img class="h-8 w-8 rounded-full object-cover mx-1"
-                        src="{{ Avatar::create(Auth::user()->name }}"
+                        src="{{ Avatar::create(Auth::user()->name) }}"
                         alt="avatar">
                     <p class="text-sm mx-2">
                         <span class="font-bold" href="#">Abigail Bennett</span> start following you . 3h
@@ -82,7 +82,7 @@
             <button @click="dropdownOpen = ! dropdownOpen"
                 class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
                 <img class="h-full w-full object-cover"
-                    src="{{ Avatar::create(Auth::user()->name }}"
+                    src="{{ Avatar::create(Auth::user()->name) }}"
                     alt="Your avatar">
             </button>
 

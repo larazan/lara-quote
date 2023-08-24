@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Livewire\Admin\ArticleIndex;
 use App\Http\Livewire\Admin\CategoryArticleIndex;
 use App\Http\Livewire\Admin\CategoryIndex;
+use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\FaqIndex;
 use App\Http\Livewire\Admin\NewsletterIndex;
 use App\Http\Livewire\Admin\PersonIndex;

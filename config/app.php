@@ -188,6 +188,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        NotificationChannels\Twitter\TwitterServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,6 +200,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        App\Providers\GeneralServiceProvider::class,
 
     ],
 
