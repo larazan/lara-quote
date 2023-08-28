@@ -25,7 +25,7 @@ class HttpImageRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        //
+        return ! preg_match('/!\[.*\]\(http:\/\/.*\)/', $value);
     }
 
     /**
@@ -35,6 +35,6 @@ class HttpImageRule implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'The :attribute field contains at least one image with an HTTP link.';
     }
 }
