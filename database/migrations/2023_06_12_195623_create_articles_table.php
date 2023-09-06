@@ -29,7 +29,7 @@ return new class extends Migration
             $table->timestamp('approved_at')->nullable();
             $table->timestamp('declined_at')->nullable();
             $table->dateTime('shared_at')->nullable();
-            $table->string('original');
+            $table->string('original')->nullable();
             $table->string('large')->nullable();
             $table->string('medium')->nullable();
             $table->string('small')->nullable();

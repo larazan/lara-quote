@@ -146,4 +146,37 @@
             @endif
         </x-slot>
     </x-jet-dialog-modal>
+
+    <!-- modal delete confirmation -->
+    <x-jet-dialog-modal wire:model="showConfirmModal" class="">
+    
+        <x-slot name="title" class="border-b bg-slate-200">
+            <span class="font-semibold">Delete Confirm</span>
+        </x-slot>
+        
+        <x-slot name="content">
+            <div class="mt-10 sm:mt-0">
+                <div class="mt-5 md:mt-0 md:col-span-2">
+
+                    <div class="">
+                        <div class="flex flex-col space-y-3">
+                            <div class="flex max-w-auto text-center justify-center items-center">
+                                <div class="text-lg font-semibold ">
+                                <p>Are you sure want to delete?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                </div>
+            </div>
+        </x-slot>
+        <x-slot name="footer">
+            <div class="flex flex-wrap justify-end fc">
+                <x-m-button wire:click="closeConfirmModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
+                <x-m-button wire:click.prevent="delete()" class=" ho xi ye2">Delete</x-m-button>
+            </div>
+        </x-slot>
+    </x-jet-dialog-modal>
+    
 </section>

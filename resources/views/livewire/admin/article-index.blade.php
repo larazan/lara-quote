@@ -61,9 +61,11 @@
                             {{ $article->title }}
                         </td>
                         <td class="px-4 py-3 border">
-                            <img src="{{ asset('storage/'.$articles->small) }}" class="object-scale-down h-48 w-96" alt="{{ $article->title }}">
+                            @if ($article->small)
+                            <img src="{{ asset('storage/'.$article->small) }}" class="object-scale-down h-48 w-96" alt="{{ $article->title }}">
+                            @endif
                         </td>
-                        <td class="px-4 py-3 text-ms font-semibold border">{{ $article->author }}</td>
+                        <td class="px-4 py-3 text-ms font-semibold border">{{ $article->author_id }}</td>
                         <td class="px-4 py-3 text-ms font-semibold border">{{ $article->published_at }}</td>
                         <td class="px-4 py-3 text-ms font-semibold border">
                             @if ( $article->status == 'active' )

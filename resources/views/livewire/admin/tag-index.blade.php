@@ -47,7 +47,6 @@
                     <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                         <th class="px-4 py-3">Name</th>
                         <th class="px-4 py-3">Slug</th>
-                        <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Date</th>
                         <th class="px-4 py-3">Manage</th>
                     </tr>
@@ -60,19 +59,8 @@
                         </td>
             
                         <td class="px-4 py-3 text-ms font-semibold border">{{ $tag->slug }}</td>
-                        <td class="px-4 py-3 text-ms font-semibold border">
-                            @if ( $tag->status == 'active' )
-                            <div class="px-2 py-1 rounded-full text-center bg-green-400 text-sm">
-                                {{ $tag->status }}
-                            </div>
-                            @endif
-                            @if ( $tag->status == 'inactive' )
-                            <div class="px-2 py-1 rounded-full text-center bg-red-400 text-sm">
-                                {{ $tag->status }}
-                            </div>
-                            @endif
-                        </td>
-                        <td class="px-4 py-3 text-ms font-semibold border">{{ $tag->created_at->format('d-m-Y') }}</td>
+                        
+                        <td class="px-4 py-3 text-ms font-semibold border">{{ $tag->created_at }}</td>
 
                         <td class="px-4 py-3 text-sm border">
                             <x-m-button wire:click="showEditModal({{ $tag->id }})" class="bg-green-500 hover:bg-green-700 text-white">Edit</x-m-button>

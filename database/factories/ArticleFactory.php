@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraphs(3, true),
             'slug' => $this->faker->unique()->slug(),
+            'rand_id' => Str::random(10),
             'view_count' => $this->faker->numberBetween(0, 1000),
         ];
     }

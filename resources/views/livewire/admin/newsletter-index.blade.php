@@ -87,7 +87,7 @@
         </div>
     </div>
     <x-jet-dialog-modal wire:model="showSubscriberModal">
-        @if ($subscriberId)
+        @if ($newsletterSubscriberId)
         <x-slot name="title">Update Subscriber</x-slot>
         @else
         <x-slot name="title">Create Subscriber</x-slot>
@@ -129,7 +129,7 @@
         </x-slot>
         <x-slot name="footer">
             <x-m-button wire:click="closeSubscriberModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
-            @if ($subscriberId)
+            @if ($newsletterSubscriberId)
             <x-m-button wire:click="updateSubscriber">Update</x-m-button>
             @else
             <x-m-button wire:click="createSubscriber">Create</x-m-button>

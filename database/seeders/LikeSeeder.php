@@ -19,7 +19,7 @@ class LikeSeeder extends Seeder
     public function run()
     {
         $users = User::all();
-        $articles = Article::all()->random(100);
+        $articles = Article::all()->random(20);
         $likes = [];
 
         foreach ($articles as $article) {

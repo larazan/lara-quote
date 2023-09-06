@@ -155,7 +155,7 @@ class FaqIndex extends Component
     public function render()
     {
         $faqs = Faq::OrderBy('created_at', $this->sort)->paginate($this->perPage);
-        $this->firstId = $faqs[0]->id;
+        // $this->firstId = $faqs[0]->id;
         return view('livewire.admin.faq-index', [
             'faqs' => $faqs
         ]);

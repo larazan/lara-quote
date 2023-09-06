@@ -1,7 +1,7 @@
 <section class="container mx-auto  font-mono">
     <div class="w-full flex mb-4 p-2 items-center justify-between">
-        <h3 class="text-gray-700 text-3xl font-medium">Category</h3>
-        <x-jet-button wire:click="showCreateModal">Create Category</x-jet-button>
+        <h3 class="text-gray-700 text-3xl font-medium">User</h3>
+        <x-jet-button wire:click="showCreateModal">Create User</x-jet-button>
     </div>
 
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
@@ -46,40 +46,26 @@
                 <thead>
                     <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                         <th class="px-4 py-3">Name</th>
-                        <th class="px-4 py-3">Parent</th>
-                        <th class="px-4 py-3">Slug</th>
-                        <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3">Email</th>
                         <th class="px-4 py-3">Date</th>
                         <th class="px-4 py-3">Manage</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    @foreach ($categories as $category)
+                    @foreach ($users as $user)
                     <tr class="text-gray-700">
                         <td class="px-4 py-3 border">
-                            {{ $category->name }}
+                            {{ $user->name }}
                         </td>
                         <td class="px-4 py-3 border">
-                        {{ $category->parent ? $category->parent->name : '' }}
+                        {{ $user->email }}
                         </td>
-                        <td class="px-4 py-3 text-ms font-semibold border">{{ $category->slug }}</td>
-                        <td class="px-4 py-3 text-ms font-semibold border">
-                            @if ( $category->status == 'active' )
-                            <div class="px-2 py-1 rounded-full text-center bg-green-400 text-sm">
-                                {{ $category->status }}
-                            </div>
-                            @endif
-                            @if ( $category->status == 'inactive' )
-                            <div class="px-2 py-1 rounded-full text-center bg-red-400 text-sm">
-                                {{ $category->status }}
-                            </div>
-                            @endif
-                        </td>
-                        <td class="px-4 py-3 text-ms font-semibold border">{{ $category->created_at->format('d-m-Y') }}</td>
+                       
+                        <td class="px-4 py-3 text-ms font-semibold border">{{ $user->created_at->format('d-m-Y') }}</td>
 
                         <td class="px-4 py-3 text-sm border">
-                            <x-m-button wire:click="showEditModal({{ $category->id }})" class="bg-green-500 hover:bg-green-700 text-white">Edit</x-m-button>
-                            <x-m-button wire:click="deleteId({{ $category->id }})" class="bg-red-500 hover:bg-red-700 text-white">Delete</x-m-button>
+                            <x-m-button wire:click="showEditModal({{ $user->id }})" class="bg-green-500 hover:bg-green-700 text-white">Edit</x-m-button>
+                            <x-m-button wire:click="deleteId({{ $user->id }})" class="bg-red-500 hover:bg-red-700 text-white">Delete</x-m-button>
                         </td>
                     </tr>
                     @endforeach
@@ -87,15 +73,16 @@
 
             </table>
             <div class="m-2 p-2">
-                {{ $categories->links() }}
+                {{ $users->links() }}
             </div>
         </div>
     </div>
-    <x-jet-dialog-modal wire:model="showCategoryModal">
-        @if ($categoryId)
-        <x-slot name="title">Update Category</x-slot>
+
+    <x-jet-dialog-modal wire:model="showUserModal">
+        @if ($userId)
+        <x-slot name="title">Update User</x-slot>
         @else
-        <x-slot name="title">Create Category</x-slot>
+        <x-slot name="title">Create User</x-slot>
         @endif
         <x-slot name="content">
             <div class="mt-10 sm:mt-0">
@@ -106,37 +93,38 @@
                                 <div class="">
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="first-name" class="block text-sm font-medium text-gray-700">
-                                            Category name
+                                            User name
                                         </label>
                                         <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                     </div>
                                 </div>
-                                <div class="">
-                                    <div class="col-span-6 sm:col-span-3">
-                                        <label for="first-name" class="block text-sm font-medium text-gray-700">
-                                            Parent
-                                        </label>
-                                        <select wire:model="parentId" class="h-full rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
-                                            <option value="" >Select Option</option>
-                                            @foreach($categories as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <div class="col-span-6 sm:col-span-3">
-                                        <label for="first-name" class="block text-sm font-medium text-gray-700">
-                                            Status
-                                        </label>
-                                        <select wire:model="catStatus" class="h-full rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
-                                            <option value="">Select Option</option>
-                                            @foreach($statuses as $status)
-                                            <option value="{{ $status }}">{{ $status }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                                <div class="col-start-1 sm:col-span-3">
+                                            <label for="title" class="block text-sm font-medium text-gray-700">
+                                                Email
+                                            </label>
+                                            <input wire:model="email" type="email" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('email')
+                                                <div class="go re yl">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-start-1 sm:col-span-3">
+                                            <label for="title" class="block text-sm font-medium text-gray-700">
+                                                Password
+                                            </label>
+                                            <input wire:model="password" type="password" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('password')
+                                                <div class="go re yl">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-start-1 sm:col-span-3">
+                                            <label for="title" class="block text-sm font-medium text-gray-700">
+                                                Password Confirmation
+                                            </label>
+                                            <input wire:model="passwordConfirmation" type="password" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('passwordConfirmation')
+                                                <div class="go re yl">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                             </div>
                         </div>
                     </form>
@@ -145,11 +133,11 @@
 
         </x-slot>
         <x-slot name="footer">
-            <x-m-button wire:click="closeCategoryModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
-            @if ($categoryId)
-            <x-m-button wire:click="updateCategory">Update</x-m-button>
+            <x-m-button wire:click="closeUserModal" class="bg-gray-600 hover:bg-gray-800 text-white mr-2">Cancel</x-m-button>
+            @if ($userId)
+            <x-m-button wire:click="updateUser">Update</x-m-button>
             @else
-            <x-m-button wire:click="createCategory">Create</x-m-button>
+            <x-m-button wire:click="createUser">Create</x-m-button>
             @endif
         </x-slot>
     </x-jet-dialog-modal>
