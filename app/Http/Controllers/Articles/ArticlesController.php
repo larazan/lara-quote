@@ -56,7 +56,8 @@ class ArticlesController extends Controller
     {
         $tags = Tag::query();
 
-        return view('articles.create', [
+
+        return view('admin.articles.create', [
             'tags' => $tags->get(),
             'selectedTags' => old('tags', []),
         ]);

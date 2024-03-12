@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Quote;
 use App\Models\Person;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use Livewire\Component;
 
@@ -137,9 +138,16 @@ class QuoteIndex extends Component
 
     public function render()
     {
-        if (strlen($this->query) > 2){
-            $this->results = Person::where('name', 'like', "%{$this->query}%")->get();
-        }
+        // $quote = DB::table('quotes')
+        // ->join('persons', 'quotes.author_id', '=', 'persons.author_id')
+        // ->select('quotes.*', 'persons.name')
+        // ->orderBy('quotes.words', $this->sort)
+        // ->paginate($this->perPage);
+        // ->paginate();
+
+        // if (strlen($this->query) > 2){
+        //     $this->results = Person::where('name', 'like', "%{$this->query}%")->get();
+        // }
         return view('livewire.admin.quote-index', [
             'quotes' => Quote::search('author_id', $this->search)->orderBy('words', $this->sort)->paginate($this->perPage),
             // 'persons' => Person::orderBy('name', $this->sort), 

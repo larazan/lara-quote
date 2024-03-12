@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
-use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticlesController;
+
+use App\Http\Controllers\Articles\ArticlesController;
+// use App\Http\Controllers\Articles\AuthoredArticles;
 
 // Livewire
 use App\Http\Livewire\Admin\ArticleIndex;
@@ -39,12 +42,25 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('articles', ArticleIndex::class)->name('articles.index');
+    // Route::get('articles', ArticleIndex::class)->name('articles.index');
     // 
-    Route::get('articles/create', [ArticleController::class, 'create']);
-    Route::post('articles/store', [ArticleController::class, 'store']);
-    Route::get('articles/edit/{articleID}', [ArticleController::class, 'edit']);
-    Route::put('articles/update', [ArticleController::class, 'update'])->name('updateArticle');
+    // Route::get('articles/create', [ArticleController::class, 'create']);
+    // Route::post('articles/store', [ArticleController::class, 'store']);
+    // Route::get('articles/edit/{articleID}', [ArticleController::class, 'edit']);
+    // Route::put('articles/update', [ArticleController::class, 'update'])->name('updateArticle');
+
+    Route::prefix('articles')->group(function () {
+        // Route::get('authored', AuthoredArticles::class)->name('user.articles');
+        Route::get('/', ArticleIndex::class)->name('articles.index');
+        // Route::get('/', [ArticlesController::class, 'index'])->name('articles');
+        Route::get('create', [ArticlesController::class, 'create'])->name('articles.create');
+        Route::post('/', [ArticlesController::class, 'store'])->name('articles.store');
+        Route::get('{article}', [ArticlesController::class, 'show'])->name('articles.show');
+        Route::get('{article}/edit', [ArticlesController::class, 'edit'])->name('articles.edit');
+        Route::put('{article}', [ArticlesController::class, 'update'])->name('articles.update');
+        Route::delete('{article}', [ArticlesController::class, 'delete'])->name('articles.delete');
+    });
+
     //
     Route::get('category-article', CategoryArticleIndex::class)->name('category-article.index');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
