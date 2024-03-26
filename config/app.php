@@ -219,6 +219,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'General' => App\Helpers\General::class,
     ])->toArray(),
 
 ];

@@ -25,6 +25,7 @@ class Article extends Model
     use HasTags;
     
     protected $fillable = [
+        'category_id',
         'uuid',
         'title',
         'body',
@@ -34,9 +35,12 @@ class Article extends Model
         'is_pinned',
         'view_count',
         'tweet_id',
-        'submitted_at',
-        'approved_at',
-        'declined_at',
+        'published_at',
+        'published',
+        'article_tags',
+        'meta_title',
+        'meta_description',
+        'status',
         'shared_at',
     ];
 

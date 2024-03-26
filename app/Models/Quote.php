@@ -18,5 +18,11 @@ class Quote extends Model
 	public function person()
 	{
 		return $this->belongsTo(Person::class);
+	} 
+
+	public function author($authorId)
+	{
+		$person = Person::where('author_id', $authorId)->first();
+		return $person;
 	}
 }

@@ -18,6 +18,7 @@ use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\FaqIndex;
 use App\Http\Livewire\Admin\NewsletterIndex;
 use App\Http\Livewire\Admin\PersonIndex;
+use App\Http\Livewire\Admin\PersonDetail;
 use App\Http\Livewire\Admin\QuoteIndex;
 use App\Http\Livewire\Admin\RiddleIndex;
 use App\Http\Livewire\Admin\SettingIndex;
@@ -68,6 +69,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     Route::get('faqs', FaqIndex::class)->name('faqs.index');
     Route::get('newsletters', NewsletterIndex::class)->name('newsletters.index');
     Route::get('persons', PersonIndex::class)->name('persons.index');
+    Route::get('persons/{personId}', PersonDetail::class)->name('persons.detail');
     Route::get('quotes', QuoteIndex::class)->name('quotes.index');
     Route::get('riddles', RiddleIndex::class)->name('riddles.index');
     Route::get('settings', SettingIndex::class)->name('settings.index');

@@ -9,7 +9,7 @@
 
         <!-- Left: Title -->
         <div class="ri _y">
-            <h1 class="gu teu text-slate-800 font-bold">Quote</h1>
+            <h1 class="gu teu text-slate-800 font-bold">Quote {{ $name }}</h1>
         </div>
         
         <!-- Right: Actions -->
@@ -106,16 +106,18 @@
     </div>
 
     <!-- Table -->
+
+    <!--
     <div class="bg-white bd rounded-sm border border-slate-200 rc">
         <header class="vc vu">
             <h2 class="gh text-slate-800">Quotes <span class="gq gp"></span></h2>
         </header>
         <div x-data="handleSelect">
 
-            <!-- Table -->
+            
             <div class="lf">
                 <table class="ux ou">
-                    <!-- Table header -->
+                    
                     <thead class="go gh gv text-slate-500 hp co cs border-slate-200">
                         <tr>
                             <th class="vi wy w_ vo lm of">
@@ -144,9 +146,9 @@
                             </th>
                         </tr>
                     </thead>
-                    <!-- Table body -->
+                    
                     <tbody class="text-sm le lr">
-                        <!-- Row -->
+                        
                         
                         @if ($quotes->count() > 0)
                         @foreach ($quotes as $quote)
@@ -163,7 +165,7 @@
                                 <div class="gp text-slate-800">{{ Str::limit($quote->words, 20) }}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ $quote->author($quote->author_id)->name }}</div>    
+                                <div class="gp text-slate-800">{{ $quote->author_id }}</div>    
                             </td>
                             <td class="vi wy w_ vo lm">
                                 <div class="gp text-slate-800">{{ $quote->tags }}</div>    
@@ -205,7 +207,10 @@
         </div>
     </div>
 
-    {{ $quotes->links() }}
+    
+    -->
+
+     <livewire:admin.person-table :authorId="$authorId" />
 
     <x-dialog-modal wire:model="showQuoteModal" class="">
 

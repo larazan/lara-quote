@@ -124,4 +124,9 @@ class PersonIndex extends Component
             'persons' => Person::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
         ]);
     }
+
+    public function routeToDetail($personId)
+    {
+        return redirect('/admin/persons/'.$personId);
+    }
 }

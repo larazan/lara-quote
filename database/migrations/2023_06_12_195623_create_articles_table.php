@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id');
             $table->foreignId('author_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
@@ -25,9 +26,12 @@ return new class extends Migration
             $table->tinyInteger('is_pinned')->default(0);
             $table->bigInteger('view_count')->nullable();
             $table->bigInteger('tweet_id')->nullable();
-            $table->timestamp('submitted_at')->nullable();
-            $table->timestamp('approved_at')->nullable();
-            $table->timestamp('declined_at')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->boolean('published')->default(false);
+            $table->text('article_tags')->nullable();
+            $table->string('status',10);
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
             $table->dateTime('shared_at')->nullable();
             $table->string('original')->nullable();
             $table->string('large')->nullable();

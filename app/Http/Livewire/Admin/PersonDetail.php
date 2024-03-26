@@ -2,32 +2,27 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Quote;
 use App\Models\Person;
+use App\Models\Quote;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use Livewire\Component;
 
-class QuoteIndex extends Component
+class PersonDetail extends Component
 {
     use WithPagination;
     
     public $showQuoteModal = false;
-    public $words;
+    public $name;
+    public $bio;
+    public $personId;
     public $authorId;
+    public $words;
     public $tags;
+    // public $quotes = [];
     public $quoteId;
 
-    public $persons;
-    public $personId;
-    public $personName;
-
-    public $query = '';
-    public $results;
-    protected $queryString = ['query'];
-
-    public $catStatus = 'inactive';
+    public $personStatus = 'inactive';
     public $statuses = [
         'active',
         'inactive'
@@ -44,15 +39,19 @@ class QuoteIndex extends Component
         'name' => 'required|max:255',
     ];
 
-    public function updateQueryPerson()
-    {
-        $this->persons = Person::search('name', $this->query)->get();
-    }
-
-    public function pickPerson($personId)
+    public function mount($personId) 
     {
         $this->personId = $personId;
+        $person = Person::findOrFail($personId)->first();
+        $this->authorId = $person->author_id;
+        $this->name = $person->name;
+        // $this->quotes = Quote::search('words', $this->search)->where('author_id', $personId)->orderBy('created_at', $this->sort)->paginate($this->perPage);
     }
+
+    // public function hydrate()
+    // {
+    //     $this->personId = $personId;
+    // }
 
     public function showCreateModal()
     {
@@ -73,28 +72,28 @@ class QuoteIndex extends Component
 
     public function delete()
     {
-        Quote::find($this->deleteId)->delete();
+        Person::find($this->deleteId)->delete();
         $this->showConfirmModal = false;
         $this->reset();
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Quote deleted successfully']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Person deleted successfully']);
     }
 
     public function createQuote()
     {
         $this->validate();
         
-        Quote::create([
-          'words' => $this->words,
-          'tags' => $this->tags,
-          'author_id' => $this->authorId
+        Person::create([
+            'words' => $this->words,
+            'tags' => $this->tags,
+            'author_id' => $this->personId,
       ]);
         $this->reset();
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Quote created successfully']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Person created successfully']);
     }
 
     public function showEditModal($quoteId)
     {
-        $this->reset(['words']);
+        $this->reset(['name']);
         $this->quoteId = $quoteId;
         $quote = Quote::find($quoteId);
         $this->words = $quote->words;
@@ -113,17 +112,18 @@ class QuoteIndex extends Component
             'tags' => $this->tags,
             'author_id' => $this->authorId
         ]);
+
         $this->reset();
         $this->showQuoteModal = false;
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Quote updated successfully']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Person updated successfully']);
     }
 
-    public function deleteQuote($quoteId)
+    public function deleteQuote($personId)
     {
-        $quote = Quote::findOrFail($quoteId);
-        $quote->delete();
+        $person = Person::findOrFail($personId);
+        $person->delete();
         $this->reset();
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Quote deleted successfully']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Person deleted successfully']);
     }
 
     public function closeQuoteModal()
@@ -138,17 +138,6 @@ class QuoteIndex extends Component
 
     public function render()
     {
-        // $quote = DB::table('quotes')
-        // ->join('persons', 'quotes.author_id', '=', 'persons.author_id')
-        // ->select('quotes.*', 'persons.name')
-        // ->orderBy('quotes.words', $this->sort)
-        // ->paginate($this->perPage);
-        // ->paginate();
-
-        // if (strlen($this->query) > 2){
-        //     $this->results = Person::where('name', 'like', "%{$this->query}%")->get();
-        // }
-
         $key = explode(' ', $this->search);
         $quote = Quote::where(function ($q) use ($key) {
             foreach ($key as $value) {
@@ -157,10 +146,8 @@ class QuoteIndex extends Component
             }
         })->orderBy('id', $this->sort)->paginate($this->perPage);
 
-
-        return view('livewire.admin.quote-index', [
-            'quotes' => Quote::search('author_id', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
-            // 'persons' => Person::orderBy('name', $this->sort), 
+        return view('livewire.admin.person-detail', [
+            'quotes' => Quote::search('words', $this->search)->where('author_id', $this->personId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

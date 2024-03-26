@@ -17,6 +17,8 @@ class ArticleIndex extends Component
     use WithFileUploads, WithPagination;
 
     public $showArticleModal = false;
+    public $showMessage = false;
+    public $trixId;
     public $title;
     public $body;
     public $status;
