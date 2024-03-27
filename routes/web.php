@@ -11,6 +11,9 @@ use App\Http\Controllers\Articles\ArticlesController;
 // use App\Http\Controllers\Articles\AuthoredArticles;
 
 // Livewire
+use App\Http\Livewire\Admin\AboutUs;
+use App\Http\Livewire\Admin\PrivacyPolicy;
+use App\Http\Livewire\Admin\TermCondition;
 use App\Http\Livewire\Admin\ArticleIndex;
 use App\Http\Livewire\Admin\CategoryArticleIndex;
 use App\Http\Livewire\Admin\CategoryIndex;
@@ -19,8 +22,10 @@ use App\Http\Livewire\Admin\FaqIndex;
 use App\Http\Livewire\Admin\NewsletterIndex;
 use App\Http\Livewire\Admin\PersonIndex;
 use App\Http\Livewire\Admin\PersonDetail;
+use App\Http\Livewire\Admin\PermissionIndex;
 use App\Http\Livewire\Admin\QuoteIndex;
 use App\Http\Livewire\Admin\RiddleIndex;
+use App\Http\Livewire\Admin\RoleIndex;
 use App\Http\Livewire\Admin\SettingIndex;
 use App\Http\Livewire\Admin\TagIndex;
 use App\Http\Livewire\Admin\UserIndex;
@@ -62,6 +67,10 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
         Route::delete('{article}', [ArticlesController::class, 'delete'])->name('articles.delete');
     });
 
+    Route::get('about-us', AboutUs::class)->name('about-us.index');
+    Route::get('privacy-policy', PrivacyPolicy::class)->name('privacy-policy.index');
+    Route::get('term-condition', TermCondition::class)->name('term-condition.index');
+
     //
     Route::get('category-article', CategoryArticleIndex::class)->name('category-article.index');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
@@ -70,8 +79,10 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     Route::get('newsletters', NewsletterIndex::class)->name('newsletters.index');
     Route::get('persons', PersonIndex::class)->name('persons.index');
     Route::get('persons/{personId}', PersonDetail::class)->name('persons.detail');
+    Route::get('permissions', PermissionIndex::class)->name('permissions.index');
     Route::get('quotes', QuoteIndex::class)->name('quotes.index');
     Route::get('riddles', RiddleIndex::class)->name('riddles.index');
+    Route::get('roles', RoleIndex::class)->name('roles.index');
     Route::get('settings', SettingIndex::class)->name('settings.index');
     Route::get('tags', TagIndex::class)->name('tags.index');
     Route::get('users', UserIndex::class)->name('users.index');

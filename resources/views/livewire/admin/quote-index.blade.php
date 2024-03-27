@@ -160,7 +160,7 @@
                                 </div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ Str::limit($quote->words, 20) }}</div>
+                                <div class="gp text-slate-800">{!! nl2br(General::smart_wordwrap($quote->words, 80)) !!}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
                                 <div class="gp text-slate-800">{{ $quote->author($quote->author_id)->name }}</div>    

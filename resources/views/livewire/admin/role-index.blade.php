@@ -1,4 +1,3 @@
-
 <div class="vs jj ttm vl ou uf na">
 
 <!-- Loading -->
@@ -9,9 +8,9 @@
 
         <!-- Left: Title -->
         <div class="ri _y">
-            <h1 class="gu teu text-slate-800 font-bold">Riddle</h1>
+            <h1 class="gu teu text-slate-800 font-bold">Role ✨</h1>
         </div>
-        
+
         <!-- Right: Actions -->
         <div class="sn am jo az jp ft">
 
@@ -27,12 +26,12 @@
                 </button>
             </form>
 
-            <!-- Create riddle button -->
+            <!-- Create role button -->
             <button class="btn ho xi ye" wire:click="showCreateModal">
                 <svg class="oo sl du bf ub" viewBox="0 0 16 16">
                     <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z"></path>
                 </svg>
-                <span class="hidden trm nq">Create Riddle</span>
+                <span class="hidden trm nq">Create Role</span>
             </button>
         </div>
 
@@ -108,7 +107,7 @@
     <!-- Table -->
     <div class="bg-white bd rounded-sm border border-slate-200 rc">
         <header class="vc vu">
-            <h2 class="gh text-slate-800">Riddles <span class="gq gp"></span></h2>
+            <h2 class="gh text-slate-800">Categories <span class="gq gp"></span></h2>
         </header>
         <div x-data="handleSelect">
 
@@ -127,10 +126,7 @@
                                 </div>
                             </th>
                             <th class="vi wy w_ vo lm">
-                                <div class="gh gt">Question</div>
-                            </th>
-                            <th class="vi wy w_ vo lm">
-                                <div class="gh gt">Answer</div>
+                                <div class="gh gt">Name</div>
                             </th>
                            
                             <th class="vi wy w_ vo lm">
@@ -145,8 +141,8 @@
                     <tbody class="text-sm le lr">
                         <!-- Row -->
                         
-                        @if ($riddles->count() > 0)
-                        @foreach ($riddles as $riddle)
+                        @if ($roles->count() > 0)
+                        @foreach ($roles as $role)
                         <tr>
                             <td class="vi wy w_ vo lm of">
                                 <div class="flex items-center">
@@ -157,25 +153,28 @@
                                 </div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{!! nl2br(General::smart_wordwrap($riddle->question, 80)) !!}</div>
+                                <div class="gp text-slate-800">{{ $role->name }}</div>
                             </td>
+
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{!! nl2br(General::smart_wordwrap($riddle->answer, 40)) !!}</div>    
-                            </td>
-                            <td class="vi wy w_ vo lm">
-                                <div>{{ $riddle->created_at->format('d-m-Y') }}</div>
+                                <div>{{ $role->created_at->format('d-m-Y') }}</div>
                             </td>
 
                             <td class="vi wy w_ vo lm of">
-                                <div class="fm">
-                                    <button class="gq xv rounded-full" wire:click="showEditModal({{ $riddle->id }})">
+                                <div class="fm flex items-center">
+                                    <button class="gq xv rounded-full" x-on:click="window.livewire.emitTo('show-role-component','showModal', {{$role}})">
+                                        <span class=" d">Show</span>
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                                    </button>
+                                    <!-- <button class="gq xv rounded-full" wire:click="showEditModal({{ $role->id }})"> -->
+                                    <button class="gq xv rounded-full" x-on:click="window.livewire.emitTo('edit-role-component','showModal', {{$role}})">
                                     <span class=" d">Edit</span>
                                         <svg class="os sf du" viewBox="0 0 32 32">
                                             <path d="M19.7 8.3c-.4-.4-1-.4-1.4 0l-10 10c-.2.2-.3.4-.3.7v4c0 .6.4 1 1 1h4c.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4l-4-4zM12.6 22H10v-2.6l6-6 2.6 2.6-6 6zm7.4-7.4L17.4 12l1.6-1.6 2.6 2.6-1.6 1.6z"></path>
                                         </svg>
                                     </button>
 
-                                    <button class="yl xy rounded-full" wire:click="deleteId({{ $riddle->id }})">
+                                    <button class="yl xy rounded-full" wire:click="deleteId({{ $role->id }})">
                                     <span class=" d">Delete</span>
                                         <svg class="os sf du" viewBox="0 0 32 32">
                                             <path d="M13 15h2v6h-2zM17 15h2v6h-2z"></path>
@@ -198,15 +197,15 @@
         </div>
     </div>
 
-    {{ $riddles->links() }}
+    {{ $roles->links() }}
 
-    <x-dialog-modal wire:model="showRiddleModal" class="">
+    <x-dialog-modal wire:model="showRoleModal" class="">
 
-        @if ($riddleId)
-        <x-slot name="title" class="border-b">Update Riddle</x-slot>
+        @if ($roleId)
+        <x-slot name="title" class="border-b">Update Role</x-slot>
         @else
         <x-slot name="title" class="border-b bg-slate-200">
-            <span class="font-semibold">Create Riddle</span>
+            <span class="font-semibold">Create Role</span>
         </x-slot>
         @endif
 
@@ -219,34 +218,23 @@
                             <div class="">
                                 <div class="">
                                     <div class="flex flex-col space-y-3">
-                                        
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
-                                                Question
+                                                Role Name
                                             </label>
-                                            <textarea wire:model="question" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
-                                            @error('question')
+                                            <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @error('name')
                                                 <div class="go re yl">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-start-1 sm:col-span-3">
-                                            <label for="title" class="block text-sm font-medium text-gray-700">
-                                                Answer
-                                            </label>
-                                            <textarea wire:model="answer" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
-                                            @error('answer')
-                                                <div class="go re yl">{{ $message }}</div>
-                                            @enderror
+                                        @if ($roleId)
+                                        <div class="" >
+                                            @if ($roler)
+                                            <div>{{ $roler->name }}</div>
+                                            <livewire:multi-permission :role="$roler" />
+                                            @endif
                                         </div>
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="first-name" class="block text-sm font-medium text-gray-700">Status</label>
-                                            <select wire:model="catStatus" class="h-full rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
-                                                <option value="" >Select Option</option>
-                                                @foreach($statuses as $status)
-                                                <option value="{{ $status }}">{{ $status }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -258,11 +246,11 @@
         <x-slot name="footer">
             <div class="border-slate-200">
                 <div class="flex flex-wrap justify-end fc">
-                    <x-button wire:click="closeRiddleModal" class="border-slate-200 hover:text-white hover--border-slate-300 g_">Cancel</x-button>
-                    @if ($riddleId)
-                    <x-button wire:click="updateRiddle" class=" ho xi ye">Update</x-button>
+                    <x-button wire:click="closeRoleModal" class="border-slate-200 hover:text-white hover--border-slate-300 g_">Cancel</x-button>
+                    @if ($roleId)
+                    <x-button wire:click="updateRole" class=" ho xi ye">Update</x-button>
                     @else
-                    <x-button wire:click="createRiddle" class=" ho xi ye2">Create</x-button>
+                    <x-button wire:click="createRole" class=" ho xi ye2">Create</x-button>
                     @endif
                 </div>
             </div>
@@ -314,3 +302,13 @@
     </x-dialog-modal>
 
 </div>
+
+
+  <div wire:key="edit-role">
+    <livewire:edit-role-component>
+  </div>
+  
+
+  <div wire:key="show-role">
+    <livewire:show-role-component>
+  </div>

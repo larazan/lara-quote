@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             LikeSeeder::class,
             TagSeeder::class,
             FaqSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }

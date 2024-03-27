@@ -130,10 +130,10 @@
                             </td>
                            
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ substr($faq->question, 0, 80) }}...</div>
+                                <div class="gp text-slate-800">{!! nl2br(General::smart_wordwrap($faq->question, 80)) !!}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp ">{{ substr($faq->answer, 0, 80) }}...</div>
+                                <div class="gp ">{!! nl2br(General::smart_wordwrap($faq->answer, 80)) !!}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
                                 @if ($faq->status === 'inactive')
