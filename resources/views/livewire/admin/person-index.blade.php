@@ -42,8 +42,8 @@
     <div class="je jd jc ii">
 
         <!-- Left side -->
-        <div class="ri _y">
-
+        <div class="ri _y ">
+            
         </div>
 
         <!-- Right side -->
@@ -103,6 +103,10 @@
             </select>
         </div>
 
+    </div>
+
+    <div class="w-full ">
+    <livewire:admin.person-search-bar />
     </div>
 
     <!-- Table -->
