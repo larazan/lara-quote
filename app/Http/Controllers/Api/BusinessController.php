@@ -69,4 +69,24 @@ class BusinessController extends Controller
 
         }
     }
+
+    public function about()
+    {
+        $result = BusinessSetting::where('key', '=', 'about_us');
+        if ($result) {
+            
+            return response()->json([
+                'status' => 200,
+                'result' => $result,
+            ], 200);
+
+        } else {
+            
+            return response()->json([
+                'status' => 404,
+                'message' => 'No record found',
+            ], 404);
+
+        }
+    }
 }

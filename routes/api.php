@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BusinessController;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\PersonController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\QuoteController;
 use App\Http\Controllers\Api\RiddleController;
 use App\Http\Controllers\Api\SettingController;
@@ -20,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -46,3 +52,9 @@ Route::get('terms', [BusinessController::class, 'terms']);
 Route::get('about', [BusinessController::class, 'about_us']);
 
 Route::get('settings', [SettingController::class, 'index']);
+
+Route::get('products', [ProductController::class, 'index']);
+Route::post('products', [ProductController::class, 'store']);
+Route::get('products/{id}', [ProductController::class, 'show']);
+Route::put('product-update/{id}', [ProductController::class, 'update']);
+Route::delete('product-delete/{id}', [ProductController::class, 'destroy']);
