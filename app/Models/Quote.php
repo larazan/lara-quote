@@ -25,4 +25,11 @@ class Quote extends Model
 		$person = Person::where('author_id', $authorId)->first();
 		return $person;
 	}
+
+	public function markAsPosted()
+    {
+        $this->update([
+            'posted_at' => now(),
+        ]);
+    }
 }

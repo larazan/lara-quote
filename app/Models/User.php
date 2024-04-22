@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,9 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'provider',
+        'provider_id',
+        'provider_token',
     ];
 
     /**
@@ -66,4 +70,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Quote::class, 'author_id');
     }
+
+    public function generateUserName($username)
+    {
+        if ($username === null) {
+            $username = Str::lower(Str::random(8));
+        }
+
+        if (User::where('username', $username)->exist()) {
+            $newUsername = $username.Str::lower(Str::random(3));
+            $username = self::generateuserName($newUsername);
+        }
+
+        return $username;
+    }
+
 }

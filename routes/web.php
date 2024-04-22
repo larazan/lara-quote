@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticlesController;
 
 use App\Http\Controllers\Articles\ArticlesController;
+use App\Http\Controllers\Auth\ProviderController;
 // use App\Http\Controllers\Articles\AuthoredArticles;
 
 // Livewire
@@ -105,3 +107,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+// Sociolite
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+ 
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);

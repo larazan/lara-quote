@@ -15,8 +15,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('quo:post-article-to-twitter')->twiceDaily(14, 18);
+        // $schedule->command('quo:post-article-to-twitter')->twiceDaily(14, 18);
+        $schedule->command('quo:post-quotee-to-twitter')->twiceDaily(14, 18);
         $schedule->command('quo:generate-sitemap')->daily()->graceTimeInMinutes(25);
+        
     }
 
     /**
