@@ -15,6 +15,8 @@ use App\Http\Controllers\Auth\ProviderController;
 
 // Livewire
 use App\Http\Livewire\Admin\AboutUs;
+use App\Http\Livewire\Admin\AdvertisingIndex;
+use App\Http\Livewire\Admin\AdvSegmentIndex;
 use App\Http\Livewire\Admin\PrivacyPolicy;
 use App\Http\Livewire\Admin\TermCondition;
 use App\Http\Livewire\Admin\ArticleIndex;
@@ -74,6 +76,9 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     Route::get('privacy-policy', PrivacyPolicy::class)->name('privacy-policy.index');
     Route::get('term-condition', TermCondition::class)->name('term-condition.index');
 
+    Route::get('adv-segments', AdvSegmentIndex::class)->name('adv-segments.index');
+    Route::get('advertisings', AdvertisingIndex::class)->name('advertisings.index');
+    
     //
     Route::get('category-article', CategoryArticleIndex::class)->name('category-article.index');
     Route::get('dashboard', Dashboard::class)->name('dashboard');

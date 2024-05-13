@@ -154,10 +154,19 @@ class FaqIndex extends Component
 
     public function render()
     {
-        $faqs = Faq::OrderBy('created_at', $this->sort)->paginate($this->perPage);
+        $faqs = Faq::OrderBy('order_position', $this->sort)->paginate($this->perPage);
         // $this->firstId = $faqs[0]->id;
         return view('livewire.admin.faq-index', [
             'faqs' => $faqs
         ]);
+    }
+
+    public function updateFaqOrder($items) 
+    {
+        foreach ($items as $item) {
+            Faq::find($item['value'])->update(['order_position' => $item['order']]);
+        }
+
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Faq sorted successfully']);
     }
 }
