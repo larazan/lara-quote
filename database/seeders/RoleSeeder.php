@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Hash;
 
 class RoleSeeder extends Seeder
 {
@@ -17,121 +19,47 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Role::create(['name' => 'author']);
-        Role::create(['name' => 'sales']);
-        Role::create(['name' => 'manager']);
+        //Admin user
+        $adminUser = User::create([
+            'first_name' => 'user', 
+            'last_name' => 'momon', 
+            'email' => 'momon@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('admin1234'),
+        ]);
 
+        //Roles
+        $adminRole = Role::create(['name' => 'superadmin']);
+        $userRole = Role::create(['name' => 'user']);
         
-        //partner
-        Permission::create(['name' => 'add-partner']);
-        Permission::create(['name' => 'edit-partner']);
-        Permission::create(['name' => 'delete-partner']);
+        $viewAllUserPermission = Permission::create(['name' => 'view users']);
+        $viewSingleUserPermission = Permission::create(['name' => 'view user']); 
+        $addUserPermission = Permission::create(['name' => 'add user']);   
+        $editUserPermission = Permission::create(['name' => 'edit user']);    
+        $deleteUserPermission = Permission::create(['name' => 'delete user']);   
+        $manageUserRolesPermission = Permission::create(['name' => 'manage user roles']); 
 
+        $viewAllRolePermission = Permission::create(['name' => 'view roles']);
+        $viewSingleRolePermission = Permission::create(['name' => 'view role']); 
+        $addRolePermission = Permission::create(['name' => 'add role']);   
+        $editRolePermission = Permission::create(['name' => 'edit role']);    
+        $deleteRolePermission = Permission::create(['name' => 'delete role']);  
 
-        //article
-        Permission::create(['name' => 'add-article']);
-        Permission::create(['name' => 'edit-article']);
-        Permission::create(['name' => 'delete-article']);
-
-        //category-article
-        Permission::create(['name' => 'add-category-article']);
-        Permission::create(['name' => 'edit-category-article']);
-        Permission::create(['name' => 'delete-category-article']);
-
-        //segment
-        Permission::create(['name' => 'add-segment']);
-        Permission::create(['name' => 'edit-segment']);
-        Permission::create(['name' => 'delete-segment']);
-
-        //adv
-        Permission::create(['name' => 'add-adv']);
-        Permission::create(['name' => 'edit-adv']);
-        Permission::create(['name' => 'delete-adv']);
-
-        //user
-        Permission::create(['name' => 'add-user']);
-        Permission::create(['name' => 'edit-user']);
-        Permission::create(['name' => 'delete-user']);
-
-        //setting
-        Permission::create(['name' => 'add-setting']);
-        Permission::create(['name' => 'edit-setting']);
-        Permission::create(['name' => 'delete-setting']);
-
-        //role
-        Permission::create(['name' => 'add-role']);
-        Permission::create(['name' => 'edit-role']);
-        Permission::create(['name' => 'delete-role']);
-
-        //permission
-        Permission::create(['name' => 'add-permission']);
-        Permission::create(['name' => 'edit-permission']);
-        Permission::create(['name' => 'delete-permission']);
-
-        //faq
-        Permission::create(['name' => 'add-faq']);
-        Permission::create(['name' => 'edit-faq']);
-        Permission::create(['name' => 'delete-faq']);
-
-        //slide
-        Permission::create(['name' => 'add-slide']);
-        Permission::create(['name' => 'edit-slide']);
-        Permission::create(['name' => 'delete-slide']);
-
-        //category
-        Permission::create(['name' => 'add-category']);
-        Permission::create(['name' => 'edit-category']);
-        Permission::create(['name' => 'delete-category']);
+        $viewAllPermissionPermission = Permission::create(['name' => 'view permissions']);
+        $viewSinglePermissionPermission = Permission::create(['name' => 'view permission']); 
+        $addPermissionPermission = Permission::create(['name' => 'add permission']);   
+        $editPermissionPermission = Permission::create(['name' => 'edit permission']);    
+        $deletePermissionPermission = Permission::create(['name' => 'delete permission']);
         
 
-        // ADMIN
-        $roleAdmin = Role::findByName('admin');
-       
-        // segment
-        $roleAdmin->givePermissionTo('add-segment');
-        $roleAdmin->givePermissionTo('edit-segment');
-        $roleAdmin->givePermissionTo('delete-segment');
-        // adv
-        $roleAdmin->givePermissionTo('add-adv');
-        $roleAdmin->givePermissionTo('edit-adv');
-        $roleAdmin->givePermissionTo('delete-adv');
-        // user
-        $roleAdmin->givePermissionTo('add-user');
-        $roleAdmin->givePermissionTo('edit-user');
-        $roleAdmin->givePermissionTo('delete-user');
-        // setting
-        $roleAdmin->givePermissionTo('add-setting');
-        $roleAdmin->givePermissionTo('edit-setting');
-        $roleAdmin->givePermissionTo('delete-setting');
-        // role
-        $roleAdmin->givePermissionTo('add-role');
-        $roleAdmin->givePermissionTo('edit-role');
-        $roleAdmin->givePermissionTo('delete-role');
-        // permission
-        $roleAdmin->givePermissionTo('add-permission');
-        $roleAdmin->givePermissionTo('edit-permission');
-        $roleAdmin->givePermissionTo('delete-permission');
-        
+        //Assign permissions to admin user
+        $adminRole->syncPermissions([
+                    $viewAllUserPermission, $viewSingleUserPermission, $addUserPermission, $editUserPermission, $deleteUserPermission, $viewAllRolePermission,
+                    $viewSingleRolePermission, $addRolePermission, $editRolePermission, $deleteRolePermission, $viewAllPermissionPermission, $viewSinglePermissionPermission,
+                    $addPermissionPermission, $editPermissionPermission, $deletePermissionPermission
+                ]);
 
-        // AUTHOR
-        $roleAuthor = Role::findByName('author');
-        // article
-        $roleAuthor->givePermissionTo('add-article');
-        $roleAuthor->givePermissionTo('edit-article');
-        $roleAuthor->givePermissionTo('delete-article');
-        // category-article
-        $roleAuthor->givePermissionTo('add-category-article');
-        $roleAuthor->givePermissionTo('edit-category-article');
-        $roleAuthor->givePermissionTo('delete-category-article');
-        // faq
-        $roleAuthor->givePermissionTo('add-faq');
-        $roleAuthor->givePermissionTo('edit-faq');
-        $roleAuthor->givePermissionTo('delete-faq');
-        // slide
-        $roleAuthor->givePermissionTo('add-slide');
-        $roleAuthor->givePermissionTo('edit-slide');
-        $roleAuthor->givePermissionTo('delete-slide');
+        $adminUser->assignRole($adminRole);
 
        
     }

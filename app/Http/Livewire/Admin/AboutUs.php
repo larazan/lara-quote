@@ -8,30 +8,28 @@ use App\Models\BusinessSetting;
 
 class AboutUs extends Component
 {
-
-    public $about;
+    public $body;
+    public $trixId;
 
     public function mount()
     {
         $data = BusinessSetting::where(['key' => 'about_us'])->first();
-        $this->about = $data;
+        if ($data) {
+            $this->body = $data->value;
+        } else {
+            $this->body = $data;
+        }
     }
-
-    // public function updatedAbout()
-    // {
-    //     dd($this->about);
-    // }
 
     public function updateAbout()
     {
-
-        // dd($this->about);
+        // dd($this->body);
         // BusinessSetting::where(['key' => 'about_us'])->update([
         //     'value' => $this->about,
         // ]);
 
         DB::table('business_settings')->updateOrInsert(['key' => 'about_us'], [
-            'value' => $this->about,
+            'value' => $this->body,
         ]);
 
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'About us updated successfully']);

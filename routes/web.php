@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
@@ -113,3 +114,9 @@ Route::middleware([
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
  
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
+
+// Snappy Image
+Route::get('test', [TestController::class . 'index']);
+
+// update quote slug
+Route::get('rand', [QuoteController::class, 'insertRand']);

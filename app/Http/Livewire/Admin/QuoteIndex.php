@@ -17,6 +17,7 @@ class QuoteIndex extends Component
     public $words;
     public $authorId;
     public $tags;
+    public $slug;
     public $quoteId;
 
     public $persons;
@@ -85,6 +86,7 @@ class QuoteIndex extends Component
         
         Quote::create([
           'words' => $this->words,
+          'slug' => Str::random(12),
           'tags' => $this->tags,
           'author_id' => $this->authorId
       ]);
@@ -98,8 +100,10 @@ class QuoteIndex extends Component
         $this->quoteId = $quoteId;
         $quote = Quote::find($quoteId);
         $this->words = $quote->words;
+        $this->slug = $quote->slug;
         $this->tags = explode(',', $quote->tags);
         $this->authorId = $quote->author_id;
+        $this->personName = $quote->author($this->authorId)->name;
         $this->showQuoteModal = true;
     }
     

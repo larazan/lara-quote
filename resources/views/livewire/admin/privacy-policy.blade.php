@@ -21,12 +21,22 @@
                 <div class="d_ fd">
 
                     <section>
-                       
+
                         <div class="je jc fg jm jb rw">
-                            <div class="jr2 w-full" wire:ignore>
-                                <textarea class=" s ou" colspan="50" wire:model="privacyPolicy" name="privacyPolicy" id="privacyPolicy" style="height: 10rem;"></textarea>
-                            </div>
-                           
+                            
+                            @if (!empty($body))
+                                <div x-data="{ trix: @entangle($body).defer }">
+                                    <input value="{{ $body }}" id="{{ $body }}" name="{{ $body }}" type="hidden" />
+                                    <div wire:ignore x-on:trix-change.debounce.500ms=" trix=$refs.trixInput.value">
+                                        <trix-editor x-ref="trixInput" input="{{ $body }}" class="overflow-y-scroll" style="height: 20rem;"></trix-editor>
+                                    </div>
+                                </div>
+                            @else
+                                <div wire:ignore>
+                                    <input id="{{ $trixId }}" type="hidden" name="content" value="{{ $body }}" />
+                                    <trix-editor wire:ignore input="{{ $trixId }}" class="overflow-y-scroll" style="height: 10rem;"></trix-editor>
+                                </div>
+                            @endif
                         </div>
                        
                     </section>
@@ -49,26 +59,18 @@
 
 </div>
 
+
 @push('styles')
-<style>
-.ck-editor__editable {
-    min-height: 10rem;
-}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
 @endpush
 
 @push('js')
-<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-<script type="text/javascript">
-    ClassicEditor
-            .create(document.querySelector('#privacyPolicy'))
-            .then(editor => {
-                editor.model.document.on('change:data', () => {
-                @this.set('privacyPolicy', editor.getData());
-                })
-            })
-            .catch(error => {
-                console.error(error);
-            });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
+<script>
+    var trixEditor = document.getElementById("{{ $trixId }}")
+
+    addEventListener("trix-blur", function(event) {
+        @this.set('body', trixEditor.getAttribute('value'))
+    })
 </script>
 @endpush

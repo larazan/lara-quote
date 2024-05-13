@@ -18,7 +18,7 @@
             <!-- Search form -->
             <form class="y">
                 <label for="action-search" class="d">Search</label>
-                <input wire:model="search" id="action-search" class="s me xq" type="search" placeholder="Search by name">
+                <input wire:model="search" id="action-search" class="s me xq" type="search" placeholder="Search by tags">
                 <button class="g w j kk" type="submit" aria-label="Search">
                     <svg class="oo sl ub du gq kj ml-3 mr-2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z"></path>
@@ -228,7 +228,7 @@
                                     <div class="flex flex-col space-y-3">
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
-                                                Author
+                                                Author ID
                                             </label>
                                             <input wire:model="authorId" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                             @if (!empty($query))
@@ -245,9 +245,9 @@
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
-                                                Author
+                                                Name
                                             </label>
-                                            <input wire:model="query" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            <input wire:model="personName" type="text" readonly autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">

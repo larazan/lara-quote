@@ -5,13 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Models\Quote;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class QuoteController extends Controller
 {
     //
     public function index()
     {
+        // $data = DB::table('quotes')
+        //     ->join('persons', 'quotes.author_id', '=', 'persons.author_id')
+        //     ->select('quotes.*', 'persons.name')
+        //     ->paginate(10);
+
         $quotes = Quote::paginate(request()->all());  
         if ($quotes->count() > 0) {
             

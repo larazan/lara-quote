@@ -8,12 +8,17 @@ use App\Models\BusinessSetting;
 
 class TermCondition extends Component
 {
-    public $termsConditions;
+    public $body;
+    public $trixId;
 
     public function mount()
     {
         $data = BusinessSetting::where(['key' => 'terms_and_conditions'])->first();
-        $this->termsConditions = $data;
+        if ($data) {
+            $this->body = $data->value;
+        } else {
+            $this->body = $data;
+        }
     }
 
     // public function updatedTermsConditions()
@@ -24,13 +29,13 @@ class TermCondition extends Component
     public function updateTermsConditions()
     {
 
-        dd($this->termsConditions);
+        // dd($this->body);
         // BusinessSetting::where(['key' => 'terms_and_conditions'])->update([
         //     'value' => $this->termsConditions,
         // ]);
 
         DB::table('business_settings')->updateOrInsert(['key' => 'terms_and_conditions'], [
-            'value' => $this->termsConditions,
+            'value' => $this->body,
         ]);
 
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'terms and conditions updated successfully']);

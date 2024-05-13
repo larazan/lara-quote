@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('quotes', function (Blueprint $table) {
+            $table->string('slug');
             $table->integer('status')->default(0);
             $table->dateTime('posted_at')->nullable();
         });

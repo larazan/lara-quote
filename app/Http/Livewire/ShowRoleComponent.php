@@ -23,6 +23,7 @@ class ShowRoleComponent extends Component
     }
 
     public function showModal(Role $role){
+        
         $this->role = $role;
         $this->showModal = true;
     }

@@ -267,7 +267,7 @@
                                                         <span class="ml-2 text-xs text-green-700 italic">category added!</span>
                                                         @endif
                                                     </label>
-                                                    <select wire:model="categoryId" class="h-full2 w-full rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                                                    <select wire:model="categoryId" class="h-full2 w-full capitalize rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
                                                         <option value="">Select Category</option>
                                                         @foreach($categories as $cat)
                                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -280,6 +280,7 @@
                                                 </div>
                                             </div>    
                                             <div 
+                                                wire:ignore
                                                 class="w-full flex flex-row pb-4 space-x-2 border-b items-center" 
                                                 x-show="openInput"
                                                 x-transition:enter="transition ease-out duration-300"
@@ -293,7 +294,7 @@
                                                     <input wire:model="categoryItem"  class="w-full s me2 xq2" type="text">
                                                 </div>
                                                 <div class="flex items-end">
-                                                    <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ho xi ye" wire:click="categoryAdd" @click="openInput = ! openInput">Save</div>
+                                                    <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ho xi ye" wire:click.prevent="categoryAdd" @click="openInput = ! openInput">Save</div>
                                                     <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ha xo ye" @click="openInput = ! openInput">Close</div>
                                                 </div>
                                             </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Quote extends Model
 {
@@ -25,6 +26,18 @@ class Quote extends Model
 		$person = Person::where('author_id', $authorId)->first();
 		return $person;
 	}
+
+	public function scopeNotPosted(Builder $query): Builder
+    {
+        return $query->whereNull('posted_at');
+    }
+
+	public static function nextForSharing(): ?self
+    {
+        return self::notPosted()
+            ->orderBy('id', 'asc')
+            ->first();
+    }
 
 	public function markAsPosted()
     {

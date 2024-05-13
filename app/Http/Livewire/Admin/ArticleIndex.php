@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Article;
-use App\Models\Category;
+use App\Models\CategoryArticle;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +16,7 @@ class ArticleIndex extends Component
 {
     use WithFileUploads, WithPagination;
 
+    // public  $listeners = ['categoryAdd'];
     public $showArticleModal = false;
     public $showMessage = false;
     public $trixId;
@@ -31,6 +32,7 @@ class ArticleIndex extends Component
     public $embedUrl;
     public $publishedAt;
     public $oldImage;
+    public $categoryItem;
     public $articleStatus = 'inactive';
     public $statuses = [
         'active',
@@ -39,7 +41,7 @@ class ArticleIndex extends Component
 
     public $search = '';
     public $sort = 'asc';
-    public $perPage = 5;
+    public $perPage = 10;
 
     public $showConfirmModal = false;
     public $deleteId = '';
@@ -191,7 +193,7 @@ class ArticleIndex extends Component
     {
         return view('livewire.admin.article-index', [
             'articles' => Article::search('title', $this->search)->orderBy('title', $this->sort)->paginate($this->perPage),
-            'categories' => Category::OrderBy('name', $this->sort)->get()
+            'categories' => CategoryArticle::OrderBy('name', $this->sort)->get()
         ]);
     }
 
@@ -259,5 +261,16 @@ class ArticleIndex extends Component
         }
              
         return true;
+    }
+
+    public function categoryAdd()
+    {   
+        CategoryArticle::create([
+          'name' => $this->categoryItem,
+          'slug' => Str::slug($this->categoryItem),
+        ]);
+
+        $this->reset('categoryItem');
+        // $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Category created successfully']);
     }
 }

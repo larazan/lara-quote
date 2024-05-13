@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuoteController extends Controller
 {
@@ -162,5 +163,25 @@ class QuoteController extends Controller
         }
 
         return 'quote created succesfully';
+    }
+
+    public function insertRand()
+    {
+        $quotes = Quote::all();
+
+        foreach ($quotes as $q) {
+            Quote::where('id', $q->id)->update(['slug' => Str::random(12)]);
+        }
+
+        // DB::beginTransaction();
+        //     foreach ($quotes as $q) {
+        //         DB::table('quotes')
+        //             ->where('id', '=', $q->id)
+        //             ->update(['slug' => Str::random(12)
+        //         ]);
+        //     }
+        // DB::commit();
+
+        return 'quote slug updated succesfully';
     }
 }
