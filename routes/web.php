@@ -22,6 +22,7 @@ use App\Http\Livewire\Admin\TermCondition;
 use App\Http\Livewire\Admin\ArticleIndex;
 use App\Http\Livewire\Admin\CategoryArticleIndex;
 use App\Http\Livewire\Admin\CategoryIndex;
+use App\Http\Livewire\Admin\ContactIndex;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\FaqIndex;
 use App\Http\Livewire\Admin\NewsletterIndex;
@@ -81,6 +82,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     
     //
     Route::get('category-article', CategoryArticleIndex::class)->name('category-article.index');
+    Route::get('contacts', ContactIndex::class)->name('contacts.index');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
     Route::get('categories', CategoryIndex::class)->name('categories.index');
     Route::get('faqs', FaqIndex::class)->name('faqs.index');

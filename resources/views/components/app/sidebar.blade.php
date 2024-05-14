@@ -371,21 +371,21 @@
                         </div>
                     </li>
                     <!-- Utility -->
-                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
+                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'bg-slate-900' }}@else{{ '' }}@endif" x-data="{ open: false }">
                         <a class="block gj xc ld wt wi" href="#0" @click.prevent="sidebarExpanded ? open = !open : sidebarExpanded = true">
                             <div class="flex items-center fe">
                                 <div class="flex items-center">
                                     <svg class="ub so oi" viewBox="0 0 24 24">
-                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="18.5" cy="5.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="5.5" cy="5.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="18.5" cy="18.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="5.5" cy="18.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="18.5" cy="5.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="5.5" cy="5.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="18.5" cy="18.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="5.5" cy="18.5" r="4.5"></circle>
                                     </svg>
                                     <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Utility</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                                    <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 @if(in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'rotate-180' }}@endif" :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
                                         <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
                                     </svg>
                                 </div>
@@ -397,7 +397,7 @@
                             </div>
                         </a>
                         <div class="tex ttj 2xl:block">
-                            <ul class="me re @if(!in_array(Request::segment(2), ['slides', 'reports', 'subscribers'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
+                            <ul class="me re @if(!in_array(Request::segment(2), ['slides', 'reports', 'subscribers', 'contacts'])){{ 'hidden' }}@else{ !block }@endif" :class="open ? '!block' : 'hidden'">
                                 <li class="rt ww">
                                     <a class="block @if(in_array(Request::segment(2), ['subscribers'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/subscribers') }}">
                                         <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Subscribers</span>
@@ -408,14 +408,16 @@
                                         <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Reports</span>
                                     </a>
                                 </li> 
-                               
-                              
                                 <li class="rt ww">
                                     <a class="block @if(in_array(Request::segment(2), ['slides'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/slides') }}">
                                         <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Slide</span>
                                     </a>
                                 </li>
-
+                                <li class="rt ww">
+                                    <a class="block @if(in_array(Request::segment(2), ['contacts'])){{ 'text-indigo-500' }}@else{{ 'gq hover--text-slate-200' }}@endif wt wi ld" href="{{ url('admin/contacts') }}">
+                                        <span class="text-sm gp ttw tnn 2xl:opacity--100 wr">Contacts</span>
+                                    </a>
+                                </li>
 
                             </ul>
                         </div>
