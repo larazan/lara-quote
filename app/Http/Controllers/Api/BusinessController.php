@@ -32,7 +32,7 @@ class BusinessController extends Controller
 
     public function privacy()
     {
-        $result = BusinessSetting::where('key', '=', 'privacy');
+        $result = BusinessSetting::where('key', '=', 'privacy_policy');
         if ($result) {
             
             return response()->json([
@@ -52,7 +52,7 @@ class BusinessController extends Controller
 
     public function terms()
     {
-        $result = BusinessSetting::where('key', '=', 'terms');
+        $result = BusinessSetting::where('key', '=', 'terms_and_conditions');
         if ($result) {
             
             return response()->json([

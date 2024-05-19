@@ -15,10 +15,11 @@ class PersonDetail extends Component
     public $showQuoteModal = false;
     public $name;
     public $bio;
-    public $personId;
+    public $personId = 200;
     public $authorId;
     public $words;
     public $tags;
+    public $person;
     // public $quotes = [];
     public $quoteId;
 
@@ -42,16 +43,19 @@ class PersonDetail extends Component
     public function mount($personId) 
     {
         $this->personId = $personId;
-        $person = Person::findOrFail($personId)->first();
+        $person = Person::where('id', $this->personId)->first();
         $this->authorId = $person->author_id;
         $this->name = $person->name;
+        // dd($person);
         // $this->quotes = Quote::search('words', $this->search)->where('author_id', $personId)->orderBy('created_at', $this->sort)->paginate($this->perPage);
     }
 
-    // public function hydrate()
-    // {
-    //     $this->personId = $personId;
-    // }
+    public function booted()
+    {
+        $person = Person::where('id', $this->personId)->first();
+        $this->authorId = $person->author_id;
+        $this->name = $person->name;
+    }
 
     public function showCreateModal()
     {
@@ -85,7 +89,7 @@ class PersonDetail extends Component
         Person::create([
             'words' => $this->words,
             'tags' => $this->tags,
-            'author_id' => $this->personId,
+            'author_id' => $this->authorId,
       ]);
         $this->reset();
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Person created successfully']);
@@ -147,7 +151,7 @@ class PersonDetail extends Component
         })->orderBy('id', $this->sort)->paginate($this->perPage);
 
         return view('livewire.admin.person-detail', [
-            'quotes' => Quote::search('words', $this->search)->where('author_id', $this->personId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
+            'quotes' => Quote::search('words', $this->search)->where('id', $this->personId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

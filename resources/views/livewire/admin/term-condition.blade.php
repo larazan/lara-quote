@@ -7,7 +7,7 @@
     <div class="rc">
 
         <!-- Title -->
-        <h1 class="gu teu text-slate-800 font-bold">Terms and Conditions ✨</h1>
+        <h1 class="gu teu text-slate-800 font-bold">Terms and Conditions</h1>
 
     </div>
 

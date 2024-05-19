@@ -7,7 +7,7 @@
     <div class="rc">
 
         <!-- Title -->
-        <h1 class="gu teu text-slate-800 font-bold">About Us ✨</h1>
+        <h1 class="gu teu text-slate-800 font-bold">About Us</h1>
 
     </div>
 
@@ -23,7 +23,7 @@
                     <section>
                        
                         <div class="je jc fg jm jb rw">
-                        @if (!empty($body))
+                            @if (!empty($body))
                                 <div x-data="{ trix: @entangle($body).defer }">
                                     <input value="{{ $body }}" id="{{ $body }}" name="{{ $body }}" type="hidden" />
                                     <div wire:ignore x-on:trix-change.debounce.500ms=" trix=$refs.trixInput.value">
@@ -33,7 +33,7 @@
                             @else
                                 <div wire:ignore>
                                     <input id="{{ $trixId }}" type="hidden" name="content" value="{{ $body }}" />
-                                    <trix-editor wire:ignore input="{{ $trixId }}" class="overflow-y-scroll" style="height: 10rem;"></trix-editor>
+                                    <trix-editor wire:ignore input="{{ $trixId }}" class="overflow-y-scroll" style="height: 20rem;"></trix-editor>
                                 </div>
                             @endif
                            

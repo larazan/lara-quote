@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BusinessController;
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\PersonController;
 use App\Http\Controllers\Api\ProductController;
@@ -30,6 +31,8 @@ Route::post('logout',[AuthController::class,'logout'])->middleware('auth:sanctum
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('contact', [ContactController::class, 'store']);
 
 Route::get('quotes', [QuoteController::class, 'index']);
 Route::get('quotes/{id}', [QuoteController::class, 'show']);

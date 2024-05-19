@@ -43,7 +43,7 @@
 
         <!-- Left side -->
         <div class="ri _y ">
-            
+           
         </div>
 
         <!-- Right side -->

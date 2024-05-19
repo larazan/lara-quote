@@ -1,8 +1,7 @@
-
 <div class="vs jj ttm vl ou uf na">
 
-<!-- Loading -->
-<x-loading-indicator />
+    <!-- Loading -->
+    <x-loading-indicator />
 
     <!-- Page header -->
     <div class="je jd jc ii">
@@ -11,7 +10,7 @@
         <div class="ri _y">
             <h1 class="gu teu text-slate-800 font-bold">Quote {{ $name }}</h1>
         </div>
-        
+
         <!-- Right: Actions -->
         <div class="sn am jo az jp ft">
 
@@ -43,7 +42,12 @@
 
         <!-- Left side -->
         <div class="ri _y">
-
+            <a href="{{ url('admin/persons') }}" class="btn hp xr">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                <span class="hidden trm nq text-red-500">Back</span>
+            </a>
         </div>
 
         <!-- Right side -->
@@ -210,7 +214,7 @@
     
     -->
 
-     <livewire:admin.person-table :authorId="$authorId" />
+    <livewire:admin.person-table :authorId="$authorId" />
 
     <x-dialog-modal wire:model="showQuoteModal" class="">
 
@@ -237,34 +241,34 @@
                                             </label>
                                             <input wire:model="authorId" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                             @if (!empty($query))
-                                                <div class="w-full">
-                                                    @if (!empty($quotes))
-                                                        @foreach ($quotes as $quote)
-                                                            <div wire:click="pickQuote({{ $quote->id }})"
-                                                                class="w-full p-2 m-2 bg-green-300 hover:bg-green-400 cursor-pointer">
-                                                                {{ $quote->name }}</div>
-                                                        @endforeach
-                                                    @endif
+                                            <div class="w-full">
+                                                @if (!empty($quotes))
+                                                @foreach ($quotes as $quote)
+                                                <div wire:click="pickQuote({{ $quote->id }})" class="w-full p-2 m-2 bg-green-300 hover:bg-green-400 cursor-pointer">
+                                                    {{ $quote->name }}
                                                 </div>
+                                                @endforeach
+                                                @endif
+                                            </div>
                                             @endif
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
                                                 Author
                                             </label>
-                                            <input wire:model="query" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
                                                 Words
                                             </label>
-                                            <textarea wire:model="words" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
-                                            
+                                            <textarea wire:model="words" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+
                                             @error('words')
-                                                <div class="go re yl">{{ $message }}</div>
+                                            <div class="go re yl">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -291,31 +295,31 @@
     <!-- modal delete confirmation -->
     <x-dialog-modal wire:model="showConfirmModal" class="">
 
-        
+
         <x-slot name="title" class="border-b bg-slate-200">
             <span class="font-semibold">Delete Confirm</span>
         </x-slot>
-        
+
 
         <x-slot name="content">
             <div class="border-t">
                 <div class="vc vu ">
                     <div class="fw">
 
-                        
+
+                        <div class="">
                             <div class="">
-                                <div class="">
-                                    <div class="flex flex-col space-y-3">
-                                        <div class="flex max-w-auto text-center justify-center items-center">
-                                            <div class="text-lg font-semibold ">
+                                <div class="flex flex-col space-y-3">
+                                    <div class="flex max-w-auto text-center justify-center items-center">
+                                        <div class="text-lg font-semibold ">
                                             <p>Are you sure want to delete?</p>
-                                            </div>
                                         </div>
-                                        
                                     </div>
+
                                 </div>
                             </div>
-                        
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -350,11 +354,11 @@
     // 
     const copyBtn = document.getElementById('copyBtn')
     const copyText = document.getElementById('copyText')
-    
+
     copyBtn.onclick = () => {
-        copyText.select();    // Selects the text inside the input
-        document.execCommand('copy');    // Simply copies the selected text to clipboard 
-            Swal.fire({         //displays a pop up with sweetalert
+        copyText.select(); // Selects the text inside the input
+        document.execCommand('copy'); // Simply copies the selected text to clipboard 
+        Swal.fire({ //displays a pop up with sweetalert
             icon: 'success',
             title: 'Text copied to clipboard',
             showConfirmButton: false,

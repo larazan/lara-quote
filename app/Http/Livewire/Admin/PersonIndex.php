@@ -115,7 +115,7 @@ class PersonIndex extends Component
 
     public function resetFilters()
     {
-        $this->reset();
+        $this->reset(['personId']);
     }
     
     public function render()

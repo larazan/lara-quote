@@ -7,7 +7,7 @@
     <div class="rc">
 
         <!-- Title -->
-        <h1 class="gu teu text-slate-800 font-bold">Privacy Policy ✨</h1>
+        <h1 class="gu teu text-slate-800 font-bold">Privacy Policy</h1>
 
     </div>
 

@@ -163,7 +163,8 @@ class QuoteIndex extends Component
 
 
         return view('livewire.admin.quote-index', [
-            'quotes' => Quote::search('author_id', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
+            'quotes' => $quote
+            // 'quotes' => Quote::search('author_id', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
             // 'persons' => Person::orderBy('name', $this->sort), 
         ]);
     }
