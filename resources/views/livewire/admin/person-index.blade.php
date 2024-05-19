@@ -9,7 +9,7 @@
 
         <!-- Left: Title -->
         <div class="ri _y">
-            <h1 class="gu teu text-slate-800 font-bold">Person</h1>
+            <h1 class="gu teu text-slate-800 font-bold">Persons</h1>
         </div>
         
         <!-- Right: Actions -->
@@ -105,10 +105,6 @@
 
     </div>
 
-    <div class="w-full ">
-    <livewire:admin.person-search-bar />
-    </div>
-
     <!-- Table -->
     <div class="bg-white bd rounded-sm border border-slate-200 rc">
         <header class="vc vu">
@@ -134,7 +130,7 @@
                                 <div class="gh gt">Name</div>
                             </th>
                             <th class="vi wy w_ vo lm">
-                                <div class="gh gt">Slug</div>
+                                <div class="gh gt">Author ID</div>
                             </th>
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Bio</div>
@@ -167,7 +163,7 @@
                                 <div class="gp text-slate-800">{{ $person->name }}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ $person->slug }}</div>    
+                                <div class="gp text-slate-800">{{ $person->author_id }}</div>    
                             </td>
                             <td class="vi wy w_ vo lm">
                                 <div class="gp text-slate-800">{{ $person->bio }}</div>    

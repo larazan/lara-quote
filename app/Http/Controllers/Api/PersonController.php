@@ -12,9 +12,8 @@ class PersonController extends Controller
     //
     public function index()
     {
-        $persons = Person::all();
+        $persons = Person::paginate(request()->all());
         if ($persons->count() > 0) {
-            
             return response()->json([
                 'status' => 200,
                 'persons' => $persons,
@@ -30,11 +29,11 @@ class PersonController extends Controller
         }
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $person = Person::find($id);
+        $person = Person::where('slug', $slug)->first();
         $authorId = $person->author_id;
-        $quotes = Quote::where('author_id', $authorId);
+        $quotes = Quote::where('author_id', $authorId)->get();
 
         if ($person) {
             
@@ -56,16 +55,12 @@ class PersonController extends Controller
 
     public function showByLetter($letter) 
     {
-        $person = Person::select(['id', 'name', 'slug', 'author_id', 'bio'])
-                        ->where('name', 'like', "%{$letter}%");
-
-        // $person = Person::where('name', 'like', "%{$letter}%")->get();
+        $persons = Person::where('name', 'like', "{$letter}%")->paginate();
                         
-        if ($person) {
-            
+        if ($persons) {
             return response()->json([
                 'status' => 200,
-                'person' => $person,
+                'persons' => $persons,
             ], 200);
 
         } else {

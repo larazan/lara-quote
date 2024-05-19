@@ -37,6 +37,7 @@ Route::post('contact', [ContactController::class, 'store']);
 Route::get('quotes', [QuoteController::class, 'index']);
 Route::get('quotes/{id}', [QuoteController::class, 'show']);
 Route::get('quotes/tags/{tag}', [QuoteController::class, 'showByTag']);
+Route::get('quotes/slug/{slug}', [QuoteController::class, 'showBySlug']);
 
 Route::get('tags', [TagController::class, 'index']);
 
@@ -44,7 +45,7 @@ Route::get('riddles', [RiddleController::class, 'index']);
 Route::get('riddles/random/{id}', [RiddleController::class, 'random']);
 
 Route::get('persons', [PersonController::class, 'index']);
-Route::get('persons/show/{id}', [PersonController::class, 'show']);
+Route::get('persons/show/{slug}', [PersonController::class, 'show']);
 Route::get('persons/{letter}', [PersonController::class, 'showByLetter']);
 
 Route::get('faqs', [FaqController::class, 'index']);

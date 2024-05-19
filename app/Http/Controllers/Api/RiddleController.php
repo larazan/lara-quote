@@ -11,7 +11,7 @@ class RiddleController extends Controller
     //
     public function index()
     {
-        $riddles = Riddle::all();
+        $riddles = Riddle::paginate(request()->all());
         if ($riddles->count() > 0) {
             
             return response()->json([
@@ -31,20 +31,22 @@ class RiddleController extends Controller
 
     public function random($id)
     {
-        $riddle = Riddle::find($id);
+        $riddle = Riddle::where('id', $id)->first();
         $riddles = Riddle::inRandomOrder()
                         ->limit(49)
                         ->where('id', '!=', $id)
                         ->get();
 
-        $merged = $riddle->merge($riddles);
-        $result = $merged->all();
+        $collection = collect([$riddle]);
+        $merged = $collection->merge($riddles);
+        $merged->all();
 
-        if ($result->count() > 0) {
+        if ($merged->count() > 0) {
             
             return response()->json([
                 'status' => 200,
-                'result' => $result,
+                'total' => count($merged),
+                'result' => $merged,
             ], 200);
 
         } else {

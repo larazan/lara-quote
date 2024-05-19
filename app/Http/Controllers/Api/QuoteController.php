@@ -58,6 +58,41 @@ class QuoteController extends Controller
 
     public function showByTag($tag)
     {
-        
+        $quotes = Quote::where('tags', 'like', "%{$tag}%")->paginate();
+
+        if ($quotes) {    
+            return response()->json([
+                'status' => 200,
+                'quote' => $quotes,
+            ], 200);
+
+        } else {
+            
+            return response()->json([
+                'status' => 404,
+                'message' => 'No record found',
+            ], 404);
+
+        }
+    }
+
+    public function showBySlug($slug)
+    {
+        $quote = Quote::where('slug', $slug)->first();
+        if ($quote) {
+            
+            return response()->json([
+                'status' => 200,
+                'quote' => $quote,
+            ], 200);
+
+        } else {
+            
+            return response()->json([
+                'status' => 404,
+                'message' => 'No record found',
+            ], 404);
+
+        }
     }
 }

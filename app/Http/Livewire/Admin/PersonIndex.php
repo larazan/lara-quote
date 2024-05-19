@@ -22,6 +22,11 @@ class PersonIndex extends Component
         'active',
         'inactive'
     ];
+    
+    public $letter = 'a';
+    public $letters = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' 
+    ];
 
     public $search = '';
     public $sort = 'asc';
@@ -120,6 +125,13 @@ class PersonIndex extends Component
     
     public function render()
     {
+        $key = explode(' ', $this->search);
+        $persons = Person::where(function ($q) use ($key) {
+            foreach ($key as $value) {
+                $q->orWhere('name', 'like', "%{$value}%");
+            }
+        })->orderBy('name', $this->sort)->paginate($this->perPage);
+
         return view('livewire.admin.person-index', [
             'persons' => Person::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
         ]);
