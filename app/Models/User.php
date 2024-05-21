@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(Quote::class, 'author_id');
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'author_id');
+    }
+
     public function generateUserName($username)
     {
         if ($username === null) {

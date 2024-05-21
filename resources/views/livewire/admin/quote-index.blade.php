@@ -135,7 +135,9 @@
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Tags</div>
                             </th>
-                          
+                            <th class="vi wy w_ vo lm">
+                                <div class="gh gt">Slug</div>
+                            </th>
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Date</div>
                             </th>
@@ -168,7 +170,9 @@
                             <td class="vi wy w_ vo lm">
                                 <div class="gp text-slate-800">{{ $quote->tags }}</div>    
                             </td>
-
+                            <td class="vi wy w_ vo lm">
+                                <div class="gp text-slate-800">{{ $quote->slug }}</div>    
+                            </td>
                             <td class="vi wy w_ vo lm">
                                 <div>{{ $quote->created_at->format('d-m-Y') }}</div>
                             </td>

@@ -33,6 +33,8 @@ class ArticleIndex extends Component
     public $publishedAt;
     public $oldImage;
     public $categoryItem;
+    public $metaTitle;
+    public $metaDesc;
     public $articleStatus = 'inactive';
     public $statuses = [
         'active',
@@ -86,27 +88,34 @@ class ArticleIndex extends Component
         $this->validate();
   
         $new = Str::slug($this->title) . '_' . time();
-        $filename = $new . '.' . $this->file->getClientOriginalName();
-        $filePath = $this->file->storeAs(Article::UPLOAD_DIR, $filename, 'public');
-        $resizedImage = $this->_resizeImage($this->file, $filename, Article::UPLOAD_DIR);
-  
-        Article::create([
-            'category_id' => $this->categoryId,
-            'user_id' => Auth::user()->id,
-            'title' => $this->title,
-            'slug' => Str::slug($this->title),
-            'rand_id' => Str::random(10),
-            'body' => $this->body,
-            'article_tags' => $this->articleTags,
-            'author' => $this->author,
-            'url' => $this->url,
-            'embed_url' => $this->embedUrl,
-            'published_at' => $this->publishedAt,
-            'original' => $filePath,
-            'small' => $resizedImage['small'],
-            'medium' => $resizedImage['medium'],
-            'status' => $this->articleStatus,
-        ]);
+
+        $article = new Article();
+        $article->category_id = $this->categoryId;
+        $article->author_id = Auth::user()->id;
+        $article->title = $this->title;
+        $article->slug = Str::slug($this->title);
+        $article->rand_id = Str::random(10);
+        $article->body = $this->body;
+        $article->article_tags = $this->articleTags;
+        $article->author = $this->author;
+        $article->original_url = $this->url;
+        $article->embed_url = $this->embedUrl;
+        $article->published_at = $this->publishedAt;
+        $article->status = $this->articleStatus;
+        $article->meta_title = $this->metaTitle;
+        $article->meta_description = $this->metaDesc;
+
+        if (!empty($this->file)) {
+            $filename = $new . '.' . $this->file->getClientOriginalName();
+            $filePath = $this->file->storeAs(Article::UPLOAD_DIR, $filename, 'public');
+            $resizedImage = $this->_resizeImage($this->file, $filename, Article::UPLOAD_DIR);
+
+            $article->original = $filePath;
+            $article->small = $resizedImage['small'];
+            $article->medium = $resizedImage['medium'];
+        }
+
+        $article->save();
 
         $this->reset();
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Article created successfully']);
@@ -121,48 +130,58 @@ class ArticleIndex extends Component
         $this->title = $article->title;
         $this->body = $article->body;
         $this->articleTags = $article->article_tags;
-        $this->author = $article->author;
-        $this->url = $article->url;
+        $this->author = $article->author_id;
+        $this->url = $article->original_url;
         $this->embedUrl = $article->embed_url;
         $this->publishedAt = $article->published_at;
         $this->oldImage = $article->small;
         $this->articleStatus = $article->status;
+        $this->metaTitle = $article->meta_title;
+        $this->metaDesc = $article->meta_description;
+
         $this->showArticleModal = true;
     }
     
     public function updateArticle()
     {
-        $article = Article::findOrFail($this->articleId);
         $this->validate();
+
+        $article = Article::findOrFail($this->articleId);
   
         $new = Str::slug($this->title) . '_' . time();
-        $filename = $new . '.' . $this->file->getClientOriginalName();
         
         if ($this->articleId) {
             if ($article) {
-               // delete image
-			    $this->deleteImage($this->articleId);
-                $filePath = $this->file->storeAs(Article::UPLOAD_DIR, $filename, 'public');
-                $resizedImage = $this->_resizeImage($this->file, $filename, Article::UPLOAD_DIR);
 
-                $article->update([
-                    'category_id' => $this->categoryId,
-                    'user_id' => Auth::user()->id,
-                    'title' => $this->title,
-                    'slug' => Str::slug($this->title),
-                    'rand_id' => Str::random(10),
-                    'body' => $this->body,
-                    'article_tags' => $this->articleTags,
-                    'author' => $this->author,
-                    'url' => $this->url,
-                    'embed_url' => $this->embedUrl,
-                    'published_at' => $this->publishedAt,
-                    'original' => $filePath,
-                    'small' => $resizedImage['small'],
-                    'medium' => $resizedImage['medium'],
-                    'status' => $this->articleStatus,
-                ]);
-                
+                $article->category_id = $this->categoryId;
+                $article->author_id = Auth::user()->id;
+                $article->title = $this->title;
+                $article->slug = Str::slug($this->title);
+                $article->rand_id = Str::random(10);
+                $article->body = $this->body;
+                $article->article_tags = $this->articleTags;
+                $article->author = $this->author;
+                $article->original_url = $this->url;
+                $article->embed_url = $this->embedUrl;
+                $article->published_at = $this->publishedAt;
+                $article->status = $this->articleStatus;
+                $article->meta_title = $this->metaTitle;
+                $article->meta_description = $this->metaDesc;
+
+                if (!empty($this->file)) {
+                    // delete image
+                    $this->deleteImage($this->articleId);
+
+                    $filename = $new . '.' . $this->file->getClientOriginalName();
+                    $filePath = $this->file->storeAs(Article::UPLOAD_DIR, $filename, 'public');
+                    $resizedImage = $this->_resizeImage($this->file, $filename, Article::UPLOAD_DIR);
+
+                    $article->original = $filePath;
+                    $article->small = $resizedImage['small'];
+                    $article->medium = $resizedImage['medium'];
+                }
+
+                $article->save();
             }
         }
 

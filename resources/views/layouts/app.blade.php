@@ -31,7 +31,7 @@
   <!-- Select2 -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
+    
 
   <style>
     .select2.select2-container {
@@ -236,14 +236,14 @@
       toastr.{{Session::get('alert')}}("{{Session::get('pesan')}}");
     @endif  
 
-    var inputField = document.querySelector('#numbers-only');
+    // var inputField = document.querySelector('#numbers-only');
 
-    inputField.onkeydown = function(event) {
-      // Only allow if the e.key value is a number or if it's 'Backspace'
-      if (isNaN(event.key) && event.key !== 'Backspace') {
-        event.preventDefault();
-      }
-    };
+    // inputField.onkeydown = function(event) {
+    //   Only allow if the e.key value is a number or if it's 'Backspace'
+    //   if (isNaN(event.key) && event.key !== 'Backspace') {
+    //     event.preventDefault();
+    //   }
+    // };
 
     function onlyNumberKey(evt) {
 

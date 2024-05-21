@@ -11,6 +11,8 @@ use Livewire\Component;
 
 class UserIndex extends Component
 {
+    use WithPagination;
+    
     public $queryRole = '';
     public $roles = [];
 
@@ -171,7 +173,7 @@ class UserIndex extends Component
 
     public function resetFilters()
     {
-        $this->reset(['search', 'sort', 'perPage']);
+        $this->reset();
     }
 
     public function render()
@@ -190,23 +192,23 @@ class UserIndex extends Component
         ]);
     }
 
-    public function assignRole($roleName)
-    {
-        if ($this->userSelected->hasRole($roleName)) {
-            $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Role exists']);
-        }
+    // public function assignRole($roleName)
+    // {
+    //     if ($this->userSelected->hasRole($roleName)) {
+    //         $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Role exists']);
+    //     }
 
-        $this->userSelected->assignRole($roleName);
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Role assigned']);
-    }
+    //     $this->userSelected->assignRole($roleName);
+    //     $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Role assigned']);
+    // }
 
-    public function removeRole($roleName)
-    {
-        if ($this->userSelected->hasRole($roleName)) {
-            $this->userSelected->removeRole($roleName);
-            $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Role removed']);
-        }
+    // public function removeRole($roleName)
+    // {
+    //     if ($this->userSelected->hasRole($roleName)) {
+    //         $this->userSelected->removeRole($roleName);
+    //         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Role removed']);
+    //     }
 
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Role not exists']);
-    }
+    //     $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Role not exists']);
+    // }
 }

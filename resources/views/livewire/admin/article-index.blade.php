@@ -1,5 +1,7 @@
 <div class="vs jj ttm vl ou uf na">
 
+
+
     <!-- Loading -->
     <x-loading-indicator />
 
@@ -160,6 +162,7 @@
 
                         @if ($articles->count() > 0)
                         @foreach ($articles as $article)
+                        
                         <tr>
                             <td class="vi wy w_ vo lm of">
                                 <div class="flex items-center">
@@ -180,18 +183,18 @@
                                 @endif
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp ">{{ $article->author_id }}</div>
+                                <div class="gp ">{{ $article->user->first_name }} {{ $article->user->last_name }}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp ">{{ $article->published_at }}</div>
+                                <div class="gp capitalize">{{ $article->published_at }}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                @if ($article->approved_at)
-                                <div class="inline-flex gp hf yl rounded-full gn vp vd">approve</div>
+                                @if ($article->status == 'inactive')
+                                <div class="inline-flex gp hf yl rounded-full gn vp vd">inactive</div>
                                 @endif
 
-                                @if ($article->declined_at)
-                                <div class="inline-flex gp hc ys rounded-full gn vp vd">decline</div>
+                                @if ($article->status == 'active')
+                                <div class="inline-flex gp hc ys rounded-full gn vp vd">active</div>
                                 @endif
                             </td>
 
