@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ArticleController;
 use App\Http\Controllers\Api\BusinessController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\FaqController;
@@ -31,6 +32,9 @@ Route::post('logout',[AuthController::class,'logout'])->middleware('auth:sanctum
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('articles', [ArticleController::class, 'index']);
+Route::get('articles/{slug}', [ArticleController::class, 'show']);
 
 Route::post('contact', [ContactController::class, 'store']);
 
