@@ -3,10 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
+use App\Http\Controllers\TestController;
+
 use App\Http\Controllers\Admin\ArticleController as AdminArticlesController;
 
 use App\Http\Controllers\Articles\ArticlesController;
@@ -48,12 +54,36 @@ use App\Http\Livewire\SelectOption;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// FRONTEND
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('articles', [ArticleController::class, 'index']);
+Route::get('articles/{slug}', [ArticleController::class, 'show']);
+
+Route::get('contact', [ContactController::class, 'index']);
+Route::post('contact', [ContactController::class, 'create'])->name('contact.create');
+
+Route::get('faqs', [FaqController::class, 'index']);
+
+Route::get('about', [PageController::class, 'about']);
+Route::get('privacy-policy', [PageController::class, 'policy']);
+Route::get('terms', [PageController::class, 'terms']);
+
+Route::get('people', [PersonController::class, 'index']);
+Route::get('people/{slug}', [PersonController::class, 'show']);
+Route::get('people/{letter}', [PersonController::class, 'showByLetter']);
+
+Route::get('quotes', [QuoteController::class, 'index']);
+Route::get('quotes/{slug}', [QuoteController::class, 'show']);
+Route::get('quotes/{tag}', [QuoteController::class, 'showByTag']);
+
+Route::get('riddle', [RiddleController::class, 'index']);
+Route::get('riddle{id}', [RiddleController::class, 'random']);
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
+    Route::get('dashboard', Dashboard::class)->name('dashboard');
+    
     // Route::get('articles', ArticleIndex::class)->name('articles.index');
     // 
     // Route::get('articles/create', [ArticleController::class, 'create']);

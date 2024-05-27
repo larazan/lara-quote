@@ -11,6 +11,58 @@ use Illuminate\Support\Facades\DB;
 
 class QuoteController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function index()
+    {
+        $quotes = Quote::orderBy('id', 'ASC');
+
+        $this->data['quotes'] = $quotes->paginate(20);
+		return $this->loadTheme('quotes.index', $this->data);
+    }
+
+    public function show($slug)
+    {
+        $quote = Quote::where('slug', $slug)->first();
+
+        if (!$quote) {
+			return redirect('quotes');
+		}
+
+        // build breadcrumb data array
+		$breadcrumbs_data['current_page_title'] = $quote->name;
+		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($quote->id);
+		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
+
+		$this->data['quote'] = $quote;
+		return $this->loadTheme('quotes.detail', $this->data);
+    }
+
+    public function showByTag($tag)
+    {
+        $quotes = Quote::where('tags', 'like', "%{$tag}%")->paginate();
+
+        $this->data['quotes'] = $quotes->paginate(20);
+        $this->data['tag'] = $tag;
+		return $this->loadTheme('quotes.index', $this->data);
+    }
+
+    public function _generate_breadcrumbs_array($id) {
+		// $homepage_url = url('/');
+		// $breadcrumbs_array[$homepage_url] = 'Home';
+		
+		// get sub cat title
+		$sub_cat_title = 'Quotes';
+		// get sub cat url
+		$sub_cat_url = url('quotes');
+	
+		$breadcrumbs_array[$sub_cat_url] = $sub_cat_title;
+		return $breadcrumbs_array;
+	}
+
     //
     public function saveQuote()
     {

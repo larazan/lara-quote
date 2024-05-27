@@ -10,6 +10,30 @@ use Illuminate\Http\Request;
 
 class RiddleController extends Controller
 {
+    public function index()
+    {
+        $riddles = Riddle::orderBy('id', 'ASC');
+
+        $this->data['riddles'] = $riddles->paginate(20);
+		return $this->loadTheme('riddles.index', $this->data);
+    }
+
+    public function random($id)
+    {
+        $riddle = Riddle::where('id', $id)->first();
+        $riddles = Riddle::inRandomOrder()
+                        ->limit(49)
+                        ->where('id', '!=', $id)
+                        ->get();
+
+        $collection = collect([$riddle]);
+        $merged = $collection->merge($riddles);
+        $merged->all();
+
+        $this->data['riddles'] = $merged;
+		return $this->loadTheme('riddles.index', $this->data);
+    }
+
     //
     public function saveRiddle()
     {

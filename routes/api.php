@@ -54,7 +54,6 @@ Route::get('persons/{letter}', [PersonController::class, 'showByLetter']);
 
 Route::get('faqs', [FaqController::class, 'index']);
 
-Route::get('permission', [BusinessController::class, 'permission']);
 Route::get('privacy', [BusinessController::class, 'privacy']);
 Route::get('terms', [BusinessController::class, 'terms']);
 Route::get('about', [BusinessController::class, 'about_us']);

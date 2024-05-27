@@ -10,26 +10,6 @@ class BusinessController extends Controller
 {
     //
 
-    public function permission()
-    {
-        $result = BusinessSetting::where('key', '=', 'permission');
-        if ($result) {
-            
-            return response()->json([
-                'status' => 200,
-                'result' => $result,
-            ], 200);
-
-        } else {
-            
-            return response()->json([
-                'status' => 404,
-                'message' => 'No record found',
-            ], 404);
-
-        }
-    }
-
     public function privacy()
     {
         $result = BusinessSetting::where('key', '=', 'privacy_policy');
