@@ -121,7 +121,7 @@ class CategoryArticleIndex extends Component
     public function render()
     {
         return view('livewire.admin.category-article-index', [
-            'categories' => CategoryArticle::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage),
+            'categories' => CategoryArticle::liveSearch('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

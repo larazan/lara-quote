@@ -68,7 +68,7 @@ class UserIndex extends Component
 
     public function updatedQueryRole()
     {
-        $this->roles = Role::search('name', $this->queryRole)->get();
+        $this->roles = Role::liveSearch('name', $this->queryRole)->get();
     }
 
     public function showCreateModal()
@@ -187,7 +187,7 @@ class UserIndex extends Component
         })->orderBy('id', $this->sort)->paginate($this->perPage);
 
         return view('livewire.admin.user-index', [
-            // 'users' => User::search('first_name', $this->search)->orderBy('first_name', $this->sort)->paginate($this->perPage),
+            // 'users' => User::liveSearch('first_name', $this->search)->orderBy('first_name', $this->sort)->paginate($this->perPage),
             'users' => $users,
         ]);
     }

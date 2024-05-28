@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3 || ^8.0",
+        "algolia/scout-extended": "^2.0",
         "barryvdh/laravel-snappy": "^1.0",
         "doctrine/dbal": "^3.6",
         "guzzlehttp/guzzle": "^7.2",
@@ -23,6 +24,7 @@
         "maatwebsite/excel": "^3.1",
         "mews/purifier": "^3.4",
         "psr/simple-cache": "^2.0",
+        "shetabit/visitor": "^4.2",
         "spatie/laravel-permission": "^5.10",
         "spatie/laravel-searchable": "^1.11",
         "spatie/laravel-sitemap": "^6.3",

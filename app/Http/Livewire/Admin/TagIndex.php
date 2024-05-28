@@ -114,7 +114,7 @@ class TagIndex extends Component
     public function render()
     {
         return view('livewire.admin.tag-index', [
-            'tags' => Tag::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
+            'tags' => Tag::liveSearch('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
         ]);
     }
 }

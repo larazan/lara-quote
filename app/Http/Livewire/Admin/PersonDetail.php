@@ -47,7 +47,7 @@ class PersonDetail extends Component
         $this->authorId = $person->author_id;
         $this->name = $person->name;
         // dd($person);
-        // $this->quotes = Quote::search('words', $this->search)->where('author_id', $personId)->orderBy('created_at', $this->sort)->paginate($this->perPage);
+        // $this->quotes = Quote::liveSearch('words', $this->search)->where('author_id', $personId)->orderBy('created_at', $this->sort)->paginate($this->perPage);
     }
 
     public function booted()
@@ -151,7 +151,7 @@ class PersonDetail extends Component
         })->orderBy('id', $this->sort)->paginate($this->perPage);
 
         return view('livewire.admin.person-detail', [
-            'quotes' => Quote::search('words', $this->search)->where('id', $this->personId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
+            'quotes' => Quote::liveSearch('words', $this->search)->where('id', $this->personId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

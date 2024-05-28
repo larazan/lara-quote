@@ -20,18 +20,18 @@ class PersonTable extends Component
 
     public function mount($authorId)
     {
-        $this->quotes = Quote::search('words', $this->search)->where('author_id', $authorId)->orderBy('created_at', $this->sort)->get();
+        $this->quotes = Quote::liveSearch('words', $this->search)->where('author_id', $authorId)->orderBy('created_at', $this->sort)->get();
     }
 
     // public function updatedQueryTag()
     // {
-    //     $this->quotes = Quote::search('author_id', $this->queryQuote)->get();
+    //     $this->quotes = Quote::liveSearch('author_id', $this->queryQuote)->get();
     // }
 
     public function render()
     {
         return view('livewire.admin.person-table', [
-            // 'quotes' => Quote::search('words', $this->search)->where('author_id', 28249)->orderBy('id', $this->sort)->paginate($this->perPage),
+            // 'quotes' => Quote::liveSearch('words', $this->search)->where('author_id', 28249)->orderBy('id', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

@@ -234,7 +234,7 @@ class AdvSegmentIndex extends Component
     public function render()
     {
         return view('livewire.admin.adv-segment-index', [
-            'segments' => AdvertisingSegment::search('title', $this->search)->orderBy('title', $this->sort)->paginate($this->perPage),
+            'segments' => AdvertisingSegment::liveSearch('title', $this->search)->orderBy('title', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

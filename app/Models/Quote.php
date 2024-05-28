@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Laravel\Scout\Searchable;
 
 class Quote extends Model
 {
     use HasFactory;
+    use Searchable;
 
     protected $guarded = [
 		'id',
@@ -44,5 +46,16 @@ class Quote extends Model
         $this->update([
             'posted_at' => now(),
         ]);
+    }
+
+	public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id(),
+            'author_id' => $this->author_id(),
+            'words' => $this->words(),
+            'slug' => $this->slug(),
+            'tags' => $this->tags(),
+        ];
     }
 }

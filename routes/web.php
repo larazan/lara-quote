@@ -54,8 +54,12 @@ use App\Http\Livewire\SelectOption;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 // FRONTEND
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('articles', [ArticleController::class, 'index']);
 Route::get('articles/{slug}', [ArticleController::class, 'show']);
@@ -157,3 +161,12 @@ Route::get('test', [TestController::class . 'index']);
 
 // update quote slug
 Route::get('rand', [QuoteController::class, 'insertRand']);
+
+Route::get('search', function() {
+    $query = '';
+
+    $people = App\Models\Person::search($query)->get();
+    $quotes = App\Models\Quote::search($query)->paginate(20);
+
+    return $people;
+});
