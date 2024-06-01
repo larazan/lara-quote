@@ -133,6 +133,9 @@
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Slug</div>
                             </th>
+                            <th class="vi wy w_ vo lm">
+                                <div class="gh gt">Status</div>
+                            </th>
                            
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Date</div>
@@ -162,9 +165,18 @@
                             <td class="vi wy w_ vo lm">
                                 <div class="gp ">{{ $tag->slug }}</div>
                             </td>
+                            <td class="vi wy w_ vo lm">
+                                @if ($tag->status === 'inactive')
+                                    <div class="inline-flex gp hf yl rounded-full gn vp vd">{{ $tag->status }}</div>
+                                @endif 
+
+                                @if ($tag->status === 'active')
+                                    <div class="inline-flex gp hc ys rounded-full gn vp vd">{{ $tag->status }}</div>
+                                @endif 
+                            </td>
 
                             <td class="vi wy w_ vo lm">
-                                <div>{{ $tag->created_at->format('d-m-Y') }}</div>
+                                <div>{{ date('d-m-Y', strtotime($tag->created_at)) }}</div>
                             </td>
 
                             <td class="vi wy w_ vo lm of">

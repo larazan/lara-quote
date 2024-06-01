@@ -44,6 +44,7 @@ Route::get('quotes/tags/{tag}', [QuoteController::class, 'showByTag']);
 Route::get('quotes/slug/{slug}', [QuoteController::class, 'showBySlug']);
 
 Route::get('tags', [TagController::class, 'index']);
+Route::get('tags/all', [TagController::class, 'showAll']);
 
 Route::get('riddles', [RiddleController::class, 'index']);
 Route::get('riddles/random/{id}', [RiddleController::class, 'random']);

@@ -88,17 +88,17 @@
                     </li>
                     
                      <!-- Category -->
-                     <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['categories'])){{ 'bg-slate-900' }}@else{{ '' }}@endif">
-                        <a class="block gj xc ld wt wi" href="{{ url('admin/categories') }}">
+                     <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['tags'])){{ 'bg-slate-900' }}@else{{ '' }}@endif">
+                        <a class="block gj xc ld wt wi" href="{{ url('admin/tags') }}">
                             <div class="flex items-center">
                                 
                                 <svg class="ub so oi" viewBox="0 0 24 24">
-                                        <circle class="du @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="18.5" cy="5.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="5.5" cy="5.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="18.5" cy="18.5" r="4.5"></circle>
-                                        <circle class="du @if(in_array(Request::segment(2), ['categories'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="5.5" cy="18.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="18.5" cy="5.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="5.5" cy="5.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" cx="18.5" cy="18.5" r="4.5"></circle>
+                                        <circle class="du @if(in_array(Request::segment(2), ['tags'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" cx="5.5" cy="18.5" r="4.5"></circle>
                                     </svg>
-                                <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Categories</span>
+                                <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Tags</span>
                             </div>
                         </a>
                     </li>
