@@ -2,16 +2,16 @@
 
 @section('content')
 
-<div className="flex bg-white min-h-screen pt-16 md:pt-[100px]">
-        <div className="flex flex-row w-full">
-          <div className="flex flex-1 flex-col items-center justify-center relative">
-            <div className="flex flex-1 flex-col pb-20  max-w-md md:max-w-2xl ">
-              <section className="w-full mx-auto  mt-10 md:mt-10 px-5 text-black">
-                <h5 className="font-semibold md:font-bold text-2xl md:text-3xl text-center ">
+<div class="flex bg-white min-h-screen pt-16 md:pt-[100px]">
+        <div class="flex flex-row w-full">
+          <div class="flex flex-1 flex-col items-center justify-center relative">
+            <div class="flex flex-1 flex-col pb-20  max-w-md md:max-w-2xl ">
+              <section class="w-full mx-auto  mt-10 md:mt-10 px-5 text-black">
+                <h5 class="font-semibold md:font-bold text-2xl md:text-3xl text-center ">
                   Terms of Service
                 </h5>
 
-                <article className="mx-auto mt-12 prose md:mt-24 md:prose-previewify">
+                <article class="mx-auto mt-12 prose md:mt-24 md:prose-previewify">
                   <p>Last updated: Dec 9, 2022</p>
                   <p>
                     Please read these terms and conditions carefully before
@@ -659,7 +659,9 @@
                 </article>
               </section>
             </div>
-            <SubscribeForm />
+            
+            @include('frontend.components._subscribe_form')
+
           </div>
         </div>
       </div>

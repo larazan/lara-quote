@@ -11,6 +11,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
 
 use App\Http\Controllers\Admin\ArticleController as AdminArticlesController;
@@ -59,7 +60,7 @@ Route::get('/', function () {
 });
 
 // FRONTEND
-// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('articles', [ArticleController::class, 'index']);
 Route::get('articles/{slug}', [ArticleController::class, 'show']);
@@ -83,6 +84,10 @@ Route::get('quotes/{tag}', [QuoteController::class, 'showByTag']);
 
 Route::get('riddle', [RiddleController::class, 'index']);
 Route::get('riddle{id}', [RiddleController::class, 'random']);
+
+Route::get('tags', [TagController::class, 'index']);
+Route::get('tags/{letter}', [TagController::class, 'show']);
+
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
