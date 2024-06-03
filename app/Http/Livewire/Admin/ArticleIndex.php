@@ -34,6 +34,7 @@ class ArticleIndex extends Component
     public $oldImage;
     public $categoryItem;
     public $metaTitle;
+    public $metaKeyword;
     public $metaDesc;
     public $articleStatus = 'inactive';
     public $statuses = [
@@ -103,6 +104,7 @@ class ArticleIndex extends Component
         $article->published_at = $this->publishedAt;
         $article->status = $this->articleStatus;
         $article->meta_title = $this->metaTitle;
+        $article->meta_keyword = $this->metaKeyword;
         $article->meta_description = $this->metaDesc;
 
         if (!empty($this->file)) {
@@ -137,6 +139,7 @@ class ArticleIndex extends Component
         $this->oldImage = $article->small;
         $this->articleStatus = $article->status;
         $this->metaTitle = $article->meta_title;
+        $this->metaKeyword = $article->meta_keyword;
         $this->metaDesc = $article->meta_description;
 
         $this->showArticleModal = true;
@@ -166,6 +169,7 @@ class ArticleIndex extends Component
                 $article->published_at = $this->publishedAt;
                 $article->status = $this->articleStatus;
                 $article->meta_title = $this->metaTitle;
+                $article->meta_keyword = $this->metaKeyword;
                 $article->meta_description = $this->metaDesc;
 
                 if (!empty($this->file)) {

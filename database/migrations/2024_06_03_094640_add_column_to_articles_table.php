@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->string('slug');
-            $table->timestamps();
-
-            $table->index('slug');
+        Schema::table('articles', function (Blueprint $table) {
+            //
+            $table->string('meta_keyword')->nullable()->after('meta_title');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::table('articles', function (Blueprint $table) {
+            //
+        });
     }
 };

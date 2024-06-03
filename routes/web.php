@@ -76,17 +76,21 @@ Route::get('terms', [PageController::class, 'terms']);
 
 Route::get('people', [PersonController::class, 'index']);
 Route::get('people/{slug}', [PersonController::class, 'show']);
-Route::get('people/{letter}', [PersonController::class, 'showByLetter']);
+Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 
 Route::get('quotes', [QuoteController::class, 'index']);
 Route::get('quotes/{slug}', [QuoteController::class, 'show']);
 Route::get('quotes/{tag}', [QuoteController::class, 'showByTag']);
 
-Route::get('riddle', [RiddleController::class, 'index']);
-Route::get('riddle{id}', [RiddleController::class, 'random']);
+Route::get('riddles', [RiddleController::class, 'index']);
+Route::get('riddles/random', [RiddleController::class, 'random']);
 
 Route::get('tags', [TagController::class, 'index']);
+Route::get('tags/all', [TagController::class, 'getTags']);
+Route::get('tags/test', [TagController::class, 'test']);
 Route::get('tags/{letter}', [TagController::class, 'show']);
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {

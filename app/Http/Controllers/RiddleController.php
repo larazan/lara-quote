@@ -18,7 +18,7 @@ class RiddleController extends Controller
 		return $this->loadTheme('riddles.index', $this->data);
     }
 
-    public function random($id)
+    public function show($id)
     {
         $riddle = Riddle::where('id', $id)->first();
         $riddles = Riddle::inRandomOrder()
@@ -32,6 +32,16 @@ class RiddleController extends Controller
 
         $this->data['riddles'] = $merged;
 		return $this->loadTheme('riddles.index', $this->data);
+    }
+
+    public function random()
+    {
+        $riddles = Riddle::inRandomOrder()
+                    ->limit(50)
+                    ->get();
+
+        $this->data['riddles'] = $riddles;
+		return $this->loadTheme('riddles.detail', $this->data);
     }
 
     //

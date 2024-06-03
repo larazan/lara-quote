@@ -154,7 +154,7 @@
                 </li>
 
                 <li>
-                  <a href="{{ url('/riddle') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ url('/riddles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Riddles
                   </a>
                 </li>

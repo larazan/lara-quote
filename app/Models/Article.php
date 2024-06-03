@@ -43,6 +43,7 @@ class Article extends Model
         'original_url',
         'article_tags',
         'meta_title',
+        'meta_keyword',
         'meta_description',
         'original',
         'small',
