@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quote;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -13,7 +14,9 @@ class QuoteController extends Controller
 {
     public function __construct()
     {
-        parent::__construct();
+        $tags = Tag::select('name', 'slug')->get()->random(20);
+
+        $this->data['tags'] = $tags;
     }
 
     public function index()
@@ -43,7 +46,7 @@ class QuoteController extends Controller
 
     public function showByTag($tag)
     {
-        $quotes = Quote::where('tags', 'like', "%{$tag}%")->paginate();
+        $quotes = Quote::where('tags', 'like', "%{$tag}%");
 
         $this->data['quotes'] = $quotes->paginate(20);
         $this->data['tag'] = $tag;

@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
             // SettingSeeder::class,
             // ArticleSeeder::class,
             // LikeSeeder::class,
-            // TagSeeder::class,
+            TagSeeder::class,
             // FaqSeeder::class,
-            RoleSeeder::class,
+            // RoleSeeder::class,
         ]);
     }
 }

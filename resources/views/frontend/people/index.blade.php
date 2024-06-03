@@ -28,7 +28,7 @@
 
             <div class="my-4">
                 @if (!empty($letter))
-                <span class="text-3xl text-black font-bold uppercase">{{ $letter }}</span>
+                <span class="text-lg md:text-3xl text-black font-semibold md:font-bold uppercase">{{ $letter }}</span>
                 @else
                 <div class="h-10"></div>
                 @endif

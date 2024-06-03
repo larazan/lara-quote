@@ -80,7 +80,7 @@ Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 
 Route::get('quotes', [QuoteController::class, 'index']);
 Route::get('quotes/{slug}', [QuoteController::class, 'show']);
-Route::get('quotes/{tag}', [QuoteController::class, 'showByTag']);
+Route::get('quotes/tag/{tag}', [QuoteController::class, 'showByTag']);
 
 Route::get('riddles', [RiddleController::class, 'index']);
 Route::get('riddles/random', [RiddleController::class, 'random']);
