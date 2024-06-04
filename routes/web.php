@@ -79,7 +79,7 @@ Route::get('people/{slug}', [PersonController::class, 'show']);
 Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 
 Route::get('quotes', [QuoteController::class, 'index']);
-Route::get('quotes/{slug}', [QuoteController::class, 'show']);
+Route::get('quotes/{id}', [QuoteController::class, 'show']);
 Route::get('quotes/tag/{tag}', [QuoteController::class, 'showByTag']);
 
 Route::get('riddles', [RiddleController::class, 'index']);

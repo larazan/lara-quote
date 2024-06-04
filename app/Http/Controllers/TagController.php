@@ -16,13 +16,20 @@ class TagController extends Controller
         // $tags = tag::selectRaw('name', 'slug')->get();
         $tags = DB::select("SELECT name, SUBSTR(name, 1, 1) AS alpha FROM tags GROUP BY SUBSTR(name, 0, 2), name ORDER BY alpha, name");
 
+        $topics = Tag::selectRaw('id, name, slug, SUBSTR(name, 1, 1) as alpha')
+                    ->orderBy('alpha', 'asc')
+                    ->get()
+                    ->groupBy('alpha');
+
         $this->data['tags'] = $tags;
+        $this->data['topics'] = $topics;
 		return $this->loadTheme('tags.index', $this->data);
     }
 
     public function show($letter)
     {
-        $tags = Tag::where('name', 'like', "{$letter}%");
+        $alpha = Str::lower($letter);
+        $tags = Tag::where('name', 'like', "{$alpha}%");
 
         $this->data['tags'] = $tags->get();
         $this->data['letter'] = $letter;
