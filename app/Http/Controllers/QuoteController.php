@@ -27,9 +27,9 @@ class QuoteController extends Controller
 		return $this->loadTheme('quotes.index', $this->data);
     }
 
-    public function show($slug)
+    public function show($id)
     {
-        $quote = Quote::where('slug', $slug)->first();
+        $quote = Quote::where('id', $id)->first();
 
         if (!$quote) {
 			return redirect('quotes');
@@ -37,10 +37,12 @@ class QuoteController extends Controller
 
         // build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = $quote->name;
-		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($quote->id);
+		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
 		$this->data['quote'] = $quote;
+		$this->data['tags'] = explode(',', $quote->tags);
+        $this->data['author'] = $quote->author($quote->author_id)->name;
 		return $this->loadTheme('quotes.detail', $this->data);
     }
 

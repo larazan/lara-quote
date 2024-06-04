@@ -7,11 +7,11 @@
     
     <!-- Adv -->
     
-        <div class="bg-[#FFE5DD] py-10 mb-4">
+        <div class="bg-[#FFE5DD] py-10 md:mb-4">
             <div class="flex items-center justify-center sm:hidden">
                 <div>
-                    <div class="border-white rounded-full border-3 w-10 h-10 roundedShadow">
-                        <img alt="" aria-hidden="true" src="{{ Avatar::create($person->name)->toBase64() }}" class="w-[60px] h-[60px] rounded-full" />    
+                    <div class="border-white rounded-full border-3  roundedShadow">
+                        <img alt="" aria-hidden="true" src="{{ Avatar::create($person->name)->toBase64() }}" class="w-[45px] h-[45px] rounded-full" />    
                     </div>
                 </div>
                 <p class="text-sm font-semibold text-[#404040] ml-2">
@@ -21,7 +21,7 @@
             <div class="mt-4 sm:mt-6 text-center text-[#565656] flex justify-center items-center sm:divide-x relative sm:space-x-3 divide-[#CACACA]">
                 <div class="items-center justify-center hidden font-medium sm:flex">
                     <div>
-                        <div class="border-white rounded-full border-3 hidden text-[20px] leading-9 text-center w-11 h-11 left-11 -top-6 roundedShadow sm:block">
+                        <div class="border-white rounded-full border-3 hidden text-[20px] leading-9 text-center  left-11 -top-6 roundedShadow sm:block">
                             <img alt="" aria-hidden="true" src="{{ Avatar::create($person->name)->toBase64() }}" class="w-[60px] h-[60px] rounded-full" />
                         </div>
                     </div>
@@ -73,7 +73,7 @@
 
             </div>
 
-            {{ $quotes->links() }}
+            
 
         </div>
     </div>

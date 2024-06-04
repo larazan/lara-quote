@@ -41,7 +41,7 @@
                     <div class="transition-all duration-150 flex mr-[1em] mb-[1em] hover:scale-110">
                         <div class="flex  w-[90px] md:w-[130px]">
                             <div class=" flex flex-col items-center2 mx-auto w-full transition duration-500 ease-in-out">
-                                <a href="{{ url('people/'. $p->author_id) }}" class="flex justify-center px-1 w-[90px] h-[90px] md:w-[130px] md:h-[130px]">
+                                <a href="{{ url('people/'. $p->slug) }}" class="flex justify-center px-1 w-[90px] h-[90px] md:w-[130px] md:h-[130px]">
                                     <img class="w-[60px] h-[60px] md:w-[100px] md:h-[100px] rounded-full shadow" src="{{ Avatar::create($p->name)->toBase64() }}" width="32" height="32" alt="{{ $p->name }}" />
                                 </a>
                                 <div class="px-3 py-0 flex flex-col justify-center text-center leading-tight">

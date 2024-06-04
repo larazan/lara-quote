@@ -6,13 +6,15 @@ use App\Models\Quote;
 use App\Models\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TagController extends Controller
 {
     //
     public function index()
     {
-        $tags = tag::select('name', 'slug')->get();
+        // $tags = tag::selectRaw('name', 'slug')->get();
+        $tags = DB::select("SELECT name, SUBSTR(name, 1, 1) AS alpha FROM tags GROUP BY SUBSTR(name, 0, 2), name ORDER BY alpha, name");
 
         $this->data['tags'] = $tags;
 		return $this->loadTheme('tags.index', $this->data);
@@ -22,7 +24,7 @@ class TagController extends Controller
     {
         $tags = Tag::where('name', 'like', "{$letter}%");
 
-        $this->data['tags'] = $tags->paginate(20);
+        $this->data['tags'] = $tags->get();
         $this->data['letter'] = $letter;
 		return $this->loadTheme('tags.detail', $this->data);
     }

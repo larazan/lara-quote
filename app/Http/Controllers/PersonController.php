@@ -61,6 +61,8 @@ class PersonController extends Controller
         $authorId = $person->author_id;
         $quotes = Quote::where('author_id', $authorId)->get();
 
+        // dd($quotes);
+
         if (!$person) {
 			return redirect('people');
 		}

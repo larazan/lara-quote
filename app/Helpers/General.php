@@ -2,8 +2,15 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Str;
+
 class General
 {
+    public static function toLowerString(string $string)
+    {
+        $data = Str::lower($string);
+        return $data;
+    }
     
     public static function active(mixed $routes, bool $condition = true): string
     {

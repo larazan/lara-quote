@@ -1,6 +1,7 @@
 @extends('frontend.layout')
 
 @section('content')
+@dump($tags)
 
 <main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
     <div class="max-w-5xl mx-auto">
