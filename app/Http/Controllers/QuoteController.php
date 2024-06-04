@@ -211,6 +211,7 @@ class QuoteController extends Controller
         foreach($records as $record) {
             $quote = new Quote();
             $quote->words = $record['words'];
+            $quote->slug = Str::random(12);
             $quote->author_id = $record['author'];
             $quote->tags = implode(",", $record['tags']);
             $quote->created_at = Carbon::now();

@@ -5,18 +5,54 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 
 class Quote extends Model
 {
     use HasFactory;
     use Searchable;
+    use HasUuids;
 
-    protected $guarded = [
-		'id',
-		'created_at',
-		'updated_at',
+    protected $table = 'quotes';
+
+    protected $fillable = [
+		'words',
+		'slug',
+		'author_id',
+		'tags',
 	];
+
+    public static function boot() {
+        parent::boot();
+        // Auto generate UUID when creating data User
+        static::creating(function ($model) {
+            if (empty($model->{$model->getKeyName()})) {
+                $model->{$model->getKeyName()} = Str::uuid()->toString();
+            }
+        });
+    }
+
+     /**
+     * Kita override getIncrementing method
+     *
+     * Menonaktifkan auto increment
+     */
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    /**
+     * Kita override getKeyType method
+     *
+     * Memberi tahu laravel bahwa model ini menggunakan primary key bertipe string
+     */
+    public function getKeyType()
+    {
+        return 'string';
+    }
 
 	public function person()
 	{
