@@ -40,8 +40,17 @@ class QuoteController extends Controller
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
+        $tags = $quote->tags;
+        if($tags)
+        {
+            $arrTags = explode(',', $quote->tags);
+        } else {
+            $arrTags = $tags;
+        }
+        
 		$this->data['quote'] = $quote;
-		$this->data['tags'] = explode(',', $quote->tags);
+		// $this->data['tags'] = ;
+		$this->data['tags'] = $arrTags;
         $this->data['author'] = $quote->author($quote->author_id)->name;
 		return $this->loadTheme('quotes.detail', $this->data);
     }

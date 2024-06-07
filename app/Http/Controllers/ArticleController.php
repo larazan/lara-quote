@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     public function __construct()
 	{
-		parent::__construct();
+		// parent::__construct();
 
 		// $limit = 5;
         // $this->data['articles'] = Article::active()->orderBy('id', 'DESC')->limit($limit)->get();

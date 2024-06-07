@@ -2,11 +2,11 @@
 
 @section('content')
 
-<main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
+<main class="pt-[60px] md:pt-[80px] min-h-screen2 pt-162 h-full bg-white">
     <div class="max-w-5xl mx-auto">
-        <div class="px-6 lg:hidden lg:mb-0 block">
-            <!-- Search -->
-        </div>
+        
+        @include('frontend.components._search')
+
         <div class="px-6 py-2 mb-5 space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 
@@ -23,7 +23,7 @@
                         @endforeach
                         
                         <a href="{{ url('tags/' . $alpha) }}">
-                            <div class="mr-1 mt-1 mb-1 py-1.5 px-3 text-sm bg-orange-400 rounded-md flex items-center text-slate-900 gap-x-1 hover:bg-orange-500 transition cursor-pointer">
+                            <div class="mr-1 mt-1 mb-1 py-1.5 px-3 text-sm bg-orange-400 border border-orange-400 rounded-md flex items-center text-slate-900 gap-x-1 hover:bg-orange-500 transition cursor-pointer">
                                 <div class="truncate text-xs font-semibold capitalize">More</div>
                             </div>
                         </a>

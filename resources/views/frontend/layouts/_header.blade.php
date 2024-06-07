@@ -15,7 +15,9 @@
       </a>
     </div>
     <div class="w-6/12 ml-auto2 hidden lg:block">
-      <!-- Search -->
+    
+    
+
     </div>
     <div class="flex space-x-3 md:space-x-3 font-bold text-gray-900 items-center">
       <a href="{{ url('/quotes') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">

@@ -5,10 +5,9 @@
 <main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
 
     <div class="max-w-5xl mx-auto">
+            
+        @include('frontend.components._search')
 
-        <div class="px-6 lg:hidden lg:mb-0 block">
-            <!-- Search -->
-        </div>
         <!-- Tags -->
         <div class="flex flex-col w-full mt-2 px-6 py-1 transition" :class="showMore ? 'duration-500 ease-in-out bg-pink-50' : ''" x-data="{ showMore: false }">
             <div class="flex items-center pt-3 mb-1 gap-x-2 gap-y-2 pb-2" :class="showMore ? 'flex-wrap' : 'overflow-x-auto'">
@@ -49,7 +48,7 @@
             @if (!empty($tag))
             <div class="font-semibold text-black tracking-tight text-lg">tag by: <span class="text-lg md:text-3xl text-black font-semibold md:font-bold uppercase">{{ $tag }}</span></div>
             @else
-            <div class="h-10"></div>
+            <div class="h-0 md:h-10"></div>
             @endif
         </div>
 

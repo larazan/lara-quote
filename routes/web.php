@@ -55,12 +55,9 @@ use App\Http\Livewire\SelectOption;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // FRONTEND
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('articles', [ArticleController::class, 'index']);
 Route::get('articles/{slug}', [ArticleController::class, 'show']);

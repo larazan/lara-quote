@@ -5,9 +5,8 @@
 <main class="pt-[60px] bg-white md:pt-[80px] h-full">
     <div class="max-w-5xl mx-auto pb-10">
 
-        <div class="px-6 lg:hidden lg:mb-0 block">
-            <!-- Search -->
-        </div>
+        @include('frontend.components._search')
+
         <div class="p-6 space-y-4">
             <div>
                 <span class="font-semibold text-black">

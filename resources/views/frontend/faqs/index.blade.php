@@ -2,7 +2,9 @@
 
 @section('content')
 
-<div class="flex bg-white min-h-screen pt-16 md:pt-[100px]">
+@include('frontend.components._ads_modal')
+
+<main class="flex bg-white min-h-screen pt-16 md:pt-[100px]">
     <div class="flex flex-row w-full">
         <div class="flex flex-1 flex-col items-center justify-center relative">
             <div class="flex flex-1 flex-col pb-18 max-w-md md:max-w-2xl ">
@@ -62,6 +64,6 @@
 
         </div>
     </div>
-</div>
+</main>
 
 @endsection
