@@ -14,9 +14,21 @@ class QuoteController extends Controller
 {
     public function __construct()
     {
+        $shareComponent = \Share::page(
+            'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
+            'Your share text comes here',
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+
         $tags = Tag::select('name', 'slug')->get()->random(20);
 
         $this->data['tags'] = $tags;
+        $this->data['shareComponent'] = $shareComponent;
     }
 
     public function index()

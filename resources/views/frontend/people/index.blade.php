@@ -16,7 +16,7 @@
                     @foreach($letters as $l)
                     <a 
                         href="{{ url('people/letter/' . $l) }}" 
-                        class="flex mr-2 mt-2 justify-center items-center mb-1.5 w-8 h-8 bg-white hover:bg-blue-800 px-2 py-1 border-2  text-gray-900 hover:text-white border-gray-900 @if(in_array(Request::segment(3), [$l])){{ 'bg-blue-800 text-white' }}@else{ 'bg-white text-gray-900' }@endif"
+                        class="flex mr-2 mt-2 justify-center items-center mb-1.5 w-8 h-8  hover:bg-blue-800 px-2 py-1 border-2  hover:text-white border-gray-900 @if(Request::segment(3) == $l){{ 'bg-blue-800 text-white' }}@else{ 'bg-white text-gray-900' }@endif"
                     
                     >
                         <span class="uppercase font-bold ">{{ $l }}</span>

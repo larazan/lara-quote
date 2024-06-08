@@ -1,4 +1,4 @@
-<header class="fixed z-30 w-full px-5 md:px-10 py-1.5 items-center transition duration-300 ease-out bg-white2 bg-opacity-10 backdrop-filter backdrop-blur border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
+<header class="fixed z-30 w-full px-5 md:px-10 py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
   <div class="flex items-center justify-between mx-auto max-w-5xl">
     <div class="flex w-1/12 items-center text-gray-800">
       <a href="/">
@@ -14,11 +14,9 @@
       </svg>
       </a>
     </div>
-    <div class="w-6/12 ml-auto2 hidden lg:block">
     
+    @include('frontend.components._modal-search')
     
-
-    </div>
     <div class="flex space-x-3 md:space-x-3 font-bold text-gray-900 items-center">
       <a href="{{ url('/quotes') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
       Quotes

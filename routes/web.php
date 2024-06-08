@@ -13,6 +13,7 @@ use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\SocialShareButtonsController;
 
 use App\Http\Controllers\Admin\ArticleController as AdminArticlesController;
 
@@ -88,7 +89,7 @@ Route::get('tags/test', [TagController::class, 'test']);
 Route::get('tags/{letter}', [TagController::class, 'show']);
 
 
-
+// Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 

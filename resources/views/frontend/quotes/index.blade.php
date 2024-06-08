@@ -11,7 +11,7 @@
         <!-- Tags -->
         <div class="flex flex-col w-full mt-2 px-6 py-1 transition" :class="showMore ? 'duration-500 ease-in-out bg-pink-50' : ''" x-data="{ showMore: false }">
             <div class="flex items-center pt-3 mb-1 gap-x-2 gap-y-2 pb-2" :class="showMore ? 'flex-wrap' : 'overflow-x-auto'">
-                <a href="/">
+                <a href="/quotes">
                     <div class="py-1.5 px-3 text-sm rounded-md flex items-center gap-x-1 transition cursor-pointer border-sky-700 bg-blue-300 text-sky-700">
                         <div class="truncate text-xs font-semibold">All</div>
                     </div>
@@ -25,6 +25,11 @@
                     </div>
                 </a>
                 @endforeach
+                <a href="/tags">
+                    <div class="py-1.5 px-3 text-sm rounded-md flex items-center gap-x-1 transition cursor-pointer border-orange-400 bg-orange-400 text-slate-700 hover:bg-orange-300">
+                        <div class="truncate text-xs font-semibold">See all</div>
+                    </div>
+                </a>
             </div>
             <div class="flex  mx-auto justify-center w-11/12">
                 <button class="flex items-center px-2 py-1 space-x-1 text-black rounded-md tracking-tight text-[13px] font-medium" @click="showMore = !showMore">

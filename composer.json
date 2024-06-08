@@ -11,6 +11,7 @@
         "doctrine/dbal": "^3.6",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
+        "jorenvanhocht/laravel-share": "^4.2",
         "laravel-notification-channels/twitter": "^6.2",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "2.16",
