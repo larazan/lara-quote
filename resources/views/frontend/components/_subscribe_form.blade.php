@@ -30,11 +30,11 @@
     </div>
     <p class="text-sm text-gray-500 md:text-center dark:text-gray-400 font-normal">
       By subscribing, you agree with
-      <a rel="nofollow noopener noreferrer" class="text-blue-600 dark-text-blue-400 hover:underline" href="{{ url('/terms') }}">
+      <a rel="nofollow noopener noreferrer" class="text-blue-600 dark-text-blue-400 hover:underline" href="{{ route('terms') }}">
         Terms of Service
       </a>
       and
-      <a class="text-blue-600 dark-text-blue-400 hover:underline" rel="nofollow noopener noreferrer" href="{{ url('/privacy-policy') }}">
+      <a class="text-blue-600 dark-text-blue-400 hover:underline" rel="nofollow noopener noreferrer" href="{{ route('privacy-policy') }}">
         Privacy Policy
       </a>
       .

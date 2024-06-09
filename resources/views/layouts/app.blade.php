@@ -7,6 +7,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ config('app.name', 'Laravel') }}</title>
+  <meta name="description" content="The Laravel portal for problem solving, knowledge sharing and community building." />
+  @stack('meta')
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -185,7 +187,6 @@
     }
   </style>
   @stack('styles')
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
  
 </head>
 

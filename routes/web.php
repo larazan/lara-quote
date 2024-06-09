@@ -60,30 +60,30 @@ use App\Http\Livewire\SelectOption;
 // FRONTEND
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('articles', [ArticleController::class, 'index']);
+Route::get('articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('articles/{slug}', [ArticleController::class, 'show']);
 
 Route::get('contact', [ContactController::class, 'index']);
 Route::post('contact', [ContactController::class, 'create'])->name('contact.create');
 
-Route::get('faqs', [FaqController::class, 'index']);
+Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 
-Route::get('about', [PageController::class, 'about']);
-Route::get('privacy-policy', [PageController::class, 'policy']);
-Route::get('terms', [PageController::class, 'terms']);
+Route::get('about', [PageController::class, 'about'])->name('about');
+Route::get('privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
+Route::get('terms', [PageController::class, 'terms'])->name('terms');
 
-Route::get('people', [PersonController::class, 'index']);
+Route::get('people', [PersonController::class, 'index'])->name('people');
 Route::get('people/{slug}', [PersonController::class, 'show']);
 Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 
-Route::get('quotes', [QuoteController::class, 'index']);
+Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
 Route::get('quotes/{id}', [QuoteController::class, 'show']);
 Route::get('quotes/tag/{tag}', [QuoteController::class, 'showByTag']);
 
-Route::get('riddles', [RiddleController::class, 'index']);
+Route::get('riddles', [RiddleController::class, 'index'])->name('riddles');
 Route::get('riddles/random', [RiddleController::class, 'random']);
 
-Route::get('tags', [TagController::class, 'index']);
+Route::get('tags', [TagController::class, 'index'])->name('tags');
 Route::get('tags/all', [TagController::class, 'getTags']);
 Route::get('tags/test', [TagController::class, 'test']);
 Route::get('tags/{letter}', [TagController::class, 'show']);

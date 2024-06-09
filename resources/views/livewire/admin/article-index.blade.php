@@ -140,6 +140,9 @@
                                 <div class="gh gt">Image</div>
                             </th>
                             <th class="vi wy w_ vo lm">
+                                <div class="gh gt">Category</div>
+                            </th>
+                            <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Author</div>
                             </th>
                             <th class="vi wy w_ vo lm">
@@ -181,6 +184,9 @@
                                     <img src="{{ asset('storage/'.$article->small) }}" class="object-scale-down h-48 w-96" alt="{{ $article->title }}">
                                 </div>
                                 @endif
+                            </td>
+                            <td class="vi wy w_ vo lm">
+                                <div class="gp text-slate-800">{{ $article->category($article->category_id) }}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
                                 <div class="gp ">{{ $article->user->first_name }} {{ $article->user->last_name }}</div>

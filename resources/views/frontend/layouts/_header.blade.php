@@ -18,17 +18,17 @@
     @include('frontend.components._modal-search')
     
     <div class="flex space-x-3 md:space-x-3 font-bold text-gray-900 items-center">
-      <a href="{{ url('/quotes') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('quotes') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
       Quotes
       </a>
-      <a href="{{ url('/people') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('people') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
       Peoples
       </a>
-      <a href="{{ url('/riddles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['riddles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('riddles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['riddles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
       Riddles
       </a>
-      <a href="{{ url('/articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-      Funny
+      <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      Blog
       </a>
 
       <div class="hidden flex2 items-center gap-x-2 ml-auto">
@@ -75,23 +75,23 @@
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ url('/quotes') }}">
+              <a class="hover:text-[#FF6D42]" href="{{ route('quotes') }}">
               Quotes
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ url('/riddles') }}">
+              <a class="hover:text-[#FF6D42]" href="{{ route('riddles') }}">
               Riddles
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ url('/people') }}">
+              <a class="hover:text-[#FF6D42]" href="{{ route('people') }}">
               Person
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ url('/articles') }}">
-              Funny
+              <a class="hover:text-[#FF6D42]" href="{{ route('articles') }}">
+              Blog
               </a>
             </li>
 

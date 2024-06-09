@@ -17,7 +17,7 @@ class ArticleController extends Controller
 
     public function index()
 	{
-		$articles = Article::orderBy('created_at', 'DESC');
+		$articles = Article::where('status','active')->orderBy('created_at', 'DESC');
 
 		// build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = '';
@@ -33,7 +33,7 @@ class ArticleController extends Controller
 		$article = Article::active()->where('slug', $slug)->first();
 
 		if (!$article) {
-			return redirect('blogs');
+			return redirect('articles');
 		}
 
 		$this->data['article'] = $article;
@@ -54,9 +54,9 @@ class ArticleController extends Controller
 		// $breadcrumbs_array[$homepage_url] = 'Home';
 		
 		// get sub cat title
-		$sub_cat_title = 'Blogs';
+		$sub_cat_title = 'Articles';
 		// get sub cat url
-		$sub_cat_url = url('blogs');
+		$sub_cat_url = url('articles');
 	
 		$breadcrumbs_array[$sub_cat_url] = $sub_cat_title;
 		return $breadcrumbs_array;

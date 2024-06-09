@@ -11,8 +11,12 @@
                 <!-- Adv -->
 
                 <section class="w-full mx-auto  mt-10 md:mt-10 px-5 pb-10">
-                    <div class="flex justify-between">
-                        <div class="flex justify-end space-x-2">
+                    
+                    <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 justify-between">
+                        <div class="">
+                        {!! $shareComponent !!}
+                        </div>
+                        <div class="flex2 hidden justify-end space-x-2">
                             <button>
                                 <div class="flex rounded py-1.5 px-2 bg-[#1877f2] hover:bg-[#1877f2] fill-[#1877f2] hover:fill-white  items-center justify-between md:space-x-1 hover:shadow-blue-500/50 ">
                                     <span class="text-white text-sm font-semibold hidden md:block">
@@ -45,7 +49,7 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="flex space-x-2">
+                        <div class="flex space-x-2 justify-end md:justify-normal">
                             <button class="bg-[#f6f8fa] hover:bg-gray-200 border border-gray-300 px-2 py-1 font-extralight text-white inline-flex items-center space-x-1 rounded " title="Like Quote">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-4 h-4 text-gray-500">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
@@ -117,9 +121,7 @@
                                 
                             </div>
                         </div>
-                        <div class="pt-10">
-                        {!! $shareComponent !!}
-                        </div>
+                        
                     </div>
                 </section>
             </div>
@@ -133,33 +135,40 @@
 @endsection
 
 @push('style')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <style>
     div#social-links {
-        margin: 0 auto;
-        max-width: 500px;
+        /* background-color: #ccc; */
+        display: flex;
+        /* margin: 0 auto; */
+        max-width: 260px;
     }
     div#social-links ul li {
         display: inline-block;
     }          
     div#social-links ul li a {
-        padding: 10px;
-        border: 1px solid #ccc;
+        border-radius: 100%;
+        padding: 7px 10px;
+        /* border: 1px solid #ccc; */
         margin: 1px;
         font-size: 20px;
         color: #222;
-        background-color: #ccc;
+        background-color: #eee;
     }
 </style>
 @endpush
 
 @push('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     let text = document.getElementById('myText').innerHTML;
     const copyContent = async () => {
         try {
             await navigator.clipboard.writeText(text);
             console.log('Content copied to clipboard');
+            toastr.success('Success copy to clipboard', {timeOut: 2000})
         } catch (err) {
             console.error('Failed to copy: ', err);
         }

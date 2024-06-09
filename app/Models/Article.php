@@ -77,10 +77,11 @@ class Article extends Model
 
     public const ACTIVE = 'active';
     public const INACTIVE = 'inactive';
+    public const POST = 'Post';
 
     public const STATUSES = [
-        self::ACTIVE => 'Active',
-        self::INACTIVE => 'Inactive',
+        self::ACTIVE => 'active',
+        self::INACTIVE => 'inactive',
     ];
 
     public function id(): int
@@ -98,9 +99,16 @@ class Article extends Model
         return $this->body;
     }
 
-    public function excerpt(int $limit = 100): string
+    public function excerpt(int $limit = 200): string
     {
         return Str::limit(strip_tags($this->body()), $limit);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::ACTIVE);
+            // ->where('article_type', self::POST)
+            // ->where('published_at', '<=', Carbon::now());
     }
 
     public function hasHeroImage(): bool
@@ -232,9 +240,15 @@ class Article extends Model
         return $this->belongsTo(User::class, 'author_id');
     }
 
-    public function categoryArticles()
+    public function category($categoryId)
+	{
+		$category = CategoryArticle::where('id', $categoryId)->first();
+		return $category->name;
+	}
+
+    public function categoryArticle()
     {
-        return $this->belongsToMany(CategoryArticle::class, 'article_categories');
+        return $this->belongsToMany(CategoryArticle::class, 'category_articles',);
     }
 
     public function comments() 

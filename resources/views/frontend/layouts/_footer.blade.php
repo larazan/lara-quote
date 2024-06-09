@@ -112,31 +112,31 @@
             <nav aria-label="Footer Navigation - Services" class="mt-0 md:mt-6">
               <ul class="space-y-2 text-md font-mabrybold">
                 <li>
-                  <a href="{{ url('/faqs') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('faqs') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Help
                   </a>
                 </li>
 
                 <li>
-                  <a href="{{ url('/about') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('about') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     About
                   </a>
                 </li>
 
                 <li>
-                  <a href="{{ url('/articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Blogs
                   </a>
                 </li>
 
                 <li>
-                  <a href="{{ url('/terms') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('terms') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Terms of Service
                   </a>
                 </li>
 
                 <li>
-                  <a href="{{ url('/privacy-policy') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('privacy-policy') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Privacy Policy
                   </a>
                 </li>
@@ -148,37 +148,33 @@
             <nav aria-label="Footer Navigation - Company" class="mt-0 md:mt-6">
               <ul class="space-y-2 text-md font-mabrybold">
                 <li>
-                  <a href="{{ url('/quotes') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('quotes') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Quotes
                   </a>
                 </li>
 
                 <li>
-                  <a href="{{ url('/riddles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('riddles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Riddles
                   </a>
                 </li>
 
                 <li>
-                  <a href="{{ url('/articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Funny
                   </a>
                 </li>
                 <li>
-                  <a href="{{ url('/people') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Peoples
+                  <a href="{{ route('people') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                    People
                   </a>
                 </li>
                 <li>
-                  <a href="{{ url('/tags') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('tags') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Tags
                   </a>
                 </li>
-                <li>
-                  <a href="/" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Shop
-                  </a>
-                </li>
+                
               </ul>
             </nav>
           </div>
@@ -187,7 +183,7 @@
 
       <div class="pt-6 md:pt-12">
         <div class="py-0 sm:mb-0 mx-2 md:mx-5 xl:mx-auto text-center border-gray-300 border-t-[0.5px]  max-w-7xl">
-          <p class="text-normal text-gray-700 my-3 md:my-6">©2023 Now&amp;Me Enterprises Pvt. Ltd. – All rights reserved.</p>
+          <p class="text-normal text-gray-700 my-3 md:my-6">©{{ date('Y') }} Now&amp;Me Enterprises Pvt. Ltd. – All rights reserved.</p>
         </div>
       </div>
     </div>

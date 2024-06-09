@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <main class="relative bg-white pb-12">
         <div class="mx-auto max-w-screen-lg">
           <div
@@ -296,9 +297,52 @@
                   </div>
                 </div>
               </li>
+              @foreach($articles as $a)
+              <li class="py-6 md:py-10">
+                <h2 class="pb-4 text-center md:text-left">
+                  <a
+                    href="{{ url('/articles/' . $a->slug) }}"
+                    class="text-2xl md:text-3xl leading-8 md:leading-10 font-bold text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
+                  >
+                    {{ $a->title }}
+                  </a>
+                </h2>
+                <p class="md:text-lg md:leading-normal text-gray-600 text-center md:text-left">
+                  {{ $a->excerpt() }}
+                </p>
+                <div
+                  class="pt-6 flex justify-center md:justify-start"
+                >
+                  <div class="flex items-center" >
+                    <div class="w-10 h-10" >
+                      <img
+                        src="{{ Avatar::create($a->user->first_name.' '.$a->user->last_name)->toBase64() }}"
+                        alt="{{ $a->user->first_name }} {{ $a->user->last_name }}"
+                        class="rounded-full w-full"
+                      />
+                    </div>
+                    <div class="ml-3 leading-6" >
+                      <div
+                        class="font-medium text-gray-600"
+                        
+                      >
+                      {{ $a->user->first_name }} {{ $a->user->last_name }}
+                      </div>
+                      <div class="text-sm text-gray-500" >
+                        <time datetime="2021-29-00">{{ $a->created_at->format('M d, Y') }}</time>
+                        <!-- <span> · </span>
+                        <span>13 min read</span> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              @endforeach
             </ul>
           </div>
-          <Pagination />
+          
+          {{ $articles->links() }}
+
         </div>
         
       </main>

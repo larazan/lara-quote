@@ -10,9 +10,9 @@
             <input class="relative flex h-12 bg-transparent px-1 py-3 text-md ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 w-full lg:w-[600px] focus-visible:ring-transparent" placeholder="Search for a Quote or People">
         </div>
     </form>
-    <div x-show="searchVisible" @click.outside="searchVisible = false" class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity" aria-hidden="true" style="display: none;" ></div>
-    <div x-show="searchVisible" @click.outside="searchVisible = false" id="search-modal" class="fixed inset-0 z-50 overflow-hidden flex items-start top-20 mb-4 justify-center transform px-4 sm:px-6" role="dialog" aria-modal="true" style="display: none;" >
-        <div class="bg-white overflow-auto max-w-2xl w-full max-h-full rounded-lg shadow-lg" >
+    <div x-show="searchVisible" class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity" aria-hidden="true" style="display: none;" ></div>
+    <div x-show="searchVisible" id="search-modal" class="fixed inset-0 z-50 overflow-hidden flex items-start top-20 mb-4 justify-center transform px-4 sm:px-6" role="dialog" aria-modal="true" style="display: none;" >
+        <div @click.outside="searchVisible = false" class="bg-white overflow-auto max-w-2xl w-full max-h-full rounded-lg shadow-lg" >
             <form class="border-b">
                 <div class="relative" >
                     <label for="search" class="sr-only">Search</label>
