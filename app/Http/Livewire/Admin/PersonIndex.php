@@ -133,7 +133,8 @@ class PersonIndex extends Component
         })->orderBy('name', $this->sort)->paginate($this->perPage);
 
         return view('livewire.admin.person-index', [
-            'persons' => Person::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
+            'persons' => $persons,
+            // 'persons' => Person::search('name', $this->search)->orderBy('name', $this->sort)->paginate($this->perPage)
         ]);
     }
 

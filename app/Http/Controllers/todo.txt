@@ -1,8 +1,6 @@
-social Share
 algolia Search
 logo
 riddle
 Home
 prevent scrapping
-alert copy like
 meta tag

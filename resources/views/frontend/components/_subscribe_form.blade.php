@@ -8,7 +8,8 @@
       about new articles, quotes, riddles, and more.
     </p>
     <div class="mb-4">
-      <form class="flex max-w-xl md:mx-auto">
+      <form action="{{ route('subscribe.store') }}" method="post" class="flex max-w-xl md:mx-auto">
+        @csrf
         <div class="w-full" data-style="clean">
           <label for="member_email" class="hidden">
             Email address
@@ -20,11 +21,11 @@
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
             </div>
-            <input type="email" id="member_email" name="email_address" class="block w-full px-3 py-3 md:py-4 pl-11 text-base text-gray-900 bg-white border border-gray-200 rounded-l-xl formkit-input focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your email" required="" />
+            <input type="email" id="member_email" name="email" class="block w-full px-3 py-3 md:py-4 pl-11 text-base text-gray-900 bg-white border border-gray-200 rounded-l-xl formkit-input focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your email" required="" />
           </div>
         </div>
         <div>
-          <input type="submit" data-element="submit" id="member_submit" class="w-full px-4 py-3 md:py-4 text-base font-medium text-center text-white bg-blue-600 border border-blue-600 cursor-pointer rounded-r-xl formkit-submit hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600" value="Subscribe" />
+          <input type="submit" data-element="submit" id="member_submit" class="w-full px-4 py-3 md:py-4 text-base font-medium text-center text-white bg-blue-600 border border-blue-600 cursor-pointer rounded-r-xl formkit-submit hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600" value="submit" />
         </div>
       </form>
     </div>
