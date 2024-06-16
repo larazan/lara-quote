@@ -76,9 +76,12 @@ Route::get('people', [PersonController::class, 'index'])->name('people');
 Route::get('people/{slug}', [PersonController::class, 'show']);
 Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 
-Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
-Route::get('quotes/{id}', [QuoteController::class, 'show']);
+Route::middleware(['throttle:global'])->group(function () {
+    Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
+    Route::get('quotes/{id}', [QuoteController::class, 'show']);
+});
 Route::get('quotes/tag/{tag}', [QuoteController::class, 'showByTag']);
+
 
 Route::get('riddles', [RiddleController::class, 'index'])->name('riddles');
 Route::get('riddles/random', [RiddleController::class, 'random']);

@@ -23,36 +23,7 @@
 
                 <div class="flex py-8 md:py-20 relative">
                     <div class="flex flex-col gap-y-24 md:gap-y-32 mx-auto max-w-6xl">
-                        <div class="">
-                            <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
-                                <div class="image false my-auto">
-                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote4.png') }}" />
-                                </div>
-                                <div class="flex flex-col gap-y-4 mx-auto my-auto">
-                                    <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
-                                        The Future of Quote Creation
-                                    </h2>
-                                    <div class="flex flex-col gap-y-4">
-                                        <div class="flex gap-x-4 max-w-2xl">
-
-                                            <div>
-                                                <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
-                                                    Embracing AI Quotes
-                                                </h3>
-                                                <p class="md:text-lg mb-4 text-gray-600">
-                                                    Using AI into the realm of quote creation marks a
-                                                    transformative shift. Our AI Quote Generator can
-                                                    intuitively produce quotes that resonate with
-                                                    contemporary themes and ideas, making it an invaluable
-                                                    tool for modern communicators.
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image md:order-2 my-auto">
@@ -60,20 +31,17 @@
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
-                                        Personalized Quotes in Seconds
+                                        Find Quotes in Seconds
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
 
                                             <div>
                                                 <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
-                                                    Real Time Quote Generation
+                                                   Large Quote Collection 
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    The speed and efficiency of our AI Quote Generator are
-                                                    unmatched. Providing real-time, personalized quotes, it
-                                                    caters to the fast-paced needs of today&apos;s users,
-                                                    delivering quality content without the wait.
+                                                    Welcome! inspira Quotes is an online community to inspire you daily through uplifting and motivational quotes.
                                                 </p>
                                             </div>
                                         </div>
@@ -89,20 +57,17 @@
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
-                                        Enhancing Creativity with AI
+                                        Enhancing World Wisdom
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
 
                                             <div>
                                                 <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
-                                                    Breaking Creative Boundaries
+                                                    Alot of topics and people
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    Our AI Quote Generator is not just a tool but a catalyst
-                                                    for breaking creative boundaries. It encourages users to
-                                                    explore new realms of thought and expression, pushing
-                                                    the limits of conventional quote-making.
+                                                    Gracious Quotes is a community (created on 12 February 2020) to help you discover mysterious passion and unknown inspiration that you didn’t know were there before.
                                                 </p>
                                             </div>
                                         </div>
@@ -128,11 +93,11 @@
                                                     A Library of Quotes at Your Disposal
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    Our AI Quote Generator functions like a vast library,
+                                                    Our Quote Database like a vast library,
                                                     offering easy access to a wide range of inspirational
                                                     quotes. Whether you&apos;re looking for wisdom, humor,
-                                                    or motivation, the generator provides an extensive
-                                                    collection to choose from.
+                                                    or motivation, the database provides an extensive
+                                                    collection.
                                                 </p>
                                             </div>
                                         </div>
