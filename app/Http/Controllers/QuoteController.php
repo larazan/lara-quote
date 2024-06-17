@@ -27,8 +27,101 @@ class QuoteController extends Controller
 
         $tags = Tag::select('name', 'slug')->get()->random(20);
 
+        $fontFamily = [
+            "Aelten",
+            "Alphakind",
+            "Amellis",
+            "Mollusca",
+            "Bajurie",
+            "Banda-Aceh",
+            "Bitcrusher",
+            "Blue_highway_cd",
+            "Borg",
+            "Bright-Dreams",
+            "Chandella",
+            "Chinese-Rocks",
+            "Cokobi",
+            "Colombia",
+            "ConcreteWall",
+            "Coolvetica",
+            "Dakwart",
+            "DAGOCA",
+            "Dealerplate-California",
+            "Dream-Orphans",
+            "Elliane-Regular",
+            "Engebrechtre",
+            "ENGINE",
+            "Foo",
+            "Gnuolane",
+            "Gratise",
+            "Groomer",
+            "Halmera",
+            "HappyGarden",
+            "Hellohowareyou",
+            "Helsinki",
+            "Inter-Regular",
+            "Jreeng",
+            "JustSmile",
+            "Kaylafiz",
+            "Kimberley",
+            "LazySunday",
+            "Leorio",
+            "Limejuice",
+            "Lovetle",
+            "Lynoselt",
+            "MatSaleh",
+            "MelocheBook",
+            "MightyKingdom",
+            "Monofonto",
+            "Morganite-Light",
+            "MorningMiow",
+            "Mounets",
+            "NoVirus",
+            "NugoSansLight",
+            "Oaklevin",
+            "Ontel",
+            "Peace",
+            "PeachyRose",
+            "Pouline",
+            "Pretender",
+            "QuickCount",
+            "Rakesly",
+            "Rennoya",
+            "ROLAND",
+            "Saolice",
+            "SimpalaExtended",
+            "SingleSleeve",
+            "StraightlerRegular",
+            "SweetSomeday",
+            "Tahu",
+            "Thruster-Regular",
+            "VirusKiller",
+            "WallabysJunior",
+            "WanitaCantik",
+            "ZZYZX",
+            "WhereTheCookies",
+            "WKSimple",
+            "Arvo-Regular",
+            "Cinzel-Regular",
+            "Domine-Regular",
+            "LiberationSerif-Regular",
+            "Lustria-Regular",
+            "Mohave-Regular",
+            "Montserrat-Regular",
+            "NotoSans-Regular",
+            "Promesh_Regular",
+            "Raleway-Regular",
+            "Rubik-Regular",
+            "Zaio",
+            "Antonio-Regular",
+            "Bitter-Regular",
+            "COBAISSI",
+            "CrimsonText-Roman",
+          ];
+
         $this->data['tags'] = $tags;
         $this->data['shareComponent'] = $shareComponent;
+        $this->data['fontFamily'] = $fontFamily;
     }
 
     public function index()
@@ -74,6 +167,36 @@ class QuoteController extends Controller
         $this->data['quotes'] = $quotes->paginate(20);
         $this->data['tag'] = $tag;
 		return $this->loadTheme('quotes.index', $this->data);
+    }
+
+    public function showcase($id, $font)
+    {
+        $quote = Quote::where('id', $id)->first();
+
+        if (!$quote) {
+			return redirect('quotes');
+		}
+
+        // build breadcrumb data array
+		$breadcrumbs_data['current_page_title'] = $quote->name;
+		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
+		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
+
+        $tags = $quote->tags;
+        if($tags)
+        {
+            $arrTags = explode(',', $quote->tags);
+        } else {
+            $arrTags = $tags;
+        }
+        
+        
+		$this->data['quote'] = $quote;
+		$this->data['font'] = $font;
+		// $this->data['tags'] = ;
+		$this->data['tags'] = $arrTags;
+        $this->data['author'] = $quote->author($quote->author_id)->name;
+		return $this->loadTheme('quotes.showcase', $this->data);
     }
 
     public function _generate_breadcrumbs_array($id) {

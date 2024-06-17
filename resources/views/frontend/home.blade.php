@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('frontend.components._ads_modal')
+
 <div class="flex bg-white min-h-screen pt-[60px] md:pt-[100px]">
     <div class="flex flex-row w-full">
         <div class="flex flex-1 flex-col items-center justify-center relative">
@@ -27,7 +29,7 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image md:order-2 my-auto">
-                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote4.png') }}" />
+                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote-1.jpg') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
@@ -53,7 +55,7 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image false my-auto">
-                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote4.png') }}" />
+                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote-3.webp') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
@@ -79,7 +81,7 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image md:order-2 my-auto">
-                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote4.png') }}" />
+                                    <img  class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote-2.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">

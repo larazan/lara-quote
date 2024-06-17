@@ -12,7 +12,7 @@
     </title>
     
     <meta name="description" content="The Laravel portal for problem solving, knowledge sharing and community building." />
-
+    <link rel="icon" href="/frontend/img/favicon.ico">
     
     @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />

@@ -7,7 +7,7 @@
                         <td class=""></td>
                         <td class=""></td>
                         <td class=""></td>
-                        <td class=""></td>
+                        <td class="active"></td>
                         <td class=""></td>
                         <td class=""></td>
                         <td class=""></td>
