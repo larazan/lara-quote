@@ -29,13 +29,13 @@
                                 class="leading-tight md:leading-snug text-black text-center text-xl md:text-xl lg:text-2xl"
                                 style="font-family: {{ $f }} "
                             >
-                                For an entire populace, change, growth, and spontaneity were dangerous. Acting upon a personal desire, whispering a hidden longing, revealing your true feelings - all the human actions we think of as essential to a character - had be censored by the self lest they be punished by the state.
+                                {{ $quote->words }}
                             </p>
                             <div class=" px-2 py-4 flex justify-end">
                                 <button class=" flex justify-between space-x-6 md:space-x-2">
                                     <div class="flex space-x-2 ">
                                         <span class="flex items-center justify-center text-sm text-[#171717BF] font-semibold">
-                                        Adam Johnson
+                                        {{ $author }}
                                         </span>
                                     </div>
                                 </button>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="flex flex-row justify-between mx-auto w-full md:w-12/12 space-x-6 items-center pb-7">
-        <a href="/" class="flex rounded px-2 py-1 items-center bg-blue-100 hover:bg-blue-200">
+        <a href="{{ url('/quotes/' . $id . '/showcase') }}" class="flex rounded px-2 py-1 items-center bg-blue-100 hover:bg-blue-200">
             <span class=" font-semibold text-xs md:text-base text-[#002f6c]">
                 All showcase
             </span>

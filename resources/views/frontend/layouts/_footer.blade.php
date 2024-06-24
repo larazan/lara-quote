@@ -171,7 +171,7 @@
                 </li>
                 <li>
                   <a href="{{ route('tags') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Tags
+                    Topic
                   </a>
                 </li>
                 

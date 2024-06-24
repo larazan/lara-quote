@@ -30,6 +30,149 @@ class QuoteController extends Controller
         $fontFamily = [
             "Aelten",
             "Alphakind",
+            "Bajurie",
+            "Banda-Aceh",
+            "Bitcrusher",
+            "Blue_highway_cd",
+            "Borg",
+            "Bright-Dreams",
+            "Chandella",
+            "Chinese-Rocks",
+            "Cokobi",
+            "Colombia",
+            "ConcreteWall",
+            "Coolvetica",
+            "Dakwart",
+            "DAGOCA",
+            "Dealerplate-California",
+            "Dream-Orphans",
+            "Elliane-Regular",
+            "Engebrechtre",
+            "ENGINE",
+            "Foo",
+            "Gnuolane",
+            "Gratise",
+            "Groomer",
+            "Halmera",
+            "HappyGarden",
+            "Hellohowareyou",
+            "Helsinki",
+            "Inter-Regular",
+            "Jreeng",
+            "Kaylafiz",
+            "Kimberley",
+            "Leorio",
+            "Limejuice",
+            "Lovetle",
+            "Lynoselt",
+            "MatSaleh",
+            "MelocheBook",
+            "MightyKingdom",
+            "Monofonto",
+            "MorningMiow",
+            "Mounets",
+            "NoVirus",
+            "NugoSansLight",
+            "Oaklevin",
+            "Ontel",
+            "Peace",
+            "PeachyRose",
+            "Pouline",
+            "Pretender",
+            "Rakesly",
+            "Rennoya",
+            "ROLAND",
+            "Saolice",
+            "SimpalaExtended",
+            "SingleSleeve",
+            "StraightlerRegular",
+            "SweetSomeday",
+            "Tahu",
+            "Thruster-Regular",
+            "VirusKiller",
+            "WallabysJunior",
+            "ZZYZX",
+            "WhereTheCookies",
+            "WKSimple",
+            "Arvo-Regular",
+            "Cinzel-Regular",
+            "Domine-Regular",
+            "LiberationSerif-Regular",
+            "Lustria-Regular",
+            "Mohave-Regular",
+            "Montserrat-Regular",
+            "NotoSans-Regular",
+            "Promesh_Regular",
+            "Raleway-Regular",
+            "Rubik-Regular",
+            "Zaio",
+            "Antonio-Regular",
+            "Bitter-Regular",
+            "COBAISSI",
+            "CrimsonText-Roman",
+          ];
+
+        $this->data['tags'] = $tags;
+        $this->data['shareComponent'] = $shareComponent;
+        $this->data['fontFamily'] = $fontFamily;
+    }
+
+    public function index()
+    {
+        $quotes = Quote::orderBy('id', 'ASC');
+
+        $this->data['quotes'] = $quotes->paginate(20);
+		return $this->loadTheme('quotes.index', $this->data);
+    }
+
+    public function show($id)
+    {
+        $quote = Quote::where('id', $id)->first();
+
+        if (!$quote) {
+			return redirect('quotes');
+		}
+
+        // build breadcrumb data array
+		$breadcrumbs_data['current_page_title'] = $quote->name;
+		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
+		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
+
+        $tags = $quote->tags;
+        if($tags)
+        {
+            $arrTags = explode(',', $quote->tags);
+        } else {
+            $arrTags = $tags;
+        }
+        
+		$this->data['quote'] = $quote;
+		$this->data['id'] = $id;
+		$this->data['tags'] = $arrTags;
+        $this->data['author'] = $quote->author($quote->author_id)->name;
+		return $this->loadTheme('quotes.detail', $this->data);
+    }
+
+    public function showByTag($tag)
+    {
+        $quotes = Quote::where('tags', 'like', "%{$tag}%");
+
+        $this->data['quotes'] = $quotes->paginate(20);
+        $this->data['tag'] = $tag;
+		return $this->loadTheme('quotes.index', $this->data);
+    }
+
+    public function showcase($id)
+    {
+        $quote = Quote::where('id', $id)->first();
+
+        if (!$quote) {
+			return redirect('quotes');
+		}
+
+        $fontFamily = [
+            [ 'font' => "Aelten", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#000', 'fontColor' => '#fff' ],
+            "Alphakind",
             "Amellis",
             "Mollusca",
             "Bajurie",
@@ -119,64 +262,6 @@ class QuoteController extends Controller
             "CrimsonText-Roman",
           ];
 
-        $this->data['tags'] = $tags;
-        $this->data['shareComponent'] = $shareComponent;
-        $this->data['fontFamily'] = $fontFamily;
-    }
-
-    public function index()
-    {
-        $quotes = Quote::orderBy('id', 'ASC');
-
-        $this->data['quotes'] = $quotes->paginate(20);
-		return $this->loadTheme('quotes.index', $this->data);
-    }
-
-    public function show($id)
-    {
-        $quote = Quote::where('id', $id)->first();
-
-        if (!$quote) {
-			return redirect('quotes');
-		}
-
-        // build breadcrumb data array
-		$breadcrumbs_data['current_page_title'] = $quote->name;
-		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
-		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
-
-        $tags = $quote->tags;
-        if($tags)
-        {
-            $arrTags = explode(',', $quote->tags);
-        } else {
-            $arrTags = $tags;
-        }
-        
-		$this->data['quote'] = $quote;
-		// $this->data['tags'] = ;
-		$this->data['tags'] = $arrTags;
-        $this->data['author'] = $quote->author($quote->author_id)->name;
-		return $this->loadTheme('quotes.detail', $this->data);
-    }
-
-    public function showByTag($tag)
-    {
-        $quotes = Quote::where('tags', 'like', "%{$tag}%");
-
-        $this->data['quotes'] = $quotes->paginate(20);
-        $this->data['tag'] = $tag;
-		return $this->loadTheme('quotes.index', $this->data);
-    }
-
-    public function showcase($id, $font)
-    {
-        $quote = Quote::where('id', $id)->first();
-
-        if (!$quote) {
-			return redirect('quotes');
-		}
-
         // build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = $quote->name;
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
@@ -192,7 +277,6 @@ class QuoteController extends Controller
         
         
 		$this->data['quote'] = $quote;
-		$this->data['font'] = $font;
 		// $this->data['tags'] = ;
 		$this->data['tags'] = $arrTags;
         $this->data['author'] = $quote->author($quote->author_id)->name;

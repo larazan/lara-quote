@@ -79,6 +79,7 @@ Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 Route::middleware(['throttle:global'])->group(function () {
     Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
     Route::get('quotes/{id}', [QuoteController::class, 'show']);
+    Route::get('quotes/{id}/showcase', [QuoteController::class, 'showcase']);
 });
 Route::get('quotes/tag/{tag}', [QuoteController::class, 'showByTag']);
 

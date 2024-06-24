@@ -129,7 +129,7 @@
     </div>
 </main>
 
-@include('frontend.components._showcase')
+<x-showcase :id="$id" :fontFamily="$fontFamily" :quote="$quote" :author="$author" />
             
 @include('frontend.components._subscribe_form')
 
@@ -166,7 +166,7 @@
   
   @font-face {
     font-family: 'Amellis';
-    src: url(../Amellis-Path.ttf) format('truetype');
+    src: url(../fonts/Amellis-Path.ttf) format('truetype');
   }
   
   @font-face {
