@@ -129,7 +129,7 @@
     </div>
 </main>
 
-<x-showcase :id="$id" :fontFamily="$fontFamily" :quote="$quote" :author="$author" />
+<x-showcase :id="$id" :fontFamily="$styles" :quote="$quote" :author="$author" />
             
 @include('frontend.components._subscribe_form')
 
