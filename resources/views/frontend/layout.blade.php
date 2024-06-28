@@ -9,6 +9,7 @@
     <title>
         {{ isset($title) ? $title.' | ' : '' }}
         {{ config('app.name') }}
+        {{ General::is_active('home') ? '- Inspirational Quotes Library' : '' }}
     </title>
     
     <meta name="description" content="The Laravel portal for problem solving, knowledge sharing and community building." />

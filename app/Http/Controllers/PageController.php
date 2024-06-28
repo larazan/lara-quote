@@ -11,6 +11,7 @@ class PageController extends Controller
     {
         $page = BusinessSetting::where(['key' => 'about_us'])->first();
 
+        $this->data['title'] = "About";
         $this->data['page'] = $page;
 		return $this->loadTheme('about.index', $this->data);
     }
@@ -19,6 +20,7 @@ class PageController extends Controller
     {
         $page = BusinessSetting::where(['key' => 'terms_and_conditions'])->first();
 
+        $this->data['title'] = "Term and Conditions";
         $this->data['page'] = $page;
 		return $this->loadTheme('terms.index', $this->data);
     }
@@ -27,6 +29,7 @@ class PageController extends Controller
     {
         $page = BusinessSetting::where(['key' => 'privacy_policy'])->first();
 
+        $this->data['title'] = "Policy";
         $this->data['page'] = $page;
 		return $this->loadTheme('policy.index', $this->data);
     }

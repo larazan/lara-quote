@@ -24,6 +24,7 @@ class ArticleController extends Controller
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($articles);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
+		$this->data['title'] = "Blog";
 		$this->data['articles'] = $articles->paginate(8);
 		return $this->loadTheme('blogs.index', $this->data);
     }
@@ -46,6 +47,7 @@ class ArticleController extends Controller
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($article->id);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
+		$this->data['title'] = $article->title;
 		return $this->loadTheme('blogs.detail', $this->data);
     }
     

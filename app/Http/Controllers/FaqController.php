@@ -11,6 +11,7 @@ class FaqController extends Controller
     {
         $faqs = Faq::orderBy('order_position', 'ASC');
 
+		$this->data['title'] = "Faqs";
 		$this->data['faqs'] = $faqs->get();
 		return $this->loadTheme('faqs.index', $this->data);
     }

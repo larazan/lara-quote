@@ -21,6 +21,7 @@ class TagController extends Controller
                     ->get()
                     ->groupBy('alpha');
 
+        $this->data['title'] = "Topic";
         $this->data['tags'] = $tags;
         $this->data['topics'] = $topics;
 		return $this->loadTheme('tags.index', $this->data);
@@ -31,6 +32,7 @@ class TagController extends Controller
         $alpha = Str::lower($letter);
         $tags = Tag::where('name', 'like', "{$alpha}%");
 
+        $this->data['title'] = "Letter: " . ucfirst($letter);
         $this->data['tags'] = $tags->get();
         $this->data['letter'] = $letter;
 		return $this->loadTheme('tags.detail', $this->data);
