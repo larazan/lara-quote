@@ -154,7 +154,7 @@
                 </li>
 
                 <li>
-                  <a href="{{ route('riddles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                  <a href="{{ route('riddles') }}" class="hidden font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Riddles
                   </a>
                 </li>
@@ -171,7 +171,7 @@
                 </li>
                 <li>
                   <a href="{{ route('tags') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Topic
+                    Topics
                   </a>
                 </li>
                 
@@ -183,7 +183,7 @@
 
       <div class="pt-6 md:pt-12">
         <div class="py-0 sm:mb-0 mx-2 md:mx-5 xl:mx-auto text-center border-gray-300 border-t-[0.5px]  max-w-7xl">
-          <p class="text-normal text-gray-700 my-3 md:my-6">©{{ date('Y') }} Now&amp;Me Enterprises Pvt. Ltd. – All rights reserved.</p>
+          <p class="text-normal text-gray-700 my-3 md:my-6">©{{ date('Y') }} Million-Quotes Enterprises Pvt. Ltd. – All rights reserved.</p>
         </div>
       </div>
     </div>

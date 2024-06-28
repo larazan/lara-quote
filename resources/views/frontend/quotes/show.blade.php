@@ -2,6 +2,9 @@
 
 @section('content')
 
+@dump($type)
+@dump($styles[$type])
+
 <main class="flex flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
 
     <div class="flex flex-row ">
@@ -129,8 +132,6 @@
     </div>
 </main>
 
-<x-showcase :id="$id" :fontFamily="$styles" :quote="$quote" :author="$author" />
-            
 @include('frontend.components._subscribe_form')
 
 @endsection

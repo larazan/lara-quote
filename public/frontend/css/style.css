@@ -409,7 +409,7 @@
 .custom-scrollbar::-webkit-scrollbar {
   background-color: transparent;
   /* width: 2px; */
-  height: 18px;
+  height: 14px;
 }
 
 /* background of the scrollbar except button or resizer */

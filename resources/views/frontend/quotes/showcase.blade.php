@@ -14,30 +14,33 @@
             <div>
 
                 <div class="py-10  columns-1 md:columns-2 lg:columns-3 ">
-
+                    @php 
+                      $i = 1;
+                    @endphp
                     @foreach($styles as $f)
                     <a 
-                      class="mb-4 rounded border group flex flex-col overflow-hidden justify-center shadow-md items-center cursor-zoom-in" href="/"
+                      href="{{ url('quotes/' . $id . '/showcase/' . $i++) }}"
+                      class="mb-4 rounded border group flex flex-col overflow-hidden justify-center shadow-md items-center cursor-zoom-in"
                       style="background-color: {{ $f['bgColor'] }}"  
                     >
-                        <div class="flex-grow py-2 mt-6 lg:py-4 md:py-4 px-20">
+                        <div class="flex-grow py-2 mt-6 lg:py-4 md:py-4 px-12 md:px-20">
                            
                             <p 
-                                class="leading-tight md:leading-snug text-[{{ $f['fontColor'] }}] text-center text-lg md:text-2xl  font-medium transition"
+                                class="leading-tight md:leading-snug text-[{{ $f['fontColor'] }}] text-center text-2xl md:text-2xl  font-medium transition"
                                 style="font-family: {{ $f['font'] }}; color: {{ $f['fontColor'] }}"
                             >
                                 {{ $quote->words }}
                             </p>
                             <div class=" px-2 py-4 flex justify-center">
                                 
-                                <button class=" flex justify-between space-x-6 md:space-x-2">
+                                <div class=" flex justify-between space-x-6 md:space-x-2">
                                     <div class="flex space-x-2" style="color: {{ $f['fontColor'] }}">
                                         <span class="flex items-center justify-center text-sm font-semibold">
                                             - {{ $author }}
                                         </span>
                                     </div>
                                     <div class="hidden">{{ $f['font'] }}</div>
-                                </button>
+                                </div>
                             </div>
                         </div>
                     </a>

@@ -9,8 +9,8 @@
         @include('frontend.components._search')
 
         <!-- Tags -->
-        <div class="flex flex-col w-full mt-2 px-6 py-1 transition" :class="showMore ? 'duration-500 ease-in-out bg-pink-50' : ''" x-data="{ showMore: false }">
-            <div class="flex items-center pt-3 mb-1 gap-x-2 gap-y-2 pb-2" :class="showMore ? 'flex-wrap' : 'overflow-x-auto'">
+        <div class="flex flex-col w-full mt-2 px-6 py-1 " :class="showMore ? 'duration-500 ease-in-out' : ''" x-data="{ showMore: false }"> 
+            <div class="flex items-center pt-3 mb-1 gap-x-2 gap-y-2 pb-2 transform transition-all duration-1000 ease-in-out" :class="showMore ? 'flex-wrap' : 'overflow-x-auto scroll-smooth custom-scrollbar'" x-cloak x-collapse x-collapse.duration.500ms>
                 <a href="/quotes">
                     <div class="py-1.5 px-3 text-sm rounded-md flex items-center gap-x-1 transition cursor-pointer border-sky-700 bg-blue-300 text-sky-700">
                         <div class="truncate text-xs font-semibold">All</div>
@@ -26,7 +26,7 @@
                 </a>
                 @endforeach
                 <a href="/tags">
-                    <div class="py-1.5 px-3 text-sm rounded-md flex items-center gap-x-1 transition cursor-pointer border-orange-400 bg-orange-400 text-slate-700 hover:bg-orange-300">
+                    <div class="py-1.5 px-3 text-sm rounded-md flex items-center gap-x-1 transition cursor-pointer border border-orange-400 bg-orange-400 text-slate-700 hover:bg-orange-500">
                         <div class="truncate text-xs font-semibold">See all</div>
                     </div>
                 </a>

@@ -51,6 +51,7 @@ class PersonController extends Controller
     {
         $people = Person::orderBy('name', 'ASC');
 
+        $this->data['title'] = "People";
         $this->data['people'] = $people->paginate(20);
 		return $this->loadTheme('people.index', $this->data);
     }
@@ -72,6 +73,7 @@ class PersonController extends Controller
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($person->id);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
+		$this->data['title'] = $person->name;
 		$this->data['person'] = $person;
 		$this->data['quotes'] = $quotes;
 		return $this->loadTheme('people.detail', $this->data);
@@ -81,6 +83,7 @@ class PersonController extends Controller
     {
         $people = Person::where('name', 'like', "{$letter}%");
 
+        $this->data['title'] = "Letter " . ucfirst($letter);
         $this->data['people'] = $people->paginate(20);
         $this->data['letter'] = $letter;
 		return $this->loadTheme('people.index', $this->data);

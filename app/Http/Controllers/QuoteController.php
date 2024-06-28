@@ -25,110 +25,7 @@ class QuoteController extends Controller
         ->whatsapp()        
         ->reddit();
 
-        $tags = Tag::select('name', 'slug')->get()->random(20);
-
-        $fontFamily = [
-            "Aelten",
-            "Alphakind",
-            "Bajurie",
-            "Banda-Aceh",
-            "Bitcrusher",
-            "Blue_highway_cd",
-            "Bright-Dreams",
-            "Chandella",
-            "Chinese-Rocks",
-            "Cokobi",
-            "Colombia",
-            "ConcreteWall",
-            "Coolvetica",
-            "Dakwart",
-            "DAGOCA",
-            "Dealerplate-California",
-            "Dream-Orphans",
-            "Elliane-Regular",
-            "Engebrechtre",
-            "ENGINE",
-            "Foo",
-            "Gnuolane",
-            "Gratise",
-            "Groomer",
-            "Halmera",
-            "HappyGarden",
-            "Hellohowareyou",
-            "Helsinki",
-            "Inter-Regular",
-            "Jreeng",
-            "Kaylafiz",
-            "Kimberley",
-            "Leorio",
-            "Limejuice",
-            "Lovetle",
-            "Lynoselt",
-            "MatSaleh",
-            "MelocheBook",
-            "MightyKingdom",
-            "Monofonto",
-            "MorningMiow",
-            "Mounets",
-            "NoVirus",
-            "Oaklevin",
-            "Ontel",
-            "Peace",
-            "Pouline",
-            "Pretender",
-            "Rakesly",
-            "Rennoya",
-            "ROLAND",
-            "Saolice",
-            "SimpalaExtended",
-            "SingleSleeve",
-            "StraightlerRegular",
-            "SweetSomeday",
-            "Tahu",
-            "Thruster-Regular",
-            "VirusKiller",
-            "WallabysJunior",
-            "ZZYZX",
-            "WhereTheCookies",
-            "WKSimple",
-            "Arvo-Regular",
-            "Cinzel-Regular",
-            "Domine-Regular",
-            "LiberationSerif-Regular",
-            "Lustria-Regular",
-            "Mohave-Regular",
-            "Montserrat-Regular",
-            "NotoSans-Regular",
-            "Promesh_Regular",
-            "Raleway-Regular",
-            "Rubik-Regular",
-            "Zaio",
-            "Antonio-Regular",
-            "Bitter-Regular",
-            "COBAISSI",
-            "CrimsonText-Roman",
-        ];
-
-        $this->data['tags'] = $tags;
-        $this->data['shareComponent'] = $shareComponent;
-        $this->data['fontFamily'] = $fontFamily;
-    }
-
-    public function index()
-    {
-        $quotes = Quote::orderBy('id', 'ASC');
-
-        $this->data['quotes'] = $quotes->paginate(20);
-		return $this->loadTheme('quotes.index', $this->data);
-    }
-
-    public function show($id)
-    {
-        $quote = Quote::where('id', $id)->first();
-
-        if (!$quote) {
-			return redirect('quotes');
-		}
+        $tags = Tag::select('name', 'slug')->get()->random(50);
 
         $styles = [
             [ 'font' => "Aelten", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#000', 'fontColor' => '#fff' ],
@@ -210,7 +107,29 @@ class QuoteController extends Controller
             [ 'font' => "Bitter-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#3b86c4' ],
             [ 'font' => "COBAISSI", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#a5442c' ],
             [ 'font' => "CrimsonText-Roman", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#1c4255' ],
-          ];
+        ];
+
+        $this->data['styles'] = $styles;
+        $this->data['tags'] = $tags;
+        $this->data['shareComponent'] = $shareComponent;
+    }
+
+    public function index()
+    {
+        $quotes = Quote::orderBy('id', 'ASC');
+
+        $this->data['title'] = "Quotes";
+        $this->data['quotes'] = $quotes->paginate(20);
+		return $this->loadTheme('quotes.index', $this->data);
+    }
+
+    public function show($id)
+    {
+        $quote = Quote::where('id', $id)->first();
+
+        if (!$quote) {
+			return redirect('quotes');
+		}
 
         // build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = $quote->name;
@@ -225,11 +144,12 @@ class QuoteController extends Controller
             $arrTags = $tags;
         }
         
+        $this->data['title'] = $quote->words;
 		$this->data['quote'] = $quote;
-        $this->data['styles'] = $styles;
 		$this->data['id'] = $id;
 		$this->data['tags'] = $arrTags;
         $this->data['author'] = $quote->author($quote->author_id)->name;
+        $this->data['slug'] = $quote->author($quote->author_id)->slug;
 		return $this->loadTheme('quotes.detail', $this->data);
     }
 
@@ -237,6 +157,7 @@ class QuoteController extends Controller
     {
         $quotes = Quote::where('tags', 'like', "%{$tag}%");
 
+        $this->data['title'] = "Topic: " . ucfirst($tag);
         $this->data['quotes'] = $quotes->paginate(20);
         $this->data['tag'] = $tag;
 		return $this->loadTheme('quotes.index', $this->data);
@@ -250,87 +171,34 @@ class QuoteController extends Controller
 			return redirect('quotes');
 		}
 
-        $styles = [
-            [ 'font' => "Aelten", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#000', 'fontColor' => '#fff' ],
-            [ 'font' => "Alphakind", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ead59e', 'fontColor' => '#000' ],
-            [ 'font' => "Bajurie", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ee905f', 'fontColor' => '#fff' ],
-            [ 'font' => "Banda-Aceh", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f49f91', 'fontColor' => '#fff' ],
-            [ 'font' => "Bitcrusher", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#011528', 'fontColor' => '#fff' ],
-            [ 'font' => "Blue_highway_cd", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#c04d9a', 'fontColor' => '#fff' ],
-            [ 'font' => "Bright-Dreams", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f7f7f7', 'fontColor' => '#000' ],
-            [ 'font' => "Chandella", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e9dcd3', 'fontColor' => '#000' ],
-            [ 'font' => "Chinese-Rocks", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f4e4d0', 'fontColor' => '#000' ],
-            [ 'font' => "Cokobi", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#90c9cf', 'fontColor' => '#000' ],
-            [ 'font' => "Colombia", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f0d165', 'fontColor' => '#fff' ],
-            [ 'font' => "ConcreteWall", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#4cc1bc', 'fontColor' => '#fff' ],
-            [ 'font' => "Coolvetica", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#468bdb', 'fontColor' => '#fff' ],
-            [ 'font' => "Dakwart", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#212331', 'fontColor' => '#fff' ],
-            [ 'font' => "DAGOCA", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f1d265', 'fontColor' => '#fff' ],
-            [ 'font' => "Dealerplate-California", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#efb4d2', 'fontColor' => '#000' ],
-            [ 'font' => "Dream-Orphans", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ebdddc', 'fontColor' => '#000' ],
-            [ 'font' => "Elliane-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e4c8c4', 'fontColor' => '#000' ],
-            [ 'font' => "Engebrechtre", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#009492', 'fontColor' => '#fff' ],
-            [ 'font' => "ENGINE", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e3d1cf', 'fontColor' => '#000' ],
-            [ 'font' => "Foo", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#2d2c31', 'fontColor' => '#fff' ],
-            [ 'font' => "Gnuolane", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e8e29e', 'fontColor' => '#000' ],
-            [ 'font' => "Gratise", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f49f91', 'fontColor' => '#fff' ],
-            [ 'font' => "Groomer", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e96379', 'fontColor' => '#000' ],
-            [ 'font' => "Halmera", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e8d7f7', 'fontColor' => '#000' ],
-            [ 'font' => "HappyGarden", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ee725a', 'fontColor' => '#fff' ],
-            [ 'font' => "Hellohowareyou", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#b3d3d8', 'fontColor' => '#000' ],
-            [ 'font' => "Helsinki", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#27215f', 'fontColor' => '#fff' ],
-            [ 'font' => "Inter-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f69b00', 'fontColor' => '#fff' ],
-            [ 'font' => "Jreeng", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f69b00', 'fontColor' => '#000' ],
-            [ 'font' => "Kaylafiz", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f6e9d7', 'fontColor' => '#fc9598' ],
-            [ 'font' => "Kimberley", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f6e9d7', 'fontColor' => '#ff8459' ],
-            [ 'font' => "Leorio", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f6e9d7', 'fontColor' => '#dbba0c' ],
-            [ 'font' => "Limejuice", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f6e9d7', 'fontColor' => '#95c9a8' ],
-            [ 'font' => "Lovetle", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f6e9d7', 'fontColor' => '#425fa6' ],
-            [ 'font' => "Lynoselt", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f6e9d7', 'fontColor' => '#a5abe4' ],
-            [ 'font' => "MatSaleh", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#a5abe4', 'fontColor' => '#fff' ],
-            [ 'font' => "MelocheBook", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc0ca', 'fontColor' => '#a088f6' ],
-            [ 'font' => "MightyKingdom", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc0ca', 'fontColor' => '#93caaa' ],
-            [ 'font' => "Monofonto", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc0ca', 'fontColor' => '#000' ],
-            [ 'font' => "MorningMiow", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#429eda', 'fontColor' => '#fff' ],
-            [ 'font' => "Mounets", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#429eda', 'fontColor' => '#f7c6dc' ],
-            [ 'font' => "NoVirus", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#429eda', 'fontColor' => '#0ee8e6' ],
-            [ 'font' => "Oaklevin", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffe1e7', 'fontColor' => '#a78ad6' ],
-            [ 'font' => "Ontel", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffe1e7', 'fontColor' => '#fa8764' ],
-            [ 'font' => "Peace", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#fbe3c0', 'fontColor' => '#99b84e' ],
-            [ 'font' => "Pouline", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#fbe3c0', 'fontColor' => '#fc8c47' ],
-            [ 'font' => "Pretender", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ff8a77', 'fontColor' => '#febe96' ],
-            [ 'font' => "Rakesly", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ff8a77', 'fontColor' => '#fef5e4' ],
-            [ 'font' => "Rennoya", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ff8a77', 'fontColor' => '#dbf0d3' ],
-            [ 'font' => "ROLAND", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#dac757', 'fontColor' => '#ffe6f2' ],
-            [ 'font' => "Saolice", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#dac757', 'fontColor' => '#ffffb3' ],
-            [ 'font' => "SimpalaExtended", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#dac757', 'fontColor' => '#df775a' ],
-            [ 'font' => "SingleSleeve", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#e1ca42', 'fontColor' => '#436460' ],
-            [ 'font' => "StraightlerRegular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#bd6c3e', 'fontColor' => '#f7b1ab' ],
-            [ 'font' => "SweetSomeday", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#bd6c3e', 'fontColor' => '#d8c338' ],
-            [ 'font' => "Tahu", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#fbf4e4', 'fontColor' => '#f2c4c4' ],
-            [ 'font' => "Thruster-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#fbf4e4', 'fontColor' => '#8eb19c' ],
-            [ 'font' => "VirusKiller", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#fbf4e4', 'fontColor' => '#d4c058' ],
-            [ 'font' => "WallabysJunior", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#fbf4e4', 'fontColor' => '#f9c095' ],
-            [ 'font' => "ZZYZX", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f0ffeb', 'fontColor' => '#ffa8d5' ],
-            [ 'font' => "WhereTheCookies", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f0ffeb', 'fontColor' => '#c3ae0b' ],
-            [ 'font' => "WKSimple", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f0ffeb', 'fontColor' => '#86c8f4' ],
-            [ 'font' => "Arvo-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f0ffeb', 'fontColor' => '#ff9752' ],
-            [ 'font' => "Cinzel-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f29b8f', 'fontColor' => '#fef5e4' ],
-            [ 'font' => "Domine-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f29b8f', 'fontColor' => '#da6737' ],
-            [ 'font' => "LiberationSerif-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f2e1f7', 'fontColor' => '#223679' ],
-            [ 'font' => "Lustria-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f2e1f7', 'fontColor' => '#cda0c6' ],
-            [ 'font' => "Mohave-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f2e1f7', 'fontColor' => '#fd9e7e' ],
-            [ 'font' => "Montserrat-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f2e1f7', 'fontColor' => '#227a65' ],
-            [ 'font' => "NotoSans-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f2e1f7', 'fontColor' => '#8ba4dd' ],
-            [ 'font' => "Promesh_Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f09d5e', 'fontColor' => '#fdf4e0' ],
-            [ 'font' => "Raleway-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#d4bf42', 'fontColor' => '#70723d' ],
-            [ 'font' => "Rubik-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f09d60', 'fontColor' => '#fff' ],
-            [ 'font' => "Zaio", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#f09d60', 'fontColor' => '#406653' ],
-            [ 'font' => "Antonio-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#e26b46' ],
-            [ 'font' => "Bitter-Regular", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#3b86c4' ],
-            [ 'font' => "COBAISSI", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#a5442c' ],
-            [ 'font' => "CrimsonText-Roman", 'fontSize' => '14px', 'fontBold' => '14px', 'bgColor' => '#ffc7a3', 'fontColor' => '#1c4255' ],
-          ];
+        // build breadcrumb data array
+		$breadcrumbs_data['current_page_title'] = $quote->name;
+		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
+		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
+
+        $tags = $quote->tags;
+        if($tags)
+        {
+            $arrTags = explode(',', $quote->tags);
+        } else {
+            $arrTags = $tags;
+        }
+        
+        $this->data['title'] = $quote->words;
+        $this->data['id'] = $id;
+		$this->data['quote'] = $quote;
+		$this->data['tags'] = $arrTags;
+        $this->data['author'] = $quote->author($quote->author_id)->name;
+		return $this->loadTheme('quotes.showcase', $this->data);
+    }
+
+    public function showcaseBy($id, $type)
+    {
+        $quote = Quote::where('id', $id)->first();
+
+        if (!$quote) {
+			return redirect('quotes');
+		}
 
         // build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = $quote->name;
@@ -345,12 +213,14 @@ class QuoteController extends Controller
             $arrTags = $tags;
         }
         
-        
+		$this->data['title'] = $quote->words;
 		$this->data['quote'] = $quote;
-		$this->data['styles'] = $styles;
+		$this->data['id'] = $id;
+		$this->data['type'] = $type;
 		$this->data['tags'] = $arrTags;
         $this->data['author'] = $quote->author($quote->author_id)->name;
-		return $this->loadTheme('quotes.showcase', $this->data);
+        $this->data['slug'] = $quote->author($quote->author_id)->slug;
+		return $this->loadTheme('quotes.show', $this->data);
     }
 
     public function _generate_breadcrumbs_array($id) {
