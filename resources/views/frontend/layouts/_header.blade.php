@@ -25,8 +25,8 @@
       <a href="{{ route('people') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
       Peoples
       </a>
-      <a href="{{ route('riddles') }}" class="hidden md:block2 hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['riddles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-      Riddles
+      <a href="{{ route('tags') }}" class="md:block2 hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      Topic
       </a>
       <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
       Blog
@@ -81,8 +81,8 @@
               </a>
             </li>
             <li class="hidden text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ route('riddles') }}">
-              Riddles
+              <a class="hover:text-[#FF6D42]" href="{{ route('tags') }}">
+              Topic
               </a>
             </li>
             <li class="text-2xl">

@@ -1,5 +1,11 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="title" content="{{ config('app.name') }} Topics">
+<meta name="description" content="alot topics for quotes ready to search">
+<meta name="keywords" content="topic, tags, quotes, author">
+@endpush
+
 @section('content')
 
 <main class="pt-[60px] md:pt-[80px] min-h-screen2 pt-162 h-full bg-white">

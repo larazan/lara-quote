@@ -1,5 +1,11 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="title" content="{{ $title }}">
+<meta name="description" content="{{ $article->meta_description }}">
+<meta name="keywords" content="{{ $article->keyword }}">
+@endpush
+
 @section('content')
 
 <div class="flex flex-col bg-white min-h-screen pt-16 md:pt-[80px]">

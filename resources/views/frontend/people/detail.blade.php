@@ -1,5 +1,11 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="title" content="{{ $person->name }}">
+<meta name="description" content="{{ $person->bio }}">
+<meta name="keywords" content="{{ $person->name }}">
+@endpush
+
 @section('content')
 
 <main class="pt-[60px] bg-white md:pt-[80px] h-full">
@@ -15,7 +21,7 @@
                     </div>
                 </div>
                 <p class="text-sm font-semibold text-[#404040] ml-2">
-                    Ada Lovelace
+                {{ $person->name }}
                 </p>
             </div>
             <div class="mt-4 sm:mt-6 text-center text-[#565656] flex justify-center items-center sm:divide-x relative sm:space-x-3 divide-[#CACACA]">

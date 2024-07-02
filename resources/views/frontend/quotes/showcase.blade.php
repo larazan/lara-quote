@@ -1,5 +1,10 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="description" content="{{ $title }}">
+<meta name="keywords" content="{{ $quote->tags }}">
+@endpush
+
 @section('content')
 
 <main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
@@ -15,7 +20,7 @@
 
                 <div class="py-10  columns-1 md:columns-2 lg:columns-3 ">
                     @php 
-                      $i = 1;
+                      $i = 0;
                     @endphp
                     @foreach($styles as $f)
                     <a 

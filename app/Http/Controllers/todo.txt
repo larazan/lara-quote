@@ -1,6 +1,3 @@
 algolia Search
-logo
 riddle
-Home
 prevent scrapping
-meta tag

@@ -1,5 +1,11 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="title" content="{{ config('app.name') }} Quotes">
+<meta name="description" content="alot quotes ready to search">
+<meta name="keywords" content="quotes, author">
+@endpush
+
 @section('content')
 
 <main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">

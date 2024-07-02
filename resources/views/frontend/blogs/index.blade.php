@@ -1,7 +1,12 @@
 @extends('frontend.layout')
 
-@section('content')
+@push('meta')
+<meta name="title" content="{{ config('app.name') }} Blogs">
+<meta name="description" content="Wander Blog | Tech Startup | Luxury Vacation Rentals | Corporate Retreat | REIT Stock | Travel to California Luxury Vacation Rentals and more. ">
+<meta name="keywords" content="Wander,Home,Experience,Vacation,Workstation,Find,Happy,Place">
+@endpush
 
+@section('content')
 
 <main class="relative bg-white pb-12">
         <div class="mx-auto max-w-screen-lg">

@@ -1,5 +1,11 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="title" content="{{ config('app.name') }} People">
+<meta name="description" content="alot author, leader, spokesperon, who inspiring the world">
+<meta name="keywords" content="author, people">
+@endpush
+
 @section('content')
 
 <main class="pt-[60px] bg-white md:pt-[80px] h-full">

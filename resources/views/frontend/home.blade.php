@@ -1,5 +1,10 @@
 @extends('frontend.layout')
 
+@push('meta')
+<meta name="title" content="{{ config('app.name') }}">
+<meta name="keywords" content="topic, quotes, author">
+@endpush
+
 @section('content')
 
 @include('frontend.components._ads_modal')

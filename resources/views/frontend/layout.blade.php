@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+    <meta name="author" content="John Doe">
     <title>
         {{ isset($title) ? $title.' | ' : '' }}
         {{ config('app.name') }}
         {{ General::is_active('home') ? '- Inspirational Quotes Library' : '' }}
     </title>
-    
+    @if(General::is_active('home'))
     <meta name="description" content="The Laravel portal for problem solving, knowledge sharing and community building." />
+    @endif
     <link rel="icon" href="/frontend/img/favicons/favicon.ico">
     
     @vite(['resources/css/app.css'])
