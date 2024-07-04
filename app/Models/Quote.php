@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\HasLikes;
+use App\Traits\HasReplies;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,8 +16,12 @@ class Quote extends Model
     use HasFactory;
     use Searchable;
     use HasUuids;
+    use HasReplies;
+    use HasLikes;
 
-    protected $table = 'quotes';
+    const TABLE = 'quotes';
+
+    protected $table = self::TABLE;
 
     protected $fillable = [
 		'words',
@@ -23,6 +29,10 @@ class Quote extends Model
 		'author_id',
 		'tags',
 	];
+
+    protected $with = [
+        'likeRelation'
+    ];
 
     public static function boot() {
         parent::boot();
@@ -94,4 +104,10 @@ class Quote extends Model
             'tags' => $this->tags(),
         ];
     }
+
+    public function replyAbleSubject(): string
+    {
+        return $this->title();
+    }
+
 }
