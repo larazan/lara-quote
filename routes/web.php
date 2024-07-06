@@ -11,6 +11,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\SubscribeController;
@@ -63,8 +64,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('articles/{slug}', [ArticleController::class, 'show']);
 
-Route::get('contact', [ContactController::class, 'index']);
-Route::post('contact', [ContactController::class, 'create'])->name('contact.create');
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 
@@ -96,7 +97,14 @@ Route::get('tags/{letter}', [TagController::class, 'show']);
 Route::post('subscribe', [SubscribeController::class, 'store'])->name('subscribe.store');
 Route::get('subscribe/verify/{token}/{email}', [SubscribeController::class, 'verify'])->name('subscribe_verify');
 
-
+Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
+    /* Name: Replies
+     * Url: /replies/*
+     * Route: replies.*
+     */
+    Route::post('/', [ReplyController::class, 'store'])->name('store');
+    Route::get('reply/{id}/{type}', [ReplyController::class, 'redirect'])->name('replyAble');
+});
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 

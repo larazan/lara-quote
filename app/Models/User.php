@@ -22,6 +22,10 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
+    const TABLE = 'users';
+
+    protected $table = self::TABLE;
+
     /**
      * The attributes that are mass assignable.
      *

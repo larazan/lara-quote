@@ -18,15 +18,15 @@ class ReplyPolicy
     {
         return $user->hasVerifiedEmail();
     }
-
+    // auth()->user()->hasRole('admin')
     public function update(User $user, Reply $reply): bool
     {
-        return $reply->isAuthoredBy($user) || $user->isModerator() || $user->isAdmin();
+        return $reply->isAuthoredBy($user) || $user->hasRole('admin');
     }
 
     public function delete(User $user, Reply $reply): bool
     {
-        return $reply->isAuthoredBy($user) || $user->isModerator() || $user->isAdmin();
+        return $reply->isAuthoredBy($user) || $user->hasRole('admin');
     }
     
     /**

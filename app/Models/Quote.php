@@ -31,7 +31,7 @@ class Quote extends Model
 	];
 
     protected $with = [
-        'likeRelation'
+        // 'likesRelation'
     ];
 
     public static function boot() {
@@ -62,6 +62,11 @@ class Quote extends Model
     public function getKeyType()
     {
         return 'string';
+    }
+
+    public function words(): string
+    {
+        return $this->words;
     }
 
 	public function person()
@@ -107,7 +112,7 @@ class Quote extends Model
 
     public function replyAbleSubject(): string
     {
-        return $this->title();
+        return $this->words();
     }
 
 }

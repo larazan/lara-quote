@@ -32,6 +32,7 @@ class Reply extends Model
      */
     protected $fillable = [
         'body',
+        'author_id'
     ];
 
     protected $with = [
