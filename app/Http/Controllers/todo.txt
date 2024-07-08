@@ -1,3 +1,6 @@
 algolia Search
-riddle
 prevent scrapping
+like
+comment
+article
+download image

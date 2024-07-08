@@ -37,184 +37,7 @@
 
           <div class="px-6">
             <ul class="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-10">
-              <li class="py-6 md:py-10">
-                <h2 class="pb-4 text-center md:text-left">
-                  <a
-                    href="/articles/lead-generation-for-b2b/"
-                    class="text-2xl md:text-3xl leading-8 md:leading-10 font-bold text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
-                  >
-                    Lead Generation for B2B: What Works Now in 2023
-                  </a>
-                </h2>
-                <p class="md:text-lg md:leading-normal text-gray-600 text-center md:text-left">
-                  Today’s most successful B2B sales and marketing teams are
-                  using these 7 lead generation tactics to get higher-quality
-                  leads, and so can you.
-                </p>
-                <div
-                  class="pt-6 flex justify-center md:justify-start"
-                  
-                >
-                  <div class="flex items-center" >
-                    <div class="w-10 h-10" >
-                      <img
-                        src="{{ url('frontend/img/claire.png') }}"
-                        alt="Claire Emerson"
-                        class="rounded-full w-full"
-                      />
-                    </div>
-                    <div class="ml-3 leading-6" >
-                      <div
-                        class="font-medium text-gray-600"
-                        
-                      >
-                        Claire Emerson
-                      </div>
-                      <div
-                        class="text-sm text-gray-500"
-                        
-                      >
-                        <time datetime="2023-21-25">Feb 21, 2023</time>
-                        <span> · </span>
-                        <span>5 min read</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="py-6 md:py-10">
-                <h2 class="pb-4 text-center md:text-left">
-                  <a
-                    href="/articles/calendar-optimization/"
-                    class="text-2xl md:text-3xl leading-8 md:leading-10 font-bold text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
-                  >
-                    Calendar Optimization: 28 Scheduling Hacks To Save Time and
-                    Stay Organized
-                  </a>
-                </h2>
-                <p class="md:text-lg md:leading-normal text-gray-600 text-center md:text-left">
-                  No matter what ails you the most about your scattered
-                  scheduling systems and calendar woes, there are plenty of ways
-                  you can streamline your process to help you create more time.
-                  And wield more control over your daily commitments.
-                </p>
-                <div
-                  class="pt-6 flex justify-center md:justify-start"
-                  
-                >
-                  <div class="flex items-center" >
-                    <div class="w-10 h-10" >
-                      <img
-                        src="{{ url('frontend/img/claire.png') }}"
-                        alt="Steli Efti"
-                        class="rounded-full w-full"
-                      />
-                    </div>
-                    <div class="ml-3 leading-6" >
-                      <div
-                        class="font-medium text-gray-600"
-                        
-                      >
-                        Claire Emerson
-                      </div>
-                      <div class="text-sm text-gray-500" >
-                        <time datetime="2022-29-55">Jun 29, 2022</time>
-                        <span> · </span>
-                        <span>15 min read</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="py-6 md:py-10">
-                <h2 class="pb-4 text-center md:text-left">
-                  <a
-                    href="/articles/best-podcasts-to-listen-to-at-work/"
-                    class="text-2xl md:text-3xl leading-8 md:leading-10 font-bold text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
-                  >
-                    26 best podcasts to listen to at work (and how to use what
-                    you learn to get ahead)
-                  </a>
-                </h2>
-                <p class="md:text-lg md:leading-normal text-gray-600 text-center md:text-left">
-                  The right podcasts can help you gain confidence, develop new
-                  habits, find clarity, hone new skills, and fuel your desire
-                  for perpetual growth and learning. We&lsquo;ve curated 26 of the
-                  best podcasts you can listen to at work (and how to use them
-                  to get ahead.)
-                </p>
-                <div
-                  class="pt-6 flex justify-center md:justify-start"
-                  
-                >
-                  <div class="flex items-center" >
-                    <div class="w-10 h-10" >
-                      <img
-                        src="{{ url('frontend/img/claire.png') }}"
-                        alt="Claire Emerson"
-                        class="rounded-full w-full"
-                      />
-                    </div>
-                    <div class="ml-3 leading-6" >
-                      <div
-                        class="font-medium text-gray-600"
-                        
-                      >
-                        Claire Emerson
-                      </div>
-                      <div class="text-sm text-gray-500" >
-                        <time datetime="2022-12-36">Apr 12, 2022</time>
-                        <span> · </span>
-                        <span>16 min read</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="py-6 md:py-10">
-                <h2 class="pb-4 text-center md:text-left">
-                  <a
-                    href="/articles/context-switching/"
-                    class="text-2xl md:text-3xl leading-8 md:leading-10 font-bold text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
-                  >
-                    Context Switching: 10 shortcuts for gaining back focus in
-                    record time
-                  </a>
-                </h2>
-                <p class="md:text-lg md:leading-normal text-gray-600 text-center md:text-left">
-                  Let’s take a look at how you can make the most of switching
-                  contexts throughout your day, as well as how to engage in deep
-                  work and trigger your focused flow states as quickly as
-                  possible.
-                </p>
-                <div
-                  class="pt-6 flex justify-center md:justify-start"
-                  
-                >
-                  <div class="flex items-center" >
-                    <div class="w-10 h-10" >
-                      <img
-                        src="{{ url('frontend/img/claire.png') }}"
-                        alt="Claire Emerson"
-                        class="rounded-full w-full"
-                      />
-                    </div>
-                    <div class="ml-3 leading-6" >
-                      <div
-                        class="font-medium text-gray-600"
-                        
-                      >
-                        Claire Emerson
-                      </div>
-                      <div class="text-sm text-gray-500" >
-                        <time datetime="2022-08-33">Mar 8, 2022</time>
-                        <span> · </span>
-                        <span>11 min read</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+             
               <li class="py-6 md:py-10">
                 <h2 class="pb-4 text-center md:text-left">
                   <a
@@ -334,9 +157,9 @@
                       {{ $a->user->first_name }} {{ $a->user->last_name }}
                       </div>
                       <div class="text-sm text-gray-500" >
-                        <time datetime="2021-29-00">{{ $a->created_at->format('M d, Y') }}</time>
-                        <!-- <span> · </span>
-                        <span>13 min read</span> -->
+                        <time datetime="2021-29-00">{{ $a->created_at->diffForHumans() }}</time>
+                        <span> · </span>
+                        <span>{{ $a->readTime() }} min read</span>
                       </div>
                     </div>
                   </div>
@@ -352,6 +175,6 @@
         
       </main>
 
-      @include('frontend.components._subscribe_form')
+      <livewire:newsletter-form />
 
 @endsection

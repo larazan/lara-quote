@@ -2,7 +2,7 @@
 
 @section('content')
 
-<main class="flex h-max py-8 md:py-20 bg-white pt-16 md:pt-[100px]">
+<main class="flex h-max py-8 md:py-20 bg-white pt-16 md:pt-[120px]">
     <div class="flex  w-full2">
 
         <div class="max-w-full xl:max-w-[1800px] mx-auto flex flex-col justify-center items-center">
@@ -145,6 +145,6 @@
     </div>
 </main>
 
-@include('frontend.components._subscribe_form')
+<livewire:newsletter-form />
 
 @endsection

@@ -20,31 +20,27 @@
       </a>
     </div>
     <h1 class="relative mx-3 md:mx-auto text-3xl md:text-5xl md:leading-[60px] max-w-3xl m-auto text-black font-semibold text-center mt-4 sm:mt-6 mb-5 sm:mb-0">
-      When Live Wire Met Now&amp;Me: Interview with Aleesha Matharu
+      {{ $article->title }}
     </h1>
     <a href="" class="flex items-center justify-center sm:hidden">
       <div>
         <div class="border-white rounded-full border-3 w-10 h-10 roundedShadow">
-
-          <img alt="" aria-hidden="true" src="{{ url('frontend/img/ada.jpg') }}" class="rounded-full w-full" />
-
+          <img src="{{ Avatar::create($article->user->first_name.' '.$article->user->last_name)->toBase64() }}" alt="{{ $article->user->first_name }} {{ $article->user->last_name }}" aria-hidden="true" class="rounded-full w-full border-2 border-white" />
         </div>
       </div>
       <p class="text-sm font-semibold text-[#404040] ml-2">
-        Annanya Chaturvedi
+      {{ $article->user->first_name }} {{ $article->user->last_name }}
       </p>
     </a>
     <div class="mt-4 sm:mt-6 text-center text-[#565656] flex justify-center items-center sm:divide-x relative sm:space-x-3 divide-[#CACACA]">
       <a href="https://nowandme.com/blog/author/annanyachaturvedi" class="items-center justify-center hidden font-medium sm:flex">
         <div>
-          <div class="border-white rounded-full border-3 hidden text-[20px] leading-9 text-center w-11 h-11 left-11 -top-6 roundedShadow sm:block">
-
-            <img alt="" aria-hidden="true" src="{{ url('frontend/img/ada.jpg') }}" class="rounded-full w-full" />
-
+          <div class="border-white rounded-full border-3 hidden text-[20px] leading-9 text-center w-11 h-11 left-11 -top-6 roundedShadow sm:block border-1.5 ">
+            <img  src="{{ Avatar::create($article->user->first_name.' '.$article->user->last_name)->toBase64() }}" alt="{{ $article->user->first_name }} {{ $article->user->last_name }}" aria-hidden="true" class="rounded-full w-full border-2 border-white" />
           </div>
         </div>
         <p class="text-sm font-semibold text-[#404040] sm:ml-5 hidden sm:block">
-          Annanya Chaturvedi
+          {{ $article->user->first_name }} {{ $article->user->last_name }}
         </p>
       </a>
       <div class="flex items-center pl-0 sm:pl-3 border-r pr-3 sm:pr-0 border-[#CACACA]">
@@ -59,14 +55,14 @@
           </defs>
         </svg>
         <p class="text-xs text-[#404040] leading-5 pl-2">
-          12 June 2023
+        {{ $article->created_at->diffForHumans() }}
         </p>
       </div>
       <div class="flex items-center pl-3">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00001 0.583374C3.9039 0.583374 0.583344 3.90393 0.583344 8.00004C0.583344 12.0962 3.9039 15.4167 8.00001 15.4167C12.0961 15.4167 15.4167 12.0962 15.4167 8.00004C15.4167 3.90393 12.0961 0.583374 8.00001 0.583374ZM2.08334 8.00004C2.08334 4.73236 4.73233 2.08337 8.00001 2.08337C11.2677 2.08337 13.9167 4.73236 13.9167 8.00004C13.9167 11.2677 11.2677 13.9167 8.00001 13.9167C4.73233 13.9167 2.08334 11.2677 2.08334 8.00004ZM8.75001 5.33337C8.75001 4.91916 8.41422 4.58337 8.00001 4.58337C7.5858 4.58337 7.25001 4.91916 7.25001 5.33337V8.00004C7.25001 8.2508 7.37533 8.48498 7.58398 8.62408L9.58398 9.95741C9.92863 10.1872 10.3943 10.094 10.624 9.7494C10.8538 9.40475 10.7607 8.9391 10.416 8.70934L8.75001 7.59865V5.33337Z" fill="#404040"></path>
         </svg>
-        <p class="text-xs text-[#404040] leading-5 pl-2">11 Mins</p>
+        <p class="text-xs text-[#404040] leading-5 pl-2">{{ $article->readTime() }} min read</p>
       </div>
     </div>
   </div>
@@ -503,10 +499,12 @@
 
       </div>
 
-      @include('frontend.components._subscribe_form')
-
     </div>
   </div>
 </div>
+
+<x-article-list :articles="$articles" />
+
+<livewire:newsletter-form />
 
 @endsection

@@ -1,9 +1,9 @@
 <header class="fixed z-30 w-full px-5 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
-  <div class="flex items-center justify-between mx-auto max-w-5xl">
+  <div class="flex items-center justify-between mx-auto max-w-5xl"  x-data="navConfig()">
     <div class="flex w-2/12 items-center text-gray-800">
       <a href="/">
         <img src="/frontend/img/logo.png" alt="logo" class="w-full md:h-12" />
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt" viewBox="0 0 1025.000000 1025.000000">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt" viewBox="0 0 1025.000000 1025.000000">
         <g transform="translate(0.000000,1025.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
           <path class="fill-current" d="M5902 7524 c-54 -38 -52 18 -52 -1174 0 -999 2 -1105 16 -1136 29 -61 46 -64 309 -64 265 0 282 3 334 66 17 22 173 269 345 549 173 281 320 511 327 513 9 1 138 -200 340 -530 236 -385 336 -540 363 -562 l38 -31 248 -3 c211 -3 254 -1 279 13 65 33 61 -36 61 1180 0 962 -2 1110 -15 1135 -30 58 -39 60 -282 60 l-223 0 -32 -29 -33 -29 -5 -649 c-4 -582 -7 -648 -21 -651 -11 -2 -96 129 -303 467 -320 523 -302 501 -416 501 -115 0 -96 22 -417 -501 -201 -329 -292 -469 -303 -467 -13 3 -16 77 -20 643 -5 677 -4 666 -52 699 -33 24 -453 23 -486 0z"></path>
           <path class="fill-current" d="M1173 7515 c-18 -8 -42 -29 -53 -47 -20 -33 -20 -48 -20 -1139 l0 -1106 23 -34 c36 -54 73 -61 297 -57 209 3 220 6 258 60 15 21 18 87 22 643 5 604 6 620 24 620 15 0 130 -163 447 -630 236 -346 440 -640 454 -652 40 -35 89 -43 265 -43 187 0 220 9 252 70 17 33 18 87 18 1130 0 1022 -1 1097 -18 1130 -31 62 -61 70 -280 70 -212 0 -246 -7 -279 -56 -17 -26 -18 -69 -23 -649 -5 -612 -5 -620 -25 -620 -15 0 -120 148 -445 629 -234 346 -438 639 -453 652 -15 13 -44 28 -65 33 -57 17 -360 13 -399 -4z"></path>
@@ -15,21 +15,31 @@
       </svg> -->
       </a>
     </div>
-    
+
     @include('frontend.components._modal-search')
-    
+
     <div class="flex space-x-3 md:space-x-3 font-bold text-gray-900 items-center">
+      <div class="flex items-center">
+        <button @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="hover:text-lio-500">
+          <span class="h-5 w-5 hidden md:block">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-06">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+          </span>
+        </button>
+        @include('_partials._search')
+      </div>
       <a href="{{ route('quotes') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-      Quotes
+        Quotes
       </a>
       <a href="{{ route('people') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-      Peoples
+        People
       </a>
       <a href="{{ route('tags') }}" class="md:block2 hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-      Topic
+        Topic
       </a>
       <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-      Blog
+        Blog
       </a>
 
       <div class="hidden flex2 items-center gap-x-2 ml-auto">
@@ -44,26 +54,13 @@
       </div>
 
       <section class="MOBILE-MENU flex md:hidden justify-start items-between">
-        <div 
-          class="HAMBURGER-ICON space-y-2 w-fit md:justify-start cursor-pointer" 
-          @click="menuOpen = !menuOpen" 
-          aria-controls="menubar" 
-          :aria-expanded="menuOpen" 
-          aria-expanded="false"
-        >
+        <div class="HAMBURGER-ICON space-y-2 w-fit md:justify-start cursor-pointer" @click="menuOpen = !menuOpen" aria-controls="menubar" :aria-expanded="menuOpen" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
             <path fillRule="evenodd" clipRule="evenodd" d="M3.25011 7C3.25011 6.58579 3.5859 6.25 4.00011 6.25H20.0001C20.4143 6.25 20.7501 6.58579 20.7501 7C20.7501 7.41421 20.4143 7.75 20.0001 7.75H4.00011C3.5859 7.75 3.25011 7.41421 3.25011 7ZM3.25011 12C3.25011 11.5858 3.5859 11.25 4.00011 11.25L20.0001 11.25C20.4143 11.25 20.7501 11.5858 20.7501 12C20.7501 12.4142 20.4143 12.75 20.0001 12.75L4.00011 12.75C3.5859 12.75 3.25011 12.4142 3.25011 12ZM4.00011 16.25C3.5859 16.25 3.25011 16.5858 3.25011 17C3.25011 17.4142 3.5859 17.75 4.00011 17.75H20.0001C20.4143 17.75 20.7501 17.4142 20.7501 17C20.7501 16.5858 20.4143 16.25 20.0001 16.25H4.00011Z"></path>
           </svg>
         </div>
-        <div 
-          id="menubar"
-          :class="menuOpen ? 'flex flex-col' : 'hidden'" 
-          class="bg-black w-full h-[100vh] z-10 fixed top-0 left-0 text-white text-4xl font-bold flex-1 flex-col justify-between"
-        >
-          <div 
-            class="absolute top-0 right-0 px-3 py-5 cursor-pointer"
-            @click.stop="menuOpen = !menuOpen"
-          >
+        <div id="menubar" :class="menuOpen ? 'flex flex-col' : 'hidden'" class="bg-black w-full h-[100vh] z-10 fixed top-0 left-0 text-white text-4xl font-bold flex-1 flex-col justify-between">
+          <div class="absolute top-0 right-0 px-3 py-5 cursor-pointer" @click.stop="menuOpen = !menuOpen">
             <svg class="h-6 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -72,27 +69,27 @@
           <ul class="flex mt-16 p-6 flex-col items-left gap-5 justify-between min-h-[250px]">
             <li class="text-2xl">
               <a class="hover:text-[#FF6D42]" href="/">
-              Home
+                Home
               </a>
             </li>
             <li class="text-2xl">
               <a class="hover:text-[#FF6D42]" href="{{ route('quotes') }}">
-              Quotes
+                Quotes
               </a>
             </li>
             <li class="hidden text-2xl">
               <a class="hover:text-[#FF6D42]" href="{{ route('tags') }}">
-              Topic
+                Topic
               </a>
             </li>
             <li class="text-2xl">
               <a class="hover:text-[#FF6D42]" href="{{ route('people') }}">
-              Person
+                People
               </a>
             </li>
             <li class="text-2xl">
               <a class="hover:text-[#FF6D42]" href="{{ route('articles') }}">
-              Blog
+                Blog
               </a>
             </li>
 

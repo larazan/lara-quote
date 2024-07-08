@@ -45,6 +45,7 @@ use App\Http\Livewire\Admin\SettingIndex;
 use App\Http\Livewire\Admin\TagIndex;
 use App\Http\Livewire\Admin\UserIndex;
 use App\Http\Livewire\SelectOption;
+use App\Http\Livewire\NewsletterForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,19 +60,19 @@ use App\Http\Livewire\SelectOption;
 
 
 // FRONTEND
-Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('articles', [ArticleController::class, 'index'])->name('articles');
-Route::get('articles/{slug}', [ArticleController::class, 'show']);
 
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+Route::get('/articles/{slug}', [ArticleController::class, 'show']);
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
 
-Route::get('about', [PageController::class, 'about'])->name('about');
-Route::get('privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
-Route::get('terms', [PageController::class, 'terms'])->name('terms');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
+Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 
 Route::get('people', [PersonController::class, 'index'])->name('people');
 Route::get('people/{slug}', [PersonController::class, 'show']);
@@ -105,6 +106,8 @@ Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
     Route::post('/', [ReplyController::class, 'store'])->name('store');
     Route::get('reply/{id}/{type}', [ReplyController::class, 'redirect'])->name('replyAble');
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 

@@ -65,7 +65,7 @@
         </div>
 
 
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
+        <div class="grid grid-cols-2 gap-4 md:gap-6 sm:grid-cols-2">
           <div>
             <nav aria-label="Footer Navigation - Services" class="mt-0 md:mt-6">
               <ul class="space-y-2 text-md font-mabrybold">
@@ -82,8 +82,8 @@
                 </li>
 
                 <li>
-                  <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Blogs
+                  <a href="{{ route('contact') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                    Contact
                   </a>
                 </li>
 
@@ -116,12 +116,6 @@
                     Riddles
                   </a>
                 </li>
-
-                <li>
-                  <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Funny
-                  </a>
-                </li>
                 <li>
                   <a href="{{ route('people') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     People
@@ -132,6 +126,12 @@
                     Topics
                   </a>
                 </li>
+                <li>
+                  <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                    Blog
+                  </a>
+                </li>
+                
                 
               </ul>
             </nav>

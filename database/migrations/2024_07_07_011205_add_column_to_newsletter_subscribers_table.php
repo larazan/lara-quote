@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('newsletter_subscribers', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->unique();
-            $table->string('status',10);
-            $table->integer('opened')->default(0);
-            $table->timestamps();
+        Schema::table('newsletter_subscribers', function (Blueprint $table) {
+            $table->boolean('is_verified')->default(false);
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('newsletter_subscribers');
+        Schema::table('newsletter_subscribers', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -130,7 +130,7 @@
   </div>
 </main>
 
-@include('frontend.components._subscribe_form')
+<livewire:newsletter-form />
 
 @endsection
 

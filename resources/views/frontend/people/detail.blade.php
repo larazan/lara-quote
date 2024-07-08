@@ -84,8 +84,8 @@
         </div>
     </div>
 
-    @include('frontend.components._subscribe_form')
-
 </main>
+
+<livewire:newsletter-form />
 
 @endsection

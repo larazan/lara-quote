@@ -21,7 +21,7 @@
                     </div>
                     <div class="flex flex-wrap justify-left mx-auto w-full md:w-12/12 items-center">
                         @foreach($tags as $t)
-                        <a href="{{ url('tags/' . $t->slug) }}">
+                        <a href="{{ url('quotes/tag/' . $t->slug) }}">
                             <div class="mr-1.5 mt-1 mb-1 py-1.5 px-3 text-sm bg-[#f1f5f9] border border-slate-300 rounded-md flex items-center text-slate-900 gap-x-1 hover:bg-slate-200 transition cursor-pointer">
                                 <div class="truncate text-xs font-semibold capitalize">{{ $t->name }}</div>
                             </div>
@@ -36,8 +36,8 @@
 
     </div>
 
-    @include('frontend.components._subscribe_form')
-
 </main>
+
+<livewire:newsletter-form />
 
 @endsection

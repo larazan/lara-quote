@@ -41,11 +41,11 @@
           </article>
         </section>
       </div>
-
-      @include('frontend.components._subscribe_form')
     
     </div>
   </div>
 </div>
+
+<livewire:newsletter-form />
 
 @endsection
