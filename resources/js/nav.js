@@ -1,11 +1,7 @@
 window.navConfig = () => {
     return {
-        nav: false,
         searchVisible: false,
         searchQuery: '',
-        community: false,
-        chat: false,
-        settings: false,
 
         // Show search modal
         showSearch: function (event) {

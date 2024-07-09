@@ -1,6 +1,4 @@
 algolia Search
-prevent scrapping
 like
 comment
-article
 download image

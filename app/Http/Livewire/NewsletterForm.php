@@ -10,24 +10,23 @@ use Livewire\Component;
 class NewsletterForm extends Component
 {
     public $email = '';
-    public $tes = 'tes';
-
-    public function test()
-    {
-        dd('tes berjalan');
-    }
 
     public function subscribe()
     {
-        $this->tes = 'tes 2';
-        $this->email = 'tes 2';
 
-        $validateData = $this->validate([
-            'email' => 'required|email|max:128|unique:newsletter_subscribers,email',
-        ]);
+        $validatedData = $this->validate(
+            ['email' => 'required|email|unique:newsletter_subscribers,email'],
+            [
+                'email.required' => 'The :attribute cannot be empty.',
+                'email.email' => 'The :attribute format is not valid.',
+                'email.unique' => 'This email address has already been used.',
+            ],
+            ['email' => 'Email']
+        );
 
         // submit data
-        $newsletter = Newsletter::create($validateData);
+        Newsletter::create($validatedData);
+        // $newsletter = Newsletter::create($validateData);
 
         // send email
         // Mail::to($this->email)->send(new NewsletterVerificationMail($newsletter));

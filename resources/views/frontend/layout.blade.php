@@ -18,6 +18,12 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
 
     @stack('meta')
@@ -26,8 +32,8 @@
     @include('frontend.layouts._social')
 
     <!-- CSS -->
-    
     @stack('style')
+    @livewireStyles
 </head>
 
 <body>
@@ -41,8 +47,23 @@
 
 @stack('modals')
 
+@livewireScripts
 @stack('js')
 
+<script>
+    window.addEventListener('banner-message', event => {
+      toastr[event.detail.style](event.detail.message,
+        event.detail.title ?? ''), toastr.options = {
+        "closeButton": true,
+        "progressBar": true,
+      }
+    });
+
+    @if (Session::has('pesan'))
+      toastr.{{Session::get('alert')}}("{{Session::get('pesan')}}");
+    @endif  
+
+</script>
 
 </body>
 </html>

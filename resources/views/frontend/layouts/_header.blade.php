@@ -1,5 +1,5 @@
 <header class="fixed z-30 w-full px-5 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
-  <div class="flex items-center justify-between mx-auto max-w-5xl"  x-data="navConfig()">
+  <div class="flex items-center justify-between mx-auto max-w-5xl"  >
     <div class="flex w-2/12 items-center text-gray-800">
       <a href="/">
         <img src="/frontend/img/logo.png" alt="logo" class="w-full md:h-12" />
@@ -19,7 +19,7 @@
     @include('frontend.components._modal-search')
 
     <div class="flex space-x-3 md:space-x-3 font-bold text-gray-900 items-center">
-      <div class="flex items-center">
+      <div class="flex items-center" x-data="navConfig()">
         <button @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="hover:text-lio-500">
           <span class="h-5 w-5 hidden md:block">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-06">
@@ -35,7 +35,7 @@
       <a href="{{ route('people') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         People
       </a>
-      <a href="{{ route('tags') }}" class="md:block2 hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('tags') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Topic
       </a>
       <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
