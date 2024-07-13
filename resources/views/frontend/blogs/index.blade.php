@@ -15,14 +15,13 @@
             
           >
             <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-headline font-black tracking-snug text-center leading-12 sm:leading-15 md:leading-19 lg:leading-26 text-gray-800">
-              <span>The SavvyCal Blog</span>
+              <span>Our Blog</span>
             </h1>
-            <p class="text-gray-600 text-lg md:text-2xl text-center leading-normal md:leading-9 mt-3 md:mt-6">
-              We write about how to manage your time well.
-            </p>
+            <!-- <p class="text-gray-600 text-lg md:text-2xl text-center leading-normal md:leading-9 mt-3 md:mt-6">
+              Get inspiring jokes .
+            </p> -->
             <div
               class="pt-10 flex justify-center text-yellow-300"
-              
             >
               <svg width="204" height="14" xmlns="http://www.w3.org/2000/svg">
                 <g fill="currentColor" fill-rule="evenodd">
@@ -37,7 +36,7 @@
 
           <div class="px-6">
             <ul class="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-10">
-             
+             {{-- 
               <li class="py-6 md:py-10">
                 <h2 class="pb-4 text-center md:text-left">
                   <a
@@ -125,6 +124,7 @@
                   </div>
                 </div>
               </li>
+              --}}
               @foreach($articles as $a)
               <li class="py-6 md:py-10">
                 <h2 class="pb-4 text-center md:text-left">

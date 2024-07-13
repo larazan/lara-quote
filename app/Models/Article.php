@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
 class Article extends Model
 {
@@ -24,6 +25,7 @@ class Article extends Model
     use HasLikes;
     use HasTimestamps;
     use HasTags;
+    use Commentable;
     use SoftDeletes;
     
     protected $fillable = [

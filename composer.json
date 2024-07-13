@@ -29,6 +29,7 @@
         "spatie/laravel-permission": "^5.10",
         "spatie/laravel-searchable": "^1.11",
         "spatie/laravel-sitemap": "^6.3",
+        "usamamuneerchaudhary/commentify": "^1.2",
         "usernotnull/tall-toasts": "^1.7",
         "yarri/link-finder": "^2.7"
     },

@@ -132,7 +132,7 @@
 <x-showcase :id="$id" :fontFamily="$styles" :quote="$quote" :author="$author" />
 
 {{-- Replies --}}
-
+{{-- 
 <div class="pt-6 space-y-5 bg-[#f5f5f5] mx-auto w-full px-6">
   <h2 class="mb-0 text-lg md:text-2xl font-bold">Replies</h2>
 
@@ -248,6 +248,8 @@
   </div>
 </div>
 @endauth
+--}}
+
 
 <livewire:newsletter-form />
 

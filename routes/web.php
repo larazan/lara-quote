@@ -92,6 +92,7 @@ Route::get('riddles/random', [RiddleController::class, 'random']);
 
 Route::get('tags', [TagController::class, 'index'])->name('tags');
 Route::get('tags/all', [TagController::class, 'getTags']);
+Route::get('tags/store', [TagController::class, 'storeTag']);
 Route::get('tags/test', [TagController::class, 'test']);
 Route::get('tags/{letter}', [TagController::class, 'show']);
 

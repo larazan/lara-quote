@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Quote extends Model
 {
@@ -30,9 +31,10 @@ class Quote extends Model
 		'tags',
 	];
 
-    protected $with = [
-        // 'likesRelation'
-    ];
+    // protected $withCount = [
+    //     'likes',
+    //     // 'likesRelation'
+    // ];
 
     public static function boot() {
         parent::boot();
@@ -113,6 +115,37 @@ class Quote extends Model
     public function replyAbleSubject(): string
     {
         return $this->words();
+    }
+
+    public function isLiked()
+    {
+        if (auth()->user()) {
+            return auth()->user()->likes()->forPost($this)->count();
+        }
+
+        if (($ip = request()->ip()) && ($userAgent = request()->userAgent())) {
+            return $this->likes()->forIp($ip)->forUserAgent($userAgent)->count();
+        }
+
+        return false;
+    }
+
+    public function removeLike()
+    {
+        if (auth()->user()) {
+            return auth()->user()->likes()->forPost($this)->delete();
+        }
+
+        if (($ip = request()->ip()) && ($userAgent = request()->userAgent())) {
+            return $this->likes()->forIp($ip)->forUserAgent($userAgent)->delete();
+        }
+
+        return false;
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(QuoteLike::class);
     }
 
 }

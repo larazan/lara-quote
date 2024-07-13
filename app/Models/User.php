@@ -123,4 +123,9 @@ class User extends Authenticatable
         return $this->hasMany(Reply::class, 'author_id');
     }
 
+    public function likes(): HasMany
+    {
+        return $this->hasMany(QuoteLike::class);
+    }
+
 }

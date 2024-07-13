@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a135b2c05934be9811102300fded840",
+    "content-hash": "1ec238e8ac6edf76f8533351fe3c6703",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -9338,6 +9338,70 @@
                 "source": "https://github.com/ua-parser/uap-php/tree/v3.9.14"
             },
             "time": "2020-10-02T23:36:20+00:00"
+        },
+        {
+            "name": "usamamuneerchaudhary/commentify",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/usamamuneerchaudhary/commentify.git",
+                "reference": "c5db60c162e82b4e50500645cd21d0b9f27b789d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/usamamuneerchaudhary/commentify/zipball/c5db60c162e82b4e50500645cd21d0b9f27b789d",
+                "reference": "c5db60c162e82b4e50500645cd21d0b9f27b789d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "*",
+                "illuminate/support": "*",
+                "livewire/livewire": "^2.12",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^v8.0.4",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Usamamuneerchaudhary\\Commentify\\Providers\\MarkdownServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Usamamuneerchaudhary\\Commentify\\": "src",
+                    "Usamamuneerchaudhary\\Commentify\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Usama Muneer",
+                    "email": "hello@usamamuneer.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy Laravel Livewire Comments with TailwindCSS UI",
+            "keywords": [
+                "commentify",
+                "comments",
+                "laravel-livewire",
+                "livewire",
+                "livewire-comments",
+                "usamamuneerchaudhary"
+            ],
+            "support": {
+                "issues": "https://github.com/usamamuneerchaudhary/commentify/issues",
+                "source": "https://github.com/usamamuneerchaudhary/commentify/tree/1.2"
+            },
+            "time": "2023-05-09T00:24:02+00:00"
         },
         {
             "name": "usernotnull/tall-toasts",

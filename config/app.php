@@ -190,6 +190,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         NotificationChannels\Twitter\TwitterServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Usamamuneerchaudhary\Commentify\Providers\CommentifyServiceProvider::class,
 
         /*
          * Application Service Providers...

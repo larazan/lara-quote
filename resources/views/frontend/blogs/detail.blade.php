@@ -19,7 +19,7 @@
         </svg> <span class="text-gray-900 ml-1 hover:text-gray-900">Back to articles</span>
       </a>
     </div>
-    <h1 class="relative mx-3 md:mx-auto text-3xl md:text-5xl md:leading-[60px] max-w-3xl m-auto text-black font-semibold text-center mt-4 sm:mt-6 mb-5 sm:mb-0">
+    <h1 class="relative mx-3 md:mx-auto text-2xl md:text-5xl md:leading-[60px] max-w-3xl m-auto text-black font-semibold text-center mt-4 sm:mt-6 mb-5 sm:mb-0">
       {{ $article->title }}
     </h1>
     <a href="" class="flex items-center justify-center sm:hidden">
@@ -504,6 +504,8 @@
 </div>
 
 <x-article-list :articles="$articles" />
+
+<livewire:comments :model="$article"/>
 
 <livewire:newsletter-form />
 
