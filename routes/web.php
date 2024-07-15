@@ -62,6 +62,7 @@ use App\Http\Livewire\NewsletterForm;
 
 // FRONTEND
 
+Route::get('/search', [SearchController::class, 'index']);
 Route::post('/search', [SearchController::class, 'search'])->name('quote.search');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
@@ -162,9 +163,9 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
 
 });
 
-Route::get('/saveperson', [PersonController::class, 'savePerson']);
-Route::get('/savequote', [QuoteController::class, 'saveQuote']);
-Route::get('/saveriddle', [RiddleController::class, 'saveRiddle']);
+// Route::get('/saveperson', [PersonController::class, 'savePerson']);
+// Route::get('/savequote', [QuoteController::class, 'saveQuote']);
+// Route::get('/saveriddle', [RiddleController::class, 'saveRiddle']);
 
 
 Route::middleware([
@@ -189,11 +190,11 @@ Route::get('test', [TestController::class . 'index']);
 // update quote slug
 Route::get('rand', [QuoteController::class, 'insertRand']);
 
-Route::get('search', function() {
-    $query = '';
+// Route::get('search', function() {
+//     $query = '';
 
-    $people = App\Models\Person::search($query)->get();
-    $quotes = App\Models\Quote::search($query)->paginate(20);
+//     $people = App\Models\Person::search($query)->get();
+//     $quotes = App\Models\Quote::search($query)->paginate(20);
 
-    return $people;
-});
+//     return $people;
+// });
