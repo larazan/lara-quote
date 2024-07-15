@@ -1,6 +1,6 @@
 <header class="fixed z-30 w-full px-5 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
   <div class="flex items-center justify-between mx-auto max-w-5xl"  >
-    <div class="flex w-2/12 md:py-1 items-center text-gray-800">
+    <div class="flex w-3/12 md:w-2/12 md:py-1 items-center text-gray-800">
       <a href="/">
         <img src="/frontend/img/logo.png" alt="logo" class="w-full md:h-10" />
         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt" viewBox="0 0 1025.000000 1025.000000">
@@ -36,10 +36,10 @@
         People
       </a>
       <a href="{{ route('tags') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-        Topic
+        Topics
       </a>
       <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-        Blog
+        Article
       </a>
 
       <div class="hidden flex2 items-center gap-x-2 ml-auto">
@@ -79,7 +79,7 @@
             </li>
             <li class="hidden text-2xl">
               <a class="hover:text-[#FF6D42]" href="{{ route('tags') }}">
-                Topic
+                Topics
               </a>
             </li>
             <li class="text-2xl">
@@ -89,7 +89,7 @@
             </li>
             <li class="text-2xl">
               <a class="hover:text-[#FF6D42]" href="{{ route('articles') }}">
-                Blog
+                Article
               </a>
             </li>
 

@@ -65,9 +65,9 @@
 
         <div class="px-6 py-2 mb-5 space-y-4">
             <div>
-
+            @if($quotes->count() > 0)
                 <div class="py-10  columns-1 md:columns-2 lg:columns-3 ">
-
+                    
                     @foreach($quotes as $q)
                     <a class="mb-4 rounded bg-white border group flex flex-col overflow-hidden justify-center shadow-md items-center cursor-zoom-in" href="{{ url('quotes/' . $q->id) }}">
                         <div class="flex-grow py-2 lg:py-4 md:py-4 px-4">
@@ -91,7 +91,11 @@
                     @endforeach
 
                 </div>
-
+            @else
+                <div class="flex items-center justify-center mx-auto w-full ">
+                    <span class="font-semibold text-md text-red-500">No record found!</span>
+                </div>
+            @endif
             </div>
 
             {{ $quotes->links() }}

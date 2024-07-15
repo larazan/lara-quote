@@ -15,7 +15,7 @@
             
           >
             <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-headline font-black tracking-snug text-center leading-12 sm:leading-15 md:leading-19 lg:leading-26 text-gray-800">
-              <span>Our Blog</span>
+              <span>Our Article</span>
             </h1>
             <!-- <p class="text-gray-600 text-lg md:text-2xl text-center leading-normal md:leading-9 mt-3 md:mt-6">
               Get inspiring jokes .

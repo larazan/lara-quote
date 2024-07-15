@@ -65,6 +65,7 @@ class TagIndex extends Component
         Tag::create([
           'name' => $this->name,
           'slug' => Str::slug($this->name),
+          'status' => $this->catStatus,
         ]);
         $this->reset();
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Tag created successfully']);
@@ -76,6 +77,7 @@ class TagIndex extends Component
         $this->tagId = $tagId;
         $tag = Tag::find($tagId);
         $this->name = $tag->name;
+        $this->catStatus = $tag->status;
         $this->showTagModal = true;
     }
     
@@ -87,6 +89,7 @@ class TagIndex extends Component
         $tag->update([
             'name' => $this->name,
             'slug'     => Str::slug($this->name),
+            'status' => $this->catStatus,
         ]);
         $this->reset();
         $this->showTagModal = false;

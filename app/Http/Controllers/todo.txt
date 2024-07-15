@@ -2,3 +2,4 @@ algolia Search
 like
 comment
 download image
+Search page

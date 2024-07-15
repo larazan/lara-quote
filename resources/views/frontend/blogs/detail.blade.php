@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="flex flex-col bg-white min-h-screen pt-16 md:pt-[80px]">
+<div class="flex flex-col bg-white min-h-screen pt-14 md:pt-[60px]">
 
 
   <div class="bg-purple-100 py-10 mb-4">

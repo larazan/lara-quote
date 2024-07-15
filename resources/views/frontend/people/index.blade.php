@@ -40,7 +40,7 @@
             </div>
 
             <div class="bg-white">
-
+                @if($people->count() > 0)
                 <section class="grid w-full grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 xl:grid-cols-4 xl:gap-4">
                     @foreach($people as $p)
                     <div class="transition-all duration-150 flex mr-[1em] mb-[1em] hover:scale-110">
@@ -59,6 +59,11 @@
                     </div>
                     @endforeach
                 </section>
+                @else
+                <div class="flex items-center justify-center mx-auto w-full ">
+                    <span class="font-semibold text-md text-red-500">No record found!</span>
+                </div>
+            @endif
 
             </div>
 

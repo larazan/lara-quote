@@ -83,7 +83,7 @@ class PersonController extends Controller
     {
         $people = Person::where('name', 'like', "{$letter}%");
 
-        $this->data['title'] = "Letter " . ucfirst($letter);
+        $this->data['title'] = "People Letter " . ucfirst($letter);
         $this->data['people'] = $people->paginate(20);
         $this->data['letter'] = $letter;
 		return $this->loadTheme('people.index', $this->data);

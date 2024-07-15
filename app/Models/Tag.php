@@ -18,9 +18,11 @@ class Tag extends Model
     protected $fillable = [
         'name',
         'slug',
+        'status',
     ];
 
     public $timestamps = false;
+    public const ACTIVE = 'active';
 
     public function id(): int
     {
@@ -35,6 +37,13 @@ class Tag extends Model
     public function slug(): string
     {
         return $this->slug;
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::ACTIVE);
+            // ->where('article_type', self::POST)
+            // ->where('published_at', '<=', Carbon::now());
     }
 
     public function articles(): MorphToMany

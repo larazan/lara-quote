@@ -14,6 +14,7 @@ use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SubscribeController;
 
 use App\Http\Controllers\Admin\ArticleController as AdminArticlesController;
@@ -61,7 +62,7 @@ use App\Http\Livewire\NewsletterForm;
 
 // FRONTEND
 
-
+Route::post('/search', [SearchController::class, 'search'])->name('quote.search');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 

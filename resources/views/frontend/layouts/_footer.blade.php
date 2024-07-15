@@ -128,7 +128,7 @@
                 </li>
                 <li>
                   <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Blog
+                    Article
                   </a>
                 </li>
                 

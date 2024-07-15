@@ -1,5 +1,5 @@
-<div class="w-6/12 ml-auto2 hidden lg:block" x-data="{ searchVisible:false }">
-    <form class="flex items-center relative" @click="searchVisible = !searchVisible">
+<div class="w-6/12 ml-auto2 hidden lg:block">
+    <form action="{{ route('quote.search') }}" method="GET"  class="flex items-center relative">
         <div class="flex w-full items-center rounded-lg bg-gray-100 h-12 border px-1 py-3" >
             <button class="static inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-transparent text-gray-400 h-10 px-2 py-2 " type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
@@ -7,9 +7,10 @@
                     <path d="m21 21-4.3-4.3"></path>
                 </svg>
             </button>
-            <input class="relative flex h-12 bg-transparent px-1 py-3 text-md ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 w-full lg:w-[600px] focus-visible:ring-transparent" placeholder="Search for a Quote or People">
+            <input type="text" name="search" class="relative flex h-12 bg-transparent px-1 py-3 text-md ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 w-full lg:w-[600px] focus-visible:ring-transparent border-none" placeholder="Search for a Quote or People">
         </div>
     </form>
+    {{-- 
     <div x-show="searchVisible" class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity" aria-hidden="true" style="display: none;" ></div>
     <div x-show="searchVisible" id="search-modal" class="fixed inset-0 z-50 overflow-hidden flex items-start top-20 mb-4 justify-center transform px-4 sm:px-6" role="dialog" aria-modal="true" style="display: none;" >
         <div @click.outside="searchVisible = false" class="bg-white overflow-auto max-w-2xl w-full max-h-full rounded-lg shadow-lg" >
@@ -27,7 +28,7 @@
             </form>
             <div class="py-3 md:py-6 px-6" >
                 <div class="mb-3 last:mb-0" >
-                    <div class="text-md font-semibold text-slate-500 capitalize px-2 mb-3" >Recent searches</div>
+                    <div class="text-md font-semibold text-slate-500 capitalize px-2 mb-3" >Recent searches 2</div>
                     <ul class="w-full flex flex-col space-y-3">
                         <li class="flex justify-between items-center cursor-pointer w-full hover:text-indigo-500 pb-1 border-b">
                             <span class="text-sm leading-tight md:leading-normal text-slate-500">25 New Mom Gift Baskets That Are All About Her</span>
@@ -87,4 +88,5 @@
             </div>
         </div>
     </div>
+    --}}
 </div>

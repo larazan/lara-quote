@@ -253,10 +253,10 @@ class Article extends Model
         return $this->belongsToMany(CategoryArticle::class, 'category_articles',);
     }
 
-    public function comments() 
-    {
-        return $this->morphMany(Comment::class, 'commentable')
-            ->latest()
-            ->whereNull('parent_id');
-    }
+    // public function comments() 
+    // {
+    //     return $this->morphMany(Comment::class, 'commentable')
+    //         ->latest()
+    //         ->whereNull('parent_id');
+    // }
 }
