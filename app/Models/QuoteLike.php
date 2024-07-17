@@ -9,8 +9,11 @@ class QuoteLike extends Model
 {
     use HasFactory;
 
+    protected $table = 'quote_likes';
+
     protected $fillable = [
-        // 'user_id',
+        'user_id',
+        // 'quote_id',
         'ip',
         'user_agent',
     ];

@@ -1,5 +1,5 @@
 algolia Search
-like
+like  -done
 comment
 download image
-Search page
+article

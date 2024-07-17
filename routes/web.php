@@ -62,8 +62,8 @@ use App\Http\Livewire\NewsletterForm;
 
 // FRONTEND
 
-Route::get('/search', [SearchController::class, 'index']);
-Route::post('/search', [SearchController::class, 'search'])->name('quote.search');
+// Route::get('/search', [SearchController::class, 'index']);
+Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 
@@ -127,12 +127,12 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
         // Route::get('authored', AuthoredArticles::class)->name('user.articles');
         Route::get('/', ArticleIndex::class)->name('articles.index');
         // Route::get('/', [ArticlesController::class, 'index'])->name('articles');
-        Route::get('create', [ArticlesController::class, 'create'])->name('articles.create');
-        Route::post('/', [ArticlesController::class, 'store'])->name('articles.store');
-        Route::get('{article}', [ArticlesController::class, 'show'])->name('articles.show');
-        Route::get('{article}/edit', [ArticlesController::class, 'edit'])->name('articles.edit');
-        Route::put('{article}', [ArticlesController::class, 'update'])->name('articles.update');
-        Route::delete('{article}', [ArticlesController::class, 'delete'])->name('articles.delete');
+        Route::get('create', [AdminArticlesController::class, 'create'])->name('articles.create');
+        Route::post('/', [AdminArticlesController::class, 'store'])->name('articles.store');
+        Route::get('{article}', [AdminArticlesController::class, 'show'])->name('articles.show');
+        Route::get('{article}/edit', [AdminArticlesController::class, 'edit'])->name('articles.edit');
+        Route::put('{article}', [AdminArticlesController::class, 'update'])->name('articles.update');
+        Route::delete('{article}', [AdminArticlesController::class, 'delete'])->name('articles.delete');
     });
 
     Route::get('about-us', AboutUs::class)->name('about-us.index');
@@ -190,11 +190,11 @@ Route::get('test', [TestController::class . 'index']);
 // update quote slug
 Route::get('rand', [QuoteController::class, 'insertRand']);
 
-// Route::get('search', function() {
-//     $query = '';
+Route::get('searchout', function() {
+    $query = '';
 
-//     $people = App\Models\Person::search($query)->get();
-//     $quotes = App\Models\Quote::search($query)->paginate(20);
+    $people = App\Models\Person::search($query)->get();
+    $quotes = App\Models\Quote::search($query)->paginate(20);
 
-//     return $people;
-// });
+    return $people;
+});

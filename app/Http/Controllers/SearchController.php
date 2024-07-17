@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     //
-    public function index()
+    public function index2()
     {
         $person = 'albert';
         $search = 'kata';

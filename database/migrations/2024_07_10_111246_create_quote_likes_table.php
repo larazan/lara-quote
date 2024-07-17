@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('quote_likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quotes_id');
-            // $table->foreignId('user_id')->nullable();
+            $table->foreignId('quote_id');
+            $table->foreignId('user_id')->nullable();
             $table->ipAddress('ip')->nullable();
             $table->string('user_agent')->nullable();
             $table->timestamps();

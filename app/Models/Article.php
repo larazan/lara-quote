@@ -86,6 +86,11 @@ class Article extends Model
         self::INACTIVE => 'inactive',
     ];
 
+    public static function statuses()
+	{
+		return self::STATUSES;
+	}
+
     public function id(): int
     {
         return $this->id;

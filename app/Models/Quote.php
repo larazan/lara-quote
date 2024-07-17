@@ -31,10 +31,10 @@ class Quote extends Model
 		'tags',
 	];
 
-    // protected $withCount = [
-    //     'likes',
-    //     // 'likesRelation'
-    // ];
+    protected $withCount = [
+        'likes',
+        // 'likesRelation'
+    ];
 
     public static function boot() {
         parent::boot();
@@ -119,11 +119,16 @@ class Quote extends Model
 
     public function isLiked()
     {
+        $ip = request()->ip();
+        $userAgent = request()->userAgent();
         if (auth()->user()) {
-            return auth()->user()->likes()->forPost($this)->count();
+            // return auth()->user()->likes()->forPost($this)->count();
+            return User::with('likes')->whereHas('likes', function ($q) {
+                $q->where('quote_id', $this->id);
+            })->count();
         }
 
-        if (($ip = request()->ip()) && ($userAgent = request()->userAgent())) {
+        if ($ip && $userAgent) {
             return $this->likes()->forIp($ip)->forUserAgent($userAgent)->count();
         }
 
@@ -132,11 +137,14 @@ class Quote extends Model
 
     public function removeLike()
     {
+        $ip = request()->ip();
+        $userAgent = request()->userAgent();
         if (auth()->user()) {
-            return auth()->user()->likes()->forPost($this)->delete();
+            // return auth()->user()->likes()->forPost($this)->delete();
+            return $this->likes()->where('user_id', auth()->user()->id)->where('quote_id', $this->id)->delete();
         }
 
-        if (($ip = request()->ip()) && ($userAgent = request()->userAgent())) {
+        if ($ip && $userAgent) {
             return $this->likes()->forIp($ip)->forUserAgent($userAgent)->delete();
         }
 
