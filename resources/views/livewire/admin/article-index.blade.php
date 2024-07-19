@@ -1,5 +1,7 @@
 <div class="vs jj ttm vl ou uf na">
 
+@dump($articleId)
+
     <!-- Loading -->
     <x-loading-indicator />
 
@@ -274,7 +276,7 @@
                                                         <span class="ml-2 text-xs text-green-700 italic">category added!</span>
                                                         @endif
                                                     </label>
-                                                    <select wire:model="categoryId" class="h-full2 w-full capitalize rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                                                    <select wire:model="categoryId" class="h-full2 w-full capitalize rounded-r border-t border-r border-b block appearance-none bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
                                                         <option value="">Select Category</option>
                                                         @foreach($categories as $cat)
                                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -304,109 +306,51 @@
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
-                                                Body
+                                                Body 
                                             </label>
-                                            @if ($articleId)
-                                            <div x-data="{ trix: @entangle($body).defer }" class="hidden">
-                                                <input value="{{ $body }}" id="{{ $body }}" name="{{ $body }}" type="hidden" />
-                                                <div wire:ignore x-on:trix-change.debounce.500ms=" trix=$refs.trixInput.value">
-                                                    <trix-editor x-ref="trixInput" input="{{ $body }}" class="overflow-y-scroll" style="height: 10rem;"></trix-editor>
+                                            @if (isset($articleId))
+                                            <div>edit</div>
+                                                <div class="mt-2 bg-gray-100" wire:ignore>
+                                                    
+                                                    <div 
+                                                        class="h-64 bg-gray-50" 
+                                                        x-data 
+                                                        x-ref="quillEditor" 
+                                                        x-init="
+                                                            quill = new Quill($refs.quillEditor, {theme: 'snow'});
+                                                            quill.root.innerHTML = $body;
+                                                            quill.on('text-change', function () {
+                                                                $dispatch('quill-input', quill.root.innerHTML);
+                                                            });
+                                                        "
+                                                        x-on:quill-input.debounce.2000ms="@this.set('body', $event.detail)"
+                                                    >
+                                                        {!! $body !!}
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="mt-2 bg-white" wire:ignore>
-                                                <div id="toolbar-container">
-                                                    <span class="ql-formats">
-                                                        <select class="ql-font"></select>
-                                                        <select class="ql-size"></select>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-bold"></button>
-                                                        <button class="ql-italic"></button>
-                                                        <button class="ql-underline"></button>
-                                                        <button class="ql-strike"></button>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <select class="ql-color"></select>
-                                                        <select class="ql-background"></select>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-script" value="sub"></button>
-                                                        <button class="ql-script" value="super"></button>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-header" value="1"></button>
-                                                        <button class="ql-header" value="2"></button>
-                                                        <button class="ql-blockquote"></button>
-                                                        <button class="ql-code-block"></button>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-list" value="ordered"></button>
-                                                        <button class="ql-list" value="bullet"></button>
-                                                        <button class="ql-indent" value="-1"></button>
-                                                        <button class="ql-indent" value="+1"></button>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-direction" value="rtl"></button>
-                                                        <select class="ql-align"></select>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-link"></button>
-                                                        <button class="ql-image"></button>
-                                                        <button class="ql-video"></button>
-                                                        <button class="ql-formula"></button>
-                                                    </span>
-                                                    <span class="ql-formats">
-                                                        <button class="ql-clean"></button>
-                                                    </span>
-                                                </div>
-                                                <div 
-                                                    class="h-64" 
-                                                    x-data x-ref="quillEditor" 
-                                                    x-init="
-                                                        quill = new Quill($refs.quillEditor, { 
-                                                            theme: 'bubble', 
-                                                            modules: { 
-                                                                toolbar: '#toolbar-container' 
-                                                            } 
-                                                        });
-                                                        quill.root.innerHTML = '{!! $body !!}';
-                                                        quill.on('text-change', function() { 
-                                                            $dispatch('quill-input', quill.root.innerHTML); 
-                                                        });" 
-                                                    x-on:quill-input.debounce.2000ms="@this.set('body', $event.detail)"
-                                                >
-                                                    {!! $body !!}
-                                                </div>
-                                            </div>
                                             @else
-                                            <div wire:ignore class="hidden">
-                                                <input id="{{ $trixId }}" type="hidden" name="content" value="{{ $body }}" />
-                                                <trix-editor wire:ignore input="{{ $trixId }}" class="overflow-y-scroll" style="height: 10rem;"></trix-editor>
-                                            </div>
-
-                                            <div class="mt-2 bg-white border border-gray-200" wire:ignore>
-                                                <div 
-                                                    class="h-64" 
-                                                    x-data x-ref="quillEditor" 
-                                                    x-init="
-                                                        quill = new Quill($refs.quillEditor, {
-                                                            theme: 'snow',
-                                                            modules: {
-                                                                toolbar: [
-                                                                    [{ header: [1, 2, false] }],
-                                                                    ['bold', 'italic', 'underline'],
-                                                                    ['image', 'code-block']
-                                                                ]
-                                                            },
-                                                        });
-                                                        quill.on('text-change', function() {
-                                                            $dispatch('quill-input', quill.root.innerHTML);
-                                                        });" 
-                                                    x-on:quill-input.debounce.2000ms="@this.set('body', $event.detail)">
-                                                    {!! $body !!}
+                                                <div class="@if($edit == false){{ 'block' }}@else{{ 'hidden' }}@endif mt-2 bg-white border border-gray-200" wire:ignore>
+                                                    <div 
+                                                        class="h-64" 
+                                                        x-data x-ref="quillEditor" 
+                                                        x-init="
+                                                            quill = new Quill($refs.quillEditor, {
+                                                                theme: 'snow',
+                                                                modules: {
+                                                                    toolbar: [
+                                                                        [{ header: [1, 2, false] }],
+                                                                        ['bold', 'italic', 'underline'],
+                                                                        ['image', 'code-block']
+                                                                    ]
+                                                                },
+                                                            });
+                                                            quill.on('text-change', function() {
+                                                                $dispatch('quill-input', quill.root.innerHTML);
+                                                            });" 
+                                                        x-on:quill-input.debounce.2000ms="@this.set('body', $event.detail)">
+                                                        {!! $body !!}
+                                                    </div>
                                                 </div>
-                                            </div>
                                             @endif
                                         </div>
 
@@ -465,11 +409,16 @@
 
                                                 <x-flatpicker wire:model="publishedAt"></x-flatpicker>
                                             </div>
-                                            <div class="col-start-1 sm:col-span-3">
+                                            <div class="col-span-6 sm:col-span-3">
                                                 <label for="title" class="block text-sm font-medium text-gray-700">
                                                     Author
                                                 </label>
-                                                <input wire:model="author" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                                <select wire:model="author" class="h-full2 rounded-r border-t border-r border-b block appearance-none w-full bg-white border-gray-300 text-gray-700 py-2 px-4 pr-8 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none">
+                                                    <option value="">Select Option</option>
+                                                    @foreach($authors as $a)
+                                                    <option value="{{ $a->id }}">{{ $a->first_name }} {{ $a->last_name }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
 
@@ -604,35 +553,8 @@
     //     @this.set('body', trixEditor.getAttribute('value'))
     // })
 
-    var quill = new Quill('#quill-editor-area', {
-        theme: 'snow',
-        modules: {
-            toolbar: [
-                [{
-                    header: [1, 2, 3, 4, 5, 6, false]
-                }],
-                [{
-                    font: []
-                }],
-                ["bold", "italic"],
-                ["link", "blockquote", "code-block", "image"],
-                [{
-                    list: "ordered"
-                }, {
-                    list: "bullet"
-                }],
-                [{
-                    script: "sub"
-                }, {
-                    script: "super"
-                }],
-                [{
-                    color: []
-                }, {
-                    background: []
-                }],
-            ]
-        },
-    });
+    // var quill = new Quill('#quill-editor-area', {
+    //     theme: 'snow',
+    // });
 </script>
 @endpush

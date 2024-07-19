@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Article;
+use App\Models\User;
 use App\Models\CategoryArticle;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +19,7 @@ class ArticleIndex extends Component
 
     // public  $listeners = ['categoryAdd'];
     public $showArticleModal = false;
+    public $edit = false;
     public $showMessage = false;
     public $trixId;
     public $title;
@@ -95,7 +97,7 @@ class ArticleIndex extends Component
 
         $article = new Article();
         $article->category_id = $this->categoryId;
-        $article->author_id = Auth::user()->id;
+        $article->author_id = isset($this->author) ? $this->author : Auth::user()->id;
         $article->title = $this->title;
         $article->slug = Str::slug($this->title);
         $article->rand_id = Str::random(10);
@@ -221,7 +223,8 @@ class ArticleIndex extends Component
     {
         return view('livewire.admin.article-index', [
             'articles' => Article::liveSearch('title', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
-            'categories' => CategoryArticle::OrderBy('name', $this->sort)->get()
+            'categories' => CategoryArticle::OrderBy('name', $this->sort)->get(),
+            'authors' => User::OrderBy('id', $this->sort)->get()
         ]);
     }
 
