@@ -116,6 +116,7 @@ class PersonIndex extends Component
     public function closePersonModal()
     {
         $this->showPersonModal = false;
+        $this->reset();
     }
 
     public function resetFilters()

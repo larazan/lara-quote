@@ -108,6 +108,7 @@ class RiddleIndex extends Component
     public function closeRiddleModal()
     {
         $this->showRiddleModal = false;
+        $this->reset();
     }
 
     public function resetFilters()

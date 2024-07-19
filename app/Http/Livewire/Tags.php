@@ -7,16 +7,21 @@ use Livewire\Component;
 class Tags extends Component
 {
     public $tranTags;
-    public $tags = [];
+    public $tags;
+    public $d;
 
     public function mount()
     {
-        $this->tags = ['sss', 'vvv'];
+        $this->tags = [];
+        // $this->tags = explode(',', $this->d);
+
     }
 
     public function updatedTags()
     {
-        dd($this->tags);
+        // dd($this->tags);
+
+        $this->tags = $this->tags;
     }
     
     

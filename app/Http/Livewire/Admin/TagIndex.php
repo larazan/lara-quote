@@ -107,6 +107,7 @@ class TagIndex extends Component
     public function closeTagModal()
     {
         $this->showTagModal = false;
+        $this->reset();
     }
 
     public function resetFilters()

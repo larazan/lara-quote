@@ -1,7 +1,5 @@
 <div class="vs jj ttm vl ou uf na">
 
-
-
     <!-- Loading -->
     <x-loading-indicator />
 
@@ -165,7 +163,7 @@
 
                         @if ($articles->count() > 0)
                         @foreach ($articles as $article)
-                        
+
                         <tr>
                             <td class="vi wy w_ vo lm of">
                                 <div class="flex items-center">
@@ -176,7 +174,7 @@
                                 </div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ $article->title }}</div>
+                                <div class="gp text-slate-800">{!! nl2br(General::smart_wordwrap($article->title, 40)) !!}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
                                 @if($article->small)
@@ -258,7 +256,7 @@
                 <div class="vc vu ">
                     <div class="fw">
 
-                        <form>
+                        <form wire:submit.prevent="createArticle">
                             <div class="my-3 md:mt-0 md:col-span-2" x-data="{tab: 0}">
                                 <div class="mb-5 flex border border-black overflow-hidden">
                                     <button class="px-4 py-2 w-full font-bold" :class="{ 'active bg-gray-800 text-white': tab === 0 }" x-on:click.prevent="tab = 0">General</button>
@@ -283,31 +281,21 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                
+
                                                 <div class="flex items-end">
                                                     <div class="btn bg-white cursor-pointer border-slate-200 hover--border-slate-300 yl xy" @click="openInput = ! openInput">Add new Category</div>
                                                 </div>
-                                            </div>    
-                                            <div 
-                                                wire:ignore
-                                                class="w-full flex flex-row pb-4 space-x-2 border-b items-center" 
-                                                x-show="openInput"
-                                                x-transition:enter="transition ease-out duration-300"
-                                                x-transition:enter-start="opacity-0 scale-90"
-                                                x-transition:enter-end="opacity-100 scale-100"
-                                                x-transition:leave="transition ease-in duration-300"
-                                                x-transition:leave-start="opacity-100 scale-100"
-                                                x-transition:leave-end="opacity-0 scale-90"
-                                            >
+                                            </div>
+                                            <div wire:ignore class="w-full flex flex-row pb-4 space-x-2 border-b items-center" x-show="openInput" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                                                 <div class="w-1/2">
-                                                    <input wire:model="categoryItem"  class="w-full s me2 xq2" type="text">
+                                                    <input wire:model="categoryItem" class="w-full s me2 xq2" type="text">
                                                 </div>
                                                 <div class="flex items-end">
                                                     <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ho xi ye" wire:click.prevent="categoryAdd" @click="openInput = ! openInput">Save</div>
                                                     <div class="btn  cursor-pointer border-slate-200 hover--border-slate-300 ha xo ye" @click="openInput = ! openInput">Close</div>
                                                 </div>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
                                                 Article Title
@@ -319,16 +307,105 @@
                                                 Body
                                             </label>
                                             @if ($articleId)
-                                            <div x-data="{ trix: @entangle($body).defer }">
+                                            <div x-data="{ trix: @entangle($body).defer }" class="hidden">
                                                 <input value="{{ $body }}" id="{{ $body }}" name="{{ $body }}" type="hidden" />
                                                 <div wire:ignore x-on:trix-change.debounce.500ms=" trix=$refs.trixInput.value">
                                                     <trix-editor x-ref="trixInput" input="{{ $body }}" class="overflow-y-scroll" style="height: 10rem;"></trix-editor>
                                                 </div>
                                             </div>
+
+                                            <div class="mt-2 bg-white" wire:ignore>
+                                                <div id="toolbar-container">
+                                                    <span class="ql-formats">
+                                                        <select class="ql-font"></select>
+                                                        <select class="ql-size"></select>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-bold"></button>
+                                                        <button class="ql-italic"></button>
+                                                        <button class="ql-underline"></button>
+                                                        <button class="ql-strike"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <select class="ql-color"></select>
+                                                        <select class="ql-background"></select>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-script" value="sub"></button>
+                                                        <button class="ql-script" value="super"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-header" value="1"></button>
+                                                        <button class="ql-header" value="2"></button>
+                                                        <button class="ql-blockquote"></button>
+                                                        <button class="ql-code-block"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-list" value="ordered"></button>
+                                                        <button class="ql-list" value="bullet"></button>
+                                                        <button class="ql-indent" value="-1"></button>
+                                                        <button class="ql-indent" value="+1"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-direction" value="rtl"></button>
+                                                        <select class="ql-align"></select>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-link"></button>
+                                                        <button class="ql-image"></button>
+                                                        <button class="ql-video"></button>
+                                                        <button class="ql-formula"></button>
+                                                    </span>
+                                                    <span class="ql-formats">
+                                                        <button class="ql-clean"></button>
+                                                    </span>
+                                                </div>
+                                                <div 
+                                                    class="h-64" 
+                                                    x-data x-ref="quillEditor" 
+                                                    x-init="
+                                                        quill = new Quill($refs.quillEditor, { 
+                                                            theme: 'bubble', 
+                                                            modules: { 
+                                                                toolbar: '#toolbar-container' 
+                                                            } 
+                                                        });
+                                                        quill.root.innerHTML = '{!! $body !!}';
+                                                        quill.on('text-change', function() { 
+                                                            $dispatch('quill-input', quill.root.innerHTML); 
+                                                        });" 
+                                                    x-on:quill-input.debounce.2000ms="@this.set('body', $event.detail)"
+                                                >
+                                                    {!! $body !!}
+                                                </div>
+                                            </div>
                                             @else
-                                            <div wire:ignore>
+                                            <div wire:ignore class="hidden">
                                                 <input id="{{ $trixId }}" type="hidden" name="content" value="{{ $body }}" />
                                                 <trix-editor wire:ignore input="{{ $trixId }}" class="overflow-y-scroll" style="height: 10rem;"></trix-editor>
+                                            </div>
+
+                                            <div class="mt-2 bg-white border border-gray-200" wire:ignore>
+                                                <div 
+                                                    class="h-64" 
+                                                    x-data x-ref="quillEditor" 
+                                                    x-init="
+                                                        quill = new Quill($refs.quillEditor, {
+                                                            theme: 'snow',
+                                                            modules: {
+                                                                toolbar: [
+                                                                    [{ header: [1, 2, false] }],
+                                                                    ['bold', 'italic', 'underline'],
+                                                                    ['image', 'code-block']
+                                                                ]
+                                                            },
+                                                        });
+                                                        quill.on('text-change', function() {
+                                                            $dispatch('quill-input', quill.root.innerHTML);
+                                                        });" 
+                                                    x-on:quill-input.debounce.2000ms="@this.set('body', $event.detail)">
+                                                    {!! $body !!}
+                                                </div>
                                             </div>
                                             @endif
                                         </div>
@@ -338,7 +415,7 @@
                                                 Tags
                                             </label>
                                             <div>
-                                                <div x-data="{tags: @entangle('articleTags'), newTag: '' }">
+                                                <div x-data="{tags: @entangle('tags'), newTag: '' }">
                                                     <template x-for="tag in tags">
                                                         <input type="hidden" :value="tag" name="tags">
                                                     </template>
@@ -346,8 +423,8 @@
                                                     <div class="max-w-sm w-full ">
                                                         <div class="tags-input">
 
-                                                            <input class="shadow appearance-none border rounded2 w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter some tags" @keydown.enter.prevent="if (newTag.trim() !== '') tags.push(newTag.trim()); newTag = ''" @keydown.backspace="if (newTag.trim() === '') tags.pop()" x-model="newTag" />
-
+                                                            <input class="appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-600" placeholder="Enter some tags" @keydown.enter.prevent="if (newTag.trim() !== '') tags.push(newTag.trim()); newTag = ''" @keydown.backspace="if (newTag.trim() === '') tags.pop()" x-model="newTag">
+                                                            
                                                             <template x-for="tag in tags" :key="tag">
                                                                 <div class="bg-gray-200 inline-flex items-center text-sm rounded mt-2 mr-1">
                                                                     <span class="ml-2 mr-1 leading-relaxed truncate max-w-xs" x-text="tag"></span>
@@ -358,6 +435,7 @@
                                                                     </button>
                                                                 </div>
                                                             </template>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -512,16 +590,49 @@
 </div>
 
 @push('styles')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" /> -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 @endpush
 
 @push('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script> -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
-    var trixEditor = document.getElementById("{{ $trixId }}")
+    // var trixEditor = document.getElementById("{{ $trixId }}")
 
-    addEventListener("trix-blur", function(event) {
-        @this.set('body', trixEditor.getAttribute('value'))
-    })
+    // addEventListener("trix-blur", function(event) {
+    //     @this.set('body', trixEditor.getAttribute('value'))
+    // })
+
+    var quill = new Quill('#quill-editor-area', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{
+                    header: [1, 2, 3, 4, 5, 6, false]
+                }],
+                [{
+                    font: []
+                }],
+                ["bold", "italic"],
+                ["link", "blockquote", "code-block", "image"],
+                [{
+                    list: "ordered"
+                }, {
+                    list: "bullet"
+                }],
+                [{
+                    script: "sub"
+                }, {
+                    script: "super"
+                }],
+                [{
+                    color: []
+                }, {
+                    background: []
+                }],
+            ]
+        },
+    });
 </script>
 @endpush

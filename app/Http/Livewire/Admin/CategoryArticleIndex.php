@@ -111,6 +111,7 @@ class CategoryArticleIndex extends Component
     public function closeCategoryModal()
     {
         $this->showCategoryModal = false;
+        $this->reset();
     }
 
     public function resetFilters()

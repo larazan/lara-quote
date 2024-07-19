@@ -24,7 +24,8 @@ class ArticleIndex extends Component
     public $body;
     public $status;
     public $articleId;
-    public $articleTags = [];
+    public $articleTags;
+    public $tags = [];
     public $categoryId;
     public $file;
     public $author;
@@ -57,6 +58,7 @@ class ArticleIndex extends Component
     public function mount()
     {
         $this->publishedAt = today()->format('Y-m-d');
+        $this->tags = isset($this->articleTags) ? explode(',', $this->articleTags) : [];
     }
 
     public function showCreateModal()
@@ -85,7 +87,8 @@ class ArticleIndex extends Component
 
     public function createArticle()
     {
-        // dd($this->publishedAt);
+        // dd($this->tags);
+        // dd($this->body);
         $this->validate();
   
         $new = Str::slug($this->title) . '_' . time();
@@ -97,7 +100,7 @@ class ArticleIndex extends Component
         $article->slug = Str::slug($this->title);
         $article->rand_id = Str::random(10);
         $article->body = $this->body;
-        $article->article_tags = $this->articleTags;
+        $article->article_tags = implode(',', $this->tags);
         $article->author = $this->author;
         $article->original_url = $this->url;
         $article->embed_url = $this->embedUrl;
@@ -132,6 +135,7 @@ class ArticleIndex extends Component
         $this->title = $article->title;
         $this->body = $article->body;
         $this->articleTags = $article->article_tags;
+        $this->tags = isset($this->articleTags) ? explode(',', $this->articleTags) : [];
         $this->author = $article->author_id;
         $this->url = $article->original_url;
         $this->embedUrl = $article->embed_url;
@@ -162,7 +166,7 @@ class ArticleIndex extends Component
                 $article->slug = Str::slug($this->title);
                 $article->rand_id = Str::random(10);
                 $article->body = $this->body;
-                $article->article_tags = $this->articleTags;
+                $article->article_tags = implode(',', $this->tags);
                 $article->author = $this->author;
                 $article->original_url = $this->url;
                 $article->embed_url = $this->embedUrl;
@@ -205,6 +209,7 @@ class ArticleIndex extends Component
     public function closeArticleModal()
     {
         $this->showArticleModal = false;
+        $this->reset();
     }
 
     public function resetFilters()
@@ -215,7 +220,7 @@ class ArticleIndex extends Component
     public function render()
     {
         return view('livewire.admin.article-index', [
-            'articles' => Article::liveSearch('title', $this->search)->orderBy('title', $this->sort)->paginate($this->perPage),
+            'articles' => Article::liveSearch('title', $this->search)->orderBy('id', $this->sort)->paginate($this->perPage),
             'categories' => CategoryArticle::OrderBy('name', $this->sort)->get()
         ]);
     }

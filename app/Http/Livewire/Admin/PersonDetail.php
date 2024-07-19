@@ -133,6 +133,7 @@ class PersonDetail extends Component
     public function closeQuoteModal()
     {
         $this->showQuoteModal = false;
+        $this->reset();
     }
 
     public function resetFilters()

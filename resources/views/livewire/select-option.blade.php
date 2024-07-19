@@ -2,6 +2,8 @@
     <div id="persons-select" wire:ignore></div>
 </div>
 
+<livewire:tags />
+
 @push('js')
 <script>
         let myOptions = [
