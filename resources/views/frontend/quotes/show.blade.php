@@ -63,12 +63,10 @@
                   Likes
                 </span>
               </button>
-              <button class="bg-green-500 hover:bg-green-600 border border-green-300 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="Copy to clipboard" onclick="copyContent()" value="copy">
+              <button class="bg-green-500 hover:bg-green-600 border border-green-300 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="download content" id="download">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 </svg>
-
-
                 <span class="text-sm text-gray-900 font-semibold">
                   Download
                 </span>
@@ -77,7 +75,7 @@
           </div>
 
           <div class="py-4 md:py-6 w-full columns-1 ">
-            <div class="mb-4 rounded border group flex flex-col overflow-hidden justify-center shadow-md items-center" style="background-color: {{ $styles[$type]['bgColor'] }}">
+            <div id="photo" class="mb-4 rounded flex flex-col justify-center items-center" style="background-color: {{ $styles[$type]['bgColor'] }}">
               @if($quote)
               <div class="flex-grow py-2 mt-6 lg:py-4 md:py-4 px-12 md:px-20">
                 <p id="myText" class="leading-tight md:leading-snug text-[{{ $styles[$type]['fontColor'] }}] text-center text-3xl md:text-4xl  font-medium transition" style="font-family: {{ $styles[$type]['font'] }}; color: {{ $styles[$type]['fontColor'] }}">
@@ -85,7 +83,7 @@
                 </p>
                 <div class=" px-2 py-4 flex justify-center">
 
-                  <div class=" flex justify-between space-x-6 md:space-x-2">
+                  <div class=" flex justify-between space-x-6 md:space-x-2 pb-7">
                     <div class="flex space-x-2" style="color: {{ $styles[$type]['fontColor'] }}">
                       <span class="flex items-center justify-center text-sm font-semibold">
                         - {{ $author }}
@@ -635,6 +633,9 @@
 @push('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.esm.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.js"></script>
 <script>
   let text = document.getElementById('myText').innerHTML;
   const copyContent = async () => {
@@ -648,5 +649,41 @@
       console.error('Failed to copy: ', err);
     }
   }
+
+  // html2canvas
+  $(document).ready(function(){
+       $("#download").click(function(){
+		   screenshot();
+	   });
+   });
+
+   function screenshot(){
+	   html2canvas(document.getElementById("photo")).then(function(canvas){
+          downloadImage(canvas.toDataURL(),"million-quote.png");
+	   });
+   }
+
+   function downloadImage(uri, filename){
+	 var link = document.createElement('a');
+	 if(typeof link.download !== 'string'){
+        window.open(uri);
+	 }
+	 else{
+		 link.href = uri;
+		 link.download = filename;
+		 accountForFirefox(clickLink, link);
+	 }
+   }
+
+   function clickLink(link){
+	   link.click();
+   }
+
+   function accountForFirefox(click){
+	   var link = arguments[1];
+	   document.body.appendChild(link);
+	   click(link);
+	   document.body.removeChild(link);
+   }
 </script>
 @endpush

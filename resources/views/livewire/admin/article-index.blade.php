@@ -328,8 +328,9 @@
                                                         {!! $body !!}
                                                     </div>
                                                 </div>
-                                            @else
-                                                <div class="@if($edit == false){{ 'block' }}@else{{ 'hidden' }}@endif mt-2 bg-white border border-gray-200" wire:ignore>
+                                            @endif
+                                            @if($articleId == null)
+                                                <div class="@if($articleId == null){{ 'block' }}@else{{ 'hidden' }}@endif mt-2 bg-white border border-gray-200" wire:ignore>
                                                     <div 
                                                         class="h-64" 
                                                         x-data x-ref="quillEditor" 
