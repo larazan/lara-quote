@@ -44,10 +44,7 @@
                 </div>
             </div>
             <h1 class="relative mx-3 md:mx-auto leading-tight text-md md:text-lg text-black md:leading-normal max-w-3xl m-auto font-semibold text-center mt-4 sm:mt-6 mb-5 sm:mb-0">
-                Augusta Ada King, Countess of Lovelace (née Byron; 10 December
-                1815 – 27 November 1852) was an English mathematician and writer,
-                chiefly known for her work on Charles Babbage&apos;s proposed
-                mechanical general-purpose computer, the Analytical Engine.
+                {{ $person->bio }}
             </h1>
         </div>
 

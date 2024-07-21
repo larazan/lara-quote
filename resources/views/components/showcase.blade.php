@@ -10,7 +10,7 @@
     <div class="relative flex flex-row mx-auto w-full md:w-12/12 lg:w-11/12 justify-between items-center">
         <div class="mb-[1em] flex flex-row overflow-x-auto scroll-smooth custom-scrollbar pb-3">
             @php 
-                $i = 1;
+                $i = 0;
             @endphp
             @foreach($fontFamily as $f)
             

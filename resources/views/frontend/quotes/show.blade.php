@@ -54,19 +54,11 @@
               </button>
             </div>
             <div class="flex space-x-2 justify-end md:justify-normal">
-              <button class="bg-[#f6f8fa] hover:bg-gray-200 border border-gray-300 px-2 py-1 font-extralight text-white inline-flex items-center space-x-1 rounded " title="Like Quote">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-4 h-4 text-gray-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                </svg>
 
-                <span class="text-sm text-gray-900 font-semibold">
-                  Likes
-                </span>
-              </button>
-              <button class="bg-green-500 hover:bg-green-600 border border-green-300 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="download content" id="download">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
+              <button class="bg-green-400 hover:bg-green-500 border border-green-500 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="download content" id="download">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
                 <span class="text-sm text-gray-900 font-semibold">
                   Download
                 </span>
@@ -75,23 +67,24 @@
           </div>
 
           <div class="py-4 md:py-6 w-full columns-1 ">
-            <div id="photo" class="mb-4 rounded flex flex-col justify-center items-center" style="background-color: {{ $styles[$type]['bgColor'] }}">
+            <div id="photo" class="mb-4 rounded2 flex flex-col justify-center items-center" style="background-color: {{ $styles[$type]['bgColor'] }}">
               @if($quote)
-              <div class="flex-grow py-2 mt-6 lg:py-4 md:py-4 px-12 md:px-20">
+              <div class="flex-grow py-2 mt-6 lg:py-6 md:py-6 px-12 md:px-20">
                 <p id="myText" class="leading-tight md:leading-snug text-[{{ $styles[$type]['fontColor'] }}] text-center text-3xl md:text-4xl  font-medium transition" style="font-family: {{ $styles[$type]['font'] }}; color: {{ $styles[$type]['fontColor'] }}">
                   {{ $quote->words }}
                 </p>
-                <div class=" px-2 py-4 flex justify-center">
-
-                  <div class=" flex justify-between space-x-6 md:space-x-2 pb-7">
-                    <div class="flex space-x-2" style="color: {{ $styles[$type]['fontColor'] }}">
-                      <span class="flex items-center justify-center text-sm font-semibold">
+                <div class=" px-2 py-4 flex flex-col @if(Auth::check()){{ 'pb-8' }}@else{{ 'pb-0' }}@endif  justify-center">
+                  <div class="flex w-full justify-end">
+                    <div class="flex justify-end" style="color: {{ $styles[$type]['fontColor'] }}">
+                      <span class="flex items-center justify-center text-md font-semibold">
                         - {{ $author }}
                       </span>
                     </div>
-
                   </div>
                 </div>
+              </div>
+              <div class="@if(Auth::check()){{ 'hidden' }}@else{{ 'flex' }}@endif px-4 pb-4 w-full justify-start">
+                <img src="/frontend/img/logo.png" alt="logo" class=" md:h-8" />
               </div>
               @endif
             </div>
@@ -634,8 +627,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.esm.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.esm.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.js"></script>
 <script>
   let text = document.getElementById('myText').innerHTML;
   const copyContent = async () => {
@@ -651,39 +644,38 @@
   }
 
   // html2canvas
-  $(document).ready(function(){
-       $("#download").click(function(){
-		   screenshot();
-	   });
-   });
+  $(document).ready(function() {
+    $("#download").click(function() {
+      screenshot();
+    });
+  });
 
-   function screenshot(){
-	   html2canvas(document.getElementById("photo")).then(function(canvas){
-          downloadImage(canvas.toDataURL(),"million-quote.png");
-	   });
-   }
+  function screenshot() {
+    html2canvas(document.getElementById("photo")).then(function(canvas) {
+      downloadImage(canvas.toDataURL(), "million-quote.png");
+    });
+  }
 
-   function downloadImage(uri, filename){
-	 var link = document.createElement('a');
-	 if(typeof link.download !== 'string'){
-        window.open(uri);
-	 }
-	 else{
-		 link.href = uri;
-		 link.download = filename;
-		 accountForFirefox(clickLink, link);
-	 }
-   }
+  function downloadImage(uri, filename) {
+    var link = document.createElement('a');
+    if (typeof link.download !== 'string') {
+      window.open(uri);
+    } else {
+      link.href = uri;
+      link.download = filename;
+      accountForFirefox(clickLink, link);
+    }
+  }
 
-   function clickLink(link){
-	   link.click();
-   }
+  function clickLink(link) {
+    link.click();
+  }
 
-   function accountForFirefox(click){
-	   var link = arguments[1];
-	   document.body.appendChild(link);
-	   click(link);
-	   document.body.removeChild(link);
-   }
+  function accountForFirefox(click) {
+    var link = arguments[1];
+    document.body.appendChild(link);
+    click(link);
+    document.body.removeChild(link);
+  }
 </script>
 @endpush

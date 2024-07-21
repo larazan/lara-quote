@@ -12,9 +12,7 @@
     <div class="max-w-5xl mx-auto">
             
         @include('frontend.components._search')
-
        
-
         <div class="px-6 py-2 mb-5 space-y-4">
             <div>
 
@@ -31,8 +29,8 @@
                         <div class="flex-grow py-2 mt-6 lg:py-4 md:py-4 px-12 md:px-20">
                            
                             <p 
-                                class="leading-tight md:leading-snug text-[{{ $f['fontColor'] }}] text-center text-2xl md:text-2xl  font-medium transition"
-                                style="font-family: {{ $f['font'] }}; color: {{ $f['fontColor'] }}"
+                              class="leading-tight md:leading-snug text-[{{ $f['fontColor'] }}] text-center text-2xl md:text-2xl  font-medium transition"
+                              style="font-family: {{ $f['font'] }}; color: {{ $f['fontColor'] }}"
                             >
                                 {{ $quote->words }}
                             </p>

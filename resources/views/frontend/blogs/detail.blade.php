@@ -10,7 +10,6 @@
 
 <div class="flex flex-col bg-white min-h-screen pt-14 md:pt-[60px]">
 
-
   <div class="bg-purple-100 py-10 mb-4">
     <div class="flex flex-1 px-4 max-w-3xl m-auto items-center justify-between pt-0 mb-2">
       <a href="{{ url('/articles') }}" class="items-center text-base text-gray-900 hover:underline flex">
@@ -502,6 +501,7 @@
     </div>
   </div>
 </div>
+
 
 <x-article-list :articles="$articles" />
 
