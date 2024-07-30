@@ -44,6 +44,7 @@ use App\Http\Livewire\Admin\RiddleIndex;
 use App\Http\Livewire\Admin\RoleIndex;
 use App\Http\Livewire\Admin\SettingIndex;
 use App\Http\Livewire\Admin\TagIndex;
+use App\Http\Livewire\Admin\TagsListIndex;
 use App\Http\Livewire\Admin\UserIndex;
 use App\Http\Livewire\SelectOption;
 use App\Http\Livewire\NewsletterForm;
@@ -115,6 +116,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+
+    Route::prefix('blog')->name('blogs.')->group(function () {
+        Route::get('create', \App\Http\Livewire\Admin\Blog\Create::class)->name('create');
+        Route::get('all', \App\Http\Livewire\Admin\Blog\Index::class)->name('all');
+        Route::get('{articleId}/update', \App\Http\Livewire\Admin\Blog\Edit::class)->name('edit');
+    });
     
     // Route::get('articles', ArticleIndex::class)->name('articles.index');
     // 
@@ -157,6 +164,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     Route::get('roles', RoleIndex::class)->name('roles.index');
     Route::get('settings', SettingIndex::class)->name('settings.index');
     Route::get('tags', TagIndex::class)->name('tags.index');
+    Route::get('tagslist', TagsListIndex::class)->name('tagslist.index');
     Route::get('users', UserIndex::class)->name('users.index');
     
     Route::get('selects', SelectOption::class)->name('selects.index');

@@ -15,7 +15,7 @@
     
         <div class="bg-[#FFE5DD] py-10 md:mb-4">
         <div class="flex flex-1 px-4 max-w-3xl m-auto items-center justify-between pt-0 mb-2">
-      <a href="{{ url('/people') }}" class="items-center text-base text-gray-900 hover:underline flex">
+      <a href="{{ url('/people') }}" class="items-center text-base text-gray-900 hover:underline underline-offset-2 flex">
         <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
           <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
         </svg> <span class="text-gray-900 ml-1 hover:text-gray-900">Back to people</span>
@@ -48,10 +48,18 @@
             </h1>
         </div>
 
-        <div class="p-6 space-y-4 bg-white">
+        <div class="px-6 my-4">
+            @if ($quotes->count() > 0)
+            <span class="text-lg md:text-2xl text-black font-semibold md:font-bold">{{ $quotes->count() }} Quotes</span>
+            @else
+            <div class="h-6"></div>
+            @endif
+        </div>
+
+        <div class="px-6 space-y-4 bg-white">
             <div>
             @if ($quotes->count() > 0)
-                <div class="py-10  columns-1 md:columns-2 lg:columns-3 ">
+                <div class="py-3  columns-1 md:columns-2 lg:columns-3 ">
                     
                     @foreach($quotes as $q)
                     <a class="mb-4 rounded bg-white border group flex flex-col overflow-hidden justify-center shadow-md items-center cursor-zoom-in" href="{{ url('quotes/' . $q->id) }}">

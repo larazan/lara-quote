@@ -24,10 +24,11 @@ class ContactController extends Controller
             'message' => 'required|min:10',
         ]);
 
-        Contact::create($request->all());
+        // Contact::create($request->all());
+        Contact::create($validated);
 
-        Mail::to('destination@example.com')->send(new ContactMail($validated));
+        // Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($validated));
 
-        return back()->with('success', 'Thank you for your message!');
+        return redirect('/contact')->with('success', 'Thank you for your message!');
     }
 }

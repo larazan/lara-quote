@@ -309,7 +309,7 @@
                                                 Body 
                                             </label>
                                             @if (isset($articleId))
-                                            <div>edit</div>
+                                            
                                                 <div class="mt-2 bg-gray-100" wire:ignore>
                                                     
                                                     <div 
