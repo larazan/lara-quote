@@ -105,9 +105,9 @@ class Quote extends Model
     {
         return [
             'id' => $this->id(),
-            'author_id' => $this->author_id(),
+            // 'author_id' => $this->author_id(),
             'words' => $this->words(),
-            'slug' => $this->slug(),
+            // 'slug' => $this->slug(),
             'tags' => $this->tags(),
         ];
     }

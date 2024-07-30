@@ -22,11 +22,11 @@ class Person extends Model
 	public function toSearchableArray(): array
     {
         return [
-            'id' => $this->id(),
-            'author_id' => $this->author_id(),
+            // 'id' => $this->id(),
+            // 'author_id' => $this->author_id(),
             'name' => $this->name(),
             'slug' => $this->slug(),
-            'bio' => $this->bio(),
+            // 'bio' => $this->bio(),
         ];
     }
 }
