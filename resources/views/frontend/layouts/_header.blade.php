@@ -73,22 +73,22 @@
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ route('quotes') }}">
+              <a class="hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif" href="{{ route('quotes') }}">
                 Quotes
               </a>
             </li>
-            <li class="hidden text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ route('tags') }}">
+            <li class="text-2xl">
+              <a class="hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif" href="{{ route('tags') }}">
                 Topics
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ route('people') }}">
+              <a class="hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif" href="{{ route('people') }}">
                 People
               </a>
             </li>
             <li class="text-2xl">
-              <a class="hover:text-[#FF6D42]" href="{{ route('articles') }}">
+              <a class="hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif" href="{{ route('articles') }}">
                 Article
               </a>
             </li>

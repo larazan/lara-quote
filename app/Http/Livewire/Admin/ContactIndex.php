@@ -93,7 +93,7 @@ class ContactIndex extends Component
 
     public function showEditModal($contactId)
     {
-        $this->reset(['name']);
+        // $this->reset(['name']);
         $this->contactId = $contactId;
         $contact = Contact::find($contactId);
         $this->name = $contact->name;
@@ -143,17 +143,18 @@ class ContactIndex extends Component
 
     public function showReplyModal($contactId)
     {
+        $this->showAnswerModal = true;
+
         $this->contactId = $contactId;
         $contact = Contact::findOrFail($this->contactId);
         $this->name = $contact->name;
+        $this->email = $contact->email;
         $this->message = $contact->message;
-
-        $this->showAnswerModal = true;
+        
     }
 
-    public function replyContact($contactId)
+    public function replyContact()
     {
-        $this->contactId = $contactId;
         $contact = Contact::findOrFail($this->contactId);
         $this->name = $contact->name;
         $this->email = $contact->email;

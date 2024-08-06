@@ -2,7 +2,6 @@
 
 @section('content')
 
-@include('frontend.components._ads_modal')
 
 <main class="flex bg-white min-h-screen pt-16 md:pt-[100px]">
     <div class="flex flex-row w-full">

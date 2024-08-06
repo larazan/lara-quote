@@ -1,7 +1,7 @@
 <div class="vs jj ttm vl ou uf na">
 
-<!-- Loading -->
-<x-loading-indicator />
+    <!-- Loading -->
+    <x-loading-indicator />
 
     <!-- Page header -->
     <div class="je jd jc ii">
@@ -138,9 +138,9 @@
                                 <div class="gh gt">Message</div>
                             </th>
                             <th class="vi wy w_ vo lm">
-                                <div class="gh gt">Status</div>
+                                <div class="gh gt">Reply</div>
                             </th>
-                           
+
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Date</div>
                             </th>
@@ -164,7 +164,7 @@
                                 </div>
                             </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ $contact->first_name }} {{ $contact->last_name }}</div>
+                                <div class="gp text-slate-800">{{ $contact->name }}</div>
                             </td>
                             <td class="vi wy w_ vo lm">
                                 <div class="gp ">{{ $contact->email }}</div>
@@ -178,23 +178,23 @@
                             <td class="vi wy w_ vo lm">
                                 <div class="gp ">
                                     @if ($contact->reply_at)
-                                        {{ $contact->reply }}
+                                    {!! nl2br(General::smart_wordwrap($contact->reply, 40)) !!}
                                     @else
-                                        belum dibalas
+                                    <div class="inline-flex gp hf yl rounded-full gn vp vd">belum dibalas</div>
                                     @endif
                                 </div>
                             </td>
 
                             <td class="vi wy w_ vo lm">
-                                <div>{{ $contact->created_at->format('d-m-Y') }}</div>
+                                <div>{{ $contact->created_at->diffForHumans() }}</div>
                             </td>
 
                             <td class="vi wy w_ vo lm of">
                                 <div class="fm">
-                                    <button class="gq xv rounded-full" wire:click="replyContact({{ $contact->id }})">
+                                    <button class="gq xv rounded-full" wire:click="showReplyModal({{ $contact->id }})">
                                         <span class=" d">Reply</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                                         </svg>
                                     </button>
 
@@ -206,7 +206,7 @@
                                     </button>
 
                                     <button class="yl xy rounded-full" wire:click="deleteId({{ $contact->id }})">
-                                    <span class=" d">Delete</span>
+                                        <span class=" d">Delete</span>
                                         <svg class="os sf du" viewBox="0 0 32 32">
                                             <path d="M13 15h2v6h-2zM17 15h2v6h-2z"></path>
                                             <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z"></path>
@@ -250,19 +250,11 @@
                                 <div class="">
                                     <div class="flex flex-col space-y-3">
 
-                                        <div class="flex flex-row justify-between">
-                                            <div class="col-start-1 sm:col-span-3">
-                                                <label for="title" class="block text-sm font-medium text-gray-700">
-                                                    First Name
-                                                </label>
-                                                <input wire:model="firstName" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                            </div>
-                                            <div class="col-start-1 sm:col-span-3">
-                                                <label for="title" class="block text-sm font-medium text-gray-700">
-                                                    Last Name
-                                                </label>
-                                                <input wire:model="lastName" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                            </div>
+                                        <div class="col-start-1 sm:col-span-3">
+                                            <label for="name" class="block text-sm font-medium text-gray-700">
+                                                Name
+                                            </label>
+                                            <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                         </div>
 
                                         <div class="flex flex-row justify-between">
@@ -279,14 +271,14 @@
                                                 <input wire:model="subject" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
                                                 Message
                                             </label>
                                             <textarea wire:model="message" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                         </div>
-                                        
+
 
                                     </div>
                                 </div>
@@ -314,31 +306,31 @@
     <!-- modal delete confirmation -->
     <x-dialog-modal wire:model="showConfirmModal" class="">
 
-        
+
         <x-slot name="title" class="border-b bg-slate-200">
             <span class="font-semibold">Delete Confirm</span>
         </x-slot>
-        
+
 
         <x-slot name="content">
             <div class="border-t">
                 <div class="vc vu ">
                     <div class="fw">
 
-                        
+
+                        <div class="">
                             <div class="">
-                                <div class="">
-                                    <div class="flex flex-col space-y-3">
-                                        <div class="flex max-w-auto text-center justify-center items-center">
-                                            <div class="text-lg font-semibold ">
+                                <div class="flex flex-col space-y-3">
+                                    <div class="flex max-w-auto text-center justify-center items-center">
+                                        <div class="text-lg font-semibold ">
                                             <p>Are you sure want to delete?</p>
-                                            </div>
                                         </div>
-                                        
                                     </div>
+
                                 </div>
                             </div>
-                        
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -355,65 +347,63 @@
     </x-dialog-modal>
 
     <!-- modal reply -->
-    <x-dialog-modal wire:model="showContactModal" class="">
+    <x-dialog-modal wire:model="showAnswerModal" class="">
 
-@if ($contactId)
-<x-slot name="title" class="border-b">Reply Contact</x-slot>
-@endif
+        <x-slot name="title" class="border-b">Reply Contact</x-slot>
+        
+        <x-slot name="content">
+            <div class="border-t">
+                <div class="vc vu ">
+                    <div class="fw">
 
-<x-slot name="content">
-    <div class="border-t">
-        <div class="vc vu ">
-            <div class="fw">
+                        <form>
+                            <div class="">
+                                <div class="">
+                                    <div class="flex flex-col space-y-3">
+                                        <div class="col-start-1 sm:col-span-3">
+                                            <label for="name" class="block text-sm font-medium text-gray-700">
+                                                Name
+                                            </label>
+                                            <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                        </div>
 
-                <form>
-                    <div class="">
-                        <div class="">
-                            <div class="flex flex-col space-y-3">
-                                <div class="col-start-1 sm:col-span-3">
-                                    <label for="name" class="block text-sm font-medium text-gray-700">
-                                        Name
-                                    </label>
-                                    <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                            <input wire:model="email" type="email" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+
+                                        </div>
+                                        <div class="col-start-1 sm:col-span-3">
+                                            <label for="message" class="block text-sm font-medium text-gray-700">
+                                                Message
+                                            </label>
+                                            <textarea wire:model="message" cols="50" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                        </div>
+                                        <div class="col-start-1 sm:col-span-3">
+                                            <label for="reply" class="block text-sm font-medium text-gray-700">
+                                                Reply
+                                            </label>
+                                            <textarea wire:model="reply" cols="50" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                        </div>
+
+                                    </div>
                                 </div>
-                               
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input wire:model="email" type="email" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                   
-                                </div>
-                                <div class="col-start-1 sm:col-span-3">
-                                    <label for="message" class="block text-sm font-medium text-gray-700">
-                                        Message
-                                    </label>
-                                    <textarea wire:model="message" cols="50" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
-                                </div>
-                                <div class="col-start-1 sm:col-span-3">
-                                    <label for="reply" class="block text-sm font-medium text-gray-700">
-                                        Reply
-                                    </label>
-                                    <textarea wire:model="reply" cols="50" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" ></textarea>
-                                </div>
-                                
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</x-slot>
-<x-slot name="footer">
-    <div class="border-slate-200">
-        <div class="flex flex-wrap justify-end fc">
-            <x-button wire:click="closeReplyModal" class="border-slate-200 hover:text-white hover--border-slate-300 g_">Cancel</x-button>
-            @if ($contactId)
-            <x-button wire:click="replyContact" class=" ho xi ye">Update</x-button>
-            @endif
-        </div>
-    </div>
+        </x-slot>
+        <x-slot name="footer">
+            <div class="border-slate-200">
+                <div class="flex flex-wrap justify-end fc">
+                    <x-button wire:click="closeReplyModal" class="border-slate-200 hover:text-white hover--border-slate-300 g_">Cancel</x-button>
+                    @if ($contactId)
+                    <x-button wire:click="replyContact" class=" ho xi ye">Reply</x-button>
+                    @endif
+                </div>
+            </div>
 
-</x-slot>
-</x-dialog-modal>
+        </x-slot>
+    </x-dialog-modal>
 
 </div>

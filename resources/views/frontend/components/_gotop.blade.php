@@ -8,7 +8,7 @@
   x-transition:leave="transition ease-in duration-300"
   x-transition:leave-start="opacity-100 transform translate-y-0"
   x-transition:leave-end="opacity-0 transform translate-y-2"
-  class="fixed bg-pink bottom-5 right-3 z-20 cursor-pointer"
+  class="fixed bg-pink bottom-0 right-0 z-20 cursor-pointer"
 >
   
   <div @click="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed p-2 md:p-3 rounded-full bg-[#1972f5] bottom-4 right-3 hover:opacity-90 md:bottom-5 md:right-5 cursor-pointer">

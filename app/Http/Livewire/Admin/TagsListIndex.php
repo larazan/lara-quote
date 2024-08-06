@@ -53,7 +53,7 @@ class TagsListIndex extends Component
     {
         $tag = Tag::findOrFail($tagId);
         $tag->delete();
-        $this->reset();
+        // $this->reset();
         $this->dispatchBrowserEvent('banner-message', ['style' => 'danger', 'message' => 'Tag deleted successfully']);
     }
 

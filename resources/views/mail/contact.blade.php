@@ -1,9 +1,9 @@
 <x-mail::message>
-# Introduction
+# Contact Message Incoming
 
-Name: {{ $details['name'] }}
-Email: {{ $details['email'] }}
-Subject: {{ $details['subject'] }}
+Name: {{ $details['name'] }}<br />
+Email: {{ $details['email'] }}<br />
+Subject: {{ $details['subject'] }}<br />
 Message: {{ $details['message'] }}
 
 <x-mail::button :url="''">

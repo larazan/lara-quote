@@ -2,12 +2,12 @@
 # Hi {{ $name }},
 
 ## Your Message.
-{{ - # {{ $content }} - }}
+# {{ $content }}
 
 ---------------------------------------------
 
 ## Our Reply
-{{ - # {{ $reply }} - }}
+- # {{ $reply }} -
 
 <x-mail::button :url="'$url'">
 Visit Our Website

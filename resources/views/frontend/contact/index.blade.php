@@ -2,7 +2,7 @@
 
 @section('content')
 
-<main class="flex h-max py-8 md:py-20 bg-white pt-16 md:pt-[120px]">
+<main class="flex h-max py-8 md:py-20 bg-white pt-16 md:pt-[120px]" x-data="{ alertShow: true }">
     <div class="flex  w-full2">
 
         <div class="max-w-full xl:max-w-[1800px] mx-auto flex flex-col justify-center items-center">
@@ -22,14 +22,14 @@
                                 <p class="text-gray-900  py-2 text-sm leading-tight">
                                     Question about an order? Problem with your camera? Or just
                                     looking for some free advice? Check out our
-                                    <a href="http://support.polaroid.com/" target="_blank" rel="noreferrer" class="underline break-all md:break-normal">
+                                    <a href="{{ url('faqs') }}" target="_blank" rel="noreferrer" class="underline break-all md:break-normal">
                                         FAQs
                                     </a>
                                     , and if you’re still not sure, you can contact our
                                     Customer Support team
-                                    <a href="https://support.polaroid.com/hc/requests/new" target="_blank" rel="noreferrer" class="underline break-all md:break-normal">
+                                    <span rel="noreferrer" class="underline break-all md:break-normal">
                                         here
-                                    </a>
+                                    </span>
                                     .
                                 </p>
 
@@ -53,34 +53,7 @@
                                 </p>
                                 <p class="text-gray-900  py-2 text-sm leading-tight"></p>
                                 <p class="text-gray-900  py-2 text-sm leading-tight"></p>
-                                <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
-                                    Affiliate Program
-                                </h2>
-                                <p class="text-gray-900  py-2 text-sm leading-tight">
-                                    The Polaroid Affiliate Program can help you gain
-                                    commission on sales referred from your site.&nbsp;Find out
-                                    more about&nbsp;the Affiliate Program and how to sign
-                                    up&nbsp;
-                                    <a href="https://polaroid.com/polaroid-affiliate-program" target="_blank" rel="noreferrer" class="underline break-all md:break-normal">
-                                        here
-                                    </a>
-                                    .
-                                </p>
-
-                                <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
-                                    Wholesale
-                                </h2>
-                                <p class="text-gray-900  py-2 text-sm leading-tight">
-                                    If you’re a retailer looking to add Polaroid to your
-                                    line-up, drop us a line at one of the email addresses
-                                    below:
-                                    <br />
-                                    USA/Canada: uswholesale@polaroid.com
-                                    <br />
-                                    Asia: asiawholesale@polaroid.com
-                                    <br />
-                                    Europe/Rest of World: wholesale@polaroid.com
-                                </p>
+                                
                             </div>
                         </div>
                     </div>
@@ -109,6 +82,47 @@
                         <span class="text-red-800">{{ $message }}</span>
                     </div>
                     @endif
+
+
+                    <!-- <div class="flex justify-between bg-red-100 border border-red-400 text-red-700 px-4 py-3 my-2 rounded" role="alert" x-show="alertShow">
+                        <ul>
+                            <li>
+                                <span class="block sm:inline pl-2">
+                                    error
+                                </span>
+                            </li>
+                        </ul>
+                        <span class="inline" @click="alertShow = !alertShow">
+                            <svg class="fill-current h-6 w-6" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <title>Close</title>
+                                <path
+                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                            </svg>
+                        </span>
+                    </div> -->
+
+                    <!-- message error -->
+                    @if($errors->any())
+                    <div class="flex justify-between bg-red-100 border border-red-400 text-red-700 px-4 py-3 my-2 rounded" role="alert" x-show="alertShow">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>
+                                <span class="block sm:inline pl-2">
+                                    {{ $error }}
+                                </span>
+                            </li>
+                            @endforeach
+                        </ul>
+                        <span class="inline" @click="alertShow = !alertShow">
+                            <svg class="fill-current h-6 w-6" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <title>Close</title>
+                                <path
+                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                            </svg>
+                        </span>
+                    </div>
+                    @endif
+
                         <div class="flex flex-col justify-start space-y-4 md:space-y-5">
                             <div class="flex flex-col space-y-1 md:space-y-2">
                                 <h2 class="text-lg md:text-3xl tracking-tight font-semibold text-black">

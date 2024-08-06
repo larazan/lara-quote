@@ -192,9 +192,6 @@ Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect'])
  
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
-// Snappy Image
-Route::get('test', [TestController::class . 'index']);
-
 // update quote slug
 Route::get('rand', [QuoteController::class, 'insertRand']);
 
