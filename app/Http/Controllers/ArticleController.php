@@ -11,6 +11,19 @@ class ArticleController extends Controller
 	{
 		// parent::__construct();
 
+		$shareComponent = \Share::page(
+            'https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/',
+            'Your share text comes here',
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+
+		$this->data['shareComponent'] = $shareComponent;
+
 		// $limit = 5;
         // $this->data['articles'] = Article::active()->orderBy('id', 'DESC')->limit($limit)->get();
 	}
@@ -37,6 +50,15 @@ class ArticleController extends Controller
 			return redirect('articles');
 		}
 
+		$tags = $article->article_tags;
+        if($tags)
+        {
+            $arrTags = explode(',', $article->article_tags);
+        } else {
+            $arrTags = $tags;
+        }
+
+		$this->data['tags'] = $arrTags;
 		$this->data['article'] = $article;
 
 		$limit = 5;
@@ -49,6 +71,16 @@ class ArticleController extends Controller
 
 		$this->data['title'] = $article->title;
 		return $this->loadTheme('blogs.detail', $this->data);
+    }
+
+	public function showByTag($tag)
+    {
+        $articles = Article::where('article_tags', 'like', "%{$tag}%");
+
+        $this->data['title'] = "Topic: " . ucfirst($tag);
+        $this->data['articles'] = $articles->paginate(8);
+        $this->data['tag'] = $tag;
+		return $this->loadTheme('blogs.index', $this->data);
     }
     
     public function _generate_breadcrumbs_array($id) {

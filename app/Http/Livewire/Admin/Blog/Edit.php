@@ -105,7 +105,7 @@ class Edit extends Component
             if ($article) {
 
                 $article->category_id = $this->categoryId;
-                $article->author_id = Auth::user()->id;
+                $article->author_id = isset($this->author) ? $this->author : Auth::user()->id;
                 $article->title = $this->title;
                 $article->slug = Str::slug($this->title);
                 $article->rand_id = Str::random(10);
@@ -113,7 +113,7 @@ class Edit extends Component
                 $article->article_tags = implode(',', $this->tags);
                 $article->author = $this->author;
                 $article->original_url = $this->url;
-                $article->embed_url = $this->embedUrl;
+                // $article->embed_url = $this->embedUrl;
                 $article->published_at = $this->publishedAt;
                 $article->status = $this->articleStatus;
                 $article->meta_title = $this->metaTitle;

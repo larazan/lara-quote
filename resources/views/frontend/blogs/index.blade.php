@@ -34,6 +34,14 @@
             </div>
           </div>
 
+          <div class="my-0 px-6">
+            @if (!empty($tag))
+            <div class="font-semibold text-black tracking-tight text-lg">tag by: <span class="text-lg md:text-3xl text-black font-semibold md:font-bold uppercase">{{ $tag }}</span></div>
+            @else
+            <div class="h-0 md:h-0"></div>
+            @endif
+        </div>
+
           <div class="px-6">
             <ul class="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-10">
              {{-- 

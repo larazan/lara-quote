@@ -4,3 +4,4 @@ comment -done
 download image -done
 article
 mailtrap
+send mail newsletter

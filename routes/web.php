@@ -65,8 +65,10 @@ use App\Http\Livewire\NewsletterForm;
 
 // Route::get('/search', [SearchController::class, 'index']);
 Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
+
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
+Route::get('articles/tag/{tag}', [ArticleController::class, 'showByTag']);
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
