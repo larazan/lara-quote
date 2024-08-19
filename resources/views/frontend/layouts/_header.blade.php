@@ -1,5 +1,5 @@
 <header class="fixed z-30 w-full px-5 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
-  <div class="flex items-center justify-between mx-auto max-w-5xl"  >
+  <div class="flex items-center justify-between mx-auto max-w-5xl">
     <div class="flex w-3/12 md:w-2/12 md:py-1 items-center text-gray-800">
       <a href="/">
         <img src="/frontend/img/logo.png" alt="logo" class="w-full md:h-10" />
@@ -19,7 +19,7 @@
     @include('frontend.components._modal-search')
 
     <div class="flex space-x-3 md:space-x-3 font-bold text-gray-900 items-center">
-      <div class="flex items-center" x-data="navConfig()">
+      <div class="flex2 hidden items-center" x-data="navConfig()">
         <button @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="hover:text-lio-500">
           <span class="h-5 w-5 hidden md:block">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-06">
@@ -52,6 +52,8 @@
           Login
         </button>
       </div>
+      
+      
 
       <section class="MOBILE-MENU flex md:hidden justify-start items-between">
         <div class="HAMBURGER-ICON space-y-2 w-fit md:justify-start cursor-pointer" @click="menuOpen = !menuOpen" aria-controls="menubar" :aria-expanded="menuOpen" aria-expanded="false">
@@ -61,7 +63,7 @@
         </div>
         <div id="menubar" :class="menuOpen ? 'flex flex-col' : 'hidden'" class="bg-black w-full h-[100vh] z-10 fixed top-0 left-0 text-white text-4xl font-bold flex-1 flex-col justify-between">
           <div class="absolute top-0 right-0 px-3 py-5 cursor-pointer" @click.stop="menuOpen = !menuOpen">
-            <svg class="h-6 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg class="h-6 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=3 strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
@@ -99,3 +101,4 @@
     </div>
   </div>
 </header>
+

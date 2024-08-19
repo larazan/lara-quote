@@ -2,6 +2,8 @@ algolia Search
 like  -done
 comment -done
 download image -done
-article
+article done
 mailtrap
-send mail newsletter
+send multi mail newsletter
+
+filter font, bg, color edit quote for premium

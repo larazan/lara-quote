@@ -19,6 +19,13 @@ class Person extends Model
 		'updated_at',
 	];
 
+    public const UPLOAD_DIR = 'uploads/person';
+
+    public const SMALL = '135x141';
+	public const MEDIUM = '312x400';
+	public const LARGE = '1000x600';
+
+
 	public function toSearchableArray(): array
     {
         return [

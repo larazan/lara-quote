@@ -11,7 +11,7 @@
 <main class="pt-[60px] md:pt-[80px] min-h-screen2 pt-162 h-full bg-white">
     <div class="max-w-5xl mx-auto">
         
-    @include('frontend.components._search')
+    
 
         <div class="px-6 py-5 md:py-12 mb-5 min-h-[300px]">
             <div class="grid grid-cols-1">

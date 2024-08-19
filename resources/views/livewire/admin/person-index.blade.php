@@ -249,6 +249,20 @@
                                             <input wire:model="authorId" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
+                                            <label for="photo" class="block text-sm font-medium text-gray-700">
+                                                Image
+                                            </label>
+                                            <input wire:model="file" type="file" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            @if ($oldImage)
+                                            Photo Preview:
+                                            <img src="{{ asset('storage/'.$oldImage) }}">
+                                            @endif
+                                            @if ($file)
+                                            Photo Preview:
+                                            <img src="{{ $file->temporaryUrl() }}">
+                                            @endif
+                                        </div>
+                                        <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
                                                 Bio
                                             </label>

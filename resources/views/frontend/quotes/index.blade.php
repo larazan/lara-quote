@@ -12,7 +12,7 @@
 
     <div class="max-w-5xl mx-auto">
             
-        @include('frontend.components._search')
+        
 
         <!-- Tags -->
         <div class="flex flex-col w-full mt-2 px-6 py-1 " :class="showMore ? 'duration-500 ease-in-out' : ''" x-data="{ showMore: false }"> 

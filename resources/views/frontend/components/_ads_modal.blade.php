@@ -6,7 +6,7 @@
                 <img alt="Trainer" src="{{ url('frontend/img/promo1.jpeg') }}" class="h-full md:h-64 w-full object-cover" />
 
                 <button class="absolute flex top-1 right-1 md:top-2 md:right-2 rounded-full bg-white shadow-xl px-1 py-1 md:p-2 cursor-pointer" @click="showModal = !showModal">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" class="w-5 h-5 text-[#1d494e]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=3 stroke="currentColor" class="w-5 h-5 text-[#1d494e]">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>

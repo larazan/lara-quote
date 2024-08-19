@@ -11,7 +11,7 @@
 
     <div class="max-w-5xl mx-auto">
             
-        @include('frontend.components._search')
+        
        
         <div class="px-6 py-2 mb-5 space-y-4">
             <div>
