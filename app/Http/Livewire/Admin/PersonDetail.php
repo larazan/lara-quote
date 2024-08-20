@@ -15,13 +15,14 @@ class PersonDetail extends Component
     public $showQuoteModal = false;
     public $name;
     public $bio;
-    public $personId = 200;
+    public $personId;
     public $authorId;
     public $words;
-    public $tags;
+    public $quoteTags;
+    public $tags = [];
     public $person;
-    // public $quotes = [];
     public $quoteId;
+    public $personName;
 
     public $personStatus = 'inactive';
     public $statuses = [
@@ -46,6 +47,7 @@ class PersonDetail extends Component
         $person = Person::where('id', $this->personId)->first();
         $this->authorId = $person->author_id;
         $this->name = $person->name;
+        $this->tags = isset($this->quoteTags) ? explode(',', $this->quoteTags) : [];
         // dd($person);
         // $this->quotes = Quote::liveSearch('words', $this->search)->where('author_id', $personId)->orderBy('created_at', $this->sort)->paginate($this->perPage);
     }
@@ -59,7 +61,7 @@ class PersonDetail extends Component
 
     public function showCreateModal()
     {
-        $this->reset();
+        $this->reset(['words', 'tags']);
         $this->showQuoteModal = true;
     }
 
@@ -88,7 +90,7 @@ class PersonDetail extends Component
         
         Person::create([
             'words' => $this->words,
-            'tags' => $this->tags,
+            'tags' => implode(',', $this->tags),
             'author_id' => $this->authorId,
       ]);
         $this->reset();
@@ -101,8 +103,11 @@ class PersonDetail extends Component
         $this->quoteId = $quoteId;
         $quote = Quote::find($quoteId);
         $this->words = $quote->words;
-        $this->tags = explode(',', $quote->tags);
+        $this->quoteTags = $quote->tags;
+        $this->tags = isset($this->quoteTags) ? explode(',', $this->quoteTags) : [];
+        // $this->tags = explode(',', $quote->tags);
         $this->authorId = $quote->author_id;
+        $this->personName = $quote->author($this->authorId)->name;
         $this->showQuoteModal = true;
     }
     
@@ -113,7 +118,7 @@ class PersonDetail extends Component
         $quote = Quote::findOrFail($this->quoteId);
         $quote->update([
             'words' => $this->words,
-            'tags' => $this->tags,
+            'tags' => implode(',', $this->tags),
             'author_id' => $this->authorId
         ]);
 
@@ -133,12 +138,12 @@ class PersonDetail extends Component
     public function closeQuoteModal()
     {
         $this->showQuoteModal = false;
-        $this->reset();
+        $this->reset(['words', 'tags']);
     }
 
     public function resetFilters()
     {
-        $this->reset();
+        $this->reset(['words', 'tags']);
     }
 
     public function render()
@@ -152,7 +157,7 @@ class PersonDetail extends Component
         })->orderBy('id', $this->sort)->paginate($this->perPage);
 
         return view('livewire.admin.person-detail', [
-            'quotes' => Quote::liveSearch('words', $this->search)->where('id', $this->personId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
+            'quotes' => Quote::liveSearch('words', $this->search)->where('author_id', $this->authorId)->orderBy('created_at', $this->sort)->paginate($this->perPage),
         ]);
     }
 }

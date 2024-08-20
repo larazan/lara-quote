@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Quote;
 use App\Models\Person;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
@@ -16,7 +17,8 @@ class QuoteIndex extends Component
     public $showQuoteModal = false;
     public $words;
     public $authorId;
-    public $tags;
+    public $quoteTags;
+    public $tags = [];
     public $slug;
     public $quoteId;
 
@@ -44,6 +46,11 @@ class QuoteIndex extends Component
     protected $rules = [
         'name' => 'required|max:255',
     ];
+
+    public function mount()
+    {
+        $this->tags = isset($this->quoteTags) ? explode(',', $this->quoteTags) : [];
+    }
 
     public function updateQueryPerson()
     {
@@ -87,8 +94,8 @@ class QuoteIndex extends Component
         Quote::create([
           'words' => $this->words,
           'slug' => Str::random(12),
-          'tags' => $this->tags,
-          'author_id' => $this->authorId
+          'tags' => implode(',', $this->tags),
+          'author_id' => isset($this->authorId) ? $this->authorId : Auth::user()->id
       ]);
         $this->reset();
         $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Quote created successfully']);
@@ -101,7 +108,9 @@ class QuoteIndex extends Component
         $quote = Quote::find($quoteId);
         $this->words = $quote->words;
         $this->slug = $quote->slug;
-        $this->tags = explode(',', $quote->tags);
+        $this->quoteTags = $quote->tags;
+        $this->tags = isset($this->quoteTags) ? explode(',', $this->quoteTags) : [];
+        // $this->tags = explode(',', $quote->tags);
         $this->authorId = $quote->author_id;
         $this->personName = $quote->author($this->authorId)->name;
         $this->showQuoteModal = true;
@@ -114,8 +123,8 @@ class QuoteIndex extends Component
         $quote = Quote::findOrFail($this->quoteId);
         $quote->update([
             'words' => $this->words,
-            'tags' => $this->tags,
-            'author_id' => $this->authorId
+            'tags' => implode(',', $this->tags),
+            'author_id' => isset($this->authorId) ? $this->authorId : Auth::user()->id
         ]);
         $this->reset();
         $this->showQuoteModal = false;

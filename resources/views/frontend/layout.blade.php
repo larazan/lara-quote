@@ -42,7 +42,7 @@
     @livewireStyles
 </head>
 
-<body >
+<body x-data="{ filterOpen: false }">
 
 @include('frontend.layouts._header')
 @include('frontend.components._gotop')

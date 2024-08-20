@@ -9,6 +9,8 @@
 
 <main class="flex flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
 
+  @include('frontend.components._setting')
+
   <div class="flex flex-row ">
     <div class="flex flex-1 flex-col items-center justify-center relative">
       <div class="flex flex-1 flex-col pb-18 max-w-md md:max-w-2xl ">
@@ -54,7 +56,14 @@
               </button>
             </div>
             <div class="flex space-x-2 justify-end md:justify-normal">
-
+              <button
+                @click="filterOpen = true" class="flex justify-between shadow-sm text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300  rounded-md font-medium px-3 py-2 md:space-x-2 items-center">
+                <span class="hidden md:inline-block font-semibold">Setting</span>
+                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 rotate-90">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                  </svg>
+                </span>
+              </button>
               <button class="bg-green-400 hover:bg-green-500 border border-green-500 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="download content" id="download">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -120,6 +129,8 @@
     </div>
   </div>
 </main>
+
+
 
 <livewire:newsletter-form />
 

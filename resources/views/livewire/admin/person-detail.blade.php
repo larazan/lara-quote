@@ -110,38 +110,29 @@
     </div>
 
     <!-- Table -->
-
-    <!--
     <div class="bg-white bd rounded-sm border border-slate-200 rc">
         <header class="vc vu">
             <h2 class="gh text-slate-800">Quotes <span class="gq gp"></span></h2>
         </header>
         <div x-data="handleSelect">
 
-            
+            <!-- Table -->
             <div class="lf">
                 <table class="ux ou">
-                    
+                    <!-- Table header -->
                     <thead class="go gh gv text-slate-500 hp co cs border-slate-200">
                         <tr>
-                            <th class="vi wy w_ vo lm of">
-                                <div class="flex items-center">
-                                    <label class="inline-flex">
-                                        <span class="d">Select all</span>
-                                        <input id="parent-checkbox" class="i" type="checkbox" @click="toggleAll">
-                                    </label>
-                                </div>
-                            </th>
+                        <th class="vi wy w_ vo lm">
+                            <div class="gh gt">No</div>
+                        </th>
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Words</div>
                             </th>
-                            <th class="vi wy w_ vo lm">
-                                <div class="gh gt">Author</div>
-                            </th>
+                           
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Tags</div>
                             </th>
-                          
+                            
                             <th class="vi wy w_ vo lm">
                                 <div class="gh gt">Date</div>
                             </th>
@@ -150,33 +141,28 @@
                             </th>
                         </tr>
                     </thead>
-                    
+                    <!-- Table body -->
                     <tbody class="text-sm le lr">
-                        
-                        
+                        <!-- Row -->
+                        @php
+                    $i = 1;
+                    @endphp
                         @if ($quotes->count() > 0)
                         @foreach ($quotes as $quote)
                         <tr>
-                            <td class="vi wy w_ vo lm of">
-                                <div class="flex items-center">
-                                    <label class="inline-flex">
-                                        <span class="d">Select</span>
-                                        <input class="table-item i" type="checkbox" @click="uncheckParent">
-                                    </label>
-                                </div>
-                            </td>
+                        <td class="vi wy w_ vo lm">
+                            <div class="gp text-slate-800">{{ $i++ }}</div>
+                        </td>
                             <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ Str::limit($quote->words, 20) }}</div>
+                                <div class="gp text-slate-800">{!! nl2br(General::smart_wordwrap($quote->words, 80)) !!}</div>
                             </td>
-                            <td class="vi wy w_ vo lm">
-                                <div class="gp text-slate-800">{{ $quote->author_id }}</div>    
-                            </td>
+                            
                             <td class="vi wy w_ vo lm">
                                 <div class="gp text-slate-800">{{ $quote->tags }}</div>    
                             </td>
-
+                            
                             <td class="vi wy w_ vo lm">
-                                <div>{{ $quote->created_at->format('d-m-Y') }}</div>
+                                <div>{{ $quote->created_at->diffForHumans() }}</div>
                             </td>
 
                             <td class="vi wy w_ vo lm of">
@@ -211,10 +197,11 @@
         </div>
     </div>
 
-    
-    -->
+    {{ $quotes->links() }}
 
+    {{-- 
     <livewire:admin.person-table :authorId="$authorId" />
+    --}}
 
     <x-dialog-modal wire:model="showQuoteModal" class="">
 
@@ -254,20 +241,52 @@
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
-                                                Author
+                                                Name
                                             </label>
-                                            <input wire:model="name" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                            <input wire:model="personName" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                         </div>
                                         <div class="col-start-1 sm:col-span-3">
                                             <label for="title" class="block text-sm font-medium text-gray-700">
                                                 Words
                                             </label>
-                                            <textarea wire:model="words" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                            <textarea wire:model="words" rows="5" type="text" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
 
                                             @error('words')
                                             <div class="go re yl">{{ $message }}</div>
                                             @enderror
                                         </div>
+
+                                        <div class="col-start-1 sm:col-span-3">
+                                                    <label for="title" class="block text-sm font-medium text-gray-700">
+                                                        Tags
+                                                    </label>
+                                                    <div>
+                                                        <div x-data="{tags: @entangle('tags'), newTag: '' }">
+                                                            <template x-for="tag in tags">
+                                                                <input type="hidden" :value="tag" name="tags">
+                                                            </template>
+
+                                                            <div class="max-w-sm w-full ">
+                                                                <div class="tags-input">
+
+                                                                    <input class="appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1 focus:ring-indigo-500 focus:border-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-600" placeholder="Enter some tags" @keydown.enter.prevent="if (newTag.trim() !== '') tags.push(newTag.trim()); newTag = ''" @keydown.backspace="if (newTag.trim() === '') tags.pop()" x-model="newTag">
+
+                                                                    <template x-for="tag in tags" :key="tag">
+                                                                        <div class="bg-gray-200 inline-flex items-center text-sm rounded mt-2 mr-1">
+                                                                            <span class="ml-2 mr-1 leading-relaxed truncate max-w-xs" x-text="tag"></span>
+                                                                            <button type="button" class="w-6 h-8 inline-block align-middle text-gray-500 hover:text-gray-600 focus:outline-none" @click="tags = tags.filter(i => i !== tag)">
+                                                                                <svg class="w-6 h-6 fill-current mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                                    <path fill-rule="evenodd" d="M15.78 14.36a1 1 0 0 1-1.42 1.42l-2.82-2.83-2.83 2.83a1 1 0 1 1-1.42-1.42l2.83-2.82L7.3 8.7a1 1 0 0 1 1.42-1.42l2.83 2.83 2.82-2.83a1 1 0 0 1 1.42 1.42l-2.83 2.83 2.83 2.82z" />
+                                                                                </svg>
+                                                                            </button>
+                                                                        </div>
+                                                                    </template>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                     </div>
                                 </div>
@@ -337,33 +356,6 @@
 
 </div>
 
-@push('styles')
-<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
-@endpush
-
 @push('js')
-<script src="https://unpkg.com/@yaireo/tagify"></script>
-<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script>
-    // The DOM element you wish to replace with Tagify
-    var input = document.querySelector('input[name=tags]');
-    // initialize Tagify on the above input node reference
-    new Tagify(input);
-
-    // 
-    const copyBtn = document.getElementById('copyBtn')
-    const copyText = document.getElementById('copyText')
-
-    copyBtn.onclick = () => {
-        copyText.select(); // Selects the text inside the input
-        document.execCommand('copy'); // Simply copies the selected text to clipboard 
-        Swal.fire({ //displays a pop up with sweetalert
-            icon: 'success',
-            title: 'Text copied to clipboard',
-            showConfirmButton: false,
-            timer: 1000
-        });
-    }
-</script>
 @endpush
