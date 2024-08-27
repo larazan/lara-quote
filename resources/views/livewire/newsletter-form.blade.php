@@ -4,10 +4,6 @@
     <h2 class="mb-4 text-2xl md:text-4xl font-bold tracking-tight text-gray-900 md:font-extrabold lg:leading-none dark:text-white md:text-center lg:mb-7">
       Sign up for our newsletter
     </h2>
-    <p class="mb-4 text-sm leading-tight md:leading-normal text-gray-500 md:mb-6 dark:text-gray-400 md:text-center md:text-xl lg:px-20 xl:px-56">
-      Sign up for our newsletter and you will be among the first to find out
-      about new articles, quotes, riddles, and more.
-    </p>
     <div class="mb-4">
       <div class="flex max-w-xl md:mx-auto">
         <div class="w-full" data-style="clean">

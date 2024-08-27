@@ -33,7 +33,7 @@ class TagController extends Controller
     public function show($letter)
     {
         $alpha = Str::lower($letter);
-        $tags = Tag::where('name', 'like', "{$alpha}%")->where('status', 'active');
+        $tags = Tag::where('name', 'like', "{$alpha}%")->where('status', 'active')->orderBy('name', 'asc');
 
         $this->data['title'] = "Topic Letter: " . ucfirst($letter);
         $this->data['tags'] = $tags->get();

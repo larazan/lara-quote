@@ -5,5 +5,8 @@ download image -done
 article done
 mailtrap
 send multi mail newsletter
+login, register & forgot password page
+plan 
+purchase
 
 filter font, bg, color edit quote for premium

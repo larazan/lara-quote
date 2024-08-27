@@ -9,6 +9,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\ReplyController;
@@ -82,6 +83,8 @@ Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('people', [PersonController::class, 'index'])->name('people');
 Route::get('people/{slug}', [PersonController::class, 'show']);
 Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
+
+Route::get('plan', [PlanController::class, 'index']);
 
 Route::middleware(['throttle:global'])->group(function () {
     Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');

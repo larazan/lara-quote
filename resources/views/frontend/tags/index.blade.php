@@ -33,12 +33,13 @@
                                 @break
                             @endif
                         @endforeach
-                        
+                        @if($tags->count() > 15)
                         <a href="{{ url('tags/' . $alpha) }}">
                             <div class="mr-1 mt-1 mb-1 py-1.5 px-3 text-sm bg-orange-400 border border-orange-400 rounded-md flex items-center text-slate-900 gap-x-1 hover:bg-orange-500 transition cursor-pointer">
                                 <div class="truncate text-xs font-semibold capitalize">More</div>
                             </div>
                         </a>
+                        @endif
                     </div>
 
                 </div>

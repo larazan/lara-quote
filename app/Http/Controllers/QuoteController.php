@@ -196,6 +196,18 @@ class QuoteController extends Controller
     {
         $quote = Quote::where('id', $id)->first();
 
+        $fontSize = collect([
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            20,
+            24,
+            40
+        ]); 
+
         if (!$quote) {
 			return redirect('quotes');
 		}
@@ -213,6 +225,7 @@ class QuoteController extends Controller
             $arrTags = $tags;
         }
         
+        $this->data['fontSize'] = $fontSize;
 		$this->data['title'] = $quote->words;
 		$this->data['quote'] = $quote;
 		$this->data['id'] = $id;
