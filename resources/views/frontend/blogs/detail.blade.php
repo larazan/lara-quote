@@ -90,11 +90,11 @@
 
   <!--  -->
 
-  <div class="flex flex-row py-4 md:py-6 border-y">
-    <div class="flex flex-col space-y-3 md:space-y-0 md:flex-row mx-auto w-11/12 md:w-8/12 lg:w-1/2">
+  <div class="flex flex-row py-4 md:py-6 border-t mb-10">
+    <div class="flex flex-col space-y-3 md:space-y-0 md:flex-row mx-auto w-10/12 md:w-8/12 lg:w-1/2">
       <div class="flex flex-col w-full md:w-1/2 ">
         <div>
-          <span class="text-sm font-semibold text-gray-400">Topics of this article</span>
+          <span class="text-sm font-semibold text-gray-400">Tags</span>
         </div>
         @if(!empty($tags))
         <div>
@@ -159,11 +159,12 @@
       /* background-color: #ccc; */
       display: flex;
       /* margin: 0 auto; */
-      max-width: 260px;
+      min-width: 280px;
     }
 
     div#social-links ul li {
       display: inline-block;
+      margin: 2px;
     }
 
     div#social-links ul li a {

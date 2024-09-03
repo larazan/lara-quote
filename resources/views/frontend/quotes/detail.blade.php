@@ -617,11 +617,12 @@
     /* background-color: #ccc; */
     display: flex;
     /* margin: 0 auto; */
-    max-width: 260px;
+    min-width: 260px;
   }
 
   div#social-links ul li {
     display: inline-block;
+    margin: 2px;
   }
 
   div#social-links ul li a {
@@ -631,7 +632,7 @@
     margin: 1px;
     font-size: 20px;
     color: #222;
-    background-color: #eee;
+    background-color: #dbeafe;
   }
 </style>
 @endpush

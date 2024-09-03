@@ -34,6 +34,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'username',
         'email',
         'password',
         'provider',
@@ -70,6 +71,49 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function id(): int
+    {
+        return $this->id;
+    }
+
+    public function name(): string
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
+
+    public function firstName(): string
+    {
+        return $this->first_name;
+    }
+
+    public function lastName(): string
+    {
+        return $this->last_name;
+    }
+
+    public function emailAddress(): string
+    {
+        return $this->email;
+    }
+
+    public function username(): string
+    {
+        // return $this->first_name;
+        return $this->username ? $this->username : $this->first_name.' '.$this->last_name;
+    }
+
+    public function isBanned(): bool
+    {
+        return ! is_null($this->banned_at);
+    }
+
+    public function hasPassword(): bool
+    {
+        $password = $this->getAuthPassword();
+
+        return $password !== '' && $password !== null;
+    }
 
     public function quotes()
     {

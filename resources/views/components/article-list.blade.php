@@ -1,4 +1,4 @@
-<div class="mx-auto w-full2 relative lg:w-full flex flex-col space-y-3 px-3 md:px-6 lg:px-0 py-0 md:py-4 justify-center items-center bg-[#f5f7f9]">
+<div class="mx-auto w-full relative lg:w-full flex flex-col space-y-3 px-3 md:px-6 lg:px-0 py-0 md:py-4 justify-center items-center bg-[#f5f7f9]">
   <div class="flex flex-row justify-between pt-4 mx-auto w-full md:w-12/12 lg:w-11/12 space-x-6 items-center">
     <a href="/" class="flex space-x-1 items-center hover:opacity-80">
       <span class="text-lg md:text-2xl font-bold text-black">

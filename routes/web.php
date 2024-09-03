@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -8,8 +9,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\ReplyController;
@@ -116,6 +119,12 @@ Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
     Route::get('reply/{id}/{type}', [ReplyController::class, 'redirect'])->name('replyAble');
 });
 
+// Settings
+Route::get('settings', [ProfileController::class, 'edit'])->name('settings.profile');
+Route::put('settings', [ProfileController::class, 'update'])->name('settings.profile.update');
+Route::delete('settings', [ProfileController::class, 'destroy'])->name('settings.profile.delete');
+Route::put('settings/password', [PasswordController::class, 'update'])->name('settings.password.update');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -190,6 +199,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 
 
 // Sociolite

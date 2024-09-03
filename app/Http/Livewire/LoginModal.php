@@ -2,14 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class LoginModal extends Component
 {
+    public $firstName;
+    public $lastName;
+    public $email = '';
     public $username = '';
     public $password = '';
+    public $confirmPassword = '';
     public $currentPath = '';
     public $showModal = false;
 
@@ -61,6 +66,26 @@ class LoginModal extends Component
     protected function guard()
     {
         return Auth::guard();
+    }
+
+    public function store()
+    {
+        $this->validate([
+            'name'      => 'required',
+            'email'     => 'required|email|unique:users',
+            'password'  => 'required|confirmed'
+        ]);
+
+        $user = User::create([
+            'name'      => $this->name,
+            'email'     => $this->email,
+            'password'  => bcrypt($this->password)
+        ]);
+
+        if($user) {
+            session()->flash('success', 'Register Berhasil!.');
+            return redirect()->route('auth.login');
+        }
     }
     
     public function render()

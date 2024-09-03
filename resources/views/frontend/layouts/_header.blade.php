@@ -1,8 +1,8 @@
-<header class="fixed z-30 w-full px-5 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
+<header class="fixed z-30 w-full px-3 md:px-10 py-2 md:py-1.5 items-center transition duration-300 ease-out bg-white bg-opacity-102 backdrop-filter backdrop-blur2 border-b shadow" x-data="{ menuOpen: false, textD: 'test' }">
   <div class="flex items-center justify-between mx-auto max-w-5xl">
     <div class="flex w-3/12 md:w-2/12 md:py-1 items-center text-gray-800">
       <a href="/">
-        <img src="/frontend/img/logo.png" alt="logo" class="w-full md:h-10" />
+        <img src="/frontend/img/logo.png" alt="logo" class="w-full h-8 md:h-10" />
         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40.000000pt" height="40.000000pt" viewBox="0 0 1025.000000 1025.000000">
         <g transform="translate(0.000000,1025.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
           <path class="fill-current" d="M5902 7524 c-54 -38 -52 18 -52 -1174 0 -999 2 -1105 16 -1136 29 -61 46 -64 309 -64 265 0 282 3 334 66 17 22 173 269 345 549 173 281 320 511 327 513 9 1 138 -200 340 -530 236 -385 336 -540 363 -562 l38 -31 248 -3 c211 -3 254 -1 279 13 65 33 61 -36 61 1180 0 962 -2 1110 -15 1135 -30 58 -39 60 -282 60 l-223 0 -32 -29 -33 -29 -5 -649 c-4 -582 -7 -648 -21 -651 -11 -2 -96 129 -303 467 -320 523 -302 501 -416 501 -115 0 -96 22 -417 -501 -201 -329 -292 -469 -303 -467 -13 3 -16 77 -20 643 -5 677 -4 666 -52 699 -33 24 -453 23 -486 0z"></path>

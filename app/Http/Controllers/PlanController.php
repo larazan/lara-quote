@@ -9,6 +9,7 @@ class PlanController extends Controller
     //
     public function index()
     {
-        return $this->loadTheme('plan.index');
+        $this->data['title'] = 'Plan';
+        return $this->loadTheme('plan.index', $this->data);
     }
 }
