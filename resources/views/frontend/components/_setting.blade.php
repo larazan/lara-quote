@@ -1,4 +1,4 @@
-<div class="hidden2 flex flex-col w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50 px-4 lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
+<div  class="hidden2 flex flex-col w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50 px-4 lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
   <div class="flex w-full items-center justify-between py-4 border-b">
     <div class="w-1/2">
       <span class="uppercase font-semibold text-gray-900">Setting</span>
@@ -239,7 +239,7 @@
   </div>
 </div>
 
-<div :class="filterOpen ? 'block' : 'hidden'" class=" opacity-40 fixed inset-0 z-30 bg-black"></div>
+<div :class="filterOpen ? 'block' : 'hidden'" class=" opacity-30 fixed inset-0 z-30 bg-black"></div>
 
 @push('js')
 <script>

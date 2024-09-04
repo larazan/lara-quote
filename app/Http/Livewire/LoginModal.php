@@ -55,7 +55,7 @@ class LoginModal extends Component
 
     protected function attemptLogin()
     {
-        return $this->guard()->attempt(
+        return Auth::attempt(
             [
                 'email' => $this->username,
                 'password' => $this->password,
@@ -68,7 +68,7 @@ class LoginModal extends Component
         return Auth::guard();
     }
 
-    public function store()
+    public function register()
     {
         $this->validate([
             'name'      => 'required',
