@@ -7,9 +7,12 @@
 
 @section('content')
 
-<main class="flex flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
 
-  @include('frontend.components._setting')
+<livewire:frontend.show.index  :type="$type" :quote="$quote" :author="$author" :tags="$tags" :bgColor="$styles[$type]['bgColor']" :fontColor="$styles[$type]['fontColor']" :fontFamily="$styles[$type]['font']" />
+
+<main class="hidden flex2 flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
+
+  
 
   <div class="flex flex-row ">
     <div class="flex flex-1 flex-col items-center justify-center relative">
@@ -601,9 +604,35 @@
     /* border: 1px solid #ccc; */
     margin: 1px;
     font-size: 20px;
-    color: #222;
+    color: #fff;
     background-color: #dbeafe;
   }
+
+  /* facebook */
+  div#social-links ul li:nth-child(1) a {
+    background-color: #2d65b0;
+  }
+/* twitter */
+  div#social-links ul li:nth-child(2) a {
+    background-color: #35bced;
+  }
+  /* linkedin */
+  div#social-links ul li:nth-child(3) a {
+    background-color: #0675a5;
+  }
+  /* telegram */
+  div#social-links ul li:nth-child(4) a {
+    background-color: #3dba92;
+  }
+  /* whatsapp */
+  div#social-links ul li:nth-child(5) a {
+    background-color: #128c7d;
+  }
+  /* reddit */
+  div#social-links ul li:nth-child(6) a {
+    background-color: #ff4a0d;
+  }
+  
 </style>
 @endpush
 

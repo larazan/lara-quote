@@ -587,8 +587,32 @@
     /* border: 1px solid #ccc; */
     margin: 1px;
     font-size: 20px;
-    color: #222;
+    color: #fff;
     background-color: #dbeafe;
+  }
+  /* facebook */
+  div#social-links ul li:nth-child(1) a {
+    background-color: #2d65b0;
+  }
+/* twitter */
+  div#social-links ul li:nth-child(2) a {
+    background-color: #35bced;
+  }
+  /* linkedin */
+  div#social-links ul li:nth-child(3) a {
+    background-color: #0675a5;
+  }
+  /* telegram */
+  div#social-links ul li:nth-child(4) a {
+    background-color: #3dba92;
+  }
+  /* whatsapp */
+  div#social-links ul li:nth-child(5) a {
+    background-color: #128c7d;
+  }
+  /* reddit */
+  div#social-links ul li:nth-child(6) a {
+    background-color: #ff4a0d;
   }
 </style>
 @endpush

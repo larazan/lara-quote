@@ -1,3 +1,5 @@
+
+
 <div  class="hidden2 flex flex-col w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50 px-4 lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
   <div class="flex w-full items-center justify-between py-4 border-b">
     <div class="w-1/2">
@@ -33,7 +35,7 @@
         <div class="overflow-hidden pb-0">
           <div class="duration-300 px-0 pb-3">
 
-            <div class="rounded-md bg-pink-100 px-4 py-3" x-data="app()" x-cloak>
+            <div class="rounded-md bg-pink-100 px-4 py-3" x-data="bg()" x-cloak>
               <div class="flex flex-wrap -mx-2">
                 <template x-for="(color, index) in colors" :key="index">
                   <div
@@ -194,7 +196,7 @@
         <div class="overflow-hidden pb-0">
           <div class="duration-300 px-0 pb-3">
 
-          <div class="rounded-md bg-[#fbf8f1] px-4 py-3" x-data="app()" x-cloak>
+          <div class="rounded-md bg-[#fbf8f1] px-4 py-3" x-data="color()" x-cloak>
               <div class="flex flex-wrap -mx-2">
                 <template x-for="(color, index) in colors" :key="index">
                   <div
@@ -243,7 +245,14 @@
 
 @push('js')
 <script>
-  function app() {
+  function bg() {
+    return {
+      isOpen: false,
+      colors: [ '#009688', '#9C27B0', '#FFEB3B', '#afbbc9', '#4CAF50', '#2d3748', '#f56565', '#ed64a6'],
+      colorSelected: '#2196F3'
+    }
+  }
+  function color() {
     return {
       isOpen: false,
       colors: ['#2196F3', '#009688', '#9C27B0', '#FFEB3B', '#afbbc9', '#4CAF50', '#2d3748', '#f56565', '#ed64a6'],
