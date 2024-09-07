@@ -71,13 +71,14 @@
                 <select class="h-full2 rounded border block appearance-none w-28 bg-white border-gray-300 text-gray-700 py-2 px-4 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" wire:model="sizeselect">
                   <option value="">Select</option>
                   @foreach($fontSizes as $key => $value)
-                  <option class="" value="{{ $value['size'] }}">{{ $value['name'] }}</option>
+                  <option class="" value="{{ $value['value'] }}">{{ $value['name'] }}</option>
                   @endforeach
                 </select>
 
                 <div class="inline-flex items-center rounded-md shadow-sm">
                   <button
-                    class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300 rounded-l-lg font-medium px-3 py-1 md:py-2 inline-flex items-center">
+                    wire:click="changeAlign('left')"
+                    class="@if($fontAlign == 'left'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif  hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300 rounded-l-lg font-medium px-3 py-1 md:py-2 inline-flex items-center">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
@@ -85,7 +86,8 @@
                     </span>
                   </button>
                   <button
-                    class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border-y border-slate-300 font-medium px-3 py-1 md:py-2 inline-flex items-center">
+                    wire:click="changeAlign('center')"
+                    class="@if($fontAlign == 'center'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif hover:text-blue-600 text-sm hover:bg-slate-100 border-y border-slate-300 font-medium px-3 py-1 md:py-2 inline-flex items-center">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -93,7 +95,8 @@
                     </span>
                   </button>
                   <button
-                    class="text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300 rounded-r-lg font-medium px-3 py-1 md:py-2 inline-flex  items-center">
+                    wire:click="changeAlign('right')"
+                    class="@if($fontAlign == 'right'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300 rounded-r-lg font-medium px-3 py-1 md:py-2 inline-flex  items-center">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
@@ -180,7 +183,7 @@
 
 
       <div class="pt-4 pb-10">
-        <div class="bg-[#73dfb7] hover:bg-white uppercase  rounded-full text-slate-800 border-2 border-[#73dfb7] flex p-3 justify-center items-center w-full font-semibold cursor-pointer">
+        <div wire:click="resetFilters" class="bg-[#73dfb7] hover:bg-white uppercase  rounded-full text-slate-800 border-2 border-[#73dfb7] flex p-3 justify-center items-center w-full font-semibold cursor-pointer">
           Reset
         </div>
       </div>
@@ -245,12 +248,12 @@
           <div class="py-4 md:py-6 w-full columns-1 ">
             <div id="photo" class="mb-4 rounded2 flex flex-col justify-center items-center" style="background-color: {{ $bgColor }}">
               @if($quote)
-              <div class="flex-grow py-2 mt-6 lg:py-6 md:py-6 px-12 md:px-20">
-                <p id="myText" class="leading-tight md:leading-snug text-[{{ $fontColor }}] text-center text-{{ $fontSize }}xl md:text-{{ $fontSize+1 }}xl  font-medium transition" style="font-family: {{ $fontFamily }}; color: {{ $fontColor }}">
+              <div class="flex flex-col flex-grow2 justify-center items-center py-2 mt-6 lg:py-6 md:py-6 px-12 md:px-20 min-h-96">
+                <p id="myText" class="leading-tight md:leading-snug text-[{{ $fontColor }}] text-{{ $fontAlign }} text-{{ $fontSize }} md:text-{{ $fontSize }}  font-medium transition" style="font-family: {{ $fontFamily }}; color: {{ $fontColor }}">
                   {{ $quote->words }}
                 </p>
-                <div class=" px-2 py-4 flex flex-col @if(Auth::check()){{ 'pb-8' }}@else{{ 'pb-0' }}@endif  justify-center">
-                  <div class="flex w-full justify-end">
+                <div class=" px-2 py-4 flex w-full @if(Auth::check()){{ 'pb-8' }}@else{{ 'pb-0' }}@endif  justify-center">
+                  <div class="flex w-full justify-{{ $justify }}">
                     <div class="flex justify-end" style="color: {{ $fontColor }}">
                       <span class="flex items-center justify-center text-md font-semibold">
                         - {{ $author }}
@@ -259,7 +262,7 @@
                   </div>
                 </div>
               </div>
-              <div class="@if(Auth::check()){{ 'hidden' }}@else{{ 'flex' }}@endif px-4 pb-4 w-full justify-start">
+              <div class="@if(Auth::check()){{ 'hidden' }}@else{{ 'flex' }}@endif px-6 pb-6 w-full justify-start">
                 <img src="/frontend/img/logo.png" alt="logo" class=" h-7 md:h-8" />
               </div>
               @endif

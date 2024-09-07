@@ -21,15 +21,20 @@ class Index extends Component
     
     public $fontColor;
     public $fontSize;
-    public $fontAlign;
+    public $fontAlign = 'center';
+    public $justify = 'center';
     public $fontFamily;
     public $bgColor;
 
     public $fontSizes = [
-        ['name' => 'Small', 'size' => '2'],
-        ['name' => 'Medium', 'size' => '3'],
-        ['name' => 'Large', 'size' => '4'],
-        ['name' => 'Xtra large', 'size' => '5'],
+        ['name' => 'Small', 'value' => 'sm'],
+        ['name' => 'Medium', 'value' => 'base'],
+        ['name' => 'Large', 'value' => 'lg'],
+        ['name' => 'Xtra large', 'value' => 'xl'],
+        ['name' => 'Double xl', 'value' => '2xl'],
+        ['name' => 'Triple xl', 'value' => '3xl'],
+        ['name' => '4xl', 'value' => '4xl'],
+        ['name' => '5xl', 'value' => '5xl'],
     ];
 
     public $styles = [
@@ -307,7 +312,7 @@ class Index extends Component
         $this->bgColor = $bgColor;
         $this->fontColor = $fontColor;
         $this->fontFamily = $fontFamily;
-        $this->fontSize = '3';
+        $this->fontSize = '2xl';
         $this->fontAlign = 'center';
     }
 
@@ -317,6 +322,22 @@ class Index extends Component
         $this->fontColor = $this->colorselect ? $this->colorselect : $this->fontColor;
         $this->fontFamily = $this->fontselect ? $this->fontselect : $this->fontFamily;
         $this->fontSize = $this->sizeselect ? $this->sizeselect : $this->fontSize;
+    }
+
+    public function changeAlign($align)
+    {
+        $this->fontAlign = $align;
+        switch ($align) {
+            case 'left':
+                $this->justify = 'start';
+                break;
+            case 'right':
+                $this->justify = 'end';
+                break;
+            default:
+                $this->justify = 'center';
+                break;
+        }
     }
 
     public function resetFilters()
