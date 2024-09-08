@@ -243,6 +243,19 @@
                             </ul>
                         </div>
                     </li>
+
+                    <!-- Plans -->
+                    <li class="vn vr rounded-sm n_ ww @if(in_array(Request::segment(2), ['plans'])){{ 'bg-slate-900' }}@else{{ '' }}@endif">
+                        <a class="block gj xc ld wt wi" href="{{ url('admin/plans') }}">
+                            <div class="flex items-center">
+                                <svg class="ub so oi" viewBox="0 0 24 24">
+                                        <path class="du @if(in_array(Request::segment(2), ['plans'])){{ 'text-indigo-500' }}@else{{ 'g_' }}@endif" d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z"></path>
+                                        <path class="du @if(in_array(Request::segment(2), ['plans'])){{ 'text-indigo-300' }}@else{{ 'gq' }}@endif" d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"></path>
+                                    </svg>
+                                <span class="text-sm gp ml-3 ttw tnn 2xl:opacity--100 wr">Plans</span>
+                            </div>
+                        </a>
+                    </li>
                     
 
                 </ul>

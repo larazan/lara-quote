@@ -13,6 +13,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\RiddleController;
 use App\Http\Controllers\ReplyController;
@@ -43,6 +44,7 @@ use App\Http\Livewire\Admin\NewsletterIndex;
 use App\Http\Livewire\Admin\PersonIndex;
 use App\Http\Livewire\Admin\PersonDetail;
 use App\Http\Livewire\Admin\PermissionIndex;
+use App\Http\Livewire\Admin\PlanIndex;
 use App\Http\Livewire\Admin\QuoteIndex;
 use App\Http\Livewire\Admin\RiddleIndex;
 use App\Http\Livewire\Admin\RoleIndex;
@@ -70,6 +72,9 @@ use App\Http\Livewire\NewsletterForm;
 // Route::get('/search', [SearchController::class, 'index']);
 Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
 
+Route::get('/payments', [PaymentController::class, 'index'])->name('payments');
+Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 Route::get('articles/tag/{tag}', [ArticleController::class, 'showByTag']);
@@ -87,7 +92,7 @@ Route::get('people', [PersonController::class, 'index'])->name('people');
 Route::get('people/{slug}', [PersonController::class, 'show']);
 Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
 
-Route::get('plan', [PlanController::class, 'index']);
+Route::get('plan', [PlanController::class, 'index'])->name('plan');
 
 Route::middleware(['throttle:global'])->group(function () {
     Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
@@ -173,6 +178,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->
     Route::get('persons', PersonIndex::class)->name('persons.index');
     Route::get('persons/{personId}', PersonDetail::class)->name('persons.detail');
     Route::get('permissions', PermissionIndex::class)->name('permissions.index');
+    Route::get('plans', PlanIndex::class)->name('plans.index');
     Route::get('quotes', QuoteIndex::class)->name('quotes.index');
     Route::get('riddles', RiddleIndex::class)->name('riddles.index');
     Route::get('roles', RoleIndex::class)->name('roles.index');

@@ -12,9 +12,11 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
+    use Billable;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -172,4 +174,6 @@ class User extends Authenticatable
         return $this->hasMany(QuoteLike::class);
     }
 
+    public function createSetupIntent()
+    {}
 }

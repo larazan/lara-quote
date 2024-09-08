@@ -9,6 +9,7 @@
 			<h2 class="text-2xl font-bold md:text-4xl text-slate-900">Save 25 percent! The discount also applies to renewals.</h2>
 		</div>
 		<div class="flex flex-wrap pt-8 items-stretch2 items-center -mx-4" >
+			
 			<div class="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0" >
 				<div class="flex flex-grow flex-col p-6 space-y-3 border rounded shadow sm:p-8 bg-white" >
 					<div class="space-y-1" >
@@ -39,12 +40,13 @@
 					<button type="button" class="inline-block px-5 py-2 font-semibold tracking-wider text-center rounded border-2 border-blue-600 bg-blue-600 hover:bg-white text-white hover:text-blue-600">Signup</button>
 				</div>
 			</div>
+			@foreach ($plans as $plan)
 			<div class="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0" >
 				<div class="flex flex-grow flex-col p-6 space-y-3 rounded border shadow sm:p-8 bg-blue-600 text-white" >
 					<div class="space-y-1" >
-						<h4 class="text-lg font-bold text-white">Pro</h4>
-						<span class="text-3xl font-bold text-white">$24
-							<span class="text-sm tracking-wide text-white">/month</span>
+						<h4 class="text-lg font-bold text-white">{{ $plan->name }}</h4>
+						<span class="text-3xl font-bold text-white">$ {{ $plan->price }}
+							<span class="text-sm tracking-wide text-white">/{{ $plan->abbreviation }}</span>
 						</span>
 					</div>
 					<p class=" leading-tight text-white">Morbi cursus ut sapien sit amet consectetur.</p>
@@ -74,10 +76,10 @@
 							<span>Aenean et lectus blandit</span>
 						</li>
 					</ul>
-					<a rel="noopener noreferrer" href="#" class="inline-block w-full px-5 py-2 font-bold tracking-wider text-center rounded border border-[#fdfc3b] bg-white hover:bg-blue-700 text-blue-600 hover:text-white">Signup</a>
+					<a rel="noopener noreferrer" href="{{ route('payments', ['plan' => $plan->stripeName()]) }}" class="inline-block w-full px-5 py-2 font-bold tracking-wider text-center rounded border border-[#fdfc3b] bg-white hover:bg-blue-700 text-blue-600 hover:text-white">Signup</a>
 				</div>
 			</div>
-			
+			@endforeach
 		</div>
 	</div>
 </main>
