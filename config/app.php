@@ -203,6 +203,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\GeneralServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
 
     ],
 

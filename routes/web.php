@@ -72,9 +72,6 @@ use App\Http\Livewire\NewsletterForm;
 // Route::get('/search', [SearchController::class, 'index']);
 Route::get('/search', [SearchController::class, 'search'])->name('quote.search');
 
-Route::get('/payments', [PaymentController::class, 'index'])->name('payments');
-Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
-
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 Route::get('articles/tag/{tag}', [ArticleController::class, 'showByTag']);
@@ -91,6 +88,9 @@ Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('people', [PersonController::class, 'index'])->name('people');
 Route::get('people/{slug}', [PersonController::class, 'show']);
 Route::get('people/letter/{letter}', [PersonController::class, 'showByLetter']);
+
+Route::get('/payments', [PaymentController::class, 'index'])->name('payments');
+Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
 
 Route::get('plan', [PlanController::class, 'index'])->name('plan');
 

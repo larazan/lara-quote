@@ -76,7 +76,11 @@
 							<span>Aenean et lectus blandit</span>
 						</li>
 					</ul>
+					@subscribedToProduct(auth()->user(), $plan->stripeProductId(), $plan->stripeName())
+					<div class="flex text-base text-white font-semibold rounded bg-yellow-700 px-2 py-1">You are currently subscribed this plan</div>
+					@else
 					<a rel="noopener noreferrer" href="{{ route('payments', ['plan' => $plan->stripeName()]) }}" class="inline-block w-full px-5 py-2 font-bold tracking-wider text-center rounded border border-[#fdfc3b] bg-white hover:bg-blue-700 text-blue-600 hover:text-white">Signup</a>
+					@endsubscribedToProduct
 				</div>
 			</div>
 			@endforeach

@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use Laravel\Cashier\Billable;
 
+use function Illuminate\Events\queueable;
+
 class User extends Authenticatable
 {
     use Billable;
@@ -42,6 +44,12 @@ class User extends Authenticatable
         'provider',
         'provider_id',
         'provider_token',
+        'line1',
+        'line2',
+        'city',
+        'state',
+        'country',
+        'postal_code',
     ];
 
     /**
@@ -79,10 +87,10 @@ class User extends Authenticatable
         return $this->id;
     }
 
-    // public function name(): string
-    // {
-    //     return $this->first_name.' '.$this->last_name;
-    // }
+    public function fullName(): string
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
 
     public function firstName(): string
     {
@@ -97,6 +105,36 @@ class User extends Authenticatable
     public function emailAddress(): string
     {
         return $this->email;
+    }
+
+    public function lineOne(): ?string
+    {
+        return $this->line1;
+    }
+
+    public function lineTwo(): ?string
+    {
+        return $this->line2;
+    }
+
+    public function city(): ?string
+    {
+        return $this->city;
+    }    
+
+    public function state(): ?string
+    {
+        return $this->state;
+    }
+
+    public function country(): ?string
+    {
+        return $this->country;
+    }
+
+    public function postalCode(): ?string
+    {
+        return $this->postal_code;
     }
 
     public function username(): string
@@ -174,6 +212,22 @@ class User extends Authenticatable
         return $this->hasMany(QuoteLike::class);
     }
 
-    public function createSetupIntent()
-    {}
+    protected static function booted()
+    {
+        static::updated(queueable(function ($customer) {
+            $customer->syncStripeCustomerDetails();
+        }));
+    }
+
+    public function stripeAddress()
+    {
+        return [
+            'city' => $this->city(),
+            'country' => $this->country(),
+            'line1' => $this->lineOne(),
+            'line2' => $this->lineTwo(),
+            'postal_code' => $this->postalCode(),
+            'state' => $this->state(),
+        ];
+    }
 }

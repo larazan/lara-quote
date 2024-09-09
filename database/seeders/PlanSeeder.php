@@ -18,27 +18,29 @@ class PlanSeeder extends Seeder
     {
         //
         Plan::create([
-            'name'          => 'Monthly Plan',
-            'slug'          => 'monthly-plan',
-            'stripe_name'   => 'monthly',
-            'stripe_id'     => 'prod_QoMI7UAr1AvPNv',
-            'price'         => 1,
-            'abbreviation'  => '/month',
-            'type'          => 'paid',
-            'features'      => ['Everything in Free', 'Phasellus tellus', 'Praesent faucibus', 'Aenean et lectus blandit'],
-            'created_at' => Carbon::now()
+            'name'              => 'Monthly Plan',
+            'slug'              => 'monthly-plan',
+            'stripe_name'       => 'monthly',
+            'stripe_product_id' => 'prod_QoMI7UAr1AvPNv',
+            'stripe_price_id'   => 'price_1PwjaCRuHZMkhupInjasacoA',
+            'price'             => 1,
+            'abbreviation'      => '/month',
+            'type'              => 'paid',
+            'features'          => ['Everything in Free', 'Phasellus tellus', 'Praesent faucibus', 'Aenean et lectus blandit'],
+            'created_at'        => Carbon::now()
         ]);
 
         Plan::create([
-            'name'          => 'Yearly Plan',
-            'slug'          => 'yearly-plan',
-            'stripe_name'   => 'yearly',
-            'stripe_id'     => 'prod_QoMJDH5xO5gA5J',
-            'price'         => 10,
-            'abbreviation'  => '/year',
-            'type'          => 'paid',
-            'features'      => ['Everything in Free', 'Phasellus tellus', 'Praesent faucibus', 'Aenean et lectus blandit'],
-            'created_at' => Carbon::now()
+            'name'              => 'Yearly Plan',
+            'slug'              => 'yearly-plan',
+            'stripe_name'       => 'yearly',
+            'stripe_product_id' => 'prod_QoMJDH5xO5gA5J',
+            'stripe_price_id'   => 'price_1PwjbERuHZMkhupIeHZiDEWJ',
+            'price'             => 10,
+            'abbreviation'      => '/year',
+            'type'              => 'paid',
+            'features'          => ['Everything in Free', 'Phasellus tellus', 'Praesent faucibus', 'Aenean et lectus blandit'],
+            'created_at'        => Carbon::now()
         ]);
     }
 }

@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('stripe_name')->unique();
-            $table->string('stripe_id')->unique();
+            $table->string('stripe_name');
+            $table->string('stripe_product_id');
+            $table->string('stripe_price_id');
             $table->bigInteger('price');
             $table->string('abbreviation');
             $table->text('features');
