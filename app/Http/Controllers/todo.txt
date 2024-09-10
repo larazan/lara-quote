@@ -8,5 +8,7 @@ send multi mail newsletter
 login, register & forgot password page
 plan 
 purchase
+billing on dashboard
+loading before load properly
 
 filter font, bg, color edit quote for premium

@@ -36,5 +36,9 @@ class BladeServiceProvider extends ServiceProvider
         Blade::if('subscribedToProduct', function ($user, $id, $name) {
             return $user->subscribedToProduct($id, $name);
         });
+
+        Blade::if('onGracePeriod', function ($plan) {
+            return auth()->user()->subscription($plan)->onGracePeriod();
+        });
     }
 }

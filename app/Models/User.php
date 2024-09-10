@@ -137,6 +137,11 @@ class User extends Authenticatable
         return $this->postal_code;
     }
 
+    public function createdAt()
+    {
+        return $this->created_at;
+    }
+
     public function username(): string
     {
         // return $this->first_name;

@@ -7,6 +7,8 @@
 
 @section('content')
 
+<div id="loading_indicator"></div>
+
 <main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
 
     <div class="max-w-5xl mx-auto">
@@ -63,9 +65,45 @@
 
 @endsection
 
+@push('js')
+<script>
+   document.onreadystatechange = function () {
+         if (document.readyState !== "complete") {
+            document.querySelector("body").style.visibility = "hidden";
+            document.getElementById("loading_indicator").style.visibility = "visible";
+         } else {
+            setTimeout(() => {
+               document.getElementById("loading_indicator").style.display ="none";
+               document.querySelector("body").style.visibility = "visible";
+            }, 3000)
+         }
+      };
+</script>
+@endpush
+
 @push('style')
 
 <style>
+   #loading_indicator {
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         margin: auto;
+         border: 10px solid grey;
+         border-radius: 50%;
+         border-top: 10px solid blue;
+         width: 100px;
+         height: 100px;
+         animation: spinIndicator 1s linear infinite;
+      }
+      @keyframes spinIndicator {
+         100% {
+            transform: rotate(360deg);
+         }
+      }
+      
     @font-face {
     font-family: 'Mont-Regular';
     src: local('Mont-Regular'), url(../../fonts/Mont-Regular.ttf) format('truetype');

@@ -77,9 +77,17 @@
 						</li>
 					</ul>
 					@subscribedToProduct(auth()->user(), $plan->stripeProductId(), $plan->stripeName())
-					<div class="flex text-base text-white font-semibold rounded bg-yellow-700 px-2 py-1">You are currently subscribed this plan</div>
+						<div class="flex text-base text-white font-semibold rounded bg-yellow-700 px-2 py-1">You are currently subscribed this plan</div>
+						@onGracePeriod($plan->stripeName())
+							<h2 class="p-2">
+								Your subscription will end on {{ $user->subscription($plan->stripName())->end_at->format('d F Y') }}
+							</h2>
+							<a href="{{ route('subscriptions.update', $plan->stripeName()) }}" class="inline-block p-2 mt-4 text-white transition-all duration-150 bg-red-600 rounded hover:bg-red-500" >Resume subscription</a>
+						@else
+							<a href="{{ route('subscriptions.destroy', $plan->stripeName()) }}" class="inline-block p-2 mt-4 text-white transition-all duration-150 bg-red-600 rounded hover:bg-red-500" >Cancel subscription</a>
+						@endonGracePeriod
 					@else
-					<a rel="noopener noreferrer" href="{{ route('payments', ['plan' => $plan->stripeName()]) }}" class="inline-block w-full px-5 py-2 font-bold tracking-wider text-center rounded border border-[#fdfc3b] bg-white hover:bg-blue-700 text-blue-600 hover:text-white">Signup</a>
+						<a rel="noopener noreferrer" href="{{ route('payments', ['plan' => $plan->stripeName()]) }}" class="inline-block w-full px-5 py-2 font-bold tracking-wider text-center rounded border border-[#fdfc3b] bg-white hover:bg-blue-700 text-blue-600 hover:text-white">Signup</a>
 					@endsubscribedToProduct
 				</div>
 			</div>

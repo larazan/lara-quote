@@ -94,6 +94,11 @@ Route::post('/payments', [PaymentController::class, 'store'])->name('payments.st
 
 Route::get('plan', [PlanController::class, 'index'])->name('plan');
 
+Route::group(['prefix' => 'subscription', 'as' => 'subscriptions.'], function () {
+    Route::get('/resume/{subscription}', [SubscribeController::class, 'update'])->name('update');
+    Route::get('/cancel/{subscription}', [SubscribeController::class, 'destroy'])->name('destroy');
+});
+
 Route::middleware(['throttle:global'])->group(function () {
     Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
     Route::get('quotes/{id}', [QuoteController::class, 'show']);

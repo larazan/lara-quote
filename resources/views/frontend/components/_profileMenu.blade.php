@@ -21,7 +21,7 @@
         @if(Auth::check())
         {{ Auth::user()->first_name.' '.Auth::user()->last_name }}
         
-        <span class="text-slate-600 font-mabry">@{{ Auth::user()->username }}</span>
+        <span class="text-slate-600 font-mabry">@ {{ Auth::user()->username ? Auth::user()->username : '-' }}</span>
         @endif
       </div>
       <ul class="">

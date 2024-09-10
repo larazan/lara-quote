@@ -1,6 +1,7 @@
 @title('Profile')
 
 <section aria-labelledby="profile_settings_heading">
+
     <form method="PUT" action="{{ route('settings.profile.update') }}">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
@@ -35,7 +36,7 @@
                                 <div class="h-32 w-32 mt-4" unlinked >
                                     <img loading="lazy"
                                         src="{{ asset('frontend/img/laravelio-icon-gray.svg') }}"
-                                        alt="{{ Auth::user()->name() }}"
+                                        alt="{{ Auth::user()->fullName() }}"
                                         class="bg-gray-50 rounded-full" />
                                 </div>
 

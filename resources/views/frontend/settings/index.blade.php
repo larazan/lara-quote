@@ -2,16 +2,38 @@
 
 @section('content')
 
-<div class="bg-gray-50">
-    <div class="bg-white border-b">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="text-xl py-4 text-gray-900">Settings</h1>
+<div class="pt-[60px] md:pt-[60px] bg-gray-50">
+    
+    <div
+        class="w-full bg-center bg-gray-600 h-32 md:h-48"
+        style="background-image: url('{{ asset('images/default-background.svg') }}')"
+    ></div>
+
+    <div class="container mx-auto">
+        <div class="flex justify-center lg:justify-start">
+            <img class="-mt-16 md:-mt-24 w-28 h-28 md:w-48 md:h-48 rounded-full border-4 md:border-8 border-white uppercase" src="{{ Avatar::create(ucfirst(Auth::user()->first_name).' '.ucfirst(Auth::user()->last_name))->toBase64() }}"  alt="{{ Auth::user()->first_name }}" />
+        </div>
+
+        <div class="flex flex-col mt-5 p-4 lg:flex-row lg:gap-x-12">
+            <div class="w-full mb-10 lg:w-1/3 lg:mb-0">
+                <div>
+                    <div class="flex items-center gap-x-4">
+                        <h1 class="text-4xl font-bold">{{ Auth::user()->username() }}</h1>
+                    </div>
+
+                    <span class="text-gray-600">
+                        Joined {{ Auth::user()->createdAt()->format('j M Y') }}
+                    </span>
+                </div>
+
+            </div>
+            
         </div>
     </div>
 
     @include('frontend.layouts._alerts')
 
-    <main class="max-w-5xl mx-auto pt-10 pb-12 px-4 lg:pb-16">
+    <main class="max-w-5xl mx-auto pt-2 pb-12 px-4 lg:pb-16">
         <div class="md:grid md:gap-x-2 md:grid-cols-4">
             <div class="sm:px-6 lg:px-0 md:col-span-1">
                 <!-- This example requires Tailwind CSS v2.0+ -->
