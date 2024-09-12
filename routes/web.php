@@ -134,6 +134,7 @@ Route::get('settings', [ProfileController::class, 'edit'])->name('settings.profi
 Route::put('settings', [ProfileController::class, 'update'])->name('settings.profile.update');
 Route::delete('settings', [ProfileController::class, 'destroy'])->name('settings.profile.delete');
 Route::put('settings/password', [PasswordController::class, 'update'])->name('settings.password.update');
+Route::get('billing/invoices/{invoice}', [ProfileController::class, 'download'])->name('billing');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

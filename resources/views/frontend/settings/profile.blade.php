@@ -1,6 +1,6 @@
 @title('Profile')
 
-<section aria-labelledby="profile_settings_heading">
+<section aria-labelledby="profile_settings_heading" class="mt-6">
 
     <form method="PUT" action="{{ route('settings.profile.update') }}">
         <div class="shadow sm:rounded-md sm:overflow-hidden">

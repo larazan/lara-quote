@@ -10,5 +10,7 @@ plan
 purchase
 billing on dashboard
 loading before load properly
+fix multiple color select on setting
+define size for instagram, fb, twitter post
 
 filter font, bg, color edit quote for premium

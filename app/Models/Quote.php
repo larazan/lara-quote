@@ -82,6 +82,12 @@ class Quote extends Model
 		return $person;
 	}
 
+    public function wordsCount()
+    {
+        return str_word_count($this->words());
+        // 1080 x 1350 (4:5 ratio)
+    }
+
 	public function scopeNotPosted(Builder $query): Builder
     {
         return $query->whereNull('posted_at');

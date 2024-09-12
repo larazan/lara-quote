@@ -25,6 +25,7 @@ class Index extends Component
     public $justify = 'center';
     public $fontFamily;
     public $bgColor;
+    public $style;
 
     public $fontSizes = [
         ['name' => 'Small', 'value' => 'sm'],
@@ -336,6 +337,25 @@ class Index extends Component
                 break;
             default:
                 $this->justify = 'center';
+                break;
+        }
+    }
+
+    public function instaSize()
+    {
+        $this->style = 'h-[400px] md:h-[600px] text-wrap break-all';
+        // h-[calc(w-full * 1.25)]
+        // 1080 x 1350 (4:5 ratio)
+        $count = str_word_count($this->quote);
+        switch (true) {
+            case $count <= 600:
+                $this->fontSize = '2xl';
+                break;
+            case $count > 600:
+                $this->fontSize = 'base';
+                break;
+            default:
+                $this->fontSize = '2xl';
                 break;
         }
     }

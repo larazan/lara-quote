@@ -38,6 +38,14 @@
             <div class="sm:px-6 lg:px-0 md:col-span-1">
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <nav class="sticky top-20 space-y-1" aria-label="Sidebar">
+                    <a href="#billing_settings_heading" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                        <span class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        </span>
+                        <span class="truncate">Billing</span>
+                    </a>
                     <a href="#profile_settings_heading" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 flex items-center px-3 py-2 text-sm font-medium rounded-md">
                         <span class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -68,6 +76,7 @@
                 </nav>
             </div>
             <div class="mt-10 md:mt-0 sm:px-6 md:px-0 md:col-span-3">
+                @include('frontend.settings.billing')
                 @include('frontend.settings.profile')
                 @include('frontend.settings.password')
                 @include('frontend.settings.remove')

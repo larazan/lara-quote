@@ -67,7 +67,7 @@ class Plan extends Model
 
     public function price()
     {
-        return '$' . number_format($this->price, 2);
+        return number_format($this->price, 2);
     }
 
     public function abbreviation()
@@ -75,4 +75,8 @@ class Plan extends Model
         return $this->abbreviation;
     }
 
+    public function features()
+    {
+        return explode(',', $this->features);
+    }
 }
