@@ -343,9 +343,66 @@ class Index extends Component
 
     public function instaSize()
     {
-        $this->style = 'h-[400px] md:h-[600px] text-wrap break-all';
+        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
         // h-[calc(w-full * 1.25)]
         // 1080 x 1350 (4:5 ratio)
+        $count = str_word_count($this->quote);
+        switch (true) {
+            case $count <= 600:
+                $this->fontSize = '2xl';
+                break;
+            case $count > 600:
+                $this->fontSize = 'base';
+                break;
+            default:
+                $this->fontSize = '2xl';
+                break;
+        }
+    }
+
+    public function fbSize()
+    {
+        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
+        // h-[calc(w-full * 1.25)]
+        // 1,080 x 1,350 (4:5 ratio)
+        $count = str_word_count($this->quote);
+        switch (true) {
+            case $count <= 600:
+                $this->fontSize = '2xl';
+                break;
+            case $count > 600:
+                $this->fontSize = 'base';
+                break;
+            default:
+                $this->fontSize = '2xl';
+                break;
+        }
+    }
+
+    public function twitterSize()
+    {
+        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
+        // h-[calc(w-full * 1.7)]
+        // 675 x 1,200 pixels (4:7 ratio)
+        $count = str_word_count($this->quote);
+        switch (true) {
+            case $count <= 600:
+                $this->fontSize = '2xl';
+                break;
+            case $count > 600:
+                $this->fontSize = 'base';
+                break;
+            default:
+                $this->fontSize = '2xl';
+                break;
+        }
+    }
+
+    public function pinterestSize()
+    {
+        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
+        // h-[calc(w-full * 1.7)]
+        // 1000 × 1500 pixels (2:3 ratio)
         $count = str_word_count($this->quote);
         switch (true) {
             case $count <= 600:

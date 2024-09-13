@@ -9,7 +9,7 @@ login, register & forgot password page
 plan 
 purchase
 billing on dashboard
-loading before load properly
+loading before load properly -done
 fix multiple color select on setting
 define size for instagram, fb, twitter post
 

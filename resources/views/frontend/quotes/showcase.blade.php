@@ -7,7 +7,17 @@
 
 @section('content')
 
-<div id="loading_indicator"></div>
+<div id="loading_indicator" class="flex flex-col items-center justify-center min-h-screen">
+<div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+  <div class="mt-1 text-center">
+      <p class="text-lg font-semibold text-gray-700">
+          Loading...
+      </p>
+      <p class="text-sm text-gray-500">
+          We're preparing your content.
+      </p>
+  </div>
+</div>
 
 <main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
 
@@ -84,7 +94,7 @@
 @push('style')
 
 <style>
-   #loading_indicator {
+   #loading_indicator2 {
          position: absolute;
          top: 0;
          bottom: 0;
@@ -103,6 +113,29 @@
             transform: rotate(360deg);
          }
       }
+      .loader {
+	border-top-color: #3498db;
+	-webkit-animation: spinner 1.5s linear infinite;
+	animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
       
     @font-face {
     font-family: 'Mont-Regular';

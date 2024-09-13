@@ -2,10 +2,10 @@
 
 
   <!-- Setting -->
-  <div class="hidden2 flex flex-col w-full bg-white fixed overflow-y-auto top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50 px-4 lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
-    <div class="flex w-full items-center justify-between py-4 border-b">
+  <div class="hidden2 flex flex-col w-full bg-white fixed overflow-y-auto top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50  lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
+    <div class="sticky top-0 flex w-full items-center justify-between px-4 py-3 border-b bg-white">
       <div class="w-1/2">
-        <span class="uppercase font-semibold text-gray-900">Setting</span>
+        <span class="uppercase font-bold text-gray-900">Setting</span>
       </div>
 
       <div class="flex justify-end w-1/2">
@@ -17,10 +17,10 @@
       </div>
     </div>
 
-    <div class="divide-y">
+    <div class="divide-y px-4">
 
-    <!-- size -->
-    <div class="bg-white py-0 flex flex-col w-full" x-data="{ open:true }">
+      <!-- size -->
+      <div class="bg-white py-0 flex flex-col w-full" x-data="{ open:true }">
         <button @click="open = !open" class="flex items-center justify-between py-3 group font-semibold md:font-bold">
           <span class="text-sm font-bold uppercase text-gray-900">Size</span>
 
@@ -41,6 +41,7 @@
               <div class="flex">
 
                 <div class="flex items-center space-x-2">
+                  <!-- instagram -->
                   <button
                     wire:click="instaSize"
                     class="rounded shadow-sm text-slate-800 bg-white hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300  font-medium px-1 py-1 md:py-1 inline-flex items-center">
@@ -50,7 +51,42 @@
                       </svg>
                     </span>
                   </button>
-                  
+                  <!-- facebook -->
+                  <button
+                    wire:click="fbSize"
+                    class="rounded shadow-sm text-slate-800 bg-white hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300  font-medium px-1 py-1 md:py-1 inline-flex items-center">
+                    <span>
+                      <svg class="w-6 h-6 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                      </svg>
+                    </span>
+                  </button>
+                  <!-- twitter -->
+                  <button
+                    wire:click="twitterSize"
+                    class="rounded shadow-sm text-slate-800 bg-white hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300  font-medium px-1 py-1 md:py-1 inline-flex items-center">
+                    <span>
+                      <svg class="w-6 h-6 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                      </svg>
+                    </span>
+                  </button>
+                  <!-- pinterest -->
+                  <button
+                    wire:click="pinterestSize"
+                    class="rounded shadow-sm text-slate-800 bg-white hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300  font-medium px-1 py-1 md:py-1 inline-flex items-center">
+                    <span>
+                      <svg
+                        class="w-6 h-6 md:w-8 md:h-8"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 496 512">
+                        <path
+                          d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3 .8-3.4 5-20.3 6.9-28.1 .6-2.5 .3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
+                      </svg>
+                    </span>
+                  </button>
+
                 </div>
               </div>
 
@@ -236,10 +272,10 @@
   <div :class="filterOpen ? 'block' : 'hidden'" class=" flex fixed justify-center items-center inset-0 z-30 bg-black/30">
     <div wire:loading class="flex flex-row space-x-1 text-white opacity-100">
       <div class="flex items-center text-lg md:text-2xl font-semibold tracking-tight">
-      <svg aria-hidden="true" role="status" class="inline w-4 h-4 md:w-5 md:h-5 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-<path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"/>
-</svg>
+        <svg aria-hidden="true" role="status" class="inline w-4 h-4 md:w-5 md:h-5 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+          <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2" />
+        </svg>
         Processing...
       </div>
 
@@ -262,7 +298,7 @@
 
             <button
               @click="filterOpen = true" class="flex justify-between shadow-sm text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300  rounded-md font-medium px-3 py-2 space-x-1 md:space-x-2 items-center">
-              
+
               <span class="inline-block font-semibold">Setting</span>
               <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 md:size-6 rotate-90">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />

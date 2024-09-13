@@ -102,6 +102,11 @@ class PersonController extends Controller
 		return $breadcrumbs_array;
 	}
 
+    public function generatePerson()
+    {
+        return $this->loadTheme('people.generate');
+    }
+
     //
     public function savePerson()
     {
