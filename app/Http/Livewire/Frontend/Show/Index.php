@@ -18,6 +18,11 @@ class Index extends Component
     public $quote;
     public $author;
     public $tags;
+
+    public $insta;
+    public $fb;
+    public $twit;
+    public $pint;
     
     public $fontColor;
     public $fontSize;
@@ -25,7 +30,7 @@ class Index extends Component
     public $justify = 'center';
     public $fontFamily;
     public $bgColor;
-    public $style;
+    public $style = 'min-h-[400px] md:min-h-[600px] text-wrap';
 
     public $fontSizes = [
         ['name' => 'Small', 'value' => 'sm'],
@@ -343,8 +348,9 @@ class Index extends Component
 
     public function instaSize()
     {
-        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
-        // h-[calc(w-full * 1.25)]
+        $this->style = 'h-[540px] md:h-[600px] text-wrap ';
+        // h-[calc(448px * 1.25)]
+        // h-[calc(672px * 1.25)]
         // 1080 x 1350 (4:5 ratio)
         $count = str_word_count($this->quote);
         switch (true) {
@@ -358,12 +364,16 @@ class Index extends Component
                 $this->fontSize = '2xl';
                 break;
         }
+
+        $this->insta = true;
+        $this->reset(['fb', 'twit', 'pint']);
     }
 
     public function fbSize()
     {
-        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
-        // h-[calc(w-full * 1.25)]
+        $this->style = 'h-[500px] md:h-[800px] text-wrap ';
+        // h-[calc(448px * 1.25)]
+        // h-[calc(672px * 1.25)]
         // 1,080 x 1,350 (4:5 ratio)
         $count = str_word_count($this->quote);
         switch (true) {
@@ -377,12 +387,16 @@ class Index extends Component
                 $this->fontSize = '2xl';
                 break;
         }
+
+        $this->fb = true;
+        $this->reset(['insta', 'twit', 'pint']);
     }
 
     public function twitterSize()
     {
-        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
-        // h-[calc(w-full * 1.7)]
+        $this->style = 'h-[600px] md:h-[800px] text-wrap ';
+        // h-[calc(448px * 1.75)]
+        // h-[calc(672px * 1.75)]
         // 675 x 1,200 pixels (4:7 ratio)
         $count = str_word_count($this->quote);
         switch (true) {
@@ -396,12 +410,16 @@ class Index extends Component
                 $this->fontSize = '2xl';
                 break;
         }
+
+        $this->twit = true;
+        $this->reset(['fb', 'insta', 'pint']);
     }
 
     public function pinterestSize()
     {
-        $this->style = 'h-[400px] md:h-[600px] text-wrap ';
-        // h-[calc(w-full * 1.7)]
+        $this->style = 'h-[600px] md:h-[800px] text-wrap ';
+        // h-[calc(448px * 1.5)]
+        // h-[calc(672px * 1.5)]
         // 1000 × 1500 pixels (2:3 ratio)
         $count = str_word_count($this->quote);
         switch (true) {
@@ -415,6 +433,9 @@ class Index extends Component
                 $this->fontSize = '2xl';
                 break;
         }
+
+        $this->pint = true;
+        $this->reset(['fb', 'twit', 'insta']);
     }
 
     public function resetFilters()

@@ -34,7 +34,7 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image md:order-2 my-auto">
-                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote-1.jpg') }}" />
+                                    <img  class="rounded border mx-auto" src="{{ url('frontend/img/quote5.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
@@ -48,7 +48,7 @@
                                                    Large Quote Collection 
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    Welcome! inspira Quotes is an online community to inspire you daily through uplifting and motivational quotes.
+                                                    Welcome! Million Quotes is an Quote Database to inspire you daily through uplifting and motivational quotes.
                                                 </p>
                                             </div>
                                         </div>
@@ -60,21 +60,21 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image false my-auto">
-                                    <img width="400" height="400" class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote-3.webp') }}" />
+                                    <img  class="rounded border  mx-auto" src="{{ url('frontend/img/setting.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
-                                        Enhancing World Wisdom
+                                        Setting for your own needs
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
 
                                             <div>
                                                 <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
-                                                    Alot of topics and people
+                                                    We provide a tools for setting for your needs
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    Gracious Quotes is a community (created on 12 February 2020) to help you discover mysterious passion and unknown inspiration that you didn’t know were there before.
+                                                    You can choose various template for social media content. Make change a background, color, choose font family and font size.  
                                                 </p>
                                             </div>
                                         </div>
