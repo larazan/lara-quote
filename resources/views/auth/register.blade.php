@@ -1,10 +1,14 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
+
+        <div class="w-full sm:max-w-lg mx-auto flex flex-col gap-4 p-4 bg-white ">
+            <div class="mx-auto max-w-sm">
+                <x-jet-authentication-card-logo />
+            </div>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -56,15 +60,27 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+            <div class="flex w-full items-center justify-end mt-2 flex-col gap-4">
 
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
-                </x-jet-button>
-            </div>
+                    <div class="flex items-center w-full justify-end mt-4">
+                        <button type="submit" class="justify-center inline-flex items-center px-4 py-3 bg-slate-600 dark:bg-slate-700 dark:hover:bg-slate-800 border border-transparent rounded-lg font-bold text-white dark:text-gray-200 tracking-wide hover:bg-slate-700 focus:bg-slate-700 dark:focus:bg-slate active:bg-slate-900 dark:active:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150 shadow-lg shadow-slate-400/30 dark:shadow-slate-800/30 w-full ">
+                            {{ __('Register') }}
+                        </button>
+                    </div>
+
+                    <div class="space-x-6">
+                        <a  href="{{ route('login') }}" class="font-semibold text-gray-600 dark:text-gray-200 hover:underline underline-offset-8">
+                            Already Register?
+                        </a>
+                    </div>
+                </div>
+
+
         </form>
+
+        </div>
+
+       
+
     </x-jet-authentication-card>
 </x-guest-layout>
