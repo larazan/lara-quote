@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $hasLogo;
+    public $checked;
     public $bgselect;
     public $colorselect;
     public $fontselect;
@@ -307,7 +309,7 @@ class Index extends Component
         '#1c4255',
     ];
 
-    public function mount( $type, $quote, $author, $tags, $bgColor, $fontColor, $fontFamily,) 
+    public function mount( $type, $quote, $author, $tags = [], $bgColor, $fontColor, $fontFamily,) 
     {
         // $this->id = $id;
         $this->type = $type;
@@ -320,6 +322,9 @@ class Index extends Component
         $this->fontFamily = $fontFamily;
         $this->fontSize = '2xl';
         $this->fontAlign = 'center';
+        $this->checked = false;
+        $this->hasLogo = false;
+
     }
 
     public function updated()
@@ -328,6 +333,7 @@ class Index extends Component
         $this->fontColor = $this->colorselect ? $this->colorselect : $this->fontColor;
         $this->fontFamily = $this->fontselect ? $this->fontselect : $this->fontFamily;
         $this->fontSize = $this->sizeselect ? $this->sizeselect : $this->fontSize;
+        $this->hasLogo = $this->checked;
     }
 
     public function changeAlign($align)

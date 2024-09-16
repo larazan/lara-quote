@@ -12,5 +12,6 @@ billing on dashboard
 loading before load properly -done
 fix multiple color select on setting
 define size for instagram, fb, twitter post
+share link
 
 filter font, bg, color edit quote for premium

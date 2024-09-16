@@ -1,5 +1,5 @@
-<main class="flex flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
 
+<main class="flex flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
 
   <!-- Setting -->
   <div class="hidden2 flex flex-col w-full bg-white fixed overflow-y-auto top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50  lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
@@ -259,119 +259,138 @@
       </div>
       <!-- end color -->
 
+      <!-- logo -->
+      <div class="bg-white w-full" title="Price">
+        <div class="w-full overflow-hidden pb-0">
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-sm font-bold uppercase text-gray-900">Logo</span>
+              </div>
+              
+              <div class="inline-flex mr-2 bg-white w-auto">
+                <label for="toggle" class="inline-flex relative items-center cursor-pointer">
+                <input wire:model.lazy="checked" type="checkbox" id="toggle" class="sr-only peer">
+                  <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-42 peer-focus:ring-slate-300 dark:peer-focus:ring-indigo-300 rounded-full peer dark:bg-slate-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:bg-slate-500 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-400 peer-checked:bg-green-500"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- end logo -->
 
-
-      <div class="pt-4 pb-10">
-        <div wire:click="resetFilters" class="bg-[#73dfb7] hover:bg-white uppercase  rounded-full text-slate-800 border-2 border-[#73dfb7] flex p-3 justify-center items-center w-full font-semibold cursor-pointer">
-          Reset
+        <div class="pt-4 pb-10">
+          <div wire:click="resetFilters" class="bg-[#73dfb7] hover:bg-white uppercase  rounded-full text-slate-800 border-2 border-[#73dfb7] flex p-3 justify-center items-center w-full font-semibold cursor-pointer">
+            Reset
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div :class="filterOpen ? 'block' : 'hidden'" class=" flex fixed justify-center items-center inset-0 z-30 bg-black/30">
-    <div wire:loading class="flex flex-row space-x-1 text-white opacity-100">
-      <div class="flex items-center text-lg md:text-2xl font-semibold tracking-tight">
-        <svg aria-hidden="true" role="status" class="inline w-4 h-4 md:w-5 md:h-5 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
-          <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2" />
-        </svg>
-        Processing...
+    <div :class="filterOpen ? 'block' : 'hidden'" class=" flex fixed justify-center items-center inset-0 z-30 bg-black/30">
+      <div wire:loading class="flex flex-row space-x-1 text-white opacity-100">
+        <div class="flex items-center text-lg md:text-2xl font-semibold tracking-tight">
+          <svg aria-hidden="true" role="status" class="inline w-4 h-4 md:w-5 md:h-5 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2" />
+          </svg>
+          Processing...
+        </div>
+
+
+
       </div>
-
-
-
     </div>
-  </div>
 
 
-  <!-- end setting -->
+    <!-- end setting -->
 
-  <div class="flex flex-row ">
-    <div class="flex flex-1 flex-col items-center justify-center relative">
-      <div class="flex flex-1 flex-col pb-18 max-w-md md:max-w-2xl ">
-        <!-- Adv -->
+    <div class="flex flex-row ">
+      <div class="flex flex-1 flex-col items-center justify-center relative">
+        <div class="flex flex-1 flex-col pb-18 max-w-md md:max-w-2xl ">
+          <!-- Adv -->
 
-        <section class="w-full mx-auto  mt-10 md:mt-10 px-5 pb-10">
+          <section class="w-full mx-auto  mt-10 md:mt-10 px-5 pb-10">
 
-          <div class="flex flex-row justify-between">
+            <div class="flex flex-row justify-between">
 
-            <button
-              @click="filterOpen = true" class="flex justify-between shadow-sm text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300  rounded-md font-medium px-3 py-2 space-x-1 md:space-x-2 items-center">
+              <button
+                @click="filterOpen = true" class="flex justify-between shadow-sm text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300  rounded-md font-medium px-3 py-2 space-x-1 md:space-x-2 items-center">
 
-              <span class="inline-block font-semibold">Setting</span>
-              <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 md:size-6 rotate-90">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-                </svg>
-              </span>
-            </button>
-
-            <div class="flex space-x-2 justify-end2 md:justify-normal">
-
-              <button class="bg-green-400 hover:bg-green-500 border border-green-500 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="download content" id="download">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                <span class="text-sm text-gray-900 font-semibold">
-                  Download
+                <span class="inline-block font-semibold">Setting</span>
+                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 md:size-6 rotate-90">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                  </svg>
                 </span>
               </button>
-            </div>
-          </div>
 
-          <div class=" py-4 md:py-6 w-full columns-1 ">
-            <div id="photo" class="relative {{ $style }}  mb-4 rounded2 flex flex-col justify-center items-center" style="background-color: {{ $bgColor }}">
-              @if($quote)
-              <div class="flex flex-col flex-grow2 justify-center items-center py-2 mt-6 lg:py-6 md:py-6 px-12 md:px-20 min-h-96">
-                <p id="myText" class="leading-tight md:leading-snug text-[{{ $fontColor }}] text-{{ $fontAlign }} text-{{ $fontSize }} md:text-{{ $fontSize }}  font-medium transition" style="font-family: {{ $fontFamily }}; color: {{ $fontColor }}">
-                  {{ $quote->words }}
-                </p>
-                <div class=" px-2 py-4 flex w-full @if(Auth::check()){{ 'pb-8' }}@else{{ 'pb-0' }}@endif  justify-center">
-                  <div class="flex w-full justify-{{ $justify }}">
-                    <div class="flex justify-end" style="color: {{ $fontColor }}">
-                      <span class="flex items-center justify-center text-md font-semibold">
-                        - {{ $author }}
-                      </span>
+              <div class="flex space-x-2 justify-end2 md:justify-normal">
+
+                <button class="bg-green-400 hover:bg-green-500 border border-green-500 px-2 py-1.5 font-extralight text-black inline-flex items-center space-x-1 rounded" title="download content" id="download">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  <span class="text-sm text-gray-900 font-semibold">
+                    Download
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class=" py-4 md:py-6 w-full columns-1 ">
+              <div id="photo" class="relative {{ $style }}  mb-4 rounded2 flex flex-col justify-center items-center" style="background-color: {{ $bgColor }}">
+                @if($quote)
+                <div class="flex flex-col flex-grow2 justify-center items-center py-2 mt-6 lg:py-6 md:py-6 px-12 md:px-20 min-h-96">
+                  <p id="myText" class="leading-tight md:leading-snug text-[{{ $fontColor }}] text-{{ $fontAlign }} text-{{ $fontSize }} md:text-{{ $fontSize }}  font-medium transition" style="font-family: {{ $fontFamily }}; color: {{ $fontColor }}">
+                    {{ $quote->words }}
+                  </p>
+                  <div class=" px-2 py-4 flex w-full @if(Auth::check()){{ 'pb-8' }}@else{{ 'pb-0' }}@endif  justify-center">
+                    <div class="flex w-full justify-{{ $justify }}">
+                      <div class="flex justify-end" style="color: {{ $fontColor }}">
+                        <span class="flex items-center justify-center text-md font-semibold">
+                          - {{ $author }}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="@if(Auth::check()){{ 'hidden' }}@else{{ 'flex' }}@endif absolute bottom-0 left-0 px-6 pb-6 w-full justify-start">
-                <img src="/frontend/img/logo.png" alt="logo" class=" h-7 md:h-8" />
-              </div>
-              @endif
-            </div>
-            <div class="flex flex-wrap2 w-full items-center space-x-1 px-2 md:px-4 py-2">
-              <span class="text-sm md:text-md font-semibold text-gray-600">
-                Tags:
-              </span>
-              <div class="flex flex-wrap gap-x-2 w-full">
-                @if(!empty($tags))
-                @foreach($tags as $t)
-                @php
-                $tg = General::toLowerString($t);
-                @endphp
-                <a href="{{ url('quotes/tag/' . $tg) }}">
-                  <div class="py-0.5 px-2.5 bg-[#f1f5f9] border border-slate-300 rounded-md flex items-center gap-x-1 hover:bg-slate-200 transition cursor-pointer">
-                    <div class="truncate text-sm text-black font-semibold capitalize">
-                      {{ $t }}
-                    </div>
-                  </div>
-                </a>
-                @endforeach
-                @else
-                <div></div>
+                <div class="@if( $hasLogo ){{ 'flex' }}@else{{ 'hidden' }}@endif absolute bottom-0 left-0 px-6 pb-6 w-full justify-start">
+                  <img src="/frontend/img/logo.png" alt="logo" class=" h-7 md:h-8" />
+                </div>
                 @endif
-
               </div>
+              <div class="flex flex-wrap2 w-full items-center space-x-1 px-2 md:px-4 py-2">
+                <span class="text-sm md:text-md font-semibold text-gray-600">
+                  Tags:
+                </span>
+                <div class="flex flex-wrap gap-x-2 w-full">
+                  @if(!empty($tags))
+                  @foreach($tags as $t)
+                  @php
+                  $tg = General::toLowerString($t);
+                  @endphp
+                  <a href="{{ url('quotes/tag/' . $tg) }}">
+                    <div class="py-0.5 px-2.5 bg-[#f1f5f9] border border-slate-300 rounded-md flex items-center gap-x-1 hover:bg-slate-200 transition cursor-pointer">
+                      <div class="truncate text-sm text-black font-semibold capitalize">
+                        {{ $t }}
+                      </div>
+                    </div>
+                  </a>
+                  @endforeach
+                  @else
+                  <div></div>
+                  @endif
+
+                </div>
+              </div>
+
             </div>
+          </section>
 
-          </div>
-        </section>
-
+        </div>
       </div>
     </div>
-  </div>
 </main>
 
 @push('js')
@@ -392,4 +411,20 @@
     }
   }
 </script>
+@endpush
+
+@push('style')
+<style>
+  /* CHECKBOX TOGGLE SWITCH */
+  /* @apply rules for documentation, these do not work as inline style */
+  .toggle-checkbox:checked {
+    @apply: right-0 border-green-400;
+    right: 0;
+    border-color: #68D391;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply: bg-green-400;
+    background-color: #68D391;
+  }
+  </style>
 @endpush
