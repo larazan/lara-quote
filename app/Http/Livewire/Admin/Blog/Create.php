@@ -69,7 +69,6 @@ class Create extends Component
         $article->rand_id = Str::random(10);
         $article->body = $this->body;
         $article->article_tags = implode(',', $this->tags);
-        $article->author_id = $this->author;
         $article->original_url = $this->url;
         // $article->embed_url = $this->embedUrl;
         $article->published_at = $this->publishedAt;

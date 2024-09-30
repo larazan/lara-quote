@@ -2,7 +2,7 @@
 <main class="flex flex-col bg-white min-h-full w-full pt-16 md:pt-[100px]">
 
   <!-- Setting -->
-  <div class="hidden2 flex flex-col w-full bg-white fixed overflow-y-auto top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50  lg:px-[35px]" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
+  <div class="hidden2 flex flex-col w-[70vw] bg-white fixed overflow-y-auto top-0 h-full shadow-2xl md:w-[35vw] transition-all duration-300 z-50 lg:px-[35px] custom-scrollbar" id="menubar" :class="filterOpen ? 'left-0' : '-left-full'" x-cloak>
     <div class="sticky top-0 flex w-full items-center justify-between px-4 py-3 border-b bg-white">
       <div class="w-1/2">
         <span class="uppercase font-bold text-gray-900">Setting</span>
@@ -146,9 +146,9 @@
           <div class="overflow-hidden pb-0">
             <div class="duration-300 px-0 pb-3">
 
-              <div class="flex space-x-2">
-                <select class="h-full2 rounded border block appearance-none w-28 bg-white border-gray-300 text-gray-700 py-2 px-4 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" wire:model="sizeselect">
-                  <option value="">Select</option>
+              <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+                <select class="h-full2 rounded border block appearance-none w-full md:w-28 bg-white border-gray-300 text-gray-700 py-2 px-4 leading-tight focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" wire:model="sizeselect">
+                  <option value="">Size</option>
                   @foreach($fontSizes as $key => $value)
                   <option class="" value="{{ $value['value'] }}">{{ $value['name'] }}</option>
                   @endforeach
@@ -157,7 +157,7 @@
                 <div class="inline-flex items-center rounded-md shadow-sm">
                   <button
                     wire:click="changeAlign('left')"
-                    class="@if($fontAlign == 'left'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif  hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300 rounded-l-lg font-medium px-3 py-1 md:py-2 inline-flex items-center">
+                    class="@if($fontAlign == 'left'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif  hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300 rounded-l-lg font-medium md:px-3 px-1 py-1 md:py-2 inline-flex items-center">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
@@ -166,7 +166,7 @@
                   </button>
                   <button
                     wire:click="changeAlign('center')"
-                    class="@if($fontAlign == 'center'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif hover:text-blue-600 text-sm hover:bg-slate-100 border-y border-slate-300 font-medium px-3 py-1 md:py-2 inline-flex items-center">
+                    class="@if($fontAlign == 'center'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif hover:text-blue-600 text-sm hover:bg-slate-100 border-y border-slate-300 font-medium md:px-3 px-1 py-1 md:py-2 inline-flex items-center">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -175,7 +175,7 @@
                   </button>
                   <button
                     wire:click="changeAlign('right')"
-                    class="@if($fontAlign == 'right'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300 rounded-r-lg font-medium px-3 py-1 md:py-2 inline-flex  items-center">
+                    class="@if($fontAlign == 'right'){{'text-blue-600 bg-slate-100'}}@else{{'text-slate-800 bg-white'}}@endif hover:text-blue-600 text-sm hover:bg-slate-100 border border-slate-300 rounded-r-lg font-medium md:px-3 px-1 py-1 md:py-2 inline-flex  items-center">
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
@@ -318,7 +318,7 @@
               <button
                 @click="filterOpen = true" class="flex justify-between shadow-sm text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-300  rounded-md font-medium px-3 py-2 space-x-1 md:space-x-2 items-center">
 
-                <span class="inline-block font-semibold">Setting</span>
+                <span class="inline-block font-semibold">Costumize</span>
                 <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 md:size-6 rotate-90">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                   </svg>
@@ -339,7 +339,7 @@
             </div>
 
             <div class=" py-4 md:py-6 w-full columns-1 ">
-              <div id="photo" class="relative {{ $style }}  mb-4 rounded2 flex flex-col justify-center items-center" style="background-color: {{ $bgColor }}">
+              <div id="photo" class="relative {{ $style }}  mb-4 rounded2 flex flex-col justify-center items-center" style="background-color: {{ $bgColor }}; height: {{ $height }}">
                 @if($quote)
                 <div class="flex flex-col flex-grow2 justify-center items-center py-2 mt-6 lg:py-6 md:py-6 px-12 md:px-20 min-h-96">
                   <p id="myText" class="leading-tight md:leading-snug text-[{{ $fontColor }}] text-{{ $fontAlign }} text-{{ $fontSize }} md:text-{{ $fontSize }}  font-medium transition" style="font-family: {{ $fontFamily }}; color: {{ $fontColor }}">
@@ -426,5 +426,6 @@
     @apply: bg-green-400;
     background-color: #68D391;
   }
+ 
   </style>
 @endpush

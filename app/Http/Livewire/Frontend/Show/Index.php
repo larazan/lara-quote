@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $height;
     public $hasLogo;
     public $checked;
     public $bgselect;
@@ -325,6 +326,18 @@ class Index extends Component
         $this->checked = false;
         $this->hasLogo = false;
 
+        $count = str_word_count($this->quote);
+        switch (true) {
+            case $count <= 600:
+                $this->fontSize = 'lg';
+                break;
+            case $count > 600:
+                $this->fontSize = 'base';
+                break;
+            default:
+                $this->fontSize = 'lg';
+                break;
+        }
     }
 
     public function updated()
@@ -358,19 +371,8 @@ class Index extends Component
         // h-[calc(448px * 1.25)]
         // h-[calc(672px * 1.25)]
         // 1080 x 1350 (4:5 ratio)
-        $count = str_word_count($this->quote);
-        switch (true) {
-            case $count <= 600:
-                $this->fontSize = '2xl';
-                break;
-            case $count > 600:
-                $this->fontSize = 'base';
-                break;
-            default:
-                $this->fontSize = '2xl';
-                break;
-        }
 
+        $this->height = '600px';
         $this->insta = true;
         $this->reset(['fb', 'twit', 'pint']);
     }
@@ -381,19 +383,8 @@ class Index extends Component
         // h-[calc(448px * 1.25)]
         // h-[calc(672px * 1.25)]
         // 1,080 x 1,350 (4:5 ratio)
-        $count = str_word_count($this->quote);
-        switch (true) {
-            case $count <= 600:
-                $this->fontSize = '2xl';
-                break;
-            case $count > 600:
-                $this->fontSize = 'base';
-                break;
-            default:
-                $this->fontSize = '2xl';
-                break;
-        }
 
+        $this->height = '700px';
         $this->fb = true;
         $this->reset(['insta', 'twit', 'pint']);
     }
@@ -404,19 +395,8 @@ class Index extends Component
         // h-[calc(448px * 1.75)]
         // h-[calc(672px * 1.75)]
         // 675 x 1,200 pixels (4:7 ratio)
-        $count = str_word_count($this->quote);
-        switch (true) {
-            case $count <= 600:
-                $this->fontSize = '2xl';
-                break;
-            case $count > 600:
-                $this->fontSize = 'base';
-                break;
-            default:
-                $this->fontSize = '2xl';
-                break;
-        }
 
+        $this->height = '700px';
         $this->twit = true;
         $this->reset(['fb', 'insta', 'pint']);
     }
@@ -427,19 +407,8 @@ class Index extends Component
         // h-[calc(448px * 1.5)]
         // h-[calc(672px * 1.5)]
         // 1000 × 1500 pixels (2:3 ratio)
-        $count = str_word_count($this->quote);
-        switch (true) {
-            case $count <= 600:
-                $this->fontSize = '2xl';
-                break;
-            case $count > 600:
-                $this->fontSize = 'base';
-                break;
-            default:
-                $this->fontSize = '2xl';
-                break;
-        }
 
+        $this->height = '750px';
         $this->pint = true;
         $this->reset(['fb', 'twit', 'insta']);
     }

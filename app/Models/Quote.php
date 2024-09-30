@@ -29,6 +29,7 @@ class Quote extends Model
 		'slug',
 		'author_id',
 		'tags',
+        'status',
 	];
 
     protected $withCount = [

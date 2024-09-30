@@ -71,10 +71,10 @@
 
                                             <div>
                                                 <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
-                                                    We provide a tools for setting for your needs
+                                                    We provide a tools to customize for your needs
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    You can choose various template for social media content. Make change a background, color, choose font family and font size.  
+                                                    You can make change a background size, color, choose font family and font size for social media content.
                                                 </p>
                                             </div>
                                         </div>
