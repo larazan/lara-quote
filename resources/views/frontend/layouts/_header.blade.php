@@ -41,8 +41,9 @@
       <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Article
       </a>
+      {{-- 
       @include('frontend.components._profileMenu')
-
+      --}}
       <div class="hidden flex2 items-center gap-x-2 ml-auto">
         <button class="inline-flex items-center justify-center text-white text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-[#1972f5] hover:opacity-90 hover:text-accent-foreground h-9 rounded-md px-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in h-4 w-4 mr-2">

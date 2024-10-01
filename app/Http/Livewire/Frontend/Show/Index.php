@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $test;
     public $height;
     public $hasLogo;
     public $checked;
@@ -309,6 +310,13 @@ class Index extends Component
         '#a5442c',
         '#1c4255',
     ];
+
+    protected $listeners = ['anotherTest' => 'launchTest'];
+ 
+    public function launchTest()
+    {
+        $this->test = 'just test';
+    }
 
     public function mount( $type, $quote, $author, $tags = [], $bgColor, $fontColor, $fontFamily,) 
     {

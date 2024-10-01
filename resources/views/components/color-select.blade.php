@@ -28,7 +28,7 @@
 <script>
     function colo() {
         return {
-            isOpen: false,
+            // isOpen: false,
             colors: @json($options) ? @json($options) : [],
             colorSelected: @entangle($attributes->wire('model')),
             // colorSelected: '#2196F3'

@@ -1,5 +1,5 @@
 
-<div class="rounded-md bg-pink-100 px-4 py-3" x-data="bg()"  x-cloak {{$attributes->wire('model')}}>
+<div class="rounded-md bg-pink-100 px-4 py-3" x-data="bg()" x-init="bg()"  x-cloak {{$attributes->wire('model')}}>
     <div class="flex flex-wrap -mx-2">
         <template x-for="(color, index) in colors" :key="index">
             <div class="px-1.5 ">
@@ -27,7 +27,6 @@
 <script>
     function bg() {
         return {
-            isOpen: false,
             colors: @json($options) ? @json($options) : [],
             colorSelected: @entangle($attributes->wire('model')),
         }
