@@ -19,40 +19,23 @@
                                 <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
                                     Customer Support
                                 </h2>
-                                <p class="text-gray-900  py-2 text-sm leading-tight">
-                                    Question about an order? Problem with your camera? Or just
+                                <p class="text-gray-900 py-2 text-base leading-tight md:leading-normal">
+                                    Question about an content? Problem with our web? Or just
                                     looking for some free advice? Check out our
                                     <a href="{{ url('faqs') }}" target="_blank" rel="noreferrer" class="underline break-all md:break-normal">
                                         FAQs
                                     </a>
-                                    , and if you’re still not sure, you can contact our
-                                    Customer Support team
-                                    <span rel="noreferrer" class="underline break-all md:break-normal">
-                                        here
-                                    </span>
-                                    .
-                                </p>
-
-                                <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
-                                    Press
-                                </h2>
-                                <p class="text-gray-900  py-2 text-sm leading-tight">
-                                    If you&apos;re a journalist or blogger interested in photo and
-                                    interview requests, or just looking to know more about
-                                    Polaroid, get in touch with our press team at
-                                    press@polaroid.com
+                                    , and if you’re still not sure, you can contact us
                                 </p>
 
                                 <h2 class="text-lg md:text-2xl font-semibold text-gray-900">
                                     Partnerships
                                 </h2>
-                                <p class="text-gray-900  py-2 text-sm leading-tight">
+                                <p class="text-gray-900  py-2 text-base leading-tight md:leading-normal">
                                     If your brand or organization is interested in teaming up
                                     with us for a potential partnership or collaboration,
-                                    contact us at partnerships@polaroid.com
+                                    contact us.
                                 </p>
-                                <p class="text-gray-900  py-2 text-sm leading-tight"></p>
-                                <p class="text-gray-900  py-2 text-sm leading-tight"></p>
                                 
                             </div>
                         </div>

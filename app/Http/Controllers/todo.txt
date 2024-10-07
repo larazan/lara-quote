@@ -14,5 +14,10 @@ fix multiple color select on setting
 define size for instagram, fb, twitter post
 share link
 get setting menu half screen bottom in mobile
+create account sosmed
+-facebook
+-twitter
+-instagram
+-pinterest
 
 filter font, bg, color edit quote for premium

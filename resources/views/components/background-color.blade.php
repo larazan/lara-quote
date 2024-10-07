@@ -27,6 +27,7 @@
 <script>
     function bg() {
         return {
+            isOpen: false,
             colors: @json($options) ? @json($options) : [],
             colorSelected: @entangle($attributes->wire('model')),
         }

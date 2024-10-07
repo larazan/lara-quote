@@ -60,11 +60,11 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image false my-auto">
-                                    <img  class="rounded border  mx-auto" src="{{ url('frontend/img/setting.png') }}" />
+                                    <img  class="rounded border  mx-auto" src="{{ url('frontend/img/setting3.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
-                                        Setting for your own needs
+                                        Customize for your own needs
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
@@ -74,7 +74,7 @@
                                                     We provide a tools to customize for your needs
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
-                                                    You can make change a background size, color, choose font family and font size for social media content.
+                                                    You can make change a background size, color, choose font family and font size for your social media content.
                                                 </p>
                                             </div>
                                         </div>
@@ -86,7 +86,7 @@
                         <div class="">
                             <div class="grid grid-cols-1 mx-auto md:grid-cols-2 gap-x-12 gap-y-6">
                                 <div class="image md:order-2 my-auto">
-                                    <img  class="rounded-xl md:w-3/4 mx-auto" src="{{ url('frontend/img/quote-2.png') }}" />
+                                    <img  class="rounded border  mx-auto" src="{{ url('frontend/img/quote6.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
                                     <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
