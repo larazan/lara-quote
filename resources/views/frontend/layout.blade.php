@@ -43,6 +43,47 @@
   @livewireStyles
 
   <style>
+    @font-face {
+      font-family: 'Poppins-Regular';
+      src: local('Poppins-Regular'), url(/fonts/Poppins-Regular.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Poppins-Medium';
+      src: local('Poppins-Medium'), url(/fonts/Poppins-Medium.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Poppins-Bold';
+      src: local('Poppins-Bold'), url(/fonts/Poppins-Bold.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Poppins-ExtraBold';
+      src: local('Poppins-ExtraBold'), url(/fonts/Poppins-ExtraBold.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Poppins-Light';
+      src: local('Poppins-Light'), url(/fonts/Poppins-Light.ttf) format('truetype');
+    }
+
+    html {
+      font-family: 'Poppins-Regular';
+    }
+
+    .poppins-medium {
+      font-family: 'Poppins-Medium' !important;
+    }
+
+    .poppins-bold {
+      font-family: 'Poppins-Bold' !important;
+    }
+
+    .poppins-xtra {
+      font-family: 'Poppins-ExtraBold' !important;
+    }
+
+    .poppins-light {
+      font-family: 'Poppins-Light' !important;
+    }
+
     ::-webkit-scrollbar {
       height: 12px;
       width: 16px

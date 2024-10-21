@@ -107,7 +107,7 @@
 
 
 
-<livewire:newsletter-form />
+
 
 @endsection
 

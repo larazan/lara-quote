@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <livewire:newsletter-form />
+        
       
     </main>
 

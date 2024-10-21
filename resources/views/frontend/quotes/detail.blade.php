@@ -57,7 +57,7 @@
             </div>
             <div class="flex flex-wrap2 w-full items-center space-x-1 px-2 md:px-4 py-2">
               <span class="text-sm md:text-md font-semibold text-gray-600">
-                Tags:
+                Topics:
               </span>
               <div class="flex flex-wrap gap-x-2 w-full">
                 @if(!empty($tags))
@@ -67,7 +67,7 @@
                 @endphp
                 <a href="{{ url('quotes/tag/' . $tg) }}">
                   <div class="py-0.5 px-2.5 bg-[#f1f5f9] border border-slate-300 rounded-md flex items-center gap-x-1 hover:bg-slate-200 transition cursor-pointer">
-                    <div class="truncate text-sm text-black font-semibold capitalize">
+                    <div class="truncate text-sm text-black font-semibold poppins-light capitalize">
                       {{ $t }}
                     </div>
                   </div>
@@ -90,7 +90,7 @@
 
 <x-showcase :id="$id" :fontFamily="$styles" :quote="$quote" :author="$author" />
 
-<livewire:newsletter-form />
+
 
 @endsection
 

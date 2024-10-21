@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<div class="flex flex-wrap items-center justify-center mx-auto w-12/12 mt-12 mb-10 space-x-1 space-y-1.5 md:space-y-0">
+<div class="flex flex-wrap items-center justify-center mx-auto w-12/12 mt-12 mb-10 space-x-1 space-y-1.5 md:space-y-0 poppins-medium">
     <div class="rounded px-3 py-1.5 mb-0 md:mb-0 text-center text-sm font-medium flex justify-center items-center text-gray-900 bg-white border border-[#E4E4E4]">
         Page {{ $paginator->currentPage() }} of {{ $paginator->lastPage() }}
     </div>

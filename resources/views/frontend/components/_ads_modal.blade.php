@@ -12,21 +12,21 @@
                 </button>
 
                 <div class="p-4 text-center sm:p-6 md:col-span-2 lg:p-8">
-                    <p class="text-2xl font-bold uppercase tracking-widest text-gray-900">
+                    <p class="text-2xl font-bold uppercase tracking-widest text-gray-900 poppins-medium">
                         THE BIGGEST DEAL OF THE YEAR
                     </p>
 
                     <h2 class="mt-6 font-black">
-                        <span class="text-2xl text-[#02574d] md:text-3xl lg:text-6xl">
+                        <span class="text-2xl text-[#02574d] md:text-3xl lg:text-6xl poppins-bold">
                             Get 25% OFF All products
                         </span>
                     </h2>
 
-                    <a class="mt-8 inline-block w-full bg-[#f8e71c] hover:opacity-80 shadow py-4 text-md font-bold uppercase tracking-widest text-gray-900" href="">
+                    <a class="mt-8 inline-block w-full bg-[#f8e71c] hover:opacity-80 shadow py-4 text-md font-bold uppercase tracking-widest text-gray-900 poppins-medium" href="">
                         Get Discount
                     </a>
 
-                    <p class="mt-8 text-xs font-medium uppercase text-gray-400">
+                    <p class="mt-8 text-xs font-medium uppercase text-gray-500 ">
                         Offer valid until 24th March, 2024 *
                     </p>
                 </div>

@@ -537,6 +537,6 @@
         </div>
       </div>
 
-      <livewire:newsletter-form />
+      
 
 @endsection

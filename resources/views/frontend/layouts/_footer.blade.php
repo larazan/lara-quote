@@ -5,7 +5,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
         $twitter = $setting->twitter;
         $instagram = $setting->instagram;
 @endphp
-<footer class="flex w-full bg-white">
+<footer class="flex w-full bg-[#f3f6fb]">
   <div class="mx-auto max-w-5xl ">
     <div class="px-6 py-2 md:py-6 sm:px-6 lg:col-span-3 lg:px-8">
       <div class="grid grid-cols-1 gap-10 sm:grid-cols-2">

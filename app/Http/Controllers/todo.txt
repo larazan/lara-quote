@@ -19,5 +19,5 @@ create account sosmed
 -twitter
 -instagram
 -pinterest
-
+choose best fonts
 filter font, bg, color edit quote for premium

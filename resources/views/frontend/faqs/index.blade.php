@@ -76,6 +76,6 @@
     </div>
 </main>
 
-<livewire:newsletter-form />
+
 
 @endsection

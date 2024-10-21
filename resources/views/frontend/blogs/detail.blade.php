@@ -130,7 +130,7 @@
 
   <livewire:comments :model="$article" />
 
-  <livewire:newsletter-form />
+  
 
   @endsection
 

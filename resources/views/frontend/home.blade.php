@@ -37,14 +37,14 @@
                                     <img  class="rounded border mx-auto" src="{{ url('frontend/img/quote5.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
-                                    <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
+                                    <h2 class="text-black poppins-bold font-extrabold2 text-3xl md:text-4xl mb-2 text-left">
                                         Find Quotes in Seconds
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
 
                                             <div>
-                                                <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
+                                                <h3 class="text-md poppins-medium md:text-lg text-gray-700 font-bold mb-1">
                                                    Large Quote Collection 
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
@@ -63,14 +63,14 @@
                                     <img  class="rounded border  mx-auto" src="{{ url('frontend/img/setting3.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
-                                    <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
+                                    <h2 class="text-black poppins-bold font-extrabold2 text-3xl md:text-4xl mb-2 text-left">
                                         Customize for your own needs
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
 
                                             <div>
-                                                <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
+                                                <h3 class="text-md poppins-medium md:text-lg text-gray-700 font-bold mb-1">
                                                     We provide a tools to customize for your needs
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
@@ -89,14 +89,14 @@
                                     <img  class="rounded border  mx-auto" src="{{ url('frontend/img/quote6.png') }}" />
                                 </div>
                                 <div class="flex flex-col gap-y-4 mx-auto my-auto">
-                                    <h2 class="text-black font-extrabold text-3xl md:text-4xl mb-2 text-left">
+                                    <h2 class="text-black poppins-bold font-extrabold2 text-3xl md:text-4xl mb-2 text-left">
                                         Easy Access to Inspirational Quotes
                                     </h2>
                                     <div class="flex flex-col gap-y-4">
                                         <div class="flex gap-x-4 max-w-2xl">
 
                                             <div>
-                                                <h3 class="text-md md:text-lg text-gray-700 font-bold mb-1">
+                                                <h3 class="text-md poppins-medium md:text-lg text-gray-700 font-bold mb-1">
                                                     A Library of Quotes at Your Disposal
                                                 </h3>
                                                 <p class="md:text-lg mb-4 text-gray-600">
@@ -123,7 +123,7 @@
                                 <b class="block font-heading text-5xl md:text-6xl text-black leading-snug mt-1 md:my-4" data-target="animated-number.stat" data-stat="1310904">
                                     {{ number_format($quotesCount, 0) }}
                                 </b>
-                                <span class="text-xl text-black">Quotes</span>
+                                <span class="text-xl text-black poppins-bold">Quotes</span>
                             </p>
                         </div>
                         <div class="px-6 py-8 md:pt-16 md:pb-24 md:text-center md:w-1/2" data-controller="animated-number">
@@ -131,7 +131,7 @@
                                 <b class="block font-heading text-5xl md:text-6xl text-black leading-snug mt-1 md:my-4" data-target="animated-number.stat" data-stat="151284">
                                 {{ number_format($personCount, 0) }}
                                 </b>
-                                <span class="text-xl text-black">People</span>
+                                <span class="text-xl text-black poppins-bold">People</span>
                             </p>
                         </div>
                     </div>
@@ -144,6 +144,6 @@
     </div>
 </div>
 
-<livewire:newsletter-form />
+
 
 @endsection

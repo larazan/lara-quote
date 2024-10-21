@@ -17,7 +17,7 @@
             <div class="grid grid-cols-1">
                 <div class="flex flex-col space-y-4">
                     <div class="flex items-center space-x-2">
-                        <div><span class="text-lg md:text-2xl text-black font-semibold">Tags starting with:</span></div><span class="text-lg md:text-2xl text-black font-bold uppercase">{{ $letter }}</span>
+                        <div><span class="text-lg md:text-2xl text-black font-semibold">Topics starting with:</span></div><span class="text-lg md:text-2xl text-black font-bold uppercase">{{ $letter }}</span>
                     </div>
                     <div class="flex flex-wrap justify-left mx-auto w-full md:w-12/12 items-center">
                         @foreach($tags as $t)
@@ -38,6 +38,6 @@
 
 </main>
 
-<livewire:newsletter-form />
+
 
 @endsection
