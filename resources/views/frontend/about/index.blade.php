@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('frontend.components._newsfeed')
+
 <div class="flex bg-white min-h-screen pt-20 md:pt-[100px]">
   <div class="flex flex-row w-full">
     <div class="flex flex-1 flex-col items-center justify-center relative">

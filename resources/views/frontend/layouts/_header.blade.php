@@ -29,16 +29,16 @@
         </button>
         @include('_partials._search')
       </div>
-      <a href="{{ route('quotes') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('quotes') }}" class="hidden md:block text-sm hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['quotes'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Quotes
       </a>
-      <a href="{{ route('people') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('people') }}" class="hidden md:block text-sm hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['people'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         People
       </a>
-      <a href="{{ route('tags') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('tags') }}" class="hidden md:block text-sm hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['tags'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Topics
       </a>
-      <a href="{{ route('articles') }}" class="hidden md:block hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
+      <a href="{{ route('articles') }}" class="hidden md:block text-sm hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
         Article
       </a>
       {{-- 

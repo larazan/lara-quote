@@ -49,7 +49,7 @@ class PersonController extends Controller
 
     public function index()
     {
-        $people = Person::orderBy('name', 'ASC');
+        $people = Person::select(['name', 'slug'])->orderBy('name', 'ASC');
 
         $this->data['title'] = "People";
         $this->data['people'] = $people->paginate(20);
@@ -58,7 +58,7 @@ class PersonController extends Controller
 
     public function show($slug)
     {
-        $person = Person::where('slug', $slug)->first();
+        $person = Person::select(['id', 'name', 'slug', 'author_id'])->where('slug', $slug)->first();
         $authorId = $person->author_id;
         $quotes = Quote::where('author_id', $authorId)->get();
 

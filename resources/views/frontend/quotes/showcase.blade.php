@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<main class="pt-[60px] md:pt-[80px] min-h-screen pt-162 h-full bg-white">
+<main class="pt-[60px] md:pt-[90px] min-h-screen  h-full bg-white">
 
     <div class="max-w-5xl mx-auto">
             
@@ -27,8 +27,8 @@
        
         <div class="px-6 py-2 mb-5 space-y-4">
             <div>
-
-                <div class="py-10  columns-1 md:columns-2 lg:columns-3 ">
+  <span class="text-lg md:text-2xl text-slate-900 poppins-medium">Select one to customize it!</span>
+                <div class="pt-4 pb-10 columns-1 md:columns-2 lg:columns-3 ">
                     @php 
                       $i = 0;
                     @endphp

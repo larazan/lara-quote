@@ -66,7 +66,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
         <div class="grid grid-cols-2 gap-4 md:gap-6 sm:grid-cols-2">
           <div>
             <nav aria-label="Footer Navigation - Services" class="mt-0 md:mt-6">
-              <ul class="space-y-2 text-md font-mabrybold">
+              <ul class="space-y-2 text-sm font-mabrybold">
                 <li>
                   <a href="{{ route('faqs') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Help
@@ -102,7 +102,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
 
           <div>
             <nav aria-label="Footer Navigation - Company" class="mt-0 md:mt-6">
-              <ul class="space-y-2 text-md font-mabrybold">
+              <ul class="space-y-2 text-sm font-mabrybold">
                 <li>
                   <a href="{{ route('quotes') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
                     Quotes
@@ -139,7 +139,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
 
       <div class="pt-6 md:pt-12">
         <div class="py-0 sm:mb-0 mx-2 md:mx-5 xl:mx-auto text-center border-gray-300 border-t-[0.5px]  max-w-7xl">
-          <p class="text-normal text-gray-700 my-3 md:my-6">©{{ date('Y') }} Million-Quotes Enterprises Pvt. Ltd. – All rights reserved.</p>
+          <p class="text-sm text-gray-700 my-3 md:my-6">©{{ date('Y') }} Million-Quotes Enterprises Pvt. Ltd. – All rights reserved.</p>
         </div>
       </div>
     </div>

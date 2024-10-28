@@ -116,7 +116,7 @@ class QuoteController extends Controller
 
     public function index()
     {
-        $quotes = Quote::orderBy('id', 'ASC');
+        $quotes = Quote::select('id', 'author_id', 'words')->orderBy('id', 'ASC');
 
         $this->data['title'] = "Quotes";
         $this->data['quotes'] = $quotes->paginate(20);
@@ -125,14 +125,14 @@ class QuoteController extends Controller
 
     public function show($id)
     {
-        $quote = Quote::where('id', $id)->first();
+        $quote = Quote::select('id', 'author_id', 'words', 'tags')->where('id', $id)->first();
 
         if (!$quote) {
 			return redirect('quotes');
 		}
 
         // build breadcrumb data array
-		$breadcrumbs_data['current_page_title'] = $quote->name;
+		$breadcrumbs_data['current_page_title'] = $quote->words;
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($id);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
@@ -155,7 +155,7 @@ class QuoteController extends Controller
 
     public function showByTag($tag)
     {
-        $quotes = Quote::where('tags', 'like', "%{$tag}%");
+        $quotes = Quote::select('id', 'author_id', 'words', 'tags')->where('tags', 'like', "%{$tag}%");
 
         $this->data['title'] = "Topic: " . ucfirst($tag);
         $this->data['quotes'] = $quotes->paginate(20);
@@ -165,7 +165,7 @@ class QuoteController extends Controller
 
     public function showcase($id)
     {
-        $quote = Quote::where('id', $id)->first();
+        $quote = Quote::select('id', 'author_id', 'words')->where('id', $id)->first();
 
         if (!$quote) {
 			return redirect('quotes');
@@ -194,7 +194,7 @@ class QuoteController extends Controller
 
     public function showcaseBy($id, $type)
     {
-        $quote = Quote::where('id', $id)->first();
+        $quote = Quote::select('id', 'author_id', 'words', 'tags')->where('id', $id)->first();
 
         $fontSize = collect([
             8,

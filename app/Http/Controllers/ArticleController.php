@@ -30,7 +30,7 @@ class ArticleController extends Controller
 
     public function index()
 	{
-		$articles = Article::where('status','active')->orderBy('created_at', 'DESC');
+		$articles = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'status', 'created_at'])->where('status','active')->orderBy('created_at', 'DESC');
 
 		// build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = '';
@@ -44,7 +44,7 @@ class ArticleController extends Controller
     
     public function show($slug)
 	{
-		$article = Article::active()->where('slug', $slug)->first();
+		$article = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'meta_title', 'meta_keyword', 'meta_description', 'status', 'created_at', 'updated_at'])->active()->where('slug', $slug)->first();
 
 		if (!$article) {
 			return redirect('articles');
@@ -62,7 +62,7 @@ class ArticleController extends Controller
 		$this->data['article'] = $article;
 
 		$limit = 5;
-        $this->data['articles'] = Article::active()->where('slug', '!=', $slug)->orderBy('id', 'DESC')->limit($limit)->get();
+        $this->data['articles'] = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'status', 'created_at'])->active()->where('slug', '!=', $slug)->orderBy('id', 'DESC')->limit($limit)->get();
 
 		// build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = $article->title;
@@ -75,7 +75,7 @@ class ArticleController extends Controller
 
 	public function showByTag($tag)
     {
-        $articles = Article::where('article_tags', 'like', "%{$tag}%");
+        $articles = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'article_tags', 'status', 'created_at'])->where('article_tags', 'like', "%{$tag}%");
 
         $this->data['title'] = "Topic: " . ucfirst($tag);
         $this->data['articles'] = $articles->paginate(8);
