@@ -30,10 +30,10 @@
                       <img src="{{ Avatar::create($a->user->first_name.' '.$a->user->last_name)->toBase64() }}" alt="{{ $a->user->first_name }} {{ $a->user->last_name }}" class="rounded-full w-full" />
                     </div>
                     <div class="ml-3 leading-6">
-                      <div class="font-semibold text-black  poppins-light">
+                      <div class="font-semibold text-black text-xs md:text-base poppins-light">
                         {{ $a->user->first_name }} {{ $a->user->last_name }}
                       </div>
-                      <div class="text-sm text-gray-500">
+                      <div class="text-xs md:text-sm text-gray-500">
                         <time datetime="2021-29-00">{{ $a->created_at->diffForHumans() }}</time>
                         <span> · </span>
                         <span>{{ $a->readTime() }} min read</span>

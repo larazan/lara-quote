@@ -105,10 +105,6 @@
   </div>
 </main>
 
-
-
-
-
 @endsection
 
 @push('style')

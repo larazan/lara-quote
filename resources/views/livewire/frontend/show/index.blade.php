@@ -370,8 +370,8 @@
                   $tg = General::toLowerString($t);
                   @endphp
                   <a href="{{ url('quotes/tag/' . $tg) }}">
-                    <div class="py-0.5 px-2.5 bg-[#f1f5f9] border border-slate-300 rounded-md flex items-center gap-x-1 hover:bg-slate-200 transition cursor-pointer">
-                      <div class="truncate text-sm text-black font-semibold capitalize">
+                    <div class="py-0.5 px-2.5 bg-[#f1f5f9] border border-slate-300 rounded-sm flex items-center gap-x-1 hover:bg-slate-200 transition cursor-pointer">
+                      <div class="truncate text-xs tracking-wide text-black font-semibold capitalize">
                         {{ $t }}
                       </div>
                     </div>

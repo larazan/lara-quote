@@ -16,7 +16,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
             </a>
             
           </div>
-          <div class="flex w-full justify-center2 py-6">
+          <div class="flex w-full justify-center md:justify-start py-6">
             <nav aria-label="Footer Navigation - Support">
               <ul class="flex gap-6 ">
                 <li>
@@ -63,7 +63,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
         </div>
 
 
-        <div class="grid grid-cols-2 gap-4 md:gap-6 sm:grid-cols-2">
+        <div class="grid grid-cols-2 gap-6 md:gap-10 sm:grid-cols-2">
           <div>
             <nav aria-label="Footer Navigation - Services" class="mt-0 md:mt-6">
               <ul class="space-y-2 text-sm font-mabrybold">
@@ -126,7 +126,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
                 </li>
                 <li>
                   <a href="{{ route('articles') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
-                    Article
+                    Articles
                   </a>
                 </li>
                 
@@ -139,7 +139,7 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
 
       <div class="pt-6 md:pt-12">
         <div class="py-0 sm:mb-0 mx-2 md:mx-5 xl:mx-auto text-center border-gray-300 border-t-[0.5px]  max-w-7xl">
-          <p class="text-sm text-gray-700 my-3 md:my-6">©{{ date('Y') }} Million-Quotes Enterprises Pvt. Ltd. – All rights reserved.</p>
+          <p class="text-sm text-gray-700 my-3 md:my-6">©{{ date('Y') }} Million Quotes – All rights reserved.</p>
         </div>
       </div>
     </div>

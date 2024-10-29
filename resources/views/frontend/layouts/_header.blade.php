@@ -39,7 +39,7 @@
         Topics
       </a>
       <a href="{{ route('articles') }}" class="hidden md:block text-sm hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif">
-        Article
+        Articles
       </a>
       {{-- 
       @include('frontend.components._profileMenu')
@@ -93,7 +93,7 @@
             </li>
             <li class="text-2xl">
               <a class="hover:text-[#FF6D42] @if(in_array(Request::segment(1), ['articles'])){{ 'text-[#FF6D42]' }}@else{ 'text-gray-900' }@endif" href="{{ route('articles') }}">
-                Article
+                Articles
               </a>
             </li>
 

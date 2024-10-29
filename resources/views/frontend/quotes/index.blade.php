@@ -80,7 +80,7 @@
                             <div class=" px-2 py-4 flex justify-end">
                                 <button class=" flex justify-between space-x-6 md:space-x-2">
                                     <div class="flex space-x-2 ">
-                                        <span class="flex items-center justify-center text-sm text-[#171717BF] font-semibold">
+                                        <span class="flex items-center justify-center poppins-medium text-sm text-[#171717BF] font-semibold">
                                             {{ $q->author($q->author_id)->name }}
                                         </span>
                                     </div>

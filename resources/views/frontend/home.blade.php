@@ -24,7 +24,7 @@
                         </svg>{{ $q->words }}
                     </p>
                 </div>
-                <p class="mt-4 font-medium text-lg text-[#171717BF] max-w-[900px] w-full">– {{ $q->author($q->author_id)->name }}</p>
+                <p class="mt-4 font-medium text-lg text-[#171717BF] max-w-[900px] w-full poppins-medium">– {{ $q->author($q->author_id)->name }}</p>
             </div>
             @endforeach
 

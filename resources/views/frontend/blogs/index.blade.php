@@ -14,7 +14,7 @@
             class="px-6 pt-24 md:pt-24 pb-8 md:pb-20"
             
           >
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-headline font-black poppins-bold tracking-snug text-center leading-12 sm:leading-15 md:leading-19 lg:leading-26 text-gray-800">
+            <h1 class="text-3xl md:text-5xl font-headline font-black poppins-bold tracking-snug text-center leading-12 sm:leading-15 md:leading-19 lg:leading-26 text-gray-800">
               <span>Our Article</span>
             </h1>
             <!-- <p class="text-gray-600 text-lg md:text-2xl text-center leading-normal md:leading-9 mt-3 md:mt-6">
@@ -138,12 +138,12 @@
                 <h2 class="pb-4 text-center md:text-left">
                   <a
                     href="{{ url('/articles/' . $a->slug) }}"
-                    class="text-2xl md:text-3xl leading-8 md:leading-10 font-bold poppins-medium text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
+                    class="text-lg md:text-2xl leading-6 md:leading-9 font-bold poppins-medium text-gray-800 hover:text-blue-700 transition ease-in-out duration-150"
                   >
                     {{ $a->title }}
                   </a>
                 </h2>
-                <p class="md:text-lg md:leading-normal text-gray-600 text-center md:text-left">
+                <p class="md:text-base md:leading-normal text-gray-600 text-center md:text-left">
                   {{ $a->excerpt() }}
                 </p>
                 <div

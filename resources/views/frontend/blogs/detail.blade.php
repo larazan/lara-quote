@@ -16,16 +16,16 @@
 
   <div class="bg-purple-100 py-10 mb-4">
     <div class="flex flex-1 px-4 max-w-3xl m-auto items-center justify-between pt-0 mb-2">
-      <a href="{{ url('/articles') }}" class="items-center text-base text-gray-900 hover:underline underline-offset-2 flex">
+      <a href="{{ url('/articles') }}" class="items-center text-sm text-gray-900 hover:underline underline-offset-2 flex">
         <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
           <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
         </svg> <span class="text-gray-900 ml-1 hover:text-gray-900">Back to articles</span>
       </a>
     </div>
-    <h1 class="relative mx-3 md:mx-auto text-2xl md:text-5xl md:leading-[60px] max-w-3xl m-auto text-black font-semibold text-center mt-4 sm:mt-6 mb-5 sm:mb-0">
+    <h1 class="relative mx-3 md:mx-auto text-2xl md:text-4xl md:leading-normal max-w-3xl m-auto text-black font-semibold text-center mt-4 sm:mt-6 mb-5 sm:mb-0">
       {{ $article->title }}
     </h1>
-    <a href="" class="flex items-center justify-center sm:hidden">
+    <div class="flex items-center justify-center sm:hidden">
       <div>
         <div class="border-white rounded-full border-3 w-10 h-10 roundedShadow">
           <img src="{{ Avatar::create($article->user->first_name.' '.$article->user->last_name)->toBase64() }}" alt="{{ $article->user->first_name }} {{ $article->user->last_name }}" aria-hidden="true" class="rounded-full w-full border-2 border-white" />
@@ -34,9 +34,9 @@
       <p class="text-sm font-semibold text-[#404040] ml-2">
         {{ $article->user->first_name }} {{ $article->user->last_name }}
       </p>
-    </a>
+    </div>
     <div class="mt-4 sm:mt-6 text-center text-[#565656] flex justify-center items-center sm:divide-x relative sm:space-x-3 divide-[#CACACA]">
-      <a href="https://nowandme.com/blog/author/annanyachaturvedi" class="items-center justify-center hidden font-medium sm:flex">
+      <div class="items-center justify-center hidden font-medium sm:flex">
         <div>
           <div class="border-white rounded-full border-3 hidden text-[20px] leading-9 text-center w-11 h-11 left-11 -top-6 roundedShadow sm:block border-1.5 ">
             <img src="{{ Avatar::create($article->user->first_name.' '.$article->user->last_name)->toBase64() }}" alt="{{ $article->user->first_name }} {{ $article->user->last_name }}" aria-hidden="true" class="rounded-full w-full border-2 border-white" />
@@ -45,7 +45,7 @@
         <p class="text-sm font-semibold text-[#404040] sm:ml-5 hidden sm:block">
           {{ $article->user->first_name }} {{ $article->user->last_name }}
         </p>
-      </a>
+      </div>
       <div class="flex items-center pl-0 sm:pl-3 border-r pr-3 sm:pr-0 border-[#CACACA]">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_238_253)">
@@ -127,9 +127,9 @@
 
 
   <x-article-list :articles="$articles" />
-
+{{-- 
   <livewire:comments :model="$article" />
-
+--}}
   
 
   @endsection

@@ -13,7 +13,6 @@ loading before load properly -done
 fix multiple color select on setting
 define size for instagram, fb, twitter post
 share link
-get setting menu half screen bottom in mobile
 create account sosmed
 -facebook
 -twitter
@@ -21,3 +20,6 @@ create account sosmed
 -pinterest
 choose best fonts
 filter font, bg, color edit quote for premium
+create about us content
+create term of service content
+create faqs content

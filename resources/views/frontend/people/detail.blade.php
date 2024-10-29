@@ -10,25 +10,25 @@
 
 <main class="pt-14 bg-white md:pt-[60px] h-full">
     <div class="max-w-5xl mx-auto">
-    
-    <!-- Adv -->
-    
+
+        <!-- Adv -->
+
         <div class="bg-[#FFE5DD] py-10 md:mb-4">
-        <div class="flex flex-1 px-4 max-w-3xl m-auto items-center justify-between pt-0 mb-2">
-      <a href="{{ url('/people') }}" class="items-center text-base text-gray-900 hover:underline underline-offset-2 flex">
-        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
-          <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
-        </svg> <span class="text-gray-900 ml-1 hover:text-gray-900">Back to people</span>
-      </a>
-    </div>
+            <div class="flex flex-1 px-4 max-w-3xl m-auto items-center justify-between pt-0 mb-2">
+                <a href="{{ url('/people') }}" class="items-center text-sm text-gray-900 hover:underline underline-offset-2 flex">
+                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path>
+                    </svg> <span class="text-gray-900 ml-1 hover:text-gray-900">Back to people</span>
+                </a>
+            </div>
             <div class="flex items-center justify-center sm:hidden">
                 <div>
                     <div class="border-white rounded-full border-3  roundedShadow">
-                        <img alt="" aria-hidden="true" src="{{ Avatar::create($person->name)->toBase64() }}" class="w-[45px] h-[45px] rounded-full" />    
+                        <img alt="" aria-hidden="true" src="{{ Avatar::create($person->name)->toBase64() }}" class="w-[45px] h-[45px] rounded-full" />
                     </div>
                 </div>
                 <p class="text-sm font-semibold text-[#404040] ml-2">
-                {{ $person->name }}
+                    {{ $person->name }}
                 </p>
             </div>
             <div class="mt-4 sm:mt-6 text-center text-[#565656] flex justify-center items-center sm:divide-x relative sm:space-x-3 divide-[#CACACA]">
@@ -58,9 +58,9 @@
 
         <div class="px-6 space-y-4 bg-white">
             <div>
-            @if ($quotes->count() > 0)
+                @if ($quotes->count() > 0)
                 <div class="py-3  columns-1 md:columns-2 lg:columns-3 ">
-                    
+
                     @foreach($quotes as $q)
                     <a class="mb-4 rounded bg-white border group flex flex-col overflow-hidden justify-center shadow-md items-center cursor-zoom-in" href="{{ url('quotes/' . $q->id) }}">
                         <div class="flex-grow py-2 lg:py-4 md:py-4 px-4">
@@ -73,7 +73,7 @@
                             <div class=" px-2 py-4 flex justify-end">
                                 <button class=" flex justify-between space-x-6 md:space-x-2">
                                     <div class="flex space-x-2 ">
-                                        <span class="flex items-center justify-center text-sm text-[#171717BF] font-semibold">
+                                        <span class="flex items-center justify-center poppins-medium text-sm text-[#171717BF] font-semibold">
                                             {{ $q->author($q->author_id)->name }}
                                         </span>
                                     </div>
@@ -82,16 +82,16 @@
                         </div>
                     </a>
                     @endforeach
-                   
+
                 </div>
                 @else
-                    <div class="flex items-center justify-center mx-auto w-full ">
-                        <span class="font-semibold text-md text-red-500">No record found!</span>
-                    </div>
-                    @endif
+                <div class="flex items-center justify-center mx-auto w-full ">
+                    <span class="font-semibold text-md text-red-500">No record found!</span>
+                </div>
+                @endif
             </div>
 
-            
+
 
         </div>
     </div>

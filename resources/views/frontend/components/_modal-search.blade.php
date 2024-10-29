@@ -11,7 +11,7 @@
         <input 
             name="search" 
             class="block w-full pl-10 pr-3 py-2 md:h-10 border px-1 md:py-3 rounded-md leading-5 sm:text-sm
-                border-gray-300 bg-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500" 
+                border-gray-300 bg-gray-100 placeholder-gray-500 placeholder:text-sm focus:outline-none focus:border-blue-500 focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500" 
             placeholder="Search for a Quote or People" 
             type="search"
         >
