@@ -75,6 +75,19 @@
     </div>
 </main>
 
-
-
 @endsection
+
+{{-- 
+    
+    1. What is Million Quotes and how does it differ from other quote databases?
+2. How often is the quote database updated with new inspiring and motivational quotes?
+3. Can users submit their own favorite quotes to be included in the database?
+4. Are there specific categories or themes of quotes available on Million Quotes?
+5. Is there a search function available to easily find a particular quote or author?
+6. How can users share quotes from the database on social media or with friends?
+7. Are there any features on Million Quotes that allow users to save or bookmark their favorite quotes for future reference?
+8. Is there a mobile app available for Million Quotes, and if so, what are the key features?
+9. Are there any interactive elements on Million Quotes that engage users in a more personalized quote experience?
+10. How can users provide feedback or suggest improvements for Million Quotes?
+    
+--}}

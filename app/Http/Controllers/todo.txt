@@ -22,4 +22,5 @@ choose best fonts
 filter font, bg, color edit quote for premium
 create about us content
 create term of service content
+create privacy policy content
 create faqs content

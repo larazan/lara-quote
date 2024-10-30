@@ -3,540 +3,594 @@
 @section('content')
 
 <div class="flex bg-white min-h-screen pt-16 md:pt-[100px]">
-        <div class="flex flex-row w-full">
-          <div class="flex flex-1 flex-col items-center justify-center relative">
-            <div class="flex flex-1 flex-col pb-20  max-w-md md:max-w-2xl ">
-              <section class="w-full mx-auto  mt-10 md:mt-10 px-5 text-black">
-                <h5 class="font-semibold md:font-bold text-2xl md:text-3xl text-center ">
-                  Privacy
-                </h5>
+  <div class="flex flex-row w-full">
+    <div class="flex flex-1 flex-col items-center justify-center relative">
+      <div class="flex flex-1 flex-col pb-20  max-w-md md:max-w-2xl ">
+        <section class="w-full mx-auto  mt-10 md:mt-10 px-5 text-black">
+          <h5 class="font-semibold md:font-bold text-2xl md:text-3xl text-center ">
+            Privacy
+          </h5>
 
-                <article class="mx-auto mt-12 prose md:mt-24 md:prose-previewify">
-                  <p>Last updated: Dec 9, 2022</p>
-                  <p>
-                    This Privacy Policy describes Our policies and procedures on
-                    the collection, use and disclosure of Your information when
-                    You use the Service and tells You about Your privacy rights
-                    and how the law protects You.
-                  </p>
-                  <p>
-                    We use Your Personal data to provide and improve the
-                    Service. By using the Service, You agree to the collection
-                    and use of information in accordance with this Privacy
-                    Policy.
-                  </p>
-                  <h2>Interpretation and Definitions</h2>
-                  <h3>Interpretation</h3>
-                  <p>
-                    The words of which the initial letter is capitalized have
-                    meanings defined under the following conditions. The
-                    following definitions shall have the same meaning regardless
-                    of whether they appear in singular or in plural.
-                  </p>
-                  <h3>Definitions</h3>
-                  <p>For the purposes of this Privacy Policy:</p>
-                  <ul>
-                    <li>
-                      <p>
-                        <strong>Account</strong> means a unique account created
-                        for You to access our Service or parts of our Service.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Company</strong> (referred to as either &quot;the
-                        Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers
-                        to CraftEnterpises, Elizabethton, TN 37643
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Cookies</strong> are small files that are placed
-                        on Your computer, mobile device or any other device by a
-                        website, containing the details of Your browsing history
-                        on that website among its many uses.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Country</strong> refers to: USA
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Device</strong> means any device that can access
-                        the Service such as a computer, a cellphone or a digital
-                        tablet.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Personal Data</strong> is any information that
-                        relates to an identified or identifiable individual.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Service</strong> refers to the Website.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Service Provider</strong> means any natural or
-                        legal person who processes the data on behalf of the
-                        Company. It refers to third-party companies or
-                        individuals employed by the Company to facilitate the
-                        Service, to provide the Service on behalf of the
-                        Company, to perform services related to the Service or
-                        to assist the Company in analyzing how the Service is
-                        used.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Usage Data</strong> refers to data collected
-                        automatically, either generated by the use of the
-                        Service or from the Service infrastructure itself (for
-                        example, the duration of a page visit).
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Website</strong> refers to PreviewLinks,
-                        accessible from{" "}
-                        <a href="https://previewlinks.io">
-                          https://previewlinks.io
-                        </a>
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>You</strong> means the individual accessing or
-                        using the Service, or the company, or other legal entity
-                        on behalf of which such individual is accessing or using
-                        the Service, as applicable.
-                      </p>
-                    </li>
-                  </ul>
-                  <h2>Collecting and Using Your Personal Data</h2>
-                  <h3>Types of Data Collected</h3>
-                  <h4>Personal Data</h4>
-                  <p>
-                    While using Our Service, We may ask You to provide Us with
-                    certain personally identifiable information that can be used
-                    to contact or identify You. Personally identifiable
-                    information may include, but is not limited to:
-                  </p>
-                  <ul>
-                    <li>
-                      <p>Email address</p>
-                    </li>
-                    <li>
-                      <p>Usage Data</p>
-                    </li>
-                  </ul>
-                  <h4>Usage Data</h4>
-                  <p>
-                    Usage Data is collected automatically when using the
-                    Service.
-                  </p>
-                  <p>
-                    Usage Data may include information such as Your Device&apos;s
-                    Internet Protocol address (e.g. IP address), browser type,
-                    browser version, the pages of our Service that You visit,
-                    the time and date of Your visit, the time spent on those
-                    pages, unique device identifiers and other diagnostic data.
-                  </p>
-                  <p>
-                    When You access the Service by or through a mobile device,
-                    We may collect certain information automatically, including,
-                    but not limited to, the type of mobile device You use, Your
-                    mobile device unique ID, the IP address of Your mobile
-                    device, Your mobile operating system, the type of mobile
-                    Internet browser You use, unique device identifiers and
-                    other diagnostic data.
-                  </p>
-                  <p>
-                    We may also collect information that Your browser sends
-                    whenever You visit our Service or when You access the
-                    Service by or through a mobile device.
-                  </p>
-                  <h4>Tracking Technologies and Cookies</h4>
-                  <p>
-                    We use Cookies and similar tracking technologies to track
-                    the activity on Our Service and store certain information.
-                    Tracking technologies used are beacons, tags, and scripts to
-                    collect and track information and to improve and analyze Our
-                    Service. The technologies We use may include:
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Cookies or Browser Cookies.</strong> A cookie is a
-                      small file placed on Your Device. You can instruct Your
-                      browser to refuse all Cookies or to indicate when a Cookie
-                      is being sent. However, if You do not accept Cookies, You
-                      may not be able to use some parts of our Service. Unless
-                      you have adjusted Your browser setting so that it will
-                      refuse Cookies, our Service may use Cookies.
-                    </li>
-                    <li>
-                      <strong>Web Beacons.</strong> Certain sections of our
-                      Service and our emails may contain small electronic files
-                      known as web beacons (also referred to as clear gifs,
-                      pixel tags, and single-pixel gifs) that permit the
-                      Company, for example, to count users who have visited
-                      those pages or opened an email and for other related
-                      website statistics (for example, recording the popularity
-                      of a certain section and verifying system and server
-                      integrity).
-                    </li>
-                  </ul>
-                  <p>
-                    Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent
-                    Cookies remain on Your personal computer or mobile device
-                    when You go offline, while Session Cookies are deleted as
-                    soon as You close Your web browser. You can learn more about
-                    cookies here:{" "}
-                    <a href="https://www.termsfeed.com/blog/cookies/">
-                      All About Cookies by TermsFeed
-                    </a>
-                    .
-                  </p>
-                  <p>
-                    We use both Session and Persistent Cookies for the purposes
-                    set out below:
-                  </p>
-                  <ul>
-                    <li>
-                      <p>
-                        <strong>Necessary / Essential Cookies</strong>
-                      </p>
-                      <p>Type: Session Cookies</p>
-                      <p>Administered by: Us</p>
-                      <p>
-                        Purpose: These Cookies are essential to provide You with
-                        services available through the Website and to enable You
-                        to use some of its features. They help to authenticate
-                        users and prevent fraudulent use of user accounts.
-                        Without these Cookies, the services that You have asked
-                        for cannot be provided, and We only use these Cookies to
-                        provide You with those services.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>
-                          Cookies Policy / Notice Acceptance Cookies
-                        </strong>
-                      </p>
-                      <p>Type: Persistent Cookies</p>
-                      <p>Administered by: Us</p>
-                      <p>
-                        Purpose: These Cookies identify if users have accepted
-                        the use of cookies on the Website.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>Functionality Cookies</strong>
-                      </p>
-                      <p>Type: Persistent Cookies</p>
-                      <p>Administered by: Us</p>
-                      <p>
-                        Purpose: These Cookies allow us to remember choices You
-                        make when You use the Website, such as remembering your
-                        login details or language preference. The purpose of
-                        these Cookies is to provide You with a more personal
-                        experience and to avoid You having to re-enter your
-                        preferences every time You use the Website.
-                      </p>
-                    </li>
-                  </ul>
-                  <p>
-                    For more information about the cookies we use and your
-                    choices regarding cookies, please visit our Cookies Policy
-                    or the Cookies section of our Privacy Policy.
-                  </p>
-                  <h3>Use of Your Personal Data</h3>
-                  <p>
-                    The Company may use Personal Data for the following
-                    purposes:
-                  </p>
-                  <ul>
-                    <li>
-                      <p>
-                        <strong>To provide and maintain our Service</strong>,
-                        including to monitor the usage of our Service.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>To manage Your Account:</strong> to manage Your
-                        registration as a user of the Service. The Personal Data
-                        You provide can give You access to different
-                        functionalities of the Service that are available to You
-                        as a registered user.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>For the performance of a contract:</strong> the
-                        development, compliance and undertaking of the purchase
-                        contract for the products, items or services You have
-                        purchased or of any other contract with Us through the
-                        Service.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>To contact You:</strong> To contact You by
-                        email, telephone calls, SMS, or other equivalent forms
-                        of electronic communication, such as a mobile
-                        application&apos;s push notifications regarding updates or
-                        informative communications related to the
-                        functionalities, products or contracted services,
-                        including the security updates, when necessary or
-                        reasonable for their implementation.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>To provide You</strong> with news, special
-                        offers and general information about other goods,
-                        services and events which we offer that are similar to
-                        those that you have already purchased or enquired about
-                        unless You have opted not to receive such information.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>To manage Your requests:</strong> To attend and
-                        manage Your requests to Us.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>For business transfers:</strong> We may use Your
-                        information to evaluate or conduct a merger,
-                        divestiture, restructuring, reorganization, dissolution,
-                        or other sale or transfer of some or all of Our assets,
-                        whether as a going concern or as part of bankruptcy,
-                        liquidation, or similar proceeding, in which Personal
-                        Data held by Us about our Service users is among the
-                        assets transferred.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        <strong>For other purposes</strong>: We may use Your
-                        information for other purposes, such as data analysis,
-                        identifying usage trends, determining the effectiveness
-                        of our promotional campaigns and to evaluate and improve
-                        our Service, products, services, marketing and your
-                        experience.
-                      </p>
-                    </li>
-                  </ul>
-                  <p>
-                    We may share Your personal information in the following
-                    situations:
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>With Service Providers:</strong> We may share Your
-                      personal information with Service Providers to monitor and
-                      analyze the use of our Service, to contact You.
-                    </li>
-                    <li>
-                      <strong>For business transfers:</strong> We may share or
-                      transfer Your personal information in connection with, or
-                      during negotiations of, any merger, sale of Company
-                      assets, financing, or acquisition of all or a portion of
-                      Our business to another company.
-                    </li>
-                    <li>
-                      <strong>With Affiliates:</strong> We may share Your
-                      information with Our affiliates, in which case we will
-                      require those affiliates to honor this Privacy Policy.
-                      Affiliates include Our parent company and any other
-                      subsidiaries, joint venture partners or other companies
-                      that We control or that are under common control with Us.
-                    </li>
-                    <li>
-                      <strong>With business partners:</strong> We may share Your
-                      information with Our business partners to offer You
-                      certain products, services or promotions.
-                    </li>
-                    <li>
-                      <strong>With other users:</strong> when You share personal
-                      information or otherwise interact in the public areas with
-                      other users, such information may be viewed by all users
-                      and may be publicly distributed outside.
-                    </li>
-                    <li>
-                      <strong>With Your consent</strong>: We may disclose Your
-                      personal information for any other purpose with Your
-                      consent.
-                    </li>
-                  </ul>
-                  <h3>Google Fonts</h3>
-                  <p>
-                    Our template editor makes use of Google Fonts to dynamically
-                    display fonts you&apos;ve picked. This may result in data being
-                    shared with Google such as your IP address.
-                  </p>
-                  <h3>Retention of Your Personal Data</h3>
-                  <p>
-                    The Company will retain Your Personal Data only for as long
-                    as is necessary for the purposes set out in this Privacy
-                    Policy. We will retain and use Your Personal Data to the
-                    extent necessary to comply with our legal obligations (for
-                    example, if we are required to retain your data to comply
-                    with applicable laws), resolve disputes, and enforce our
-                    legal agreements and policies.
-                  </p>
-                  <p>
-                    The Company will also retain Usage Data for internal
-                    analysis purposes. Usage Data is generally retained for a
-                    shorter period of time, except when this data is used to
-                    strengthen the security or to improve the functionality of
-                    Our Service, or We are legally obligated to retain this data
-                    for longer time periods.
-                  </p>
-                  <h3>Transfer of Your Personal Data</h3>
-                  <p>
-                    Your information, including Personal Data, is processed at
-                    the Company&apos;s operating offices and in any other places
-                    where the parties involved in the processing are located. It
-                    means that this information may be transferred to — and
-                    maintained on — computers located outside of Your state,
-                    province, country or other governmental jurisdiction where
-                    the data protection laws may differ than those from Your
-                    jurisdiction.
-                  </p>
-                  <p>
-                    Your consent to this Privacy Policy followed by Your
-                    submission of such information represents Your agreement to
-                    that transfer.
-                  </p>
-                  <p>
-                    The Company will take all steps reasonably necessary to
-                    ensure that Your data is treated securely and in accordance
-                    with this Privacy Policy and no transfer of Your Personal
-                    Data will take place to an organization or a country unless
-                    there are adequate controls in place including the security
-                    of Your data and other personal information.
-                  </p>
-                  <h3>Disclosure of Your Personal Data</h3>
-                  <h4>Business Transactions</h4>
-                  <p>
-                    If the Company is involved in a merger, acquisition or asset
-                    sale, Your Personal Data may be transferred. We will provide
-                    notice before Your Personal Data is transferred and becomes
-                    subject to a different Privacy Policy.
-                  </p>
-                  <h4>Law enforcement</h4>
-                  <p>
-                    Under certain circumstances, the Company may be required to
-                    disclose Your Personal Data if required to do so by law or
-                    in response to valid requests by public authorities (e.g. a
-                    court or a government agency).
-                  </p>
-                  <h4>Other legal requirements</h4>
-                  <p>
-                    The Company may disclose Your Personal Data in the good
-                    faith belief that such action is necessary to:
-                  </p>
-                  <ul>
-                    <li>Comply with a legal obligation</li>
-                    <li>
-                      Protect and defend the rights or property of the Company
-                    </li>
-                    <li>
-                      Prevent or investigate possible wrongdoing in connection
-                      with the Service
-                    </li>
-                    <li>
-                      Protect the personal safety of Users of the Service or the
-                      public
-                    </li>
-                    <li>Protect against legal liability</li>
-                  </ul>
-                  <h3>Security of Your Personal Data</h3>
-                  <p>
-                    The security of Your Personal Data is important to Us, but
-                    remember that no method of transmission over the Internet,
-                    or method of electronic storage is 100% secure. While We
-                    strive to use commercially acceptable means to protect Your
-                    Personal Data, We cannot guarantee its absolute security.
-                  </p>
-                  <h2>Children&apos;s Privacy</h2>
-                  <p>
-                    Our Service does not address anyone under the age of 13. We
-                    do not knowingly collect personally identifiable information
-                    from anyone under the age of 13. If You are a parent or
-                    guardian and You are aware that Your child has provided Us
-                    with Personal Data, please contact Us. If We become aware
-                    that We have collected Personal Data from anyone under the
-                    age of 13 without verification of parental consent, We take
-                    steps to remove that information from Our servers.
-                  </p>
-                  <p>
-                    If We need to rely on consent as a legal basis for
-                    processing Your information and Your country requires
-                    consent from a parent, We may require Your parent&apos;s consent
-                    before We collect and use that information.
-                  </p>
-                  <h2>Links to Other Websites</h2>
-                  <p>
-                    Our Service may contain links to other websites that are not
-                    operated by Us. If You click on a third party link, You will
-                    be directed to that third party&apos;s site. We strongly advise
-                    You to review the Privacy Policy of every site You visit.
-                  </p>
-                  <p>
-                    We have no control over and assume no responsibility for the
-                    content, privacy policies or practices of any third party
-                    sites or services.
-                  </p>
-                  <h2>Changes to this Privacy Policy</h2>
-                  <p>
-                    We may update Our Privacy Policy from time to time. We will
-                    notify You of any changes by posting the new Privacy Policy
-                    on this page.
-                  </p>
-                  <p>
-                    We will let You know via email and/or a prominent notice on
-                    Our Service, prior to the change becoming effective and
-                    update the &quot;Last updated&quot; date at the top of this Privacy
-                    Policy.
-                  </p>
-                  <p>
-                    You are advised to review this Privacy Policy periodically
-                    for any changes. Changes to this Privacy Policy are
-                    effective when they are posted on this page.
-                  </p>
-                  <h2>Contact Us</h2>
-                  <p>
-                    If you have any questions about this Privacy Policy, You can
-                    contact us:
-                  </p>
-                  <ul>
-                    <li>
-                      By email:{" "}
-                      <a href="mailto:logan@previewlinks.io">
-                        logan@previewlinks.io
-                      </a>
-                    </li>
-                  </ul>
-                </article>
-              </section>
-            </div>
-
-          </div>
-        </div>
+          <article class="mx-auto mt-12 prose md:mt-24 md:prose-previewify">
+            <p>Last updated: Dec 9, 2022</p>
+            <p>
+              This Privacy Policy describes Our policies and procedures on
+              the collection, use and disclosure of Your information when
+              You use the Service and tells You about Your privacy rights
+              and how the law protects You.
+            </p>
+            <p>
+              We use Your Personal data to provide and improve the
+              Service. By using the Service, You agree to the collection
+              and use of information in accordance with this Privacy
+              Policy.
+            </p>
+            <h2>Interpretation and Definitions</h2>
+            <h3>Interpretation</h3>
+            <p>
+              The words of which the initial letter is capitalized have
+              meanings defined under the following conditions. The
+              following definitions shall have the same meaning regardless
+              of whether they appear in singular or in plural.
+            </p>
+            <h3>Definitions</h3>
+            <p>For the purposes of this Privacy Policy:</p>
+            <ul>
+              <li>
+                <p>
+                  <strong>Account</strong> means a unique account created
+                  for You to access our Service or parts of our Service.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Company</strong> (referred to as either &quot;the
+                  Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers
+                  to CraftEnterpises, Elizabethton, TN 37643
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Cookies</strong> are small files that are placed
+                  on Your computer, mobile device or any other device by a
+                  website, containing the details of Your browsing history
+                  on that website among its many uses.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Country</strong> refers to: USA
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Device</strong> means any device that can access
+                  the Service such as a computer, a cellphone or a digital
+                  tablet.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Personal Data</strong> is any information that
+                  relates to an identified or identifiable individual.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Service</strong> refers to the Website.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Service Provider</strong> means any natural or
+                  legal person who processes the data on behalf of the
+                  Company. It refers to third-party companies or
+                  individuals employed by the Company to facilitate the
+                  Service, to provide the Service on behalf of the
+                  Company, to perform services related to the Service or
+                  to assist the Company in analyzing how the Service is
+                  used.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Usage Data</strong> refers to data collected
+                  automatically, either generated by the use of the
+                  Service or from the Service infrastructure itself (for
+                  example, the duration of a page visit).
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Website</strong> refers to PreviewLinks,
+                  accessible from{" "}
+                  <a href="https://previewlinks.io">
+                    https://previewlinks.io
+                  </a>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>You</strong> means the individual accessing or
+                  using the Service, or the company, or other legal entity
+                  on behalf of which such individual is accessing or using
+                  the Service, as applicable.
+                </p>
+              </li>
+            </ul>
+            <h2>Collecting and Using Your Personal Data</h2>
+            <h3>Types of Data Collected</h3>
+            <h4>Personal Data</h4>
+            <p>
+              While using Our Service, We may ask You to provide Us with
+              certain personally identifiable information that can be used
+              to contact or identify You. Personally identifiable
+              information may include, but is not limited to:
+            </p>
+            <ul>
+              <li>
+                <p>Email address</p>
+              </li>
+              <li>
+                <p>Usage Data</p>
+              </li>
+            </ul>
+            <h4>Usage Data</h4>
+            <p>
+              Usage Data is collected automatically when using the
+              Service.
+            </p>
+            <p>
+              Usage Data may include information such as Your Device&apos;s
+              Internet Protocol address (e.g. IP address), browser type,
+              browser version, the pages of our Service that You visit,
+              the time and date of Your visit, the time spent on those
+              pages, unique device identifiers and other diagnostic data.
+            </p>
+            <p>
+              When You access the Service by or through a mobile device,
+              We may collect certain information automatically, including,
+              but not limited to, the type of mobile device You use, Your
+              mobile device unique ID, the IP address of Your mobile
+              device, Your mobile operating system, the type of mobile
+              Internet browser You use, unique device identifiers and
+              other diagnostic data.
+            </p>
+            <p>
+              We may also collect information that Your browser sends
+              whenever You visit our Service or when You access the
+              Service by or through a mobile device.
+            </p>
+            <h4>Tracking Technologies and Cookies</h4>
+            <p>
+              We use Cookies and similar tracking technologies to track
+              the activity on Our Service and store certain information.
+              Tracking technologies used are beacons, tags, and scripts to
+              collect and track information and to improve and analyze Our
+              Service. The technologies We use may include:
+            </p>
+            <ul>
+              <li>
+                <strong>Cookies or Browser Cookies.</strong> A cookie is a
+                small file placed on Your Device. You can instruct Your
+                browser to refuse all Cookies or to indicate when a Cookie
+                is being sent. However, if You do not accept Cookies, You
+                may not be able to use some parts of our Service. Unless
+                you have adjusted Your browser setting so that it will
+                refuse Cookies, our Service may use Cookies.
+              </li>
+              <li>
+                <strong>Web Beacons.</strong> Certain sections of our
+                Service and our emails may contain small electronic files
+                known as web beacons (also referred to as clear gifs,
+                pixel tags, and single-pixel gifs) that permit the
+                Company, for example, to count users who have visited
+                those pages or opened an email and for other related
+                website statistics (for example, recording the popularity
+                of a certain section and verifying system and server
+                integrity).
+              </li>
+            </ul>
+            <p>
+              Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent
+              Cookies remain on Your personal computer or mobile device
+              when You go offline, while Session Cookies are deleted as
+              soon as You close Your web browser. You can learn more about
+              cookies here:{" "}
+              <a href="https://www.termsfeed.com/blog/cookies/">
+                All About Cookies by TermsFeed
+              </a>
+              .
+            </p>
+            <p>
+              We use both Session and Persistent Cookies for the purposes
+              set out below:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <strong>Necessary / Essential Cookies</strong>
+                </p>
+                <p>Type: Session Cookies</p>
+                <p>Administered by: Us</p>
+                <p>
+                  Purpose: These Cookies are essential to provide You with
+                  services available through the Website and to enable You
+                  to use some of its features. They help to authenticate
+                  users and prevent fraudulent use of user accounts.
+                  Without these Cookies, the services that You have asked
+                  for cannot be provided, and We only use these Cookies to
+                  provide You with those services.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>
+                    Cookies Policy / Notice Acceptance Cookies
+                  </strong>
+                </p>
+                <p>Type: Persistent Cookies</p>
+                <p>Administered by: Us</p>
+                <p>
+                  Purpose: These Cookies identify if users have accepted
+                  the use of cookies on the Website.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Functionality Cookies</strong>
+                </p>
+                <p>Type: Persistent Cookies</p>
+                <p>Administered by: Us</p>
+                <p>
+                  Purpose: These Cookies allow us to remember choices You
+                  make when You use the Website, such as remembering your
+                  login details or language preference. The purpose of
+                  these Cookies is to provide You with a more personal
+                  experience and to avoid You having to re-enter your
+                  preferences every time You use the Website.
+                </p>
+              </li>
+            </ul>
+            <p>
+              For more information about the cookies we use and your
+              choices regarding cookies, please visit our Cookies Policy
+              or the Cookies section of our Privacy Policy.
+            </p>
+            <h3>Use of Your Personal Data</h3>
+            <p>
+              The Company may use Personal Data for the following
+              purposes:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <strong>To provide and maintain our Service</strong>,
+                  including to monitor the usage of our Service.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>To manage Your Account:</strong> to manage Your
+                  registration as a user of the Service. The Personal Data
+                  You provide can give You access to different
+                  functionalities of the Service that are available to You
+                  as a registered user.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>For the performance of a contract:</strong> the
+                  development, compliance and undertaking of the purchase
+                  contract for the products, items or services You have
+                  purchased or of any other contract with Us through the
+                  Service.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>To contact You:</strong> To contact You by
+                  email, telephone calls, SMS, or other equivalent forms
+                  of electronic communication, such as a mobile
+                  application&apos;s push notifications regarding updates or
+                  informative communications related to the
+                  functionalities, products or contracted services,
+                  including the security updates, when necessary or
+                  reasonable for their implementation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>To provide You</strong> with news, special
+                  offers and general information about other goods,
+                  services and events which we offer that are similar to
+                  those that you have already purchased or enquired about
+                  unless You have opted not to receive such information.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>To manage Your requests:</strong> To attend and
+                  manage Your requests to Us.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>For business transfers:</strong> We may use Your
+                  information to evaluate or conduct a merger,
+                  divestiture, restructuring, reorganization, dissolution,
+                  or other sale or transfer of some or all of Our assets,
+                  whether as a going concern or as part of bankruptcy,
+                  liquidation, or similar proceeding, in which Personal
+                  Data held by Us about our Service users is among the
+                  assets transferred.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>For other purposes</strong>: We may use Your
+                  information for other purposes, such as data analysis,
+                  identifying usage trends, determining the effectiveness
+                  of our promotional campaigns and to evaluate and improve
+                  our Service, products, services, marketing and your
+                  experience.
+                </p>
+              </li>
+            </ul>
+            <p>
+              We may share Your personal information in the following
+              situations:
+            </p>
+            <ul>
+              <li>
+                <strong>With Service Providers:</strong> We may share Your
+                personal information with Service Providers to monitor and
+                analyze the use of our Service, to contact You.
+              </li>
+              <li>
+                <strong>For business transfers:</strong> We may share or
+                transfer Your personal information in connection with, or
+                during negotiations of, any merger, sale of Company
+                assets, financing, or acquisition of all or a portion of
+                Our business to another company.
+              </li>
+              <li>
+                <strong>With Affiliates:</strong> We may share Your
+                information with Our affiliates, in which case we will
+                require those affiliates to honor this Privacy Policy.
+                Affiliates include Our parent company and any other
+                subsidiaries, joint venture partners or other companies
+                that We control or that are under common control with Us.
+              </li>
+              <li>
+                <strong>With business partners:</strong> We may share Your
+                information with Our business partners to offer You
+                certain products, services or promotions.
+              </li>
+              <li>
+                <strong>With other users:</strong> when You share personal
+                information or otherwise interact in the public areas with
+                other users, such information may be viewed by all users
+                and may be publicly distributed outside.
+              </li>
+              <li>
+                <strong>With Your consent</strong>: We may disclose Your
+                personal information for any other purpose with Your
+                consent.
+              </li>
+            </ul>
+            <h3>Google Fonts</h3>
+            <p>
+              Our template editor makes use of Google Fonts to dynamically
+              display fonts you&apos;ve picked. This may result in data being
+              shared with Google such as your IP address.
+            </p>
+            <h3>Retention of Your Personal Data</h3>
+            <p>
+              The Company will retain Your Personal Data only for as long
+              as is necessary for the purposes set out in this Privacy
+              Policy. We will retain and use Your Personal Data to the
+              extent necessary to comply with our legal obligations (for
+              example, if we are required to retain your data to comply
+              with applicable laws), resolve disputes, and enforce our
+              legal agreements and policies.
+            </p>
+            <p>
+              The Company will also retain Usage Data for internal
+              analysis purposes. Usage Data is generally retained for a
+              shorter period of time, except when this data is used to
+              strengthen the security or to improve the functionality of
+              Our Service, or We are legally obligated to retain this data
+              for longer time periods.
+            </p>
+            <h3>Transfer of Your Personal Data</h3>
+            <p>
+              Your information, including Personal Data, is processed at
+              the Company&apos;s operating offices and in any other places
+              where the parties involved in the processing are located. It
+              means that this information may be transferred to — and
+              maintained on — computers located outside of Your state,
+              province, country or other governmental jurisdiction where
+              the data protection laws may differ than those from Your
+              jurisdiction.
+            </p>
+            <p>
+              Your consent to this Privacy Policy followed by Your
+              submission of such information represents Your agreement to
+              that transfer.
+            </p>
+            <p>
+              The Company will take all steps reasonably necessary to
+              ensure that Your data is treated securely and in accordance
+              with this Privacy Policy and no transfer of Your Personal
+              Data will take place to an organization or a country unless
+              there are adequate controls in place including the security
+              of Your data and other personal information.
+            </p>
+            <h3>Disclosure of Your Personal Data</h3>
+            <h4>Business Transactions</h4>
+            <p>
+              If the Company is involved in a merger, acquisition or asset
+              sale, Your Personal Data may be transferred. We will provide
+              notice before Your Personal Data is transferred and becomes
+              subject to a different Privacy Policy.
+            </p>
+            <h4>Law enforcement</h4>
+            <p>
+              Under certain circumstances, the Company may be required to
+              disclose Your Personal Data if required to do so by law or
+              in response to valid requests by public authorities (e.g. a
+              court or a government agency).
+            </p>
+            <h4>Other legal requirements</h4>
+            <p>
+              The Company may disclose Your Personal Data in the good
+              faith belief that such action is necessary to:
+            </p>
+            <ul>
+              <li>Comply with a legal obligation</li>
+              <li>
+                Protect and defend the rights or property of the Company
+              </li>
+              <li>
+                Prevent or investigate possible wrongdoing in connection
+                with the Service
+              </li>
+              <li>
+                Protect the personal safety of Users of the Service or the
+                public
+              </li>
+              <li>Protect against legal liability</li>
+            </ul>
+            <h3>Security of Your Personal Data</h3>
+            <p>
+              The security of Your Personal Data is important to Us, but
+              remember that no method of transmission over the Internet,
+              or method of electronic storage is 100% secure. While We
+              strive to use commercially acceptable means to protect Your
+              Personal Data, We cannot guarantee its absolute security.
+            </p>
+            <h2>Children&apos;s Privacy</h2>
+            <p>
+              Our Service does not address anyone under the age of 13. We
+              do not knowingly collect personally identifiable information
+              from anyone under the age of 13. If You are a parent or
+              guardian and You are aware that Your child has provided Us
+              with Personal Data, please contact Us. If We become aware
+              that We have collected Personal Data from anyone under the
+              age of 13 without verification of parental consent, We take
+              steps to remove that information from Our servers.
+            </p>
+            <p>
+              If We need to rely on consent as a legal basis for
+              processing Your information and Your country requires
+              consent from a parent, We may require Your parent&apos;s consent
+              before We collect and use that information.
+            </p>
+            <h2>Links to Other Websites</h2>
+            <p>
+              Our Service may contain links to other websites that are not
+              operated by Us. If You click on a third party link, You will
+              be directed to that third party&apos;s site. We strongly advise
+              You to review the Privacy Policy of every site You visit.
+            </p>
+            <p>
+              We have no control over and assume no responsibility for the
+              content, privacy policies or practices of any third party
+              sites or services.
+            </p>
+            <h2>Changes to this Privacy Policy</h2>
+            <p>
+              We may update Our Privacy Policy from time to time. We will
+              notify You of any changes by posting the new Privacy Policy
+              on this page.
+            </p>
+            <p>
+              We will let You know via email and/or a prominent notice on
+              Our Service, prior to the change becoming effective and
+              update the &quot;Last updated&quot; date at the top of this Privacy
+              Policy.
+            </p>
+            <p>
+              You are advised to review this Privacy Policy periodically
+              for any changes. Changes to this Privacy Policy are
+              effective when they are posted on this page.
+            </p>
+            <h2>Contact Us</h2>
+            <p>
+              If you have any questions about this Privacy Policy, You can
+              contact us:
+            </p>
+            <ul>
+              <li>
+                By email:{" "}
+                <a href="mailto:logan@previewlinks.io">
+                  logan@previewlinks.io
+                </a>
+              </li>
+            </ul>
+          </article>
+        </section>
       </div>
 
-      
+    </div>
+  </div>
+</div>
 
 @endsection
+
+
+{{-- 
+<div>
+  <p><em>Our Privacy Policy was last updated on&nbsp;24 August 2023. </em></p>
+  <p>It governs the privacy terms of our Website, located at&nbsp;graciousquotes.com, and any associated web-based and mobile applications (collectively, “Website”), as owned and operated by Gracious Quotes. Any capitalized terms not defined in our Privacy Policy, have the meaning as specified in our <a href="https://graciousquotes.com/terms-and-conditions/">Terms of Service</a>.</p>
+  <p>Your privacy is very important to us. Accordingly, we have developed this Policy in order for you to understand how we collect, use, communicate and disclose and make use of personal information. We use your Personal Information only for providing and improving the website. By using the website, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at graciousquotes.com. The following outlines our privacy policy.</p>
+  <ul>
+    <li>Before or at the time of collecting personal information, we will identify the purposes for which information is being collected.</li>
+    <li>We will collect and use personal information solely with the objective of fulfilling those purposes specified by us and for other compatible purposes, unless we obtain the consent of the individual concerned or as required by law.</li>
+    <li>We will only retain personal information as long as necessary for the fulfillment of those purposes.</li>
+    <li>We will collect personal information by lawful and fair means and, where appropriate, with the knowledge or consent of the individual concerned.</li>
+    <li>Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date.</li>
+    <li>We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification.</li>
+    <li>We will make readily available to customers information about our policies and practices relating to the management of personal information.</li>
+  </ul>
+  <h2><strong>Your Privacy</strong></h2>
+  <p>Gracious Quotes follows all legal requirements to protect your privacy. Our Privacy Policy is a legal statement that explains how we may collect information from you, how we may share your information, and how you can limit our sharing of your information. We utilize the Personal Data you offer in a way that is consistent with this Personal privacy Policy. If you provide Personal Data for a particular reason, we could make use of the Personal Data in connection with the reason for which it was provided. For example, registration info sent when developing your account, might be used to suggest products to you based on past acquisitions. We might use your Personal Data to offer access to services on the Website and monitor your use of such services. Gracious Quotes may also utilize your Personal Data and various other personally non-identifiable info gathered through the Website to assist us with improving the material and functionality of the Website, to much better comprehend our users, and to improve our services. You will see terms in our Privacy Policy that are capitalized. These terms have meanings as described in the Definitions section below.</p>
+  <h2><strong>Programmatic Advertising</strong></h2>
+  <p>This website uses Adnimation to manage its programmatic ad sales, which may include the use of first and third-party cookies to collect non-sensitive, anonymized data for ad targeting purposes. Users can opt-out of personalized advertising by adjusting browser settings. You can review Adnimation’s cookie and privacy policy&nbsp;<a href="https://www.adnimation.com/privacy-policy/" target="_blank" rel="noopener noreferrer">here</a>.</p>
+  <h2><strong>Definitions</strong></h2>
+  <p>“Non Personal Information” is information that is not personally identifiable to you and that we automatically collect when you access our Website with a web browser. It may also include publicly available information that is shared between you and others.</p>
+  <p>“Personally Identifiable Information” is non-public information that is personally identifiable to you and obtained in order for us to provide you within our Website. Personally Identifiable Information may include information such as your name, email address, and other related information that you provide to us or that we obtain about you.</p>
+  <h2><strong>Information We Collect</strong></h2>
+  <p>Generally, you control the amount and type of information you provide to us when using our Website.</p>
+  <p>As a Visitor, you can browse our website to find out more about our Website. You are not required to provide us with any Personally Identifiable Information as a Visitor.</p>
+  <h2><strong>Computer Information Collected</strong></h2>
+  <p>When you use our Website, we automatically collect certain computer information by the interaction of your mobile phone or web browser with our Website. Such information is typically considered Non Personal Information. We also collect the following:</p>
+  <ul>
+    <li><strong>Cookies</strong><br>Our Website uses “Cookies” to identify the areas of our Website that you have visited. A Cookie is a small piece of data stored on your computer or mobile device by your web browser. We use Cookies to personalize the Content that you see on our Website. Most web browsers can be set to disable the use of Cookies. However, if you disable Cookies, you may not be able to access functionality on our Website correctly or at all. We never place Personally Identifiable Information in Cookies.</li>
+    <li><strong>Geographical Information</strong><br>When you use the mobile application, we may use GPS technology (or other similar technology) to determine your current location in order to determine the city you are located in and display information with relevant data or advertisements. We will not share your current location with other users or partners. If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application.</li>
+    <li><strong>Automatic Information</strong><br>We automatically receive information from your web browser or mobile device. This information includes the name of the website from which you entered our Website, if any, as well as the name of the website to which you’re headed when you leave our website. This information also includes the IP address of your computer/proxy server that you use to access the Internet, your Internet Website provider name, web browser type, type of mobile device, and computer operating system. We use all of this information to analyze trends among our Users to help improve our Website.</li>
+    <li><strong>Log Data</strong><br>Like many Website operators, we collect information that your browser sends whenever you visit our Website (“Log Data”). This Log Data may include information such as your computer’s Internet Protocol (“IP”) address, browser type, browser version, the pages of our Website that you visit, the time and date of your visit, the time spent on those pages and other statistics.</li>
+  </ul>
+  <p>Under the Child’s Online Privacy Security Act, no Website operator can require, as a condition to involvement in an activity, that a child younger than 13 years of age divulge more details than is reasonably required. Gracious Quotes abides by this demand. Gracious Quotes just collects information willingly offered; no information is gathered passively. children under 13 can submit only their email address when sending us an email in our “<a href="https://graciousquotes.com/contact/">Contact</a>” area. Gracious Quotes makes use of the email address to respond to a one-time demand from a child under 13 and afterwards deletes the email address. In case Gracious Quotes collects and maintains personal information relating to a child under 13, the parent may send out an email to us to review, alter and/or erase such info as well as to decline to enable any additional collection or use of the child’s information.</p>
+  <h2><strong>How We Use Your Information</strong></h2>
+  <p>We use the information we receive from you as follows:</p>
+  <ul>
+    <li><strong>Customizing Our Website</strong><br>We may use the Personally Identifiable information you provide to us along with any computer information we receive to customize our Website.</li>
+    <li><strong>Sharing Information with Affiliates and Other Third Parties</strong><br>We do not sell, rent, or otherwise provide your Personally Identifiable Information to third parties for marketing purposes. We may provide your Personally Identifiable Information to affiliates that provide services to us with regards to our Website (i.e. payment processors, Website hosting companies, etc.); such affiliates will only receive information necessary to provide the respective services and will be bound by confidentiality agreements limiting the use of such information.</li>
+    <li><strong>Data Aggregation</strong><br>We retain the right to collect and use any Non Personal Information collected from your use of our Website and aggregate such data for internal analytics that improve our Website and Service as well as for use or resale to others. At no time is your Personally Identifiable Information included in such data aggregations.</li>
+    <li><strong>Legally Required Releases of Information</strong><br>We may be legally required to disclose your Personally Identifiable Information, if such disclosure is (a) required by subpoena, law, or other legal process; (b) necessary to assist law enforcement officials or government enforcement agencies; (c) necessary to investigate violations of or otherwise enforce our Legal Terms; (d) necessary to protect us from legal action or claims from third parties including you and/or other Members; and/or (e) necessary to protect the legal rights, personal/real property, or personal safety of Gracious Quotes, our Users, employees, and affiliates.</li>
+  </ul>
+  <h2><strong>Opt-Out</strong></h2>
+  <p>We offer you the chance to “opt-out” from having your personally identifiable information used for particular functions, when we ask you for this detail. When you register for the website, if you do not want to receive any additional material or notifications from us, you can show your preference on our registration form.</p>
+  <h2><strong>Links to Other Websites</strong></h2>
+  <p>Our Website may contain links to other websites that are not under our direct control. These websites may have their own policies regarding privacy. We have no control of or responsibility for linked websites and provide these links solely for the convenience and information of our visitors. You access such linked Websites at your own risk. These websites are not subject to this Privacy Policy. You should check the privacy policies, if any, of those individual websites to see how the operators of those third-party websites will utilize your personal information. In addition, these websites may contain a link to Websites of our affiliates. The websites of our affiliates are not subject to this Privacy Policy, and you should check their individual privacy policies to see how the operators of such websites will utilize your personal information.</p>
+  <h2><strong>Security</strong></h2>
+  <p>The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security. We utilize practical protection measures to safeguard against the loss, abuse, and modification of the individual Data under our control. Personal Data is kept in a secured database and always sent out by means of an encrypted SSL method when supported by your web browser. No Web or email transmission is ever totally protected or mistake cost-free. For example, email sent out to or from the Website may not be protected. You must take unique care in deciding what info you send to us by means of email.</p>
+  <h2><strong>Privacy Policy Updates</strong></h2>
+  <p>We reserve the right to modify this Privacy Policy at any time. You should review this Privacy Policy frequently. If we make material changes to this policy, we may notify you on our Website, by a blog post, by email, or by any method we determine. The method we chose is at our sole discretion. We will also change the “Last Updated” date at the beginning of this Privacy Policy. Any changes we make to our Privacy Policy are effective as of this Last Updated date and replace any prior Privacy Policies.</p>
+  <h2><strong>Questions About Our Privacy Practices or This Privacy Policy</strong></h2>
+  <p>We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained. If you have any questions about our Privacy Practices or this Policy, please <a href="https://graciousquotes.com/contact/">contact us</a>.</p>
+</div>
+
+--}}
