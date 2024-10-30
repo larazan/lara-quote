@@ -13,33 +13,14 @@
             About
           </h5>
           <p class=" mt-4 text-base font-semibold text-gray-700">
-            Now&amp;Me is a safe space for people, from all walks of life,
-            to take their <i>“first step”</i> towards accepting their
-            feelings and talking about them.
+            Dive into the world of inspiration with Million Quotes, your ultimate quote database designed to uplift and motivate every single day. We curate powerful words from thinkers, dreamers, and doers across the globe, ensuring that you have the fuel to ignite your passion and chase your dreams.
           </p>
           <article class="mx-auto mt-10 prose-previewify">
-
-            <p class="text-lg">
-              <strong>Address</strong>
-            </p>
-            <ul class="text-base py-4 text-black">
-              <li>2208 Hillrise Ave</li>
-              <li>Elizabethton, TN 37643</li>
-              <li>USA</li>
-            </ul>
-            <h2 class="text-lg">Complaints</h2>
+            <h2 class="text-lg">Our Mission</h2>
             <p class="text-base py-4">
-              If you have any complaints or issues, please seek contact
-              with us first. We do not intend to harm users and
-              businesses. We&apos;d love to avoid (unnecessary) legal trouble.
+              At Million Quotes, we exist to empower individuals through the transformative power of words. Our mission is to provide a vast collection of motivational quotes that inspire action, foster positivity, and encourage personal growth. We believe that every quote has the potential to spark change and ignite ambition.
             </p>
-            <p class="text-base">
-              You can send an email to(mailto:
-              <a href="mailto:logan@previewlinks.io">
-                logan@previewlinks.io
-              </a>
-              ) regarding your concerns.
-            </p>
+            
           </article>
         </section>
       </div>
