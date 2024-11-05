@@ -15,10 +15,23 @@ class HomeController extends Controller
         $personCount = Person::count();
 
         $quote = Quote::select(['author_id', 'words'])->where('author_id', $author_id)->inRandomOrder()->limit(1)->get();
+        $quos = Quote::select(['id', 'author_id', 'words'])->where('author_id', $author_id)->inRandomOrder()->limit(8)->get();
+
+        $quot = [];
+        $i = 1;
+        foreach($quos as $q) {
+            array_push($quot, [
+                'id' => $i++,
+                'body' => $q->words,
+                'author' => $q->author($q->author_id)->name
+            ]);
+        }
+
+        $quotes = $quot;
 
         // $this->data['quote'] = $quote;
         // $this->data['quotesCount'] = $quotes->count();
         // $this->data['personCount'] = $person->count();
-        return $this->loadTheme('home', compact('quote', 'quotesCount', 'personCount'));
+        return $this->loadTheme('home', compact('quote', 'quotes', 'quotesCount', 'personCount'));
     }
 }

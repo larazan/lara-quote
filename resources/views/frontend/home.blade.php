@@ -15,6 +15,9 @@
             
             <div class="flex flex-1 flex-col pb-18 px-3 md:px-0 max-w-sm md:max-w-2xl">
 
+            @include('frontend.components._carousel')
+
+            {{-- 
             @foreach($quote as $q)
             <div class="mt-2 mb-10 flex flex-col items-center px-0 md:px-0">
                 <div class="font-semibold text-2xl md:text-4xl max-w-[900px] text-gray-800 md:leading-tight tracking-wide relative">
@@ -27,7 +30,8 @@
                 <p class="mt-4 font-medium text-lg text-[#171717BF] max-w-[900px] w-full poppins-medium">– {{ $q->author($q->author_id)->name }}</p>
             </div>
             @endforeach
-
+            --}}
+            
                 <div class="flex py-8 md:py-20 relative">
                     <div class="flex flex-col gap-y-24 md:gap-y-32 mx-auto max-w-6xl">
                         

@@ -20,7 +20,9 @@
             <p class="text-base py-4">
               At Million Quotes, we exist to empower individuals through the transformative power of words. Our mission is to provide a vast collection of motivational quotes that inspire action, foster positivity, and encourage personal growth. We believe that every quote has the potential to spark change and ignite ambition.
             </p>
-            
+            <p class="text-base py-4">
+            Million Quotes aims to be the go-to source for inspiration, helping people realize their potential and live their best lives—one quote at a time.
+            </p>
           </article>
         </section>
       </div>
