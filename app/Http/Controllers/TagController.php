@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Cache;
 
 class TagController extends Controller
 {
@@ -18,16 +19,17 @@ class TagController extends Controller
     {
         // $tags = DB::select("SELECT name, SUBSTR(name, 1, 1) AS alpha FROM tags GROUP BY SUBSTR(name, 0, 2), name ORDER BY alpha, name");
 
-        $topics = Tag::selectRaw('id, name, slug, SUBSTR(name, 1, 1) as alpha')
-                    ->orderBy('alpha', 'asc')
-                    ->where('status', 'active')
-                    ->get()
-                    ->groupBy('alpha');
+        $topics = Cache::remember('topics', now()->addDay(), function () {
+                return Tag::selectRaw('id, name, slug, SUBSTR(name, 1, 1) as alpha')
+                            ->orderBy('alpha', 'asc')
+                            ->where('status', 'active')
+                            ->get()
+                            ->groupBy('alpha');
+        });
 
-        $this->data['title'] = "Topic";
-        // $this->data['tags'] = $tags;
-        $this->data['topics'] = $topics;
-		return $this->loadTheme('tags.index', $this->data);
+        $title = "Topic";
+        
+		return $this->loadTheme('tags.index', compact('title', 'topics'));
     }
 
     public function show($letter)

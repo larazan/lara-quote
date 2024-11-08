@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ArticleController extends Controller
 {
@@ -30,15 +31,16 @@ class ArticleController extends Controller
 
     public function index()
 	{
-		$articles = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'status', 'created_at'])->where('status','active')->orderBy('created_at', 'DESC');
-
+		$articles = Cache::remember('articles-page-' . request('page', default:1), now()->addHour(), function () {
+			return Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'status', 'created_at'])->where('status','active')->orderBy('created_at', 'DESC')->paginate(8);
+		});
 		// build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = '';
 		$breadcrumbs_data['breadcrumbs_array'] = $this->_generate_breadcrumbs_array($articles);
 		$this->data['breadcrumbs_data'] = $breadcrumbs_data;
 
 		$this->data['title'] = "Article";
-		$this->data['articles'] = $articles->paginate(8);
+		$this->data['articles'] = $articles;
 		return $this->loadTheme('blogs.index', $this->data);
     }
     
@@ -62,7 +64,7 @@ class ArticleController extends Controller
 		$this->data['article'] = $article;
 
 		$limit = 5;
-        $this->data['articles'] = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'status', 'created_at'])->active()->where('slug', '!=', $slug)->orderBy('id', 'DESC')->limit($limit)->get();
+        $this->data['articles'] = Article::select(['id', 'title', 'slug', 'title', 'body', 'author_id', 'status', 'created_at'])->active()->where('slug', '!=', $slug)->orderBy('id', 'DESC')->latest()->take($limit)->get();
 
 		// build breadcrumb data array
 		$breadcrumbs_data['current_page_title'] = $article->title;
