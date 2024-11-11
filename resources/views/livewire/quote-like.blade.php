@@ -10,6 +10,7 @@
         text-white 
         inline-flex 
         items-center 
+        shadow
         space-x-1 
         rounded 
         {{ $quote->isLiked() ? '' : '' }} 

@@ -31,7 +31,7 @@ class ArticleFactory extends Factory
             'article_tags' => 'news, test, first',
             'meta_title' => $this->faker->words(5, true),
             'meta_keyword' => $this->faker->words(5, true),
-            'meta_description' => $this->faker->paragraphs(1, true),
+            'meta_description' => $this->faker->words(5, true),
             'view_count' => $this->faker->numberBetween(0, 1000),
         ];
     }

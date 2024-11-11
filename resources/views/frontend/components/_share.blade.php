@@ -1,7 +1,7 @@
 <div class="relative inline-flex" x-data="{ openShare: false }" >
 
     <button 
-        class="bg-[#33baf0] hover:bg-[#01b4e4] border border-[#00aed9] px-2 py-1.5 font-extralight text-white inline-flex items-center space-x-1 rounded"
+        class="bg-[#33baf0] hover:bg-[#01b4e4] border border-[#00aed9] shadow px-2 py-1.5 font-extralight text-white inline-flex items-center space-x-1 rounded"
         aria-haspopup="true" @click.outside="openShare = false" @click.prevent="openShare = !openShare" :aria-expanded="openShare"
     >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">

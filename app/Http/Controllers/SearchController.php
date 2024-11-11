@@ -65,7 +65,7 @@ class SearchController extends Controller
                     ->where('name', 'like', "%$search%")
                     ->get()
                     ->groupBy('alpha');
-        $tags = Tag::where('name', 'like', "%$search%")->get();
+        $tags = Tag::select('name', 'slug', 'status')->where('name', 'like', "%$search%")->where('status', 'active')->get();
         $quotes = DB::table('quotes')
             ->leftJoin('persons', 'quotes.author_id', '=', 'persons.author_id')       
             ->select(
@@ -85,11 +85,8 @@ class SearchController extends Controller
             # code...
         }
 
-        $this->data['title'] = "Search";
-        $this->data['search'] = $search;
-        $this->data['quotes'] = $quotes;
-        $this->data['people'] = $people;
-        $this->data['tags'] = $tags;
-        return $this->loadTheme('search.index', $this->data);
+        $title = "Search";
+       
+        return $this->loadTheme('search.index', compact('title', 'search', 'quotes', 'people', 'tags'));
     }
 }

@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
         User::factory()->create([
             'first_name' => 'momon', 
             'last_name' => 'momono', 
+            'username' => 'momon', 
             'email' => 'user@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('user1234'),
