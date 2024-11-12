@@ -12,10 +12,10 @@
           <h5 class="font-semibold md:font-bold text-2xl md:text-3xl text-center text-black">
             About
           </h5>
-          <p class=" mt-4 text-base font-semibold text-gray-700">
+          <p class=" mt-4 text-base font-semibold2 text-gray-800">
             Dive into the world of inspiration with Million Quotes, your ultimate quote database designed to uplift and motivate every single day. We curate powerful words from thinkers, dreamers, and doers across the globe, ensuring that you have the fuel to ignite your passion and chase your dreams.
           </p>
-          <article class="mx-auto mt-10 prose-previewify">
+          <article class="mx-auto mt-10 prose-previewify text-gray-800">
             <h2 class="text-lg">Our Mission</h2>
             <p class="text-base py-4">
               At Million Quotes, we exist to empower individuals through the transformative power of words. Our mission is to provide a vast collection of motivational quotes that inspire action, foster positivity, and encourage personal growth. We believe that every quote has the potential to spark change and ignite ambition.

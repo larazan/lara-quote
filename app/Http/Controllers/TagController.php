@@ -18,14 +18,22 @@ class TagController extends Controller
     public function index()
     {
         // $tags = DB::select("SELECT name, SUBSTR(name, 1, 1) AS alpha FROM tags GROUP BY SUBSTR(name, 0, 2), name ORDER BY alpha, name");
+        // Cache::forget('topics');
+        // $topics = Cache::remember('topics', now()->addDay(), function () {
+        //         return Tag::selectRaw('id, name, slug, SUBSTR(name, 1, 1) as alpha')
+        //                     ->orderBy('alpha', 'asc')
+        //                     ->where('status', 'active')
+        //                     ->take(85000)
+        //                     ->get()
+        //                     ->groupBy('alpha');
+        // });
 
-        $topics = Cache::remember('topics', now()->addDay(), function () {
-                return Tag::selectRaw('id, name, slug, SUBSTR(name, 1, 1) as alpha')
+        $topics = Tag::selectRaw('id, name, slug, SUBSTR(name, 1, 1) as alpha')
                             ->orderBy('alpha', 'asc')
                             ->where('status', 'active')
                             ->get()
                             ->groupBy('alpha');
-        });
+    
 
         $title = "Topic";
         
@@ -35,12 +43,13 @@ class TagController extends Controller
     public function show($letter)
     {
         $alpha = Str::lower($letter);
-        $tags = Tag::select(['name', 'slug', 'status'])->where('name', 'like', "{$alpha}%")->where('status', 'active')->orderBy('name', 'asc');
-
-        $this->data['title'] = "Topic Letter: " . ucfirst($letter);
-        $this->data['tags'] = $tags->get();
-        $this->data['letter'] = $letter;
-		return $this->loadTheme('tags.detail', $this->data);
+        // $tags = Tag::select('name', 'slug', 'status')->where('name', 'like', "{$alpha}%")->where('status', 'active')->orderBy('name', 'asc')->get();
+        $tags = Cache::remember('topic_'.$letter, now()->addDay(), function () use ($alpha) {
+            return Tag::select('name', 'slug', 'status')->where('name', 'like', "{$alpha}%")->where('status', 'active')->orderBy('name', 'asc')->get();
+        });
+        
+        $title = "Topic Letter: " . ucfirst($letter);
+		return $this->loadTheme('tags.detail', compact('title', 'tags', 'letter'));
     }
 
     public function getTags()
