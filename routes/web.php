@@ -103,6 +103,7 @@ Route::group(['prefix' => 'subscription', 'as' => 'subscriptions.'], function ()
 Route::middleware(['throttle:global'])->group(function () {
     Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
     Route::get('quotes/{id}', [QuoteController::class, 'show']);
+    Route::get('quotes/{id}/customize', [QuoteController::class, 'customize']);
     Route::get('quotes/{id}/showcase', [QuoteController::class, 'showcase']);
     Route::get('quotes/{id}/showcase/{type}', [QuoteController::class, 'showcaseBy']);
 });

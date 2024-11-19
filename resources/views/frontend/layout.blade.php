@@ -84,30 +84,6 @@
       font-family: 'Poppins-Light' !important;
     }
 
-    ::-webkit-scrollbar {
-      height: 12px;
-      width: 16px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: 0 0
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, .2);
-      border: 4px solid #fff;
-      border-radius: 50px
-    }
-
-    .dark .overflow-y-auto::-webkit-scrollbar-thumb {
-      background: hsla(0, 0%, 100%, .2);
-      border: 4px solid #121927
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #12d3cf
-    }
-
     .custom-scrollbar::-webkit-scrollbar {
       height: 10px;
       width: 10px

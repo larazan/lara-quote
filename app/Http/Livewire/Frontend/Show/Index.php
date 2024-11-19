@@ -30,6 +30,7 @@ class Index extends Component
     
     public $fontColor;
     public $fontSize;
+    public $fontSizeMd;
     public $fontAlign = 'center';
     public $justify = 'center';
     public $fontFamily;
@@ -334,16 +335,19 @@ class Index extends Component
         $this->checked = false;
         $this->hasLogo = false;
 
-        $count = str_word_count($this->quote);
+        $count = strlen($this->quote);
         switch (true) {
-            case $count <= 600:
-                $this->fontSize = 'lg';
+            case $count <= 300:
+                $this->fontSize = '2xl';
+                $this->fontSizeMd = '3xl';
                 break;
-            case $count > 600:
-                $this->fontSize = 'base';
+            case $count > 300:
+                $this->fontSize = 'lg';
+                $this->fontSizeMd = '2xl';
                 break;
             default:
                 $this->fontSize = 'lg';
+                $this->fontSizeMd = 'lg';
                 break;
         }
     }

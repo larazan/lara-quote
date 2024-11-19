@@ -9,11 +9,11 @@
         <div class="">
             <div class="flex flex-col overflow-hidden px-1 md:px-1 pt-2 ">
                 <div class="flex items-center space-x-2">
-                    <span class="text-md md:text-lg font-bold text-white">How to Customize ?</span>
+                    <span class="text-md md:text-lg font-bold text-white leading-2">How to Customize and Download ?</span>
                 </div>
 
                 <div class="pt-2 pb-4 text-sm md:text-base text-white leading-tight md:leading-snug">
-                    <p class="text-normal text-brand-dark">Select one of showcase design to customize it!</p>
+                    <p class="text-normal text-brand-dark">Select one of showcase design to download and customize it!</p>
                 </div>
             </div>
             <div class="hidden flex2 items-center w-full space-x-2">
