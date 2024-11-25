@@ -84,6 +84,7 @@ Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/privacy-policy', [PageController::class, 'policy'])->name('privacy-policy');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
+Route::get('/advertise', [PageController::class, 'advertise'])->name('advertise');
 
 Route::get('people', [PersonController::class, 'index'])->name('people');
 // Route::get('generate', [PersonController::class, 'generatePerson'])->name('generate');

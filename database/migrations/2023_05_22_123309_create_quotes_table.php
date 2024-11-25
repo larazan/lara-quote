@@ -19,6 +19,8 @@ return new class extends Migration
             $table->text('words');
             $table->string('tags')->nullable();
             $table->timestamps();
+
+            $table->index(['words', 'created_at']);
         });
     }
 

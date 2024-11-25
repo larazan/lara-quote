@@ -129,7 +129,11 @@ $setting = \App\Models\Setting::findOrFail(1)->first();
                     Articles
                   </a>
                 </li>
-                
+                <li>
+                  <a href="{{ route('advertise') }}" class="font-bold text-gray-900 transition hover:text-[#FF6D42]">
+                    Advertise
+                  </a>
+                </li>
                 
               </ul>
             </nav>

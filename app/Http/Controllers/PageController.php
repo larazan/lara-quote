@@ -33,4 +33,11 @@ class PageController extends Controller
         $this->data['page'] = $page;
 		return $this->loadTheme('policy.index', $this->data);
     }
+
+    public function advertise()
+    {
+        $title = "Advertise";
+
+        return $this->loadTheme('advertising.index', compact('title'));
+    }
 }

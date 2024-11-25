@@ -98,7 +98,7 @@
           <!-- end content filter -->
         </div>
       </div>
-      <!-- end align -->
+      <!-- end size -->
 
       <!-- bg color -->
       <div class="bg-white py-0 flex flex-col w-full" x-data="{ open:true }">
@@ -129,6 +129,53 @@
         </div>
       </div>
       <!-- end bg color -->
+
+      <!-- font size -->
+            <div class="bg-white py-0 flex flex-col w-full" x-data="{ open:true }">
+                <button @click="open = !open" class="flex items-center justify-between py-3 group font-semibold md:font-bold">
+                    <span class="text-sm font-bold uppercase text-gray-900">Font Size</span>
+
+                    <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=2 stroke="currentColor" class="w-4 h-4 text-gray-900">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                    </svg>
+
+                    <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=2 stroke="currentColor" class="w-4 h-4 text-gray-900">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+
+                </button>
+                <div :class="open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'" class="grid overflow-hidden transition-all duration-300 ease-in-out text-slate-600 text-sm">
+                    <!-- content filter -->
+                    <div class="overflow-hidden pb-0">
+                        <div class="duration-300 px-0 pb-3">
+
+                            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+
+                                <div class="pt-2 w-full">
+
+                                    <div class="flex flex-row space-x-1 mb-3 items-center" x-data="{ font: $wire.fontUkuran }">
+                                        <div class="flex flex-col space-y-2 pr-2  w-full">
+                                            <input type="range" class="w-full" min="0" max="100" step="1" x-model="font" wire:model="fontUkuran" />
+                                        </div>
+                                        <div>
+                                            <input type="text" maxlength="2"
+                                                wire:model.debounce.300="fontUkuran"
+                                                class="w-10 px-1 py-1 text-center border border-gray-300 focus:border-yellow-400 focus:outline-none">
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end content filter -->
+                </div>
+            </div>
+            <!-- end font size -->
 
       <!-- align -->
       <div class="bg-white py-0 flex flex-col w-full" x-data="{ open:true }">
