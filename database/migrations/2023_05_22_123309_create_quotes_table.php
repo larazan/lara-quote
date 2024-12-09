@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->timestamps();
 
-            $table->index(['words', 'created_at']);
+            // $table->index(['words', 'created_at']);
         });
     }
 

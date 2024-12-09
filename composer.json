@@ -8,6 +8,7 @@
         "php": "^7.3 || ^8.0",
         "algolia/scout-extended": "^2.0",
         "barryvdh/laravel-snappy": "^1.0",
+        "doctrine/dbal": "^4.2",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
         "jorenvanhocht/laravel-share": "^4.2",

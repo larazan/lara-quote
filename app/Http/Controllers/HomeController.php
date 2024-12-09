@@ -17,7 +17,8 @@ class HomeController extends Controller
 
         $quos = Cache::remember('quos', now()->addHour(), function () {
             $author_id = '6110d4a49c759c204c24d837'; // abraham lincoln
-            return Quote::select(['id', 'author_id', 'words'])->where('author_id', $author_id)->inRandomOrder()->take(8)->get();
+            $tag = 'love';
+            return Quote::select(['id', 'author_id', 'words'])->where('tags', 'like', "%{$tag}%")->inRandomOrder()->take(8)->get();
         });
         
         $quot = [];

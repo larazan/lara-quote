@@ -15,8 +15,21 @@
         
 
         <!-- Tags -->
-        <div class="flex flex-col w-full mt-2 px-6 py-1 " :class="showMore ? 'duration-500 ease-in-out' : ''" x-data="{ showMore: false }"> 
-            <div class="flex items-center pt-3 mb-1 gap-x-2 gap-y-2 pb-2 transform transition-all duration-1000 ease-in-out" :class="showMore ? 'flex-wrap' : 'overflow-x-auto scroll-smooth custom-scrollbar'" x-cloak x-collapse x-collapse.duration.500ms>
+        <div 
+            class="flex flex-col w-full mt-2 px-6 py-1 " 
+            :class="showMore ? 'duration-500 ease-in-out' : ''" 
+            x-data="{ showMore: false }"
+        > 
+            <div 
+                class="flex items-center pt-3 mb-1 gap-x-2 gap-y-2 pb-2 transform transition-all duration-1000 ease-in-out" 
+                :class="showMore ? 'flex-wrap' : 'overflow-x-auto scroll-smooth custom-scrollbar'" x-cloak
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform -translate-y-6"
+                x-transition:enter-end="opacity-100 transform translate-y-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 transform translate-y-0"
+                x-transition:leave-end="opacity-0 transform -translate-y-6"
+            >
                 <a href="/quotes">
                     <div class="py-1.5 px-3 text-sm rounded-md flex items-center gap-x-1 transition cursor-pointer border-sky-700 bg-blue-300 text-sky-700">
                         <div class="truncate text-xs font-semibold">All</div>

@@ -70,7 +70,7 @@
                 {id: 5, title: 'Hello 5', body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam'},   
             ],
             loop(){
-                setInterval(() => {this.activeSlide = this.activeSlide === 8 ? 1 : this.activeSlide + 1}, 3000)
+                setInterval(() => {this.activeSlide = this.activeSlide === 8 ? 1 : this.activeSlide + 1}, 4000)
             }
         }
     }
