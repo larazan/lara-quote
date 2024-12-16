@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+            $table->integer('order_position')->default(null);
             $table->text('question');
             $table->text('answer');
             $table->string('status',10);

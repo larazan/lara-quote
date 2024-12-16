@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('author_id')->nullable();
             $table->text('words');
             $table->string('tags')->nullable();
+            $table->string('slug');
+            $table->integer('status')->default(0);
+            $table->dateTime('posted_at')->nullable();
             $table->timestamps();
 
             // $table->index(['words', 'created_at']);

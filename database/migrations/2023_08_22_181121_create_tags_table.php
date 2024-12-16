@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('slug');
+            $table->string('status',10)->default('active');
             $table->timestamps();
 
             $table->index('slug');

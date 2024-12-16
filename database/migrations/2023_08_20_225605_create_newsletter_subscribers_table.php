@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('newsletter_subscribers', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
+            $table->text('token');
             $table->string('status',10);
             $table->integer('opened')->default(0);
+            $table->boolean('is_verified')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

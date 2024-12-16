@@ -31,6 +31,7 @@ return new class extends Migration
             $table->text('article_tags')->nullable();
             $table->string('status',10);
             $table->string('meta_title')->nullable();
+            $table->string('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();
             $table->dateTime('shared_at')->nullable();
             $table->string('original')->nullable();
